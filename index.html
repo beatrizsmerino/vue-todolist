@@ -15,19 +15,9 @@
         <div>
             <div id="todoList">
                 <ul>
-                    <li class="done">
+                    <li v-for="task in tasks" :key="task" class="done">
                         <div class="checkBox done"></div>
-                        <span>Learn Vue</span>
-                        <i class="fa fa-trash-o"></i>
-                    </li>
-                    <li>
-                        <div class="checkBox"></div>
-                        <span>Buy toilet paper</span>
-                        <i class="fa fa-trash-o"></i>
-                    </li>
-                    <li>
-                        <div class="checkBox"></div>
-                        <span>Do something awesome!</span>
+                        <span>{{task.title}}</span>
                         <i class="fa fa-trash-o"></i>
                     </li>
                 </ul>
