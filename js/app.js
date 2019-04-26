@@ -15,6 +15,19 @@ var app = new Vue({
                 title: "Learn Vue",
                 status: false
             }
-        ]
-    }
+        ],
+        taskNew: ""
+    },
+    methods: {
+        taskAdd() {
+            var title = this.taskNew.trim();
+            if (title) {
+                this.tasks.push({
+                    title: title,
+                    status: false
+                })
+            }
+            this.taskNew = "";
+        }
+    },
 });
