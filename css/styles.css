@@ -34,6 +34,10 @@ h1 {
     width: 100%;
 }
 
+[v-cloak]{
+    display: none;
+}
+
 #todoList {
     width: 80%;
     max-width: 500px;
