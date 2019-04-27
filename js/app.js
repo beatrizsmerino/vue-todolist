@@ -26,6 +26,26 @@ Vue.component('page-title', {
     }
 });
 
+Vue.component('list-tasks', {
+    template: `
+        <ul>
+            <li v-for="(task, index) in tasks" :key="index" v-bind:class="{done: task.status}">
+                <div v-on:click="task.status = !task.status" class="checkBox done"></div>
+                <span>{{task.title}}</span>
+                <i @click="taskRemove(task)" class="fa fa-trash-o"></i>
+            </li>
+        </ul>
+    `,
+    data() {
+        return data;
+    },
+    methods: {
+        taskRemove(index) {
+            this.tasks.splice(index, 1);
+        }
+    },
+});
+
 var app = new Vue({
     el: '#app',
     data: data,
@@ -40,8 +60,5 @@ var app = new Vue({
             }
             this.taskNew = "";
         },
-        taskRemove(index) {
-            this.tasks.splice(index, 1);
-        }
     },
 });
