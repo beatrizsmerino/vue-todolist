@@ -10,23 +10,12 @@
 <body>
     
     <div id="app">
-        <h1>{{title}}</h1>
+        <page-title></page-title>
 
-        <div>
-            <div id="todoList">
-                <ul>
-                    <li v-for="(task, index) in tasks" :key="index" v-bind:class="{done: task.status}">
-                        <div v-on:click="task.status = !task.status" class="checkBox done"></div>
-                        <span>{{task.title}}</span>
-                        <i @click="taskRemove(task)" class="fa fa-trash-o"></i>
-                    </li>
-                </ul>
-
-                <div id="newTask">
-                    <input v-model="taskNew" @keyup.enter="taskAdd()" type="text" placeholder="New task">
-                    <button @click="taskAdd()"><span>+</span></button>
-                </div>
-            </div>
+        <div id="todoList">
+            <list-tasks></list-tasks>
+            
+            <add-tasks></add-tasks>
         </div>
     </div>
 
