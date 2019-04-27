@@ -23,7 +23,7 @@
                 </ul>
 
                 <div id="newTask">
-                    <input v-model="taskNew" type="text" placeholder="New task">
+                    <input v-model="taskNew" @keyup.enter="taskAdd()" type="text" placeholder="New task">
                     <button @click="taskAdd()"><span>+</span></button>
                 </div>
             </div>
