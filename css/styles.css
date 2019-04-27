@@ -30,11 +30,11 @@ h1 {
     font-weight: normal;
 }
 
-#app{
+#app {
     width: 100%;
 }
 
-[v-cloak]{
+[v-cloak] {
     display: none;
 }
 
@@ -193,4 +193,24 @@ h1 {
 
 ::placeholder {
     color: rgba(0, 0, 0, 0.3);
+}
+
+
+/* Vue List Item transition */
+.list-item-enter-active, 
+.list-item-leave-active {
+  transition: opacity 0.3s, transform 0.3s;
+  transform-origin: left center;
+}
+.list-item-enter, .list-item-leave-to /* .list-leave-active for <2.1.8 */ {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.list-item-leave-active {
+  position: absolute;
+}
+
+.list-item-move {
+  transition: transform .4s linear .3;
 }

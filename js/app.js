@@ -13,7 +13,7 @@ const data = {
             status: false
         }
     ],
-    taskNew: ""
+    taskNew: "",
 };
 
 
@@ -28,16 +28,16 @@ Vue.component('page-title', {
 
 Vue.component('list-tasks', {
     template: `
-        <ul>
-            <li v-for="(task, index) in tasks" :key="index" v-bind:class="{done: task.status}">
-                <div v-on:click="task.status = !task.status" class="checkBox done"></div>
-                <span>{{task.title}}</span>
-                <i @click="taskRemove(task)" class="fa fa-trash-o"></i>
-            </li>
-        </ul>
+            <transition-group name="list-item" tag="ul">
+                <li v-for="(task, index) in tasks" :key="index" v-bind:class="{done: task.status}">
+                    <div @click="task.status = !task.status" class="checkBox done"></div>
+                    <span>{{task.title}}</span>
+                    <i @click="taskRemove(index)" class="fa fa-trash-o"></i>
+                </li>
+            </transition-group>
     `,
     data() {
-        return data;
+        return data;  
     },
     methods: {
         taskRemove(index) {
