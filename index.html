@@ -14,11 +14,8 @@
 
         <div id="todoList">
             <list-tasks></list-tasks>
-
-            <div id="newTask">
-                <input v-model="taskNew" @keyup.enter="taskAdd()" type="text" placeholder="New task">
-                <button @click="taskAdd()"><span>+</span></button>
-            </div>
+            
+            <add-tasks></add-tasks>
         </div>
     </div>
 

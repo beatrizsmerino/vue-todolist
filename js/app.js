@@ -46,12 +46,19 @@ Vue.component('list-tasks', {
     },
 });
 
-var app = new Vue({
-    el: '#app',
-    data: data,
+Vue.component('add-tasks', {
+    template: `
+        <div id="newTask">
+            <input v-model="taskNew" @keyup.enter="taskAdd()" type="text" placeholder="New task">
+            <button @click="taskAdd()"><span>+</span></button>
+        </div>
+    `,
+    data() {
+        return data;
+    },
     methods: {
         taskAdd() {
-            var title = this.taskNew.trim();
+            const title = this.taskNew.trim();
             if (title) {
                 this.tasks.push({
                     title: title,
@@ -60,5 +67,10 @@ var app = new Vue({
             }
             this.taskNew = "";
         },
-    },
+    }
+});
+
+const app = new Vue({
+    el: '#app',
+    data: data
 });
