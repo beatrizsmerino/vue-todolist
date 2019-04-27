@@ -15,10 +15,10 @@
         <div>
             <div id="todoList">
                 <ul>
-                    <li v-for="task in tasks" v-bind:class="{done: task.status}">
+                    <li v-for="(task, index) in tasks" :key="index" v-bind:class="{done: task.status}">
                         <div v-on:click="task.status = !task.status" class="checkBox done"></div>
                         <span>{{task.title}}</span>
-                        <i class="fa fa-trash-o"></i>
+                        <i @click="taskRemove(task)" class="fa fa-trash-o"></i>
                     </li>
                 </ul>
 

@@ -28,6 +28,9 @@ var app = new Vue({
                 })
             }
             this.taskNew = "";
+        },
+        taskRemove(index) {
+            this.tasks.splice(index, 1);
         }
     },
 });
