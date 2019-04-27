@@ -1,7 +1,15 @@
+Vue.component('page-title', {
+    template: '<h1>{{title}}</h1>',
+    data() {
+        return {
+            title: "Things Todo"
+        }
+    }
+});
+
 var app = new Vue({
     el: '#app',
     data: {
-        title: "Things Todo",
         tasks: [
             {
                 title: "Do something awesome!",
