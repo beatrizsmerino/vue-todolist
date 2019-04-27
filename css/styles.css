@@ -22,17 +22,23 @@ body {
 }
 
 h1 {
-    font-family: 'Kristi', cursive;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white;
     margin-bottom: 20px;
+    text-align: center;
     font-size: 4em;
     font-weight: normal;
 }
 
+#app{
+    width: 100%;
+}
+
 #todoList {
-    width: 300px;
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
     box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, 0.15);
-    border-radius: 8px;
     background: white;
     overflow: hidden;
 }
@@ -150,9 +156,8 @@ h1 {
     margin-right: 10px;
     padding: 5px 10px;
     border: none;
-    border-radius: 5px;
     outline: none;
-    border-left: 2px solid #f65050;
+    border-left: 5px solid #f65050;
     font-family: 'Roboto', sans-serif;
 }
 
