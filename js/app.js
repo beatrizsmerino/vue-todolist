@@ -17,15 +17,6 @@ const data = {
 };
 
 
-Vue.component('page-title', {
-    template: '<h1>{{title}}</h1>',
-    data() {
-        return {
-            title: "Things Todo"
-        }
-    }
-});
-
 Vue.component('list-tasks', {
     template: `
             <transition-group name="list-item" tag="ul">
