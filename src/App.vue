@@ -2,6 +2,7 @@
 	<div id="app">
 		<page-title :title="title"></page-title>
 		<div class="todo-list">
+			<tasks-list :tasks="tasks"></tasks-list>
 			<task-new :tasks="tasks"></task-new>
 		</div>
 	</div>
@@ -10,16 +11,32 @@
 
 <script>
 	import PageTitle from "./components/ComponentTitle.vue";
+	import TasksList from "./components/ComponentTasksList.vue";
 	import TaskNew from "./components/ComponentTaskNew.vue";
 
 	export default {
 		components: {
 			PageTitle,
+			TasksList,
 			TaskNew
 		},
 		data() {
 			return {
-				title: "Things Todo"
+				title: "Things Todo",
+				tasks: [
+					{
+						title: "Do something awesome!",
+						status: false
+					},
+					{
+						title: "Buy toilet paper",
+						status: false
+					},
+					{
+						title: "Learn Vue",
+						status: false
+					}
+				]
 			};
 		}
 	};
