@@ -1,5 +1,5 @@
 <template>
-    <h1>{{title}}</h1>
+    <h1 class="title">{{title}}</h1>
 </template>
 
 
@@ -11,7 +11,7 @@
 
 
 <style lang="scss">
-    h1 {
+    .title {
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         color: white;
         margin-bottom: 20px;

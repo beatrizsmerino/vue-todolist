@@ -4,234 +4,229 @@
 
 
 <script>
-import PageTitle from "./components/ComponentTitle.vue";
+	import PageTitle from "./components/ComponentTitle.vue";
 
-export default {
-  	components: {
-    	PageTitle
-  	},
-  	data() {
-    	return {
-      		title: "Things Todo"
-    	};
-  	}
-};
+	export default {
+		components: {
+			PageTitle
+		},
+		data() {
+			return {
+				title: "Things Todo"
+			};
+		}
+	};
 </script>
 
 
 <style lang="scss">
-* {
-  padding: 0;
-  margin: 0;
-}
+	* {
+		padding: 0;
+		margin: 0;
+	}
 
-html {
-  width: 100%;
-  height: 100%;
-}
+	html {
+		width: 100%;
+		height: 100%;
+	}
 
-body {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
-  background: linear-gradient(to bottom, #9cedff 0%, #3e82c3 100%);
-}
+	body {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		font-family: "Roboto", sans-serif;
+		font-size: 15px;
+		background: linear-gradient(to bottom, #9cedff 0%, #3e82c3 100%);
+	}
+	
+	::placeholder {
+		color: rgba(0, 0, 0, 0.3);
+	}
 
-h1 {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  color: white;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 4em;
-  font-weight: normal;
-}
+	#app {
+		width: 100%;
+	}
 
-#app {
-  width: 100%;
-}
+	[v-cloak] {
+		display: none;
+	}
 
-[v-cloak] {
-  display: none;
-}
+	.todo-list {
+		width: 80%;
+		max-width: 500px;
+		margin: 0 auto;
+		box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, 0.15);
+		background: white;
+		overflow: hidden;
 
-#todoList {
-  width: 80%;
-  max-width: 500px;
-  margin: 0 auto;
-  box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, 0.15);
-  background: white;
-  overflow: hidden;
-}
+		ul {
+			list-style: none;
+			padding: 25px;
 
-#todoList ul {
-  list-style: none;
-  padding: 25px;
-}
+			li {
+				display: flex;
+				align-items: center;
+				line-height: 1;
+				user-select: none;
 
-#todoList ul li {
-  display: flex;
-  align-items: center;
-  line-height: 1;
-  user-select: none;
-}
+				&:not(:last-child) {
+					padding-bottom: 15px;
+				}
 
-#todoList ul li:not(:last-child) {
-  padding-bottom: 15px;
-}
+				&:hover {
+					cursor: text;
 
-#todoList ul li:hover {
-  cursor: text;
-}
+					.task {
+						&__remove {
+							opacity: 1;
+							cursor: pointer;
+						}
+					}
+				}
 
-#todoList ul li .checkBox {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #ddd4ce;
-  border-radius: 50%;
-  margin-right: 15px;
-  position: relative;
-  display: flex;
-  opacity: 0.7;
-}
+				&.is-done {
+					.task {
+						&__title {
+							color: #c3bbb6;
 
-#todoList ul li .checkBox:hover {
-  cursor: pointer;
-  opacity: 1;
-}
+							&:before {
+								width: 100%;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 
-#todoList ul li .checkBox,
-#todoList ul li .checkBox:before {
-  transition: all 0.2s ease-in-out;
-}
+	.task {
+		&__title {
+			position: relative;
+			transition: all 0.2s ease-in-out;
 
-#todoList ul li .checkBox:before {
-  content: "\f00c";
-  font-family: "FontAwesome";
-  margin: auto;
-  font-size: 0.8em;
-  color: #31ecb8;
-  opacity: 0;
-  transform: scale(0.5);
-}
+			&:before {
+				transition: all 0.2s ease-in-out;
+				content: "";
+				height: 1px;
+				background: #c3bbb6;
+				width: 0%;
+				top: 50%;
+				position: absolute;
+				left: 0;
+			}
+		}
 
-#todoList ul li .checkBox.done {
-  border-color: #31ecb8;
-  opacity: 1;
-}
+		&__checkBox {
+			width: 20px;
+			height: 20px;
+			border: 2px solid #ddd4ce;
+			border-radius: 50%;
+			margin-right: 15px;
+			position: relative;
+			display: flex;
+			opacity: 0.7;
+			transition: all 0.2s ease-in-out;
 
-#todoList ul li .checkBox.done:before {
-  opacity: 1;
-  transform: scale(1);
-}
+			&:hover {
+				cursor: pointer;
+				opacity: 1;
+			}
 
-#todoList ul li i {
-  margin-left: auto;
-  padding-left: 15px;
-  opacity: 0;
-  color: #ff3c41;
-  transition: all 0.2s ease-in-out;
-  font-size: 1.2em;
-}
+			&:before {
+				transition: all 0.2s ease-in-out;
+				content: "\f00c";
+				font-family: "FontAwesome";
+				margin: auto;
+				font-size: 0.8em;
+				color: #31ecb8;
+				opacity: 0;
+				transform: scale(0.5);
+			}
 
-#todoList ul li:hover i {
-  opacity: 1;
-  cursor: pointer;
-}
+			&.is-done {
+				border-color: #31ecb8;
+				opacity: 1;
 
-#todoList ul li span {
-  position: relative;
-}
+				&:before {
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
+		}
+		&__remove {
+			margin-left: auto;
+			padding-left: 15px;
+			opacity: 0;
+			color: #ff3c41;
+			transition: all 0.2s ease-in-out;
+			font-size: 1.2em;
+		}
+	}
 
-#todoList ul li span,
-#todoList ul li span:before {
-  transition: all 0.2s ease-in-out;
-}
+	.task-new {
+		background: rgba(0, 0, 0, 0.05);
+		padding: 15px;
+		display: flex;
 
-#todoList ul li span:before {
-  content: "";
-  height: 1px;
-  background: #c3bbb6;
-  width: 0%;
-  top: 50%;
-  position: absolute;
-  left: 0;
-}
+		&__input {
+			flex: 1;
+			margin-right: 10px;
+			padding: 5px 10px;
+			border: none;
+			outline: none;
+			border-left: 5px solid #f65050;
+			font-family: "Roboto", sans-serif;
+		}
 
-#todoList ul li.done span {
-  color: #c3bbb6;
-}
+		&__button {
+			outline: none;
+			border: none;
+			border-radius: 50%;
+			font-size: 1.5em;
+			color: white;
+			background: #f65050;
+			display: flex;
+			width: 35px;
+			height: 35px;
+			transition: all 0.15s ease-in-out;
 
-#todoList ul li.done span:before {
-  width: 100%;
-}
+			&:hover {
+				cursor: pointer;
+				background: #ff5c60;
+			}
+		}
 
-#todoList #newTask {
-  background: rgba(0, 0, 0, 0.05);
-  padding: 15px;
-  display: flex;
-}
+		&__icon{
+			width: 100%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
 
-#todoList #newTask input {
-  flex: 1;
-  margin-right: 10px;
-  padding: 5px 10px;
-  border: none;
-  outline: none;
-  border-left: 5px solid #f65050;
-  font-family: "Roboto", sans-serif;
-}
 
-#todoList #newTask button {
-  outline: none;
-  border: none;
-  border-radius: 50%;
-  font-size: 1.5em;
-  color: white;
-  background: #f65050;
-  display: flex;
-  width: 35px;
-  height: 35px;
-  transition: all 0.15s ease-in-out;
-}
+	/* Vue List Item transition */
 
-#todoList #newTask button span {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+	.list-item-enter-active,
+	.list-item-leave-active {
+		transition: opacity 0.3s, transform 0.3s;
+		transform-origin: left center;
+	}
 
-#todoList #newTask button:hover {
-  cursor: pointer;
-  background: #ff5c60;
-}
+	.list-item-enter,
+	.list-item-leave-to {
+		opacity: 0;
+		transform: scale(0.5);
+	}
 
-::placeholder {
-  color: rgba(0, 0, 0, 0.3);
-}
+	.list-item-leave-active {
+		position: absolute;
+	}
 
-/* Vue List Item transition */
-.list-item-enter-active,
-.list-item-leave-active {
-  transition: opacity 0.3s, transform 0.3s;
-  transform-origin: left center;
-}
-.list-item-enter, .list-item-leave-to /* .list-leave-active for <2.1.8 */ {
-  opacity: 0;
-  transform: scale(0.5);
-}
-
-.list-item-leave-active {
-  position: absolute;
-}
-
-.list-item-move {
-  transition: transform 0.4s linear 0.3;
-}
+	.list-item-move {
+		transition: transform 0.4s linear 0.3;
+	}
 </style>
