@@ -1,10 +1,12 @@
 <template>
 	<transition-group name="list-item" tag="ul">
 		<li v-for="(task, index) in tasks" :key="index" v-bind:class="{'done': task.status}" class="task">
-			<div @click="task.status = !task.status" class="task__checkbox done"></div>
+			<div @click="task.status = !task.status" class="task__checkbox">
+				<i class="far fa-check-circle"></i>
+			</div>
 			<span class="task__title">{{task.title}}</span>
 			<div @click="taskRemove(index)" class="task__remove">
-				<font-awesome-icon icon="trash" />
+				<i class="fa fa-trash"></i>
 			</div>
 		</li>
 	</transition-group>
@@ -54,6 +56,9 @@
 						width: 100%;
 					}
 				}
+				&__checkbox{
+					color: #c3bbb6;
+				}
 			}
 		}
 			
@@ -73,41 +78,21 @@
 			}
 		}
 
-		&__checkBox {
+		&__checkbox {
 			width: 20px;
 			height: 20px;
-			border: 2px solid #ddd4ce;
-			border-radius: 50%;
 			margin-right: 15px;
-			position: relative;
 			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 1.5rem;
+			color: #31ecb8;
 			opacity: 0.7;
 			transition: all 0.2s ease-in-out;
-			cursor:pointer;
+			cursor: pointer;
 
 			&:hover {
 				opacity: 1;
-			}
-
-			&:before {
-				transition: all 0.2s ease-in-out;
-				content: "\f00c";
-				font-family: "FontAwesome";
-				margin: auto;
-				font-size: 0.8em;
-				color: #31ecb8;
-				opacity: 0;
-				transform: scale(0.5);
-			}
-
-			&.done {
-				border-color: #31ecb8;
-				opacity: 1;
-
-				&:before {
-					opacity: 1;
-					transform: scale(1);
-				}
 			}
 		}
 		&__remove {
@@ -116,7 +101,7 @@
 			opacity: 0;
 			color: #ff3c41;
 			transition: all 0.2s ease-in-out;
-			font-size: 1.2em;
+			font-size: 1.2rem;
 		}
 	}
 </style>

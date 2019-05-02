@@ -52,7 +52,7 @@
 			outline: none;
 			border: none;
 			border-radius: 50%;
-			font-size: 1.5em;
+			font-size: 1.5rem;
 			color: white;
 			background: #f65050;
 			display: flex;

@@ -16,7 +16,7 @@
         color: white;
         margin-bottom: 20px;
         text-align: center;
-        font-size: 4em;
+        font-size: 4rem;
         font-weight: normal;
     }
 </style>
