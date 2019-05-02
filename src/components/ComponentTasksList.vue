@@ -2,11 +2,11 @@
 	<transition-group name="list-item" tag="ul">
 		<li v-for="(task, index) in tasks" :key="index" v-bind:class="{'done': task.status}" class="task">
 			<div @click="task.status = !task.status" class="task__checkbox">
-				<i class="far fa-check-circle"></i>
+				<font-awesome-icon icon="check-circle" />
 			</div>
 			<span class="task__title">{{task.title}}</span>
 			<div @click="taskRemove(index)" class="task__remove">
-				<i class="fa fa-trash"></i>
+				<font-awesome-icon icon="trash" />
 			</div>
 		</li>
 	</transition-group>
