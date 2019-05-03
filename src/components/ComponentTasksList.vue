@@ -1,15 +1,19 @@
 <template>
-	<transition-group name="list-item" tag="ul">
-		<li v-for="(task, index) in tasks" :key="index" v-bind:class="{'done': task.status}" class="task">
+  	<transition-group name="list-item" tag="ul">
+		<li
+		v-for="(task, index) in tasks"
+		:key="index"
+		v-bind:class="{'done': task.status}"
+		class="task">
 			<div @click="task.status = !task.status" class="task__checkbox">
-				<font-awesome-icon icon="check-circle" />
+				<font-awesome-icon icon="check-circle"/>
 			</div>
 			<span class="task__title">{{task.title}}</span>
 			<div @click="taskRemove(index)" class="task__remove">
-				<font-awesome-icon icon="trash" />
+				<font-awesome-icon icon="trash"/>
 			</div>
 		</li>
-	</transition-group>
+  	</transition-group>
 </template>
 
 

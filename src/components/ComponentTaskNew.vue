@@ -1,10 +1,15 @@
 <template>
-  	<div class="task-new">
-		<input v-model="taskNew" @keyup.enter="taskAdd()" class="task-new__input" type="text" placeholder="New task">
+	<div class="task-new">
+		<input
+			v-model="taskNew"
+			@keyup.enter="taskAdd()"
+			class="task-new__input"
+			type="text"
+			placeholder="New task">
 		<button class="task-new__button" @click="taskAdd()">
 			<span class="task-new__icon-add">+</span>
 		</button>
-  	</div>
+	</div>
 </template>
 
 
@@ -66,7 +71,7 @@
 			}
 		}
 
-		&__icon-add{
+		&__icon-add {
 			width: 100%;
 			height: 100%;
 			display: flex;
