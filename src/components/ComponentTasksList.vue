@@ -22,7 +22,7 @@
 		props: ["tasks"],
 		methods: {
 			taskRemove(index) {
-				this.tasks.splice(index, 1);
+				this.$emit("remove",index);
 			}
 		}
 	};

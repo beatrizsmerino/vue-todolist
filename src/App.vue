@@ -2,7 +2,7 @@
 	<div id="app">
 		<page-title :title="title"></page-title>
 		<div class="todo-list">
-			<tasks-list :tasks="tasks"></tasks-list>
+			<tasks-list :tasks="tasks" @remove="removeTask"></tasks-list>
 			<task-new :tasks="tasks"></task-new>
 		</div>
 	</div>
@@ -38,6 +38,11 @@
 					}
 				]
 			};
+		},
+		methods: {
+			removeTask(index){
+				this.tasks.splice(index,1);
+			}
 		}
 	};
 </script>
