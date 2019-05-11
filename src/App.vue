@@ -25,14 +25,17 @@
 				title: "Things Todo",
 				tasks: [
 					{
+						id: 1,
 						title: "Do something awesome!",
 						status: false
 					},
 					{
+						id: 2,
 						title: "Buy toilet paper",
 						status: false
 					},
 					{
+						id: 3,
 						title: "Learn Vue",
 						status: false
 					}

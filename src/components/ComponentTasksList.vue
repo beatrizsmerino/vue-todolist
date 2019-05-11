@@ -2,7 +2,7 @@
   	<transition-group name="list-item" tag="ul">
 		<li
 		v-for="(task, index) in tasks"
-		:key="index"
+		:key="task.id"
 		v-bind:class="{'done': task.status}"
 		class="task">
 			<div @click="task.status = !task.status" class="task__checkbox">
