@@ -2,14 +2,14 @@
   	<transition-group name="list-item" tag="ul">
 		<li
 		v-for="(task, index) in tasks"
-		:key="index"
+		:key="task.id"
 		v-bind:class="{'done': task.status}"
 		class="task">
 			<div @click="task.status = !task.status" class="task__checkbox">
 				<font-awesome-icon icon="check-circle"/>
 			</div>
 			<span class="task__title">{{task.title}}</span>
-			<div @click="taskRemove(index)" class="task__remove">
+			<div @click="taskRemoveEmit(index)" class="task__remove">
 				<font-awesome-icon icon="trash"/>
 			</div>
 		</li>
@@ -21,8 +21,8 @@
 	export default {
 		props: ["tasks"],
 		methods: {
-			taskRemove(index) {
-				this.tasks.splice(index, 1);
+			taskRemoveEmit(index) {
+				this.$emit("remove",index);
 			}
 		}
 	};
