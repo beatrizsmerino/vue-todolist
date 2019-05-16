@@ -17,7 +17,8 @@
 	export default {
 		data() {
 			return {
-				taskNew: ""
+				taskNew: "",
+				count: this.tasks.length + 1
 			};
 		},
 		props: ["tasks"],
@@ -26,6 +27,7 @@
 				const title = this.taskNew.trim();
 				if (title) {
 					this.tasks.push({
+						id: this.count++,
 						title: title,
 						status: false
 					});

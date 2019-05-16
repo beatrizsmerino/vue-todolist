@@ -2,7 +2,7 @@
 	<div id="app">
 		<page-title :title="title"></page-title>
 		<div class="todo-list">
-			<tasks-list :tasks="tasks"></tasks-list>
+			<tasks-list :tasks="tasks" @remove="taskRemove"></tasks-list>
 			<task-new :tasks="tasks"></task-new>
 		</div>
 	</div>
@@ -25,19 +25,27 @@
 				title: "Things Todo",
 				tasks: [
 					{
+						id: 1,
 						title: "Do something awesome!",
 						status: false
 					},
 					{
+						id: 2,
 						title: "Buy toilet paper",
 						status: false
 					},
 					{
+						id: 3,
 						title: "Learn Vue",
 						status: false
 					}
 				]
 			};
+		},
+		methods: {
+			taskRemove(index){
+				this.tasks.splice(index,1);
+			}
 		}
 	};
 </script>
