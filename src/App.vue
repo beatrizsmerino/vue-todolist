@@ -3,7 +3,7 @@
 		<page-title :title="title"></page-title>
 		<div class="todo-list">
 			<tasks-list :tasks="tasks" @remove="taskRemove"></tasks-list>
-			<task-new :tasks="tasks"></task-new>
+			<task-new :tasks="tasks" @add="taskAdd"></task-new>
 		</div>
 	</div>
 </template>
@@ -39,13 +39,24 @@
 						title: "Learn Vue",
 						status: false
 					}
-				]
+				],
 			};
 		},
 		methods: {
+			taskAdd(name, count) {
+				const title = name.trim();
+
+				if (title) {
+					this.tasks.push({
+						id: count,
+						title: title,
+						status: false
+					});
+				}
+			},
 			taskRemove(index){
 				this.tasks.splice(index,1);
-			}
+			},
 		}
 	};
 </script>
