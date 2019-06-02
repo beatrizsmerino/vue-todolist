@@ -42,6 +42,23 @@
 				],
 			};
 		},
+		mounted() {
+			if (localStorage.getItem('tasks')) {
+				try {
+					this.tasks = JSON.parse(localStorage.getItem('tasks'));
+				} catch(e) {
+					localStorage.removeItem('tasks');
+				}
+			}
+		},
+		watch: {
+			tasks:{
+				handler(){
+					localStorage.setItem('tasks', JSON.stringify(this.tasks));
+				},
+				deep: true,
+			}
+		},
 		methods: {
 			taskAdd(name, count) {
 				const title = name.trim();
