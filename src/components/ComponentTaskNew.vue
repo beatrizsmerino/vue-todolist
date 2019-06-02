@@ -2,11 +2,11 @@
 	<div class="task-new">
 		<input
 			v-model="taskNew"
-			@keyup.enter="taskAdd()"
+			@keyup.enter="taskAddEmit()"
 			class="task-new__input"
 			type="text"
 			placeholder="New task">
-		<button class="task-new__button" @click="taskAdd()">
+		<button class="task-new__button" @click="taskAddEmit()">
 			<span class="task-new__icon-add">+</span>
 		</button>
 	</div>
@@ -23,17 +23,11 @@
 		},
 		props: ["tasks"],
 		methods: {
-			taskAdd() {
-				const title = this.taskNew.trim();
-				if (title) {
-					this.tasks.push({
-						id: this.count++,
-						title: title,
-						status: false
-					});
-				}
-				this.taskNew = "";
-			}
+			taskAddEmit() {
+				this.$emit("add", this.taskNew, this.count);
+				this.count++;
+				this.taskNew = ""
+			},
 		}
 	};
 </script>
