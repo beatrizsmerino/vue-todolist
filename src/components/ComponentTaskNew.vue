@@ -5,74 +5,71 @@
 			@keyup.enter="taskAddEmit()"
 			class="task-new__input"
 			type="text"
-			placeholder="New task">
-		<button class="task-new__button" @click="taskAddEmit()">
-			<span class="task-new__icon-add">+</span>
+			placeholder="New task"
+		/>
+		<button class="task-new__button-add" @click="taskAddEmit()">
+			<font-awesome-icon icon="plus-circle" />
 		</button>
 	</div>
 </template>
 
 
 <script>
-	export default {
-		data() {
-			return {
-				taskNew: "",
-				count: this.tasks.length + 1
-			};
+export default {
+	data() {
+		return {
+			taskNew: "",
+			count: this.tasks.length + 1
+		};
+	},
+	props: ["tasks"],
+	methods: {
+		taskAddEmit() {
+			this.$emit("add", this.taskNew, this.count);
+			this.count++;
+			this.taskNew = ""
 		},
-		props: ["tasks"],
-		methods: {
-			taskAddEmit() {
-				this.$emit("add", this.taskNew, this.count);
-				this.count++;
-				this.taskNew = ""
-			},
-		}
-	};
+	}
+};
 </script>
 
 
 <style lang="scss">
-	.task-new {
-		background-color: rgba(0, 0, 0, 0.05);
-		padding: 15px;
+.task-new {
+	background-color: rgba(0, 0, 0, 0.05);
+	padding: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__input {
+		border: none;
+		outline: none;
+		margin-right: 10px;
+		padding: 0.8rem 1rem;
+		flex: 1;
+		font-size: 1rem;
+		border-left: 5px solid #f65050;
+		font-family: "Roboto", sans-serif;
+	}
+
+	&__button-add {
+		outline: none;
+		border: none;
+		background-color: transparent;
+		width: 35px;
+		height: 35px;
 		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 2.3rem;
+		color: #f65050;
+		transition: all 0.15s ease-in-out;
 
-		&__input {
-			flex: 1;
-			margin-right: 10px;
-			padding: 5px 10px;
-			border: none;
-			outline: none;
-			border-left: 5px solid #f65050;
-			font-family: "Roboto", sans-serif;
-		}
-
-		&__button {
-			outline: none;
-			border: none;
-			border-radius: 50%;
-			font-size: 1.5rem;
-			color: white;
-			background: #f65050;
-			display: flex;
-			width: 35px;
-			height: 35px;
-			transition: all 0.15s ease-in-out;
-
-			&:hover {
-				cursor: pointer;
-				background: #ff5c60;
-			}
-		}
-
-		&__icon-add {
-			width: 100%;
-			height: 100%;
-			display: flex;
-			align-items: center;
-			justify-content: center;
+		&:hover {
+			cursor: pointer;
+			color: darken(#ff5c60, 30%);
 		}
 	}
+}
 </style>
