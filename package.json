@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
-    "vue": "^2.6.10"
+    "vue": "^2.6.12"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
@@ -26,7 +26,7 @@
     "node-sass": "^4.9.0",
     "npm": "^6.12.0",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.5.21",
+    "vue-template-compiler": "^2.6.12",
     "webpack": "^4.30.0"
   },
   "eslintConfig": {
