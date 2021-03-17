@@ -27,7 +27,7 @@
     "npm": "^6.12.0",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.5.21",
-    "webpack": "^4.30.0"
+    "webpack": "^4.46.0"
   },
   "eslintConfig": {
     "root": true,
