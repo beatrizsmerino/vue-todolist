@@ -1,6 +1,8 @@
-![shieldsIO](https://img.shields.io/github/issues/beatrizsmerino/vue-todolist)
-![shieldsIO](https://img.shields.io/github/forks/beatrizsmerino/vue-todolist)
-![shieldsIO](https://img.shields.io/github/stars/beatrizsmerino/vue-todolist)
+![GitHub issues](https://img.shields.io/github/issues/beatrizsmerino/vue-todolist)
+![GitHub forks](https://img.shields.io/github/forks/beatrizsmerino/vue-todolist)
+![GitHub stars](https://img.shields.io/github/stars/beatrizsmerino/vue-todolist)
+![GitHub watchers](https://img.shields.io/github/watchers/beatrizsmerino/vue-todolist)
+![GitHub last commit](https://img.shields.io/github/last-commit/beatrizsmerino/vue-todolist)
 
 # Vue Todolist
 ### Vue Todolist is a list and task management application, a very typical productivity tool. 
