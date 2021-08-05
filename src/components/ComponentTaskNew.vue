@@ -52,7 +52,7 @@
 			padding: 0.8rem 1rem;
 			flex: 1;
 			font-size: 1rem;
-			border-left: 5px solid $color-error;
+			border-left: 5px solid $color-brand-2;
 			font-family: "Roboto", sans-serif;
 		}
 
@@ -66,12 +66,12 @@
 			align-items: center;
 			justify-content: center;
 			font-size: 2.3rem;
-			color: $color-error;
+			color: $color-brand-2;
 			transition: all 0.15s ease-in-out;
 
 			&:hover {
 				cursor: pointer;
-				color: $color-error--dark;
+				color: mix($color-black, $color-brand-2, 20%);
 			}
 		}
 	}

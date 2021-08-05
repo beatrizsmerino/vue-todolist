@@ -101,14 +101,16 @@
 			align-items: center;
 			font-size: 1.5rem;
 			color: $color-success;
-			opacity: 0.7;
+			opacity: 1;
 			transition: all 0.2s ease-in-out;
 			cursor: pointer;
 
 			&:hover {
-				opacity: 1;
+				cursor: pointer;
+				color: mix($color-black, $color-success, 20%);
 			}
 		}
+
 		&__button-remove {
 			margin-left: auto;
 			padding-left: 15px;
@@ -116,6 +118,11 @@
 			color: $color-error;
 			transition: all 0.2s ease-in-out;
 			font-size: 1.2rem;
+
+			&:hover {
+				cursor: pointer;
+				color: mix($color-black, $color-error, 20%);
+			}
 		}
 	}
 </style>

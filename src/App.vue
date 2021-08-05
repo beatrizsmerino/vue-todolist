@@ -129,8 +129,8 @@
 		width: 80%;
 		max-width: 500px;
 		margin: 0 auto;
-		box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, 0.15);
-		background-color: white;
+		box-shadow: -2px 2px 2px -1px rgba($color-black, 0.15);
+		background-color: $color-white;
 		overflow: hidden;
 
 		ul {
