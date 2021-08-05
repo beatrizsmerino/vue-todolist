@@ -19,6 +19,7 @@
 
 <script>
 	export default {
+		name: 'TaskNew',
 		data() {
 			return {
 				taskNew: "",

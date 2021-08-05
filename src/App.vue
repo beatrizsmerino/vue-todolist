@@ -1,29 +1,29 @@
 <template>
 	<div id="app">
-		<page-title :title="title" />
+		<PageTitle :title="title" />
 		<div class="todo-list">
-			<tasks-list
+			<TaskList
 				:tasks="tasks"
 				@remove="taskRemove"
-			></tasks-list>
-			<task-new
+			/>
+			<TaskNew
 				:tasks="tasks"
 				@add="taskAdd"
-			></task-new>
+			/>
 		</div>
 	</div>
 </template>
 
 
 <script>
-	import PageTitle from "./components/ComponentTitle.vue";
-	import TasksList from "./components/ComponentTasksList.vue";
-	import TaskNew from "./components/ComponentTaskNew.vue";
+	import PageTitle from "./components/Page/PageTitle.vue";
+	import TaskList from "./components/Task/TaskList.vue";
+	import TaskNew from "./components/Task/TaskNew.vue";
 
 	export default {
 		components: {
 			PageTitle,
-			TasksList,
+			TaskList,
 			TaskNew
 		},
 		data() {

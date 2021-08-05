@@ -29,6 +29,7 @@
 
 <script>
 	export default {
+		name: 'TaskList',
 		props: ["tasks"],
 		methods: {
 			taskRemoveEmit(index) {
