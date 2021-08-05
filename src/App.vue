@@ -49,18 +49,12 @@
 			};
 		},
 		mounted() {
-			if (localStorage.getItem('tasks')) {
-				try {
-					this.tasks = JSON.parse(localStorage.getItem('tasks'));
-				} catch (e) {
-					localStorage.removeItem('tasks');
-				}
-			}
+			this.taskGetLocalStorage();
 		},
 		watch: {
 			tasks: {
 				handler() {
-					localStorage.setItem('tasks', JSON.stringify(this.tasks));
+					this.taskUpdateLocalStorage();
 				},
 				deep: true,
 			}
@@ -80,6 +74,18 @@
 			taskRemove(index) {
 				this.tasks.splice(index, 1);
 			},
+			taskGetLocalStorage() {
+				if (localStorage.getItem('tasks')) {
+					try {
+						this.tasks = JSON.parse(localStorage.getItem('tasks'));
+					} catch (e) {
+						localStorage.removeItem('tasks');
+					}
+				}
+			},
+			taskUpdateLocalStorage() {
+				localStorage.setItem('tasks', JSON.stringify(this.tasks));
+			}
 		}
 	};
 </script>
