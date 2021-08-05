@@ -7,7 +7,10 @@
 			type="text"
 			placeholder="New task"
 		/>
-		<button class="task-new__button-add" @click="taskAddEmit()">
+		<button
+			class="task-new__button-add"
+			@click="taskAddEmit()"
+		>
 			<font-awesome-icon icon="plus-circle" />
 		</button>
 	</div>
@@ -15,61 +18,61 @@
 
 
 <script>
-export default {
-	data() {
-		return {
-			taskNew: "",
-			count: this.tasks.length + 1
-		};
-	},
-	props: ["tasks"],
-	methods: {
-		taskAddEmit() {
-			this.$emit("add", this.taskNew, this.count);
-			this.count++;
-			this.taskNew = ""
+	export default {
+		data() {
+			return {
+				taskNew: "",
+				count: this.tasks.length + 1
+			};
 		},
-	}
-};
+		props: ["tasks"],
+		methods: {
+			taskAddEmit() {
+				this.$emit("add", this.taskNew, this.count);
+				this.count++;
+				this.taskNew = ""
+			},
+		}
+	};
 </script>
 
 
 <style lang="scss">
-.task-new {
-	background-color: rgba(0, 0, 0, 0.05);
-	padding: 15px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	&__input {
-		border: none;
-		outline: none;
-		margin-right: 10px;
-		padding: 0.8rem 1rem;
-		flex: 1;
-		font-size: 1rem;
-		border-left: 5px solid #f65050;
-		font-family: "Roboto", sans-serif;
-	}
-
-	&__button-add {
-		outline: none;
-		border: none;
-		background-color: transparent;
-		width: 35px;
-		height: 35px;
+	.task-new {
+		background-color: rgba(0, 0, 0, 0.05);
+		padding: 15px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: 2.3rem;
-		color: #f65050;
-		transition: all 0.15s ease-in-out;
 
-		&:hover {
-			cursor: pointer;
-			color: darken(#ff5c60, 30%);
+		&__input {
+			border: none;
+			outline: none;
+			margin-right: 10px;
+			padding: 0.8rem 1rem;
+			flex: 1;
+			font-size: 1rem;
+			border-left: 5px solid #f65050;
+			font-family: "Roboto", sans-serif;
+		}
+
+		&__button-add {
+			outline: none;
+			border: none;
+			background-color: transparent;
+			width: 35px;
+			height: 35px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 2.3rem;
+			color: #f65050;
+			transition: all 0.15s ease-in-out;
+
+			&:hover {
+				cursor: pointer;
+				color: darken(#ff5c60, 30%);
+			}
 		}
 	}
-}
 </style>

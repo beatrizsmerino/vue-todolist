@@ -1,9 +1,15 @@
 <template>
 	<div id="app">
-		<page-title :title="title"></page-title>
+		<page-title :title="title" />
 		<div class="todo-list">
-			<tasks-list :tasks="tasks" @remove="taskRemove"></tasks-list>
-			<task-new :tasks="tasks" @add="taskAdd"></task-new>
+			<tasks-list
+				:tasks="tasks"
+				@remove="taskRemove"
+			></tasks-list>
+			<task-new
+				:tasks="tasks"
+				@add="taskAdd"
+			></task-new>
 		</div>
 	</div>
 </template>
@@ -46,14 +52,14 @@
 			if (localStorage.getItem('tasks')) {
 				try {
 					this.tasks = JSON.parse(localStorage.getItem('tasks'));
-				} catch(e) {
+				} catch (e) {
 					localStorage.removeItem('tasks');
 				}
 			}
 		},
 		watch: {
-			tasks:{
-				handler(){
+			tasks: {
+				handler() {
 					localStorage.setItem('tasks', JSON.stringify(this.tasks));
 				},
 				deep: true,
@@ -71,8 +77,8 @@
 					});
 				}
 			},
-			taskRemove(index){
-				this.tasks.splice(index,1);
+			taskRemove(index) {
+				this.tasks.splice(index, 1);
 			},
 		}
 	};
@@ -102,7 +108,7 @@
 		font-size: 15px;
 		background: linear-gradient(to bottom, #9cedff 0%, #3e82c3 100%);
 	}
-	
+
 	::placeholder {
 		color: rgba(0, 0, 0, 0.3);
 	}
