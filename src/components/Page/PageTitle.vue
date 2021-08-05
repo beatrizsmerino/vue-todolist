@@ -1,6 +1,6 @@
 <template>
-	<h1 class="title">
-		{{title}}
+	<h1 class="page-title">
+		{{ title }}
 	</h1>
 </template>
 
@@ -8,13 +8,18 @@
 <script>
 	export default {
 		name: 'PageTitle',
-		props: ['title']
+		props: {
+			title: {
+				type: String,
+				required: true
+			}
+		}
 	};
 </script>
 
 
 <style lang="scss">
-	.title {
+	.page-title {
 		font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
 			"Lucida Sans", Arial, sans-serif;
 		color: $color-white;
