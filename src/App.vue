@@ -32,17 +32,17 @@
 				tasks: [
 					{
 						id: 1,
-						title: "Do something awesome!",
+						name: "Do something awesome!",
 						status: false
 					},
 					{
 						id: 2,
-						title: "Buy toilet paper",
+						name: "Buy toilet paper",
 						status: false
 					},
 					{
 						id: 3,
-						title: "Learn Vue",
+						name: "Learn Vue",
 						status: false
 					}
 				],
@@ -61,12 +61,12 @@
 		},
 		methods: {
 			taskAdd(name, count) {
-				const title = name.trim();
+				const nameFormatted = name.trim();
 
-				if (title) {
+				if (name) {
 					this.tasks.push({
 						id: count,
-						title: title,
+						name: nameFormatted,
 						status: false
 					});
 				}

@@ -15,7 +15,9 @@
 			>
 				<font-awesome-icon icon="check-circle" />
 			</div>
-			<span class="task__title">{{task.title}}</span>
+			<span class="task__name">
+				{{ task.name }}
+			</span>
 			<div
 				@click="taskRemoveEmit(index)"
 				class="task__button-remove"
@@ -64,7 +66,7 @@
 
 		&.done {
 			.task {
-				&__title {
+				&__name {
 					color: $color-silver;
 
 					&:before {
@@ -77,7 +79,7 @@
 			}
 		}
 
-		&__title {
+		&__name {
 			position: relative;
 			transition: all 0.2s ease-in-out;
 
