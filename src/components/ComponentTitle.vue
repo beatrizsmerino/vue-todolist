@@ -16,7 +16,7 @@
 	.title {
 		font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
 			"Lucida Sans", Arial, sans-serif;
-		color: white;
+		color: $color-white;
 		margin-bottom: 20px;
 		text-align: center;
 		font-size: 4rem;

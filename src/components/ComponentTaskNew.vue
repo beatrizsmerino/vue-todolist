@@ -39,7 +39,7 @@
 
 <style lang="scss">
 	.task-new {
-		background-color: rgba(0, 0, 0, 0.05);
+		background-color: rgba($color-black, 0.05);
 		padding: 15px;
 		display: flex;
 		align-items: center;
@@ -52,7 +52,7 @@
 			padding: 0.8rem 1rem;
 			flex: 1;
 			font-size: 1rem;
-			border-left: 5px solid #f65050;
+			border-left: 5px solid $color-error;
 			font-family: "Roboto", sans-serif;
 		}
 
@@ -66,12 +66,12 @@
 			align-items: center;
 			justify-content: center;
 			font-size: 2.3rem;
-			color: #f65050;
+			color: $color-error;
 			transition: all 0.15s ease-in-out;
 
 			&:hover {
 				cursor: pointer;
-				color: darken(#ff5c60, 30%);
+				color: $color-error--dark;
 			}
 		}
 	}

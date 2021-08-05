@@ -106,11 +106,15 @@
 		flex-direction: column;
 		font-family: "Roboto", sans-serif;
 		font-size: 15px;
-		background: linear-gradient(to bottom, #9cedff 0%, #3e82c3 100%);
+		background: linear-gradient(
+			to bottom,
+			$color-brand-1 0%,
+			$color-brand-2 100%
+		);
 	}
 
 	::placeholder {
-		color: rgba(0, 0, 0, 0.3);
+		color: rgba($color-black, 0.3);
 	}
 
 	#app {
@@ -126,7 +130,7 @@
 		max-width: 500px;
 		margin: 0 auto;
 		box-shadow: -2px 2px 2px -1px rgba(0, 0, 0, 0.15);
-		background: white;
+		background-color: white;
 		overflow: hidden;
 
 		ul {

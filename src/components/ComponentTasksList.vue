@@ -64,14 +64,14 @@
 		&.done {
 			.task {
 				&__title {
-					color: #c3bbb6;
+					color: $color-silver;
 
 					&:before {
 						width: 100%;
 					}
 				}
 				&__checkbox {
-					color: #c3bbb6;
+					color: $color-silver;
 				}
 			}
 		}
@@ -84,7 +84,7 @@
 				transition: all 0.2s ease-in-out;
 				content: "";
 				height: 1px;
-				background: #c3bbb6;
+				background-color: $color-silver;
 				width: 0%;
 				top: 50%;
 				position: absolute;
@@ -100,7 +100,7 @@
 			justify-content: center;
 			align-items: center;
 			font-size: 1.5rem;
-			color: #31ecb8;
+			color: $color-success;
 			opacity: 0.7;
 			transition: all 0.2s ease-in-out;
 			cursor: pointer;
@@ -113,7 +113,7 @@
 			margin-left: auto;
 			padding-left: 15px;
 			opacity: 0;
-			color: #ff3c41;
+			color: $color-error;
 			transition: all 0.2s ease-in-out;
 			font-size: 1.2rem;
 		}
