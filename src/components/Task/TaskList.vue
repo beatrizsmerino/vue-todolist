@@ -1,28 +1,33 @@
 <template>
 	<transition-group
-		name="list-item"
+		class="task-list"
+		name="task-list"
 		tag="ul"
 	>
 		<li
 			v-for="(task, index) in tasks"
 			:key="task.id"
-			v-bind:class="{'done': task.status}"
-			class="task"
+			class="task-list__item"
 		>
 			<div
-				@click="task.status = !task.status"
-				class="task__checkbox"
+				class="task"
+				v-bind:class="{'is-done': task.status}"
 			>
-				<font-awesome-icon icon="check-circle" />
-			</div>
-			<span class="task__name">
-				{{ task.name }}
-			</span>
-			<div
-				@click="taskRemoveEmit(index)"
-				class="task__button-remove"
-			>
-				<font-awesome-icon icon="trash" />
+				<div
+					@click="taskStatusChange(index)"
+					class="task__button-done"
+				>
+					<font-awesome-icon icon="check-circle" />
+				</div>
+				<span class="task__name">
+					{{ task.name }}
+				</span>
+				<div
+					@click="taskRemoveEmit(index)"
+					class="task__button-remove"
+				>
+					<font-awesome-icon icon="trash" />
+				</div>
 			</div>
 		</li>
 	</transition-group>
@@ -32,10 +37,19 @@
 <script>
 	export default {
 		name: 'TaskList',
-		props: ["tasks"],
+		props: {
+			tasks: {
+				type: Array,
+				required: true
+			}
+		},
 		methods: {
 			taskRemoveEmit(index) {
 				this.$emit("remove", index);
+			},
+			taskStatusChange(index) {
+				const task = this.tasks[index];
+				task.status = !task.status;
 			}
 		}
 	};
@@ -43,15 +57,43 @@
 
 
 <style lang="scss">
+	.task-list {
+		list-style: none;
+		padding: 25px;
+
+		&__item {
+			&:not(:last-child) {
+				margin-bottom: 15px;
+			}
+
+			/* Vue animation 'task-list' for the item transition */
+			&.task-list-enter-active,
+			&.task-list-leave-active {
+				transition: opacity 0.3s, transform 0.3s;
+				transform-origin: left center;
+			}
+
+			&.task-list-enter,
+			&.task-list-leave-to {
+				opacity: 0;
+				transform: scale(0.5);
+			}
+
+			&.task-list-leave-active {
+				position: absolute;
+			}
+
+			&.task-list-move {
+				transition: transform 0.4s linear 0.3;
+			}
+		}
+	}
+
 	.task {
 		display: flex;
 		align-items: center;
 		line-height: 1;
 		user-select: none;
-
-		&:not(:last-child) {
-			padding-bottom: 15px;
-		}
 
 		&:hover {
 			cursor: text;
@@ -64,7 +106,7 @@
 			}
 		}
 
-		&.done {
+		&.is-done {
 			.task {
 				&__name {
 					color: $color-silver;
@@ -73,7 +115,8 @@
 						width: 100%;
 					}
 				}
-				&__checkbox {
+
+				&__button-done {
 					color: $color-silver;
 				}
 			}
@@ -95,7 +138,7 @@
 			}
 		}
 
-		&__checkbox {
+		&__button-done {
 			width: 20px;
 			height: 20px;
 			margin-right: 15px;

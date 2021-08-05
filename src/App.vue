@@ -138,32 +138,5 @@
 		box-shadow: -2px 2px 2px -1px rgba($color-black, 0.15);
 		background-color: $color-white;
 		overflow: hidden;
-
-		ul {
-			list-style: none;
-			padding: 25px;
-		}
-	}
-
-	/* Vue List Item transition */
-
-	.list-item-enter-active,
-	.list-item-leave-active {
-		transition: opacity 0.3s, transform 0.3s;
-		transform-origin: left center;
-	}
-
-	.list-item-enter,
-	.list-item-leave-to {
-		opacity: 0;
-		transform: scale(0.5);
-	}
-
-	.list-item-leave-active {
-		position: absolute;
-	}
-
-	.list-item-move {
-		transition: transform 0.4s linear 0.3;
 	}
 </style>

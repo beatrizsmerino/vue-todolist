@@ -26,7 +26,12 @@
 				count: this.tasks.length + 1
 			};
 		},
-		props: ["tasks"],
+		props: {
+			tasks: {
+				type: Array,
+				required: true
+			}
+		},
 		methods: {
 			taskAddEmit() {
 				this.$emit("add", this.taskNew, this.count);
