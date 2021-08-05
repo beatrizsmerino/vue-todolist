@@ -5,6 +5,7 @@
 			<TaskList
 				:tasks="tasks"
 				@remove="taskRemove"
+				@status="taskChange"
 			/>
 			<TaskNew
 				:tasks="tasks"
@@ -73,6 +74,10 @@
 			},
 			taskRemove(index) {
 				this.tasks.splice(index, 1);
+			},
+			taskChange(index) {
+				const task = this.tasks[index];
+				task.status = !task.status;
 			},
 			taskGetLocalStorage() {
 				if (localStorage.getItem('tasks')) {
