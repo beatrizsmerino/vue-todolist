@@ -10,7 +10,7 @@
 				:key="item.id"
 				class="task-list__item"
 			>
-				<Task
+				<TaskPreview
 					:task="item"
 					:index="index"
 					@remove="taskRemoveEmit"
@@ -23,12 +23,12 @@
 
 
 <script>
-	import Task from './Task.vue'
+	import TaskPreview from './TaskPreview.vue'
 
 	export default {
 		name: 'TaskList',
 		components: {
-			Task
+			TaskPreview
 		},
 		props: {
 			tasks: {

@@ -23,7 +23,7 @@
 
 <script>
 	export default {
-		name: 'Task',
+		name: 'TaskPreview',
 		props: {
 			task: {
 				type: Object,
