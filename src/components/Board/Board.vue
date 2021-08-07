@@ -69,13 +69,13 @@
 			};
 		},
 		mounted() {
-			this.taskUpdateLocalStorage();
-			this.taskGetLocalStorage();
+			this.updateTaskListLocalStorage();
+			this.getTaskListLocalStorage();
 		},
 		watch: {
 			'task.list': {
 				handler() {
-					this.taskUpdateLocalStorage();
+					this.updateTaskListLocalStorage();
 				},
 				deep: true,
 			}
@@ -107,7 +107,7 @@
 				const task = this.task.list[index];
 				task.status = !task.status;
 			},
-			taskGetLocalStorage() {
+			getTaskListLocalStorage() {
 				if (localStorage.getItem('tasks')) {
 					try {
 						this.task.list = JSON.parse(localStorage.getItem('tasks'));
@@ -116,7 +116,7 @@
 					}
 				}
 			},
-			taskUpdateLocalStorage() {
+			updateTaskListLocalStorage() {
 				localStorage.setItem('tasks', JSON.stringify(this.task.list));
 			}
 		}
