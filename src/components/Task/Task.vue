@@ -52,6 +52,8 @@
 		align-items: center;
 		line-height: 1;
 		user-select: none;
+		border-radius: 0.5rem;
+		box-shadow: 0 0 0.3rem rgba($color-black, 0.4);
 
 		&:hover {
 			background-color: $color-ghost;

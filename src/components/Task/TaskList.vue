@@ -50,7 +50,7 @@
 
 <style lang="scss">
 	.task-list {
-		height: 13rem;
+		height: calc(5.05rem * 3);
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -62,9 +62,7 @@
 		}
 
 		&__item {
-			&:not(:last-child) {
-				margin-bottom: 0.5rem;
-			}
+			padding: 0.5rem;
 
 			/* Vue animation 'task-list' for the item transition */
 			&.task-list-enter-active,
