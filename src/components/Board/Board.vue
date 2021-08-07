@@ -23,12 +23,12 @@
 		<div class="board-content">
 			<TaskList
 				:task-list="task.list"
-				@remove="taskRemove"
-				@status="taskChange"
+				@task-remove="removeTask"
+				@task-done="changeTaskDone"
 			/>
 			<TaskNew
 				:task-list="task.list"
-				@add="taskAdd"
+				@task-add="addTask"
 			/>
 		</div>
 	</div>
@@ -52,17 +52,23 @@
 						{
 							id: 1,
 							name: "Do something awesome!",
-							status: false
+							status: {
+								done: false
+							}
 						},
 						{
 							id: 2,
 							name: "Buy toilet paper",
-							status: false
+							status: {
+								done: false
+							}
 						},
 						{
 							id: 3,
 							name: "Learn Vue",
-							status: false
+							status: {
+								done: false
+							}
 						}
 					]
 				},
@@ -85,27 +91,29 @@
 				return this.task.list.length;
 			},
 			getTotalTasksDone() {
-				return this.task.list.filter(task => task.status).length;
+				return this.task.list.filter(task => task.status.done).length;
 			}
 		},
 		methods: {
-			taskAdd(name, count) {
+			addTask(name, count) {
 				const nameFormatted = name.trim();
 
 				if (name) {
 					this.task.list.push({
 						id: count,
 						name: nameFormatted,
-						status: false
+						status: {
+							done: false
+						}
 					});
 				}
 			},
-			taskRemove(index) {
+			removeTask(index) {
 				this.task.list.splice(index, 1);
 			},
-			taskChange(index) {
+			changeTaskDone(index) {
 				const task = this.task.list[index];
-				task.status = !task.status;
+				task.status.done = !task.status.done;
 			},
 			getTaskListLocalStorage() {
 				if (localStorage.getItem('tasks')) {

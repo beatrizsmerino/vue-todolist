@@ -2,7 +2,7 @@
 	<div class="task-new">
 		<input
 			v-model="taskNew"
-			@keyup.enter="taskAddEmit()"
+			@keyup.enter="emitAddTask()"
 			class="task-new__input"
 			type="text"
 			placeholder="New task"
@@ -10,7 +10,7 @@
 		/>
 		<button
 			class="task-new__button-add"
-			@click="taskAddEmit()"
+			@click="emitAddTask()"
 		>
 			<font-awesome-icon icon="plus-circle" />
 		</button>
@@ -34,8 +34,8 @@
 			}
 		},
 		methods: {
-			taskAddEmit() {
-				this.$emit("add", this.taskNew, this.count);
+			emitAddTask() {
+				this.$emit("task-add", this.taskNew, this.count);
 				this.count++;
 				this.taskNew = ""
 			},

@@ -13,8 +13,8 @@
 				<TaskPreview
 					:task-item="item"
 					:task-index="index"
-					@remove="taskRemoveEmit"
-					@status="taskStatusEmit"
+					@task-remove="emitRemoveTask"
+					@task-done="emitTaskDone"
 				/>
 			</li>
 		</transition-group>
@@ -37,11 +37,11 @@
 			}
 		},
 		methods: {
-			taskRemoveEmit(index) {
-				this.$emit("remove", index);
+			emitRemoveTask(index) {
+				this.$emit("task-remove", index);
 			},
-			taskStatusEmit(index) {
-				this.$emit("status", index);
+			emitTaskDone(index) {
+				this.$emit("task-done", index);
 			}
 		}
 	};

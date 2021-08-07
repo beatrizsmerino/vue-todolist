@@ -1,10 +1,10 @@
 <template>
 	<div
 		class="task"
-		v-bind:class="{'is-done': taskItem.status}"
+		v-bind:class="{'is-done': taskItem.status.done}"
 	>
 		<div
-			@click="taskStatusEmit(taskIndex)"
+			@click="emitTaskDone(taskIndex)"
 			class="task__button-done"
 		>
 			<font-awesome-icon icon="check-circle" />
@@ -13,7 +13,7 @@
 			{{ taskItem.name }}
 		</span>
 		<div
-			@click="taskRemoveEmit(taskIndex)"
+			@click="emitRemoveTask(taskIndex)"
 			class="task__button-remove"
 		>
 			<font-awesome-icon icon="trash" />
@@ -35,11 +35,11 @@
 			}
 		},
 		methods: {
-			taskRemoveEmit(index) {
-				this.$emit("remove", index);
+			emitRemoveTask(index) {
+				this.$emit("task-remove", index);
 			},
-			taskStatusEmit(index) {
-				this.$emit("status", index);
+			emitTaskDone(index) {
+				this.$emit("task-done", index);
 			}
 		}
 	}
