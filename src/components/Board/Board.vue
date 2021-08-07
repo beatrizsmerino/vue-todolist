@@ -22,12 +22,12 @@
 		</div>
 		<div class="board-content">
 			<TaskList
-				:tasks="tasks"
+				:tasks="task.list"
 				@remove="taskRemove"
 				@status="taskChange"
 			/>
 			<TaskNew
-				:tasks="tasks"
+				:tasks="task.list"
 				@add="taskAdd"
 			/>
 		</div>
@@ -46,23 +46,26 @@
 		},
 		data() {
 			return {
-				tasks: [
-					{
-						id: 1,
-						name: "Do something awesome!",
-						status: false
-					},
-					{
-						id: 2,
-						name: "Buy toilet paper",
-						status: false
-					},
-					{
-						id: 3,
-						name: "Learn Vue",
-						status: false
-					}
-				],
+				task: {
+					total: 3,
+					list: [
+						{
+							id: 1,
+							name: "Do something awesome!",
+							status: false
+						},
+						{
+							id: 2,
+							name: "Buy toilet paper",
+							status: false
+						},
+						{
+							id: 3,
+							name: "Learn Vue",
+							status: false
+						}
+					]
+				},
 			};
 		},
 		mounted() {
@@ -70,7 +73,7 @@
 			this.taskGetLocalStorage();
 		},
 		watch: {
-			tasks: {
+			'task.list': {
 				handler() {
 					this.taskUpdateLocalStorage();
 				},
@@ -79,10 +82,10 @@
 		},
 		computed: {
 			getTotalTasks() {
-				return this.tasks.length;
+				return this.task.list.length;
 			},
 			getTotalTasksDone() {
-				return this.tasks.filter(task => task.status).length;
+				return this.task.list.filter(task => task.status).length;
 			}
 		},
 		methods: {
@@ -90,7 +93,7 @@
 				const nameFormatted = name.trim();
 
 				if (name) {
-					this.tasks.push({
+					this.task.list.push({
 						id: count,
 						name: nameFormatted,
 						status: false
@@ -98,23 +101,23 @@
 				}
 			},
 			taskRemove(index) {
-				this.tasks.splice(index, 1);
+				this.task.list.splice(index, 1);
 			},
 			taskChange(index) {
-				const task = this.tasks[index];
+				const task = this.task.list[index];
 				task.status = !task.status;
 			},
 			taskGetLocalStorage() {
 				if (localStorage.getItem('tasks')) {
 					try {
-						this.tasks = JSON.parse(localStorage.getItem('tasks'));
+						this.task.list = JSON.parse(localStorage.getItem('tasks'));
 					} catch (e) {
 						localStorage.removeItem('tasks');
 					}
 				}
 			},
 			taskUpdateLocalStorage() {
-				localStorage.setItem('tasks', JSON.stringify(this.tasks));
+				localStorage.setItem('tasks', JSON.stringify(this.task.list));
 			}
 		}
 	}
