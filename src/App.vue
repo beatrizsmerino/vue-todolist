@@ -50,6 +50,7 @@
 			};
 		},
 		mounted() {
+			this.taskUpdateLocalStorage();
 			this.taskGetLocalStorage();
 		},
 		watch: {
