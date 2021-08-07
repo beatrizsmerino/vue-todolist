@@ -57,7 +57,7 @@
 		list-style: none;
 
 		&__wrapper {
-			margin: 2.5rem;
+			margin: 2rem;
 			overflow-y: scroll;
 		}
 
