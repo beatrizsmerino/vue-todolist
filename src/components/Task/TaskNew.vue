@@ -6,6 +6,7 @@
 			class="task-new__input"
 			type="text"
 			placeholder="New task"
+			autofocus
 		/>
 		<button
 			class="task-new__button-add"
