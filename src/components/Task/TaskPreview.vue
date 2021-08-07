@@ -1,19 +1,19 @@
 <template>
 	<div
 		class="task"
-		v-bind:class="{'is-done': task.status}"
+		v-bind:class="{'is-done': taskItem.status}"
 	>
 		<div
-			@click="taskStatusEmit(index)"
+			@click="taskStatusEmit(taskIndex)"
 			class="task__button-done"
 		>
 			<font-awesome-icon icon="check-circle" />
 		</div>
 		<span class="task__name">
-			{{ task.name }}
+			{{ taskItem.name }}
 		</span>
 		<div
-			@click="taskRemoveEmit(index)"
+			@click="taskRemoveEmit(taskIndex)"
 			class="task__button-remove"
 		>
 			<font-awesome-icon icon="trash" />
@@ -25,11 +25,11 @@
 	export default {
 		name: 'TaskPreview',
 		props: {
-			task: {
+			taskItem: {
 				type: Object,
 				required: true
 			},
-			index: {
+			taskIndex: {
 				type: Number,
 				required: true
 			}

@@ -22,12 +22,12 @@
 		</div>
 		<div class="board-content">
 			<TaskList
-				:tasks="task.list"
+				:task-list="task.list"
 				@remove="taskRemove"
 				@status="taskChange"
 			/>
 			<TaskNew
-				:tasks="task.list"
+				:task-list="task.list"
 				@add="taskAdd"
 			/>
 		</div>

@@ -24,11 +24,11 @@
 		data() {
 			return {
 				taskNew: "",
-				count: this.tasks.length + 1
+				count: this.taskList.length + 1
 			};
 		},
 		props: {
-			tasks: {
+			taskList: {
 				type: Array,
 				required: true
 			}

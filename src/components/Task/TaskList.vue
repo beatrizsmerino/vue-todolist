@@ -6,13 +6,13 @@
 			tag="ul"
 		>
 			<li
-				v-for="(item, index) in tasks"
+				v-for="(item, index) in taskList"
 				:key="item.id"
 				class="task-list__item"
 			>
 				<TaskPreview
-					:task="item"
-					:index="index"
+					:task-item="item"
+					:task-index="index"
 					@remove="taskRemoveEmit"
 					@status="taskStatusEmit"
 				/>
@@ -31,7 +31,7 @@
 			TaskPreview
 		},
 		props: {
-			tasks: {
+			taskList: {
 				type: Array,
 				required: true
 			}
