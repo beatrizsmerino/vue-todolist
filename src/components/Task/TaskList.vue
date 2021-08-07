@@ -1,22 +1,24 @@
 <template>
-	<transition-group
-		class="task-list"
-		name="task-list"
-		tag="ul"
-	>
-		<li
-			v-for="(item, index) in tasks"
-			:key="item.id"
-			class="task-list__item"
+	<div class="task-list__wrapper">
+		<transition-group
+			class="task-list"
+			name="task-list"
+			tag="ul"
 		>
-			<Task
-				:task="item"
-				:index="index"
-				@remove="taskRemoveEmit"
-				@status="taskStatusEmit"
-			/>
-		</li>
-	</transition-group>
+			<li
+				v-for="(item, index) in tasks"
+				:key="item.id"
+				class="task-list__item"
+			>
+				<Task
+					:task="item"
+					:index="index"
+					@remove="taskRemoveEmit"
+					@status="taskStatusEmit"
+				/>
+			</li>
+		</transition-group>
+	</div>
 </template>
 
 
@@ -48,10 +50,16 @@
 
 <style lang="scss">
 	.task-list {
-		padding: 25px;
+		height: 130px;
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		list-style: none;
+
+		&__wrapper {
+			margin: 25px;
+			overflow-y: scroll;
+		}
 
 		&__item {
 			&:not(:last-child) {
