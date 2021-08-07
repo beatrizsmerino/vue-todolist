@@ -47,7 +47,7 @@
 
 <style lang="scss" scoped>
 	.task {
-		padding: 10px;
+		padding: 1rem;
 		display: flex;
 		align-items: center;
 		line-height: 1;
@@ -82,12 +82,13 @@
 
 		&__name {
 			position: relative;
+			font-size: 1.5rem;
 			transition: all 0.2s ease-in-out;
 
 			&:before {
 				transition: all 0.2s ease-in-out;
 				content: "";
-				height: 1px;
+				height: 0.1rem;
 				background-color: $color-silver;
 				width: 0%;
 				top: 50%;
@@ -97,13 +98,13 @@
 		}
 
 		&__button-done {
-			width: 20px;
-			height: 20px;
-			margin-right: 15px;
+			width: 2rem;
+			height: 2rem;
+			margin-right: 1.5rem;
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			font-size: 1.5rem;
+			font-size: 2.4rem;
 			color: $color-success;
 			opacity: 1;
 			transition: all 0.2s ease-in-out;
@@ -117,11 +118,11 @@
 
 		&__button-remove {
 			margin-left: auto;
-			padding-left: 15px;
+			padding-left: 1.5rem;
 			opacity: 0;
 			color: $color-error;
 			transition: all 0.2s ease-in-out;
-			font-size: 1.2rem;
+			font-size: 2rem;
 
 			&:hover {
 				cursor: pointer;

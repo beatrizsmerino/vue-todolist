@@ -23,9 +23,9 @@
 		font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
 			"Lucida Sans", Arial, sans-serif;
 		color: $color-white;
-		margin-bottom: 20px;
+		margin-bottom: 2rem;
 		text-align: center;
-		font-size: 4rem;
+		font-size: 6.4rem;
 		font-weight: normal;
 	}
 </style>

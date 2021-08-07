@@ -47,7 +47,7 @@
 <style lang="scss">
 	.task-new {
 		background-color: rgba($color-black, 0.05);
-		padding: 15px;
+		padding: 1.5rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -55,11 +55,11 @@
 		&__input {
 			border: none;
 			outline: none;
-			margin-right: 10px;
-			padding: 0.8rem 1rem;
+			margin-right: 1rem;
+			padding: 1.2rem 1.6rem;
 			flex: 1;
-			font-size: 1rem;
-			border-left: 5px solid $color-brand-2;
+			font-size: 1.6rem;
+			border-left: 0.5rem solid $color-brand-2;
 			font-family: "Roboto", sans-serif;
 		}
 
@@ -67,12 +67,12 @@
 			outline: none;
 			border: none;
 			background-color: transparent;
-			width: 35px;
-			height: 35px;
+			width: 3.5rem;
+			height: 3.5rem;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			font-size: 2.3rem;
+			font-size: 3.6rem;
 			color: $color-brand-2;
 			transition: all 0.15s ease-in-out;
 

@@ -50,20 +50,20 @@
 
 <style lang="scss">
 	.task-list {
-		height: 130px;
+		height: 13rem;
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		list-style: none;
 
 		&__wrapper {
-			margin: 25px;
+			margin: 2.5rem;
 			overflow-y: scroll;
 		}
 
 		&__item {
 			&:not(:last-child) {
-				margin-bottom: 5px;
+				margin-bottom: 0.5rem;
 			}
 
 			/* Vue animation 'task-list' for the item transition */

@@ -108,6 +108,7 @@
 	html {
 		width: 100%;
 		height: 100%;
+		font-size: 10px;
 	}
 
 	body {
@@ -117,7 +118,7 @@
 		justify-content: center;
 		flex-direction: column;
 		font-family: "Roboto", sans-serif;
-		font-size: 15px;
+		font-size: 1rem;
 		background: linear-gradient(
 			to bottom,
 			$color-brand-1 0%,
@@ -139,9 +140,9 @@
 
 	.todo-list {
 		width: 80%;
-		max-width: 500px;
+		max-width: 50rem;
 		margin: 0 auto;
-		box-shadow: -2px 2px 2px -1px rgba($color-black, 0.15);
+		box-shadow: -0.2rem 0.2rem 0.2rem -0.1rem rgba($color-black, 0.15);
 		background-color: $color-white;
 		overflow: hidden;
 	}
