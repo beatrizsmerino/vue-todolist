@@ -28,9 +28,12 @@
 <style lang="scss">
 	// @import url("https://fonts.googleapis.com/css?family=Kristi|Roboto");
 
-	* {
+	*,
+	*:before,
+	*:after {
 		padding: 0;
 		margin: 0;
+		box-sizing: border-box;
 	}
 
 	html {
