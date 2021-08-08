@@ -1,5 +1,8 @@
 <template>
-	<div class="task-list__wrapper">
+	<div
+		ref="taskListWrapper"
+		class="task-list__wrapper"
+	>
 		<transition-group
 			class="task-list"
 			name="task-list"
@@ -34,15 +37,38 @@
 			taskList: {
 				type: Array,
 				required: true
+			},
+			taskTotal: {
+				type: Number,
+				required: true
+			}
+		},
+		watch: {
+			'taskList': {
+				handler() {
+					if (this.taskList.length > this.taskTotal) {
+						this.scrollToBottom();
+					}
+				},
+				deep: true,
 			}
 		},
 		methods: {
+			scrollToBottom() {
+				this.$nextTick(() => {
+					const element = this.$refs.taskListWrapper;
+					element.scrollTop = element.scrollHeight;
+				});
+			},
 			emitRemoveTask(index) {
 				this.$emit("task-remove", index);
 			},
 			emitTaskDone(index) {
 				this.$emit("task-done", index);
 			}
+		},
+		mounted() {
+			this.scrollToBottom();
 		}
 	};
 </script>
@@ -50,13 +76,13 @@
 
 <style lang="scss">
 	.task-list {
-		height: calc(5.05rem * 3);
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		list-style: none;
 
 		&__wrapper {
+			height: calc(5.05rem * 3);
 			margin: 2rem;
 			overflow-y: scroll;
 		}

@@ -21,17 +21,17 @@
 <script>
 	export default {
 		name: 'TaskNew',
-		data() {
-			return {
-				taskNew: "",
-				count: this.taskList.length + 1
-			};
-		},
 		props: {
 			taskList: {
 				type: Array,
 				required: true
 			}
+		},
+		data() {
+			return {
+				taskNew: "",
+				count: this.taskList.length + 1
+			};
 		},
 		methods: {
 			emitAddTask() {

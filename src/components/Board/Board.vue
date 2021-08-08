@@ -23,6 +23,7 @@
 		<div class="board-content">
 			<TaskList
 				:task-list="task.list"
+				:task-total="task.total"
 				@task-remove="removeTask"
 				@task-done="changeTaskDone"
 			/>
