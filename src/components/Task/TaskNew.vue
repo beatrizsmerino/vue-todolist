@@ -41,12 +41,12 @@
 			cleanTaskNew() {
 				this.taskNew.name = "";
 			},
-			updateTaskListTotal() {
+			incrementTaskListTotal() {
 				this.taskListNew.total++;
 			},
 			emitAddTask() {
 				this.$emit("task-add", this.taskNew.name, this.taskListNew.total);
-				this.updateTaskListTotal();
+				this.incrementTaskListTotal();
 				this.cleanTaskNew();
 			},
 		}
