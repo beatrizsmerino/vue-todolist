@@ -37,20 +37,6 @@
 			taskList: {
 				type: Array,
 				required: true
-			},
-			taskTotal: {
-				type: Number,
-				required: true
-			}
-		},
-		watch: {
-			'taskList': {
-				handler() {
-					if (this.taskList.length > this.taskTotal) {
-						this.scrollToBottom();
-					}
-				},
-				deep: true,
 			}
 		},
 		methods: {

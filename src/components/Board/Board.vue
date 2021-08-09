@@ -22,8 +22,8 @@
 		</div>
 		<div class="board-content">
 			<TaskList
+				ref="taskList"
 				:task-list="task.list"
-				:task-total="task.total"
 				@task-remove="removeTask"
 				@task-done="changeTaskDone"
 			/>
@@ -107,6 +107,8 @@
 							done: false
 						}
 					});
+
+					this.$refs.taskList.scrollToBottom();
 				}
 			},
 			removeTask(index) {
