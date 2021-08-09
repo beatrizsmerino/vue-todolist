@@ -2,6 +2,11 @@
 	<div id="app">
 		<PageTitle :title="title" />
 		<Board />
+		<Message class="message--rounded-one-line">
+			<p>
+				This application uses the browser's Local Storage to store data
+			</p>
+		</Message>
 	</div>
 </template>
 
@@ -9,12 +14,14 @@
 <script>
 	import PageTitle from "./components/Page/PageTitle.vue";
 	import Board from "./components/Board/Board.vue";
+	import Message from "./components/UI/Message.vue";
 
 
 	export default {
 		components: {
 			PageTitle,
-			Board
+			Board,
+			Message
 		},
 		data() {
 			return {

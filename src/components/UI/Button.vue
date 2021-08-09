@@ -55,6 +55,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		white-space: nowrap;
 		text-transform: capitalize;
 		font-size: 1.6rem;
 		font-weight: 400;
@@ -119,15 +120,6 @@
 				}
 			}
 
-			&-2 {
-				color: $color-white;
-				background-color: $color-brand-2;
-
-				&:hover {
-					background-color: mix($color-black, $color-brand-2, 15%);
-				}
-			}
-
 			&-error {
 				color: $color-white;
 				background-color: $color-error;
@@ -141,6 +133,7 @@
 		&--line-color {
 			color: $color-brand-1;
 			border-color: $color-brand-1;
+
 			::v-deep {
 				.icon {
 					&__use {
@@ -153,6 +146,7 @@
 				color: $color-white;
 				border-color: $color-brand-1;
 				background-color: $color-brand-1;
+
 				::v-deep {
 					.icon {
 						&__use {
@@ -165,6 +159,7 @@
 			&-1 {
 				color: $color-brand-1;
 				border-color: $color-brand-1;
+
 				::v-deep {
 					.icon {
 						&__use {
@@ -177,31 +172,7 @@
 					color: $color-white;
 					border-color: $color-brand-1;
 					background-color: $color-brand-1;
-					::v-deep {
-						.icon {
-							&__use {
-								fill: $color-white;
-							}
-						}
-					}
-				}
-			}
 
-			&-2 {
-				color: $color-brand-2;
-				border-color: $color-brand-2;
-				::v-deep {
-					.icon {
-						&__use {
-							fill: $color-brand-2;
-						}
-					}
-				}
-
-				&:hover {
-					color: $color-white;
-					border-color: $color-brand-2;
-					background-color: $color-brand-2;
 					::v-deep {
 						.icon {
 							&__use {
@@ -286,6 +257,7 @@
 		&--line-silver {
 			color: $color-silver;
 			border-color: $color-silver;
+
 			::v-deep {
 				.icon {
 					&__use {
@@ -297,6 +269,7 @@
 			&:hover {
 				color: $color-white;
 				background-color: $color-black;
+
 				::v-deep {
 					.icon {
 						&__use {
@@ -336,6 +309,7 @@
 		&--bg-black {
 			color: $color-white;
 			background-color: $color-black;
+
 			::v-deep {
 				.icon {
 					&__use {
@@ -352,6 +326,7 @@
 		&--line-black {
 			color: $color-black;
 			border-color: $color-black;
+
 			::v-deep {
 				.icon {
 					&__use {
@@ -363,6 +338,7 @@
 			&:hover {
 				color: $color-white;
 				background-color: $color-black;
+
 				::v-deep {
 					.icon {
 						&__use {
