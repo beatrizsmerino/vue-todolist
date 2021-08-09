@@ -7,10 +7,10 @@
 # Vue Todolist
 ### Vue Todolist is a list and task management application, a very typical productivity tool. 
 
-![Vue Todolist](https://github.com/beatrizsmerino/vue-todolist/blob/master/README/images/vue-todolist.png)
+![Vue Todolist](README/images/vue-todolist.png)
 
 ## Development interface
-![Vue logo](https://github.com/beatrizsmerino/vue-todolist/blob/master/README/images/vue-js-2.jpg)
+![Vue logo](README/images/vue-js-2.jpg)
 
 Is developed with **[vue.js](https://vuejs.org/)** 2.6.10 a Javascript framework. This project use [Vue Cli](https://cli.vuejs.org/) and has dependencies as webpack, google fonts and font awesome icon.
 
