@@ -7,7 +7,7 @@
 			@click="emitTaskDone(taskIndex)"
 			class="task__button-done"
 		>
-			<font-awesome-icon icon="check-circle" />
+			<FontAwesomeIcon icon="check-circle" />
 		</div>
 		<span class="task__name">
 			{{ taskItem.name }}
@@ -16,7 +16,7 @@
 			@click="emitRemoveTask(taskIndex)"
 			class="task__button-remove"
 		>
-			<font-awesome-icon icon="trash" />
+			<FontAwesomeIcon icon="trash" />
 		</div>
 	</div>
 </template>

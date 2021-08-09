@@ -5,7 +5,7 @@ import { faTrash, faCheckCircle, faPlusCircle } from '@fortawesome/free-solid-sv
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(faTrash, faCheckCircle, faPlusCircle)
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component('FontAwesomeIcon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 

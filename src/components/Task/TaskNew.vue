@@ -12,7 +12,7 @@
 			class="task-new__button-add"
 			@click="emitAddTask()"
 		>
-			<font-awesome-icon icon="plus-circle" />
+			<FontAwesomeIcon icon="plus-circle" />
 		</button>
 	</div>
 </template>
