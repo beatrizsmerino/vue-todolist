@@ -1,0 +1,101 @@
+<template>
+	<div
+		ref="taskListWrapper"
+		class="task-list__wrapper"
+	>
+		<transition-group
+			class="task-list"
+			name="task-list"
+			tag="ul"
+		>
+			<li
+				v-for="(item, index) in taskList"
+				:key="item.id"
+				class="task-list__item"
+			>
+				<TaskPreview
+					:task-item="item"
+					:task-index="index"
+					@task-remove="emitRemoveTask"
+					@task-done="emitTaskDone"
+				/>
+			</li>
+		</transition-group>
+	</div>
+</template>
+
+
+<script>
+	import TaskPreview from './TaskPreview.vue'
+
+	export default {
+		name: 'TaskList',
+		components: {
+			TaskPreview
+		},
+		props: {
+			taskList: {
+				type: Array,
+				required: true
+			}
+		},
+		methods: {
+			scrollToBottom() {
+				this.$nextTick(() => {
+					const element = this.$refs.taskListWrapper;
+					element.scrollTop = element.scrollHeight;
+				});
+			},
+			emitRemoveTask(index) {
+				this.$emit("task-remove", index);
+			},
+			emitTaskDone(index) {
+				this.$emit("task-done", index);
+			}
+		},
+		mounted() {
+			this.scrollToBottom();
+		}
+	};
+</script>
+
+
+<style lang="scss">
+	.task-list {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+
+		&__wrapper {
+			height: calc(5.05rem * 3);
+			margin: 2rem;
+			overflow-y: scroll;
+		}
+
+		&__item {
+			padding: 0.5rem;
+
+			/* Vue animation 'task-list' for the item transition */
+			&.task-list-enter-active,
+			&.task-list-leave-active {
+				transition: opacity 0.3s, transform 0.3s;
+				transform-origin: left center;
+			}
+
+			&.task-list-enter,
+			&.task-list-leave-to {
+				opacity: 0;
+				transform: scale(0.5);
+			}
+
+			&.task-list-leave-active {
+				position: absolute;
+			}
+
+			&.task-list-move {
+				transition: transform 0.4s linear 0.3;
+			}
+		}
+	}
+</style>
