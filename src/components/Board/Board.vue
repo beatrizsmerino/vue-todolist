@@ -14,6 +14,35 @@
 						:tag-value="getTotalTasksDone"
 					/>
 				</li>
+				<li
+					v-if="getTotalTasksDone !== 0"
+					class="board-info__item"
+				>
+					<Button
+						class="button--bg-color-error button--small"
+						@button-click="removeTaskListDone()"
+					>
+						<span class="button__icon">
+							<FontAwesomeIcon icon="trash" />
+						</span>
+						<span class="button__text">
+							tasks done
+						</span>
+					</Button>
+				</li>
+				<li class="board-info__item">
+					<Button
+						class="button--bg-color-error button--small"
+						@button-click="removeTaskList()"
+					>
+						<span class="button__icon">
+							<FontAwesomeIcon icon="trash" />
+						</span>
+						<span class="button__text">
+							tasks
+						</span>
+					</Button>
+				</li>
 			</ul>
 		</div>
 		<div class="board-content">
@@ -32,6 +61,7 @@
 </template>
 
 <script>
+	import Button from "../UI/Button.vue";
 	import Tag from "../UI/Tag.vue";
 	import TaskList from "../Task/TaskList.vue";
 	import TaskNew from "../Task/TaskNew.vue";
@@ -39,6 +69,7 @@
 	export default {
 		name: 'Board',
 		components: {
+			Button,
 			Tag,
 			TaskList,
 			TaskNew
@@ -116,6 +147,12 @@
 				const task = this.task.list[index];
 				task.status.done = !task.status.done;
 			},
+			removeTaskListDone() {
+				this.task.list = this.task.list.filter(task => !task.status.done);
+			},
+			removeTaskList() {
+				this.task.list = [];
+			},
 			getTaskListLocalStorage() {
 				if (localStorage.getItem('tasks')) {
 					try {
@@ -159,6 +196,7 @@
 			width: 100%;
 			display: flex;
 			justify-content: flex-end;
+			align-items: center;
 			list-style: none;
 		}
 
