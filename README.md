@@ -8,7 +8,7 @@
 
 ### `vue-todolist` is an app task management application, a very typical productivity tool.
 
-![Vue Todolist](README/images/vue-todolist.png)
+![Vue Todolist](README/images/vue-todolist.jpg)
 
 ## Development interface
 
