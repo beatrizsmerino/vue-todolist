@@ -25,6 +25,7 @@
 		color: $color-white;
 		margin-bottom: 2rem;
 		text-align: center;
+		line-height: 100%;
 		font-size: 6.4rem;
 		font-weight: normal;
 	}

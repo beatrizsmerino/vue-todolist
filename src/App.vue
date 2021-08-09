@@ -40,9 +40,14 @@
 		width: 100%;
 		height: 100%;
 		font-size: 10px;
+
+		@media screen and (max-height: 450px) {
+			height: inherit;
+		}
 	}
 
 	body {
+		padding: 5rem 3rem;
 		height: 100%;
 		display: flex;
 		align-items: center;
@@ -55,6 +60,10 @@
 			$color-brand-1 0%,
 			$color-brand-2 100%
 		);
+
+		@media screen and (max-height: 450px) {
+			height: inherit;
+		}
 	}
 
 	::placeholder {
