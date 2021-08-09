@@ -105,7 +105,6 @@
 			};
 		},
 		mounted() {
-			this.updateTaskListLocalStorage();
 			this.getTaskListLocalStorage();
 		},
 		watch: {
