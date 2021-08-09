@@ -3,20 +3,16 @@
 		<div class="board-info">
 			<ul class="board-info__list">
 				<li class="board-info__item">
-					<span class="board-info__data-name">
-						Tasks
-					</span>
-					<span class="board-info__data-value board-info__data-value--number">
-						{{ getTotalTasks }}
-					</span>
+					<Tag
+						tag-name="Tasks"
+						:tag-value="getTotalTasks"
+					/>
 				</li>
 				<li class="board-info__item">
-					<span class="board-info__data-name">
-						Done
-					</span>
-					<span class="board-info__data-value board-info__data-value--number">
-						{{ getTotalTasksDone }}
-					</span>
+					<Tag
+						tag-name="Done"
+						:tag-value="getTotalTasksDone"
+					/>
 				</li>
 			</ul>
 		</div>
@@ -36,12 +32,14 @@
 </template>
 
 <script>
+	import Tag from "../UI/Tag.vue";
 	import TaskList from "../Task/TaskList.vue";
 	import TaskNew from "../Task/TaskNew.vue";
 
 	export default {
 		name: 'Board',
 		components: {
+			Tag,
 			TaskList,
 			TaskNew
 		},
@@ -154,7 +152,6 @@
 		position: absolute;
 		top: 0;
 		left: 0;
-		list-style: none;
 		font-size: 1.4rem;
 		background-color: $color-white;
 
@@ -162,33 +159,12 @@
 			width: 100%;
 			display: flex;
 			justify-content: flex-end;
+			list-style: none;
 		}
 
 		&__item {
-			display: flex;
-			align-items: center;
-
 			&:not(:last-child) {
-				margin-right: 2rem;
-			}
-		}
-
-		&__data-name {
-			margin-right: 0.5rem;
-			color: $color-brand-2;
-			font-weight: 500;
-		}
-
-		&__data-value {
-			&--number {
-				width: 2rem;
-				height: 2rem;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				color: $color-white;
-				border-radius: 50%;
-				background-color: $color-brand-2;
+				margin-right: 1rem;
 			}
 		}
 	}
