@@ -96,13 +96,13 @@
 			}
 		},
 		methods: {
-			addTask(name, count) {
-				const nameFormatted = name.trim();
+			addTask(taskName, taskTotal) {
+				const taskNameFormatted = taskName.trim();
 
-				if (name) {
+				if (taskNameFormatted) {
 					this.task.list.push({
-						id: count,
-						name: nameFormatted,
+						id: taskTotal,
+						name: taskNameFormatted,
 						status: {
 							done: false
 						}

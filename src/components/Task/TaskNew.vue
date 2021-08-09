@@ -1,7 +1,7 @@
 <template>
 	<div class="task-new">
 		<input
-			v-model="taskNew"
+			v-model="taskNew.name"
 			@keyup.enter="emitAddTask()"
 			class="task-new__input"
 			type="text"
@@ -29,15 +29,25 @@
 		},
 		data() {
 			return {
-				taskNew: "",
-				count: this.taskList.length + 1
+				taskNew: {
+					name: ''
+				},
+				taskListNew: {
+					total: this.taskList.length + 1
+				}
 			};
 		},
 		methods: {
+			cleanTaskNew() {
+				this.taskNew.name = "";
+			},
+			updateTaskListTotal() {
+				this.taskListNew.total++;
+			},
 			emitAddTask() {
-				this.$emit("task-add", this.taskNew, this.count);
-				this.count++;
-				this.taskNew = ""
+				this.$emit("task-add", this.taskNew.name, this.taskListNew.total);
+				this.updateTaskListTotal();
+				this.cleanTaskNew();
 			},
 		}
 	};
