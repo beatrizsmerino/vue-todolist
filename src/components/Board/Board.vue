@@ -159,6 +159,8 @@
 					} catch (e) {
 						localStorage.removeItem('tasks');
 					}
+				} else {
+					this.updateTaskListLocalStorage();
 				}
 			},
 			updateTaskListLocalStorage() {
