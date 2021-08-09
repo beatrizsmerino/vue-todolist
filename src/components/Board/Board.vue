@@ -10,7 +10,7 @@
 				</li>
 				<li class="board-info__item">
 					<Tag
-						tag-name="Done"
+						tag-name="Tasks Done"
 						:tag-value="getTotalTasksDone"
 					/>
 				</li>
