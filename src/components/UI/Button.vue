@@ -116,11 +116,29 @@
 			}
 
 			&-1 {
-				color: $color-white;
+				color: $color-black;
 				background-color: $color-brand-1;
 
 				&:hover {
 					background-color: mix($color-black, $color-brand-1, 15%);
+				}
+			}
+
+			&-2 {
+				color: $color-white;
+				background-color: $color-brand-2;
+
+				&:hover {
+					background-color: mix($color-black, $color-brand-2, 15%);
+				}
+			}
+
+			&-3 {
+				color: $color-white;
+				background-color: $color-brand-3;
+
+				&:hover {
+					background-color: mix($color-black, $color-brand-3, 15%);
 				}
 			}
 
@@ -130,6 +148,15 @@
 
 				&:hover {
 					background-color: mix($color-black, $color-error, 15%);
+				}
+			}
+
+			&-success {
+				color: $color-white;
+				background-color: $color-success;
+
+				&:hover {
+					background-color: mix($color-black, $color-success, 15%);
 				}
 			}
 		}
@@ -152,6 +179,50 @@
 					color: $color-white;
 					border-color: $color-brand-1;
 					background-color: $color-brand-1;
+				}
+			}
+
+			&-2 {
+				color: $color-brand-2;
+				border-color: $color-brand-2;
+
+				&:hover {
+					color: $color-white;
+					border-color: $color-brand-2;
+					background-color: $color-brand-2;
+				}
+			}
+
+			&-3 {
+				color: $color-brand-3;
+				border-color: $color-brand-3;
+
+				&:hover {
+					color: $color-white;
+					border-color: $color-brand-3;
+					background-color: $color-brand-3;
+				}
+			}
+
+			&-error {
+				color: $color-error;
+				border-color: $color-error;
+
+				&:hover {
+					color: $color-white;
+					border-color: $color-error;
+					background-color: $color-error;
+				}
+			}
+
+			&-success {
+				color: $color-success;
+				border-color: $color-success;
+
+				&:hover {
+					color: $color-white;
+					border-color: $color-success;
+					background-color: $color-success;
 				}
 			}
 		}
@@ -177,41 +248,13 @@
 			}
 		}
 
-		&--bg-silver {
-			color: $color-white;
-			background-color: $color-silver;
-
-			&:hover {
-				background-color: $color-silver;
-			}
-		}
-
-		&--line-silver {
-			color: $color-silver;
-			border-color: $color-silver;
-
-			&:hover {
-				color: $color-white;
-				background-color: $color-black;
-			}
-		}
-
-		&--line-gray {
-			color: $color-gray;
-			border-color: $color-gray;
-
-			&:hover {
-				color: $color-gray;
-				background-color: $color-light;
-			}
-		}
-
 		&--bg-black {
 			color: $color-white;
 			background-color: $color-black;
 
 			&:hover {
-				background-color: $color-dark;
+				color: $color-black;
+				background-color: $color-white;
 			}
 		}
 
