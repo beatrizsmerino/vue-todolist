@@ -80,6 +80,10 @@
 			font-size: 1.6rem;
 			border-left: 0.5rem solid $color-brand-3;
 			font-family: "Roboto", sans-serif;
+
+			&::placeholder {
+				color: $color-gray;
+			}
 		}
 
 		&__button-add {

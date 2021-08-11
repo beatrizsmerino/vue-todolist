@@ -87,10 +87,6 @@
 		}
 	}
 
-	::placeholder {
-		color: rgba($color-black, 0.3);
-	}
-
 	#app {
 		width: 100%;
 	}
