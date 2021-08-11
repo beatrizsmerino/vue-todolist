@@ -1,54 +1,11 @@
 <template>
 	<div class="dashboard">
-		<div class="dashboard-info">
-			<ul class="dashboard-info__list">
-				<li class="dashboard-info__item">
-					<Tag
-						tag-name="Tasks"
-						:tag-value="getTotalTasks"
-					/>
-				</li>
-				<li class="dashboard-info__item">
-					<Tag
-						tag-name="Tasks Done"
-						:tag-value="getTotalTasksDone"
-					/>
-				</li>
-				<li
-					v-if="getTotalTasksDone !== 0"
-					class="dashboard-info__item"
-				>
-					<Button
-						class="button--bg-color-error button--small"
-						@button-click="removeTaskListDone()"
-					>
-						<span class="button__icon">
-							<i class="icon">
-								<FontAwesomeIcon icon="trash" />
-							</i>
-						</span>
-						<span class="button__text">
-							tasks done
-						</span>
-					</Button>
-				</li>
-				<li class="dashboard-info__item">
-					<Button
-						class="button--bg-color-error button--small"
-						@button-click="removeTaskList()"
-					>
-						<span class="button__icon">
-							<i class="icon">
-								<FontAwesomeIcon icon="trash" />
-							</i>
-						</span>
-						<span class="button__text">
-							tasks
-						</span>
-					</Button>
-				</li>
-			</ul>
-		</div>
+		<DashboardInfo
+			:total-task-list="getTotalTasks"
+			:total-task-list-done="getTotalTasksDone"
+			@task-list-remove="removeTaskList()"
+			@task-list-done-remove="removeTaskListDone()"
+		/>
 		<div class="dashboard-content">
 			<TaskList
 				ref="taskList"
@@ -65,16 +22,14 @@
 </template>
 
 <script>
-	import Button from '@/components/UI/Button.vue'
-	import Tag from "@/components/UI/Tag.vue";
+	import DashboardInfo from "@/components/Dashboard/DashboardInfo.vue";
 	import TaskList from "@/components/Task/TaskList.vue";
 	import TaskNew from "@/components/Task/TaskNew.vue";
 
 	export default {
 		name: 'Dashboard',
 		components: {
-			Button,
-			Tag,
+			DashboardInfo,
 			TaskList,
 			TaskNew
 		},
@@ -184,32 +139,6 @@
 		box-shadow: -0.2rem 0.2rem 0.2rem -0.1rem rgba($color-black, 0.15);
 		background-color: $color-white;
 		overflow: hidden;
-	}
-
-	.dashboard-info {
-		width: 100%;
-		padding: 1rem 1.5rem;
-		display: flex;
-		justify-content: flex-end;
-		position: absolute;
-		top: 0;
-		left: 0;
-		font-size: 1.4rem;
-		background-color: $color-white;
-
-		&__list {
-			width: 100%;
-			display: flex;
-			justify-content: flex-end;
-			align-items: center;
-			list-style: none;
-		}
-
-		&__item {
-			&:not(:last-child) {
-				margin-right: 1rem;
-			}
-		}
 	}
 
 	.dashboard-content {
