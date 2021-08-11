@@ -78,18 +78,18 @@
 			padding: 1.2rem 1.6rem;
 			flex: 1;
 			font-size: 1.6rem;
-			border-left: 0.5rem solid $color-brand-2;
+			border-left: 0.5rem solid $color-brand-3;
 			font-family: "Roboto", sans-serif;
 		}
 
 		&__button-add {
 			width: 3.5rem;
 			height: 3.5rem;
-			color: $color-brand-2;
+			color: $color-brand-3;
 			font-size: 3.6rem;
 
 			&:hover {
-				color: mix($color-black, $color-brand-2, 20%);
+				color: mix($color-black, $color-brand-3, 20%);
 			}
 		}
 	}

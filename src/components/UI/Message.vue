@@ -59,7 +59,7 @@
 		right: 3rem;
 		bottom: 3rem;
 		z-index: 999;
-		background-color: $color-brand-3;
+		background-color: $color-brand-4;
 		box-shadow: 0 0.1rem 0.4rem 0.1rem rgba($color-black, 0.6);
 
 		@media (max-width: 500px) {
