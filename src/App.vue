@@ -56,6 +56,7 @@
 	body {
 		padding: 5rem 3rem;
 		height: 100%;
+		min-height: 100vh;
 		position: relative;
 		display: flex;
 		align-items: center;
