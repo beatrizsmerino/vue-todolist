@@ -13,9 +13,11 @@
 				</i>
 			</span>
 		</Button>
-		<p class="task-preview__name">
-			{{ taskItem.name }}
-		</p>
+		<div class="task-preview__name">
+			<p>
+				{{ taskItem.name }}
+			</p>
+		</div>
 		<Button
 			class="task-preview__button-remove button--icon"
 			@button-click="emitRemoveTask(taskIndex)"
@@ -84,8 +86,10 @@
 				&__name {
 					color: $color-silver;
 
-					&:before {
-						width: 100%;
+					p {
+						&:before {
+							width: 100%;
+						}
 					}
 				}
 
@@ -96,23 +100,28 @@
 		}
 
 		&__name {
-			width: calc(100% - 10rem);
-			position: relative;
+			max-width: calc(100% - 10rem);
 			font-size: 1.5rem;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
 			transition: all 0.2s ease-in-out;
 
-			&:before {
-				content: "";
-				width: 0%;
-				height: 0.1rem;
-				position: absolute;
-				top: 50%;
-				left: 0;
-				background-color: $color-silver;
-				transition: all 0.2s ease-in-out;
+			p {
+				width: 100%;
+				position: relative;
+				display: inline-block;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+
+				&:before {
+					content: "";
+					width: 0%;
+					height: 0.1rem;
+					position: absolute;
+					top: 50%;
+					left: 0;
+					background-color: $color-silver;
+					transition: all 0.2s ease-in-out;
+				}
 			}
 		}
 
