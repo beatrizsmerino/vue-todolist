@@ -71,7 +71,7 @@
 		&:hover {
 			background-color: $color-ghost;
 
-			.task {
+			.task-preview {
 				&__button-remove {
 					opacity: 1;
 					cursor: pointer;
@@ -80,7 +80,7 @@
 		}
 
 		&.is-done {
-			.task {
+			.task-preview {
 				&__name {
 					color: $color-silver;
 
@@ -96,19 +96,23 @@
 		}
 
 		&__name {
+			width: calc(100% - 10rem);
 			position: relative;
 			font-size: 1.5rem;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 			transition: all 0.2s ease-in-out;
 
 			&:before {
-				transition: all 0.2s ease-in-out;
 				content: "";
-				height: 0.1rem;
-				background-color: $color-silver;
 				width: 0%;
-				top: 50%;
+				height: 0.1rem;
 				position: absolute;
+				top: 50%;
 				left: 0;
+				background-color: $color-silver;
+				transition: all 0.2s ease-in-out;
 			}
 		}
 
