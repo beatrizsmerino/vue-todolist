@@ -129,5 +129,9 @@
 		box-shadow: -0.2rem 0.2rem 0.2rem -0.1rem rgba($color-black, 0.15);
 		background-color: $color-white;
 		overflow: hidden;
+
+		@media (max-width: 600px) {
+			width: 100%;
+		}
 	}
 </style>
