@@ -26,7 +26,7 @@
 
 
 <script>
-	import TaskPreview from './TaskPreview.vue'
+	import TaskPreview from '@/components/Task/TaskPreview.vue'
 
 	export default {
 		name: 'TaskList',

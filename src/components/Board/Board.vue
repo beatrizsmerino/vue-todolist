@@ -61,10 +61,10 @@
 </template>
 
 <script>
-	import Button from "../UI/Button.vue";
-	import Tag from "../UI/Tag.vue";
-	import TaskList from "../Task/TaskList.vue";
-	import TaskNew from "../Task/TaskNew.vue";
+	import Button from '@/components/UI/Button.vue'
+	import Tag from "@/components/UI/Tag.vue";
+	import TaskList from "@/components/Task/TaskList.vue";
+	import TaskNew from "@/components/Task/TaskNew.vue";
 
 	export default {
 		name: 'Board',

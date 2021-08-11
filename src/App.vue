@@ -12,9 +12,9 @@
 
 
 <script>
-	import PageTitle from "./components/Page/PageTitle.vue";
-	import Board from "./components/Board/Board.vue";
-	import Message from "./components/UI/Message.vue";
+	import PageTitle from "@/components/Page/PageTitle.vue";
+	import Board from "@/components/Board/Board.vue";
+	import Message from "@/components/UI/Message.vue";
 
 
 	export default {
