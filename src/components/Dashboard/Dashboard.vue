@@ -6,32 +6,25 @@
 			@task-list-remove="removeTaskList()"
 			@task-list-done-remove="removeTaskListDone()"
 		/>
-		<div class="dashboard-content">
-			<TaskList
-				ref="taskList"
-				:task-list="task.list"
-				@task-remove="removeTask"
-				@task-done="changeTaskDone"
-			/>
-			<TaskNew
-				:task-list="task.list"
-				@task-add="addTask"
-			/>
-		</div>
+		<DashboardContent
+			:task-list="task.list"
+			@task-remove="removeTask"
+			@task-done="changeTaskDone"
+			@task-add="addTask"
+		/>
 	</div>
 </template>
 
 <script>
 	import DashboardInfo from "@/components/Dashboard/DashboardInfo.vue";
-	import TaskList from "@/components/Task/TaskList.vue";
-	import TaskNew from "@/components/Task/TaskNew.vue";
+	import DashboardContent from "@/components/Dashboard/DashboardContent.vue";
+
 
 	export default {
 		name: 'Dashboard',
 		components: {
 			DashboardInfo,
-			TaskList,
-			TaskNew
+			DashboardContent
 		},
 		data() {
 			return {
@@ -94,8 +87,6 @@
 							done: false
 						}
 					});
-
-					this.$refs.taskList.scrollToBottom();
 				}
 			},
 			removeTask(index) {
@@ -139,8 +130,5 @@
 		box-shadow: -0.2rem 0.2rem 0.2rem -0.1rem rgba($color-black, 0.15);
 		background-color: $color-white;
 		overflow: hidden;
-	}
-
-	.dashboard-content {
 	}
 </style>
