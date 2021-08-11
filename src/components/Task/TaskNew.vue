@@ -1,23 +1,25 @@
 <template>
 	<div class="task-new">
-		<input
-			v-model="taskNew.name"
-			@keyup.enter="emitAddTask()"
-			class="task-new__input"
-			type="text"
-			placeholder="New task"
-			autofocus
-		/>
-		<Button
-			class="task-new__button-add button--icon"
-			@button-click="emitAddTask()"
-		>
-			<span class="button__icon">
-				<i class="icon">
-					<FontAwesomeIcon icon="plus-circle" />
-				</i>
-			</span>
-		</Button>
+		<div class="task-new__field">
+			<input
+				v-model="taskNew.name"
+				@keyup.enter="emitAddTask()"
+				class="task-new__input"
+				type="text"
+				placeholder="New task"
+				autofocus
+			/>
+			<Button
+				class="task-new__button-add button--icon"
+				@button-click="emitAddTask()"
+			>
+				<span class="button__icon">
+					<i class="icon">
+						<FontAwesomeIcon icon="plus-circle" />
+					</i>
+				</span>
+			</Button>
+		</div>
 	</div>
 </template>
 
@@ -66,29 +68,37 @@
 <style lang="scss" scoped>
 	.task-new {
 		padding: 1.5rem 2rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
 		background-color: $color-ghost;
+
+		&__field {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 5rem;
+			border: 0.3rem solid $color-brand-3;
+			background-color: $color-white;
+			overflow: hidden;
+		}
 
 		&__input {
 			border: none;
 			outline: none;
-			margin-right: 1rem;
 			padding: 1.2rem 1.6rem;
 			flex: 1;
-			border-left: 0.5rem solid $color-brand-3;
 			font-family: "Roboto", sans-serif;
 			font-size: 1.6rem;
+			font-weight: 500;
+			color: $color-brand-3;
 
 			&::placeholder {
+				font-weight: 400;
 				color: $color-gray;
 			}
 		}
 
 		&__button-add {
-			width: 3.5rem;
-			height: 3.5rem;
+			width: 5rem;
+			height: 5rem;
 			color: $color-brand-3;
 			font-size: 3.6rem;
 
