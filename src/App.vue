@@ -2,7 +2,7 @@
 	<div id="app">
 		<PageTitle :title="title" />
 		<Board />
-		<Message class="message--rounded-one-line">
+		<Message class="message--local-storage message--rounded-one-line">
 			<p>
 				This application uses the browser's Local Storage to store data
 			</p>
@@ -48,7 +48,7 @@
 		height: 100%;
 		font-size: 10px;
 
-		@media screen and (max-height: 450px) {
+		@media screen and (max-height: 500px) {
 			height: inherit;
 		}
 	}
@@ -81,7 +81,7 @@
 			);
 		}
 
-		@media screen and (max-height: 450px) {
+		@media screen and (max-height: 500px) {
 			height: inherit;
 		}
 	}

@@ -112,6 +112,10 @@
 			}
 		}
 
+		&--local-storage {
+			position: absolute;
+		}
+
 		&.is-close {
 			box-shadow: none;
 			background-color: transparent;
