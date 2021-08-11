@@ -65,11 +65,11 @@
 
 <style lang="scss" scoped>
 	.task-new {
-		background-color: rgba($color-black, 0.05);
-		padding: 1.5rem;
+		padding: 1.5rem 2rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		background-color: $color-ghost;
 
 		&__input {
 			border: none;
@@ -77,9 +77,9 @@
 			margin-right: 1rem;
 			padding: 1.2rem 1.6rem;
 			flex: 1;
-			font-size: 1.6rem;
 			border-left: 0.5rem solid $color-brand-3;
 			font-family: "Roboto", sans-serif;
+			font-size: 1.6rem;
 
 			&::placeholder {
 				color: $color-gray;
