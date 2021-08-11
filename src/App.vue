@@ -25,7 +25,7 @@
 		},
 		data() {
 			return {
-				title: "Things Todo"
+				title: "Vue ToDo List"
 			};
 		}
 	};
