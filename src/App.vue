@@ -56,17 +56,29 @@
 	body {
 		padding: 5rem 3rem;
 		height: 100%;
+		position: relative;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
 		font-family: "Roboto", sans-serif;
 		font-size: 1rem;
-		background: linear-gradient(
-			to bottom,
-			$color-brand-1 0%,
-			$color-brand-2 100%
-		);
+
+		&:after {
+			content: "";
+			width: 100%;
+			height: 100%;
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			background: linear-gradient(
+				to bottom,
+				$color-brand-1 0%,
+				$color-brand-2 100%
+			);
+		}
 
 		@media screen and (max-height: 450px) {
 			height: inherit;
