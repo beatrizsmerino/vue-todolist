@@ -1,14 +1,14 @@
 <template>
-	<div class="board">
-		<div class="board-info">
-			<ul class="board-info__list">
-				<li class="board-info__item">
+	<div class="dashboard">
+		<div class="dashboard-info">
+			<ul class="dashboard-info__list">
+				<li class="dashboard-info__item">
 					<Tag
 						tag-name="Tasks"
 						:tag-value="getTotalTasks"
 					/>
 				</li>
-				<li class="board-info__item">
+				<li class="dashboard-info__item">
 					<Tag
 						tag-name="Tasks Done"
 						:tag-value="getTotalTasksDone"
@@ -16,7 +16,7 @@
 				</li>
 				<li
 					v-if="getTotalTasksDone !== 0"
-					class="board-info__item"
+					class="dashboard-info__item"
 				>
 					<Button
 						class="button--bg-color-error button--small"
@@ -32,7 +32,7 @@
 						</span>
 					</Button>
 				</li>
-				<li class="board-info__item">
+				<li class="dashboard-info__item">
 					<Button
 						class="button--bg-color-error button--small"
 						@button-click="removeTaskList()"
@@ -49,7 +49,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="board-content">
+		<div class="dashboard-content">
 			<TaskList
 				ref="taskList"
 				:task-list="task.list"
@@ -71,7 +71,7 @@
 	import TaskNew from "@/components/Task/TaskNew.vue";
 
 	export default {
-		name: 'Board',
+		name: 'Dashboard',
 		components: {
 			Button,
 			Tag,
@@ -175,7 +175,7 @@
 </script>
 
 <style lang="scss" scoped>
-	.board {
+	.dashboard {
 		width: 80%;
 		max-width: 50rem;
 		padding-top: 3rem;
@@ -186,7 +186,7 @@
 		overflow: hidden;
 	}
 
-	.board-info {
+	.dashboard-info {
 		width: 100%;
 		padding: 1rem 1.5rem;
 		display: flex;
@@ -212,6 +212,6 @@
 		}
 	}
 
-	.board-content {
+	.dashboard-content {
 	}
 </style>
