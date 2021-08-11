@@ -9,7 +9,7 @@
 			</div>
 			<Button
 				v-if="!isClose"
-				class="message__button-close button--bg-white button--icon"
+				class="message__button-close button--bg-black button--icon"
 				@button-click="closeMessage()"
 			>
 				<span class="button__icon">
@@ -20,7 +20,7 @@
 			</Button>
 			<Button
 				v-else
-				class="message__button-open button--small button--bg-white"
+				class="message__button-open button--small button--bg-color-3"
 				@button-click="openMessage()"
 			>
 				Show info
@@ -59,7 +59,7 @@
 		right: 3rem;
 		bottom: 3rem;
 		z-index: 999;
-		background-color: $color-brand-2;
+		background-color: $color-brand-3;
 		box-shadow: 0 0.1rem 0.4rem 0.1rem rgba($color-black, 0.6);
 
 		@media (max-width: 500px) {
