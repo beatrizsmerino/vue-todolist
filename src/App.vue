@@ -63,6 +63,7 @@
 		flex-direction: column;
 		font-family: "Roboto", sans-serif;
 		font-size: 1rem;
+		overflow-x: hidden;
 
 		&:after {
 			content: "";
