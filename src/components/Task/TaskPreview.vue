@@ -1,10 +1,10 @@
 <template>
 	<div
-		class="task"
+		class="task-preview"
 		v-bind:class="{'is-done': taskItem.status.done}"
 	>
 		<Button
-			class="task__button-done button--icon"
+			class="task-preview__button-done button--icon"
 			@button-click="emitTaskDone(taskIndex)"
 		>
 			<span class="button__icon">
@@ -13,11 +13,11 @@
 				</i>
 			</span>
 		</Button>
-		<p class="task__name">
+		<p class="task-preview__name">
 			{{ taskItem.name }}
 		</p>
 		<Button
-			class="task__button-remove button--icon"
+			class="task-preview__button-remove button--icon"
 			@button-click="emitRemoveTask(taskIndex)"
 		>
 			<span class="button__icon">
@@ -59,7 +59,7 @@
 </script>
 
 <style lang="scss" scoped>
-	.task {
+	.task-preview {
 		padding: 1rem;
 		display: flex;
 		align-items: center;
