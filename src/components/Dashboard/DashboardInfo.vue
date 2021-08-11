@@ -13,6 +13,8 @@
 					:tag-value="totalTaskListDone"
 				/>
 			</li>
+		</ul>
+		<ul class="dashboard-info__list">
 			<li
 				v-if="totalTaskListDone !== 0"
 				class="dashboard-info__item"
@@ -84,27 +86,23 @@
 <style lang="scss" scoped>
 	.dashboard-info {
 		width: 100%;
-		padding: 1rem 1.5rem;
+		padding: 0.5rem;
 		display: flex;
+		flex-wrap: wrap;
 		justify-content: flex-end;
-		position: absolute;
-		top: 0;
-		left: 0;
 		font-size: 1.4rem;
-		background-color: $color-white;
+		background-color: $color-ghost;
 
 		&__list {
-			width: 100%;
 			display: flex;
+			flex-wrap: wrap;
 			justify-content: flex-end;
 			align-items: center;
 			list-style: none;
 		}
 
 		&__item {
-			&:not(:last-child) {
-				margin-right: 1rem;
-			}
+			margin: 0.5rem;
 		}
 	}
 </style>

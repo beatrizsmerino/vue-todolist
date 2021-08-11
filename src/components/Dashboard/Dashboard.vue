@@ -124,7 +124,6 @@
 	.dashboard {
 		width: 80%;
 		max-width: 50rem;
-		padding-top: 3rem;
 		margin: 0 auto 6rem;
 		position: relative;
 		box-shadow: -0.2rem 0.2rem 0.2rem -0.1rem rgba($color-black, 0.15);
