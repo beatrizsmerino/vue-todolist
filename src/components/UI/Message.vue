@@ -12,7 +12,11 @@
 				class="message__button-close button--bg-white button--icon"
 				@button-click="closeMessage()"
 			>
-				<FontAwesomeIcon icon="times" />
+				<span class="button__icon">
+					<i class="icon">
+						<FontAwesomeIcon icon="times" />
+					</i>
+				</span>
 			</Button>
 			<Button
 				v-else

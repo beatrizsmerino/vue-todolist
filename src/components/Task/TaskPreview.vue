@@ -3,27 +3,40 @@
 		class="task"
 		v-bind:class="{'is-done': taskItem.status.done}"
 	>
-		<div
-			@click="emitTaskDone(taskIndex)"
-			class="task__button-done"
+		<Button
+			class="task__button-done button--icon"
+			@button-click="emitTaskDone(taskIndex)"
 		>
-			<FontAwesomeIcon icon="check-circle" />
-		</div>
-		<span class="task__name">
+			<span class="button__icon">
+				<i class="icon">
+					<FontAwesomeIcon icon="check-circle" />
+				</i>
+			</span>
+		</Button>
+		<p class="task__name">
 			{{ taskItem.name }}
-		</span>
-		<div
-			@click="emitRemoveTask(taskIndex)"
-			class="task__button-remove"
+		</p>
+		<Button
+			class="task__button-remove button--icon"
+			@button-click="emitRemoveTask(taskIndex)"
 		>
-			<FontAwesomeIcon icon="trash" />
-		</div>
+			<span class="button__icon">
+				<i class="icon">
+					<FontAwesomeIcon icon="trash" />
+				</i>
+			</span>
+		</Button>
 	</div>
 </template>
 
 <script>
+	import Button from '@/components/UI/Button.vue'
+
 	export default {
 		name: 'TaskPreview',
+		components: {
+			Button
+		},
 		props: {
 			taskItem: {
 				type: Object,
@@ -100,34 +113,23 @@
 		}
 
 		&__button-done {
-			width: 2rem;
-			height: 2rem;
 			margin-right: 1.5rem;
-			display: flex;
-			justify-content: center;
-			align-items: center;
 			font-size: 2.4rem;
 			color: $color-success;
 			opacity: 1;
-			transition: all 0.2s ease-in-out;
-			cursor: pointer;
 
 			&:hover {
-				cursor: pointer;
 				color: mix($color-black, $color-success, 20%);
 			}
 		}
 
 		&__button-remove {
 			margin-left: auto;
-			padding-left: 1.5rem;
-			opacity: 0;
 			color: $color-error;
-			transition: all 0.2s ease-in-out;
 			font-size: 2rem;
+			opacity: 0;
 
 			&:hover {
-				cursor: pointer;
 				color: mix($color-black, $color-error, 20%);
 			}
 		}

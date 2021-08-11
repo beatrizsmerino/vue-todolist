@@ -68,7 +68,7 @@
 		list-style: none;
 
 		&__wrapper {
-			height: calc(5.05rem * 3);
+			height: calc(5.6rem * 3);
 			margin: 2rem;
 			overflow-y: scroll;
 		}

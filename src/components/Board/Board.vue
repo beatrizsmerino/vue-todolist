@@ -23,7 +23,9 @@
 						@button-click="removeTaskListDone()"
 					>
 						<span class="button__icon">
-							<FontAwesomeIcon icon="trash" />
+							<i class="icon">
+								<FontAwesomeIcon icon="trash" />
+							</i>
 						</span>
 						<span class="button__text">
 							tasks done
@@ -36,7 +38,9 @@
 						@button-click="removeTaskList()"
 					>
 						<span class="button__icon">
-							<FontAwesomeIcon icon="trash" />
+							<i class="icon">
+								<FontAwesomeIcon icon="trash" />
+							</i>
 						</span>
 						<span class="button__text">
 							tasks

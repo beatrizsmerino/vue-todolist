@@ -8,19 +8,28 @@
 			placeholder="New task"
 			autofocus
 		/>
-		<button
-			class="task-new__button-add"
-			@click="emitAddTask()"
+		<Button
+			class="task-new__button-add button--icon"
+			@button-click="emitAddTask()"
 		>
-			<FontAwesomeIcon icon="plus-circle" />
-		</button>
+			<span class="button__icon">
+				<i class="icon">
+					<FontAwesomeIcon icon="plus-circle" />
+				</i>
+			</span>
+		</Button>
 	</div>
 </template>
 
 
 <script>
+	import Button from '@/components/UI/Button.vue'
+
 	export default {
 		name: 'TaskNew',
+		components: {
+			Button
+		},
 		props: {
 			taskList: {
 				type: Array,
@@ -54,7 +63,7 @@
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.task-new {
 		background-color: rgba($color-black, 0.05);
 		padding: 1.5rem;
@@ -74,20 +83,12 @@
 		}
 
 		&__button-add {
-			outline: none;
-			border: none;
-			background-color: transparent;
 			width: 3.5rem;
 			height: 3.5rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-size: 3.6rem;
 			color: $color-brand-2;
-			transition: all 0.15s ease-in-out;
+			font-size: 3.6rem;
 
 			&:hover {
-				cursor: pointer;
 				color: mix($color-black, $color-brand-2, 20%);
 			}
 		}
