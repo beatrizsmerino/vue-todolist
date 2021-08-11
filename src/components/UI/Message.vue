@@ -4,6 +4,9 @@
 		:class="{'is-close': isClose}"
 	>
 		<div class="message__inner">
+			<div class="message__content">
+				<slot />
+			</div>
 			<Button
 				v-if="!isClose"
 				class="message__button-close button--bg-white button--icon"
@@ -18,9 +21,6 @@
 			>
 				Show info
 			</Button>
-			<div class="message__content">
-				<slot />
-			</div>
 		</div>
 	</div>
 </template>
@@ -63,8 +63,10 @@
 		}
 
 		&__inner {
+			margin: 0.4rem;
 			position: relative;
 			display: flex;
+			align-items: center;
 		}
 
 		&__button-close {
@@ -99,14 +101,14 @@
 				}
 
 				&__button-close {
-					top: -1rem;
-					right: -1rem;
+					position: relative;
+					top: inherit;
+					right: inherit;
 				}
 			}
 		}
 
 		&.is-close {
-			max-width: 10rem;
 			box-shadow: none;
 			background-color: transparent;
 
