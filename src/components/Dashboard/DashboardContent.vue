@@ -1,15 +1,7 @@
 <template>
 	<div class="dashboard-content">
-		<TaskList
-			ref="taskList"
-			:task-list="taskList"
-			@task-remove="emitRemoveTask"
-			@task-done="emitTaskDone"
-		/>
-		<TaskNew
-			:task-list="taskList"
-			@task-add="emitTaskAdd"
-		/>
+		<TaskList ref="taskList" />
+		<TaskNew @add-task="scrollToBottom()" />
 	</div>
 </template>
 
@@ -23,24 +15,11 @@
 			TaskList,
 			TaskNew
 		},
-		props: {
-			taskList: {
-				type: Array,
-				required: true
-			}
-		},
 		methods: {
-			emitRemoveTask(index) {
-				this.$emit("task-remove", index);
-			},
-			emitTaskDone(index) {
-				this.$emit("task-done", index);
-			},
-			emitTaskAdd(taskName, taskTotal) {
-				this.$emit("task-add", taskName, taskTotal);
+			scrollToBottom() {
 				this.$refs.taskList.scrollToBottom();
 			}
-		}
+		},
 	}
 </script>
 
