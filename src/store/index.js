@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import tasks from './modules/tasks'
+
 
 
 
@@ -35,7 +37,9 @@ const actions = {}
 
 
 // MODULES
-const modules = {}
+const modules = {
+	tasks
+}
 
 
 
