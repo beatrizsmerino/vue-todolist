@@ -9,12 +9,18 @@ Vue.use(Vuex)
 
 
 // STATE
-const state = {}
+const state = {
+	pageTitle: "Vue ToDo List"
+}
 
 
 
 // GETTERS
-const getters = {}
+const getters = {
+	getPageTitle(state) {
+		return state.pageTitle
+	}
+}
 
 
 
