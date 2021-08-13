@@ -1,20 +1,12 @@
 <template>
 	<div class="dashboard">
-		<DashboardInfo
-			:total-task-list="getTotalTasks"
-			:total-task-list-done="getTotalTasksDone"
-			@task-list-remove="removeTaskList()"
-			@task-list-done-remove="removeTaskListDone()"
-		/>
-		<DashboardContent
-			:task-list="task.list"
-			@task-add="addTask"
-		/>
+		<DashboardInfo />
+		<DashboardContent />
 	</div>
 </template>
 
 <script>
-	import { EventBus } from '@/event-bus.js'
+	import { mapGetters, mapActions } from 'vuex';
 	import DashboardInfo from "@/components/Dashboard/DashboardInfo.vue";
 	import DashboardContent from "@/components/Dashboard/DashboardContent.vue";
 
@@ -25,100 +17,25 @@
 			DashboardInfo,
 			DashboardContent
 		},
-		data() {
-			return {
-				task: {
-					total: 3,
-					list: [
-						{
-							id: 1,
-							name: "Do something awesome!",
-							status: {
-								done: false
-							}
-						},
-						{
-							id: 2,
-							name: "Buy toilet paper",
-							status: {
-								done: false
-							}
-						},
-						{
-							id: 3,
-							name: "Learn Vue",
-							status: {
-								done: false
-							}
-						}
-					]
-				},
-			};
-		},
 		watch: {
-			'task.list': {
+			'getTaskList': {
 				handler() {
-					this.updateTaskListLocalStorage();
+					this.createTaskListLocalStorage();
 				},
 				deep: true,
 			}
 		},
 		computed: {
-			getTotalTasks() {
-				return this.task.list.length;
-			},
-			getTotalTasksDone() {
-				return this.task.list.filter(task => task.status.done).length;
-			}
+			...mapGetters(['getTaskList'])
 		},
 		methods: {
-			addTask(taskName, taskTotal) {
-				const taskNameFormatted = taskName.trim();
-
-				if (taskNameFormatted) {
-					this.task.list.push({
-						id: taskTotal,
-						name: taskNameFormatted,
-						status: {
-							done: false
-						}
-					});
-				}
-			},
-			removeTask(index) {
-				this.task.list.splice(index, 1);
-			},
-			changeTaskDone(index) {
-				const task = this.task.list[index];
-				task.status.done = !task.status.done;
-			},
-			removeTaskListDone() {
-				this.task.list = this.task.list.filter(task => !task.status.done);
-			},
-			removeTaskList() {
-				this.task.list = [];
-			},
-			getTaskListLocalStorage() {
-				if (localStorage.getItem('tasks')) {
-					try {
-						this.task.list = JSON.parse(localStorage.getItem('tasks'));
-					} catch (e) {
-						localStorage.removeItem('tasks');
-					}
-				} else {
-					this.updateTaskListLocalStorage();
-				}
-			},
-			updateTaskListLocalStorage() {
-				localStorage.setItem('tasks', JSON.stringify(this.task.list));
-			}
+			...mapActions([
+				'checkTaskListLocalStorage',
+				'createTaskListLocalStorage'
+			]),
 		},
 		mounted() {
-			this.getTaskListLocalStorage();
-		},
-		created() {
-			EventBus.$on('task-remove', (data) => this.removeTask(data));
-			EventBus.$on('task-done', (data) => this.changeTaskDone(data));
+			this.checkTaskListLocalStorage();
 		}
 	}
 </script>

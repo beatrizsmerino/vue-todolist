@@ -5,7 +5,7 @@
 	>
 		<Button
 			class="task-preview__button-done button--icon"
-			@button-click="emitTaskDone(taskIndex)"
+			@button-click="changeTaskDone(taskItem)"
 		>
 			<span class="button__icon">
 				<i class="icon">
@@ -20,7 +20,7 @@
 		</div>
 		<Button
 			class="task-preview__button-remove button--icon"
-			@button-click="emitRemoveTask(taskIndex)"
+			@button-click="removeTask(taskItem.id)"
 		>
 			<span class="button__icon">
 				<i class="icon">
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-	import { EventBus } from '@/event-bus.js'
+	import { mapActions } from 'vuex';
 	import Button from '@/components/UI/Button.vue'
 
 	export default {
@@ -44,19 +44,17 @@
 			taskItem: {
 				type: Object,
 				required: true
-			},
-			taskIndex: {
-				type: Number,
-				required: true
 			}
 		},
 		methods: {
-			emitRemoveTask(index) {
-				EventBus.$emit("task-remove", index);
+			...mapActions([
+				'removeTask',
+				'updateTask'
+			]),
+			changeTaskDone(task) {
+				task.status.done = !task.status.done;
+				this.updateTask(task);
 			},
-			emitTaskDone(index) {
-				EventBus.$emit("task-done", index);
-			}
 		}
 	}
 </script>

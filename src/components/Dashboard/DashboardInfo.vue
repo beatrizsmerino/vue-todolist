@@ -21,7 +21,7 @@
 			>
 				<Button
 					class="button--bg-color-error button--small"
-					@button-click="emitRemoveTaskListDone"
+					@button-click="removeTaskListDone()"
 				>
 					<span class="button__icon">
 						<i class="icon">
@@ -36,7 +36,7 @@
 			<li class="dashboard-info__item">
 				<Button
 					class="button--bg-color-error button--small"
-					@button-click="emitRemoveTaskList"
+					@button-click="removeTaskList()"
 				>
 					<span class="button__icon">
 						<i class="icon">
@@ -53,6 +53,7 @@
 </template>
 
 <script>
+	import { mapGetters, mapActions } from 'vuex';
 	import Button from '@/components/UI/Button.vue'
 	import Tag from "@/components/UI/Tag.vue";
 
@@ -62,23 +63,17 @@
 			Button,
 			Tag
 		},
-		props: {
-			totalTaskList: {
-				type: Number,
-				required: true
-			},
-			totalTaskListDone: {
-				type: Number,
-				required: true
-			},
+		computed: {
+			...mapGetters({
+				totalTaskList: 'getTotalTaskList',
+				totalTaskListDone: 'getTotalTaskListDone'
+			})
 		},
 		methods: {
-			emitRemoveTaskList() {
-				this.$emit("task-list-remove");
-			},
-			emitRemoveTaskListDone() {
-				this.$emit("task-list-done-remove");
-			}
+			...mapActions([
+				'removeTaskList',
+				'removeTaskListDone'
+			]),
 		}
 	}
 </script>

@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<PageTitle :title="title" />
+		<PageTitle :title="getPageTitle" />
 		<Dashboard />
 		<Message class="message--local-storage message--rounded-one-line">
 			<p>
@@ -12,6 +12,7 @@
 
 
 <script>
+	import { mapGetters } from 'vuex'
 	import PageTitle from "@/components/Page/PageTitle.vue";
 	import Dashboard from "@/components/Dashboard/Dashboard.vue";
 	import Message from "@/components/UI/Message.vue";
@@ -23,10 +24,8 @@
 			Dashboard,
 			Message
 		},
-		data() {
-			return {
-				title: "Vue ToDo List"
-			};
+		computed: {
+			...mapGetters(['getPageTitle'])
 		}
 	};
 </script>

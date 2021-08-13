@@ -3,7 +3,7 @@
 		<div class="task-new__field">
 			<input
 				v-model="taskNew.name"
-				@keyup.enter="emitAddTask()"
+				@keyup.enter="createTaskNew()"
 				class="task-new__input"
 				type="text"
 				placeholder="New task"
@@ -11,7 +11,7 @@
 			/>
 			<Button
 				class="task-new__button-add button--icon"
-				@button-click="emitAddTask()"
+				@button-click="createTaskNew()"
 			>
 				<span class="button__icon">
 					<i class="icon">
@@ -25,6 +25,7 @@
 
 
 <script>
+	import { mapGetters, mapActions } from 'vuex';
 	import Button from '@/components/UI/Button.vue'
 
 	export default {
@@ -32,34 +33,48 @@
 		components: {
 			Button
 		},
-		props: {
-			taskList: {
-				type: Array,
-				required: true
-			}
-		},
 		data() {
 			return {
 				taskNew: {
 					name: ''
-				},
-				taskListNew: {
-					total: this.taskList.length + 1
 				}
 			};
 		},
+		computed: {
+			...mapGetters(['getTotalTaskList']),
+			createTaskId() {
+				return this.getTotalTaskList + 1;
+			},
+			createTaskName() {
+				return this.taskNew.name.trim()
+			}
+		},
 		methods: {
+			...mapActions([
+				'addTask'
+			]),
 			cleanTaskNew() {
 				this.taskNew.name = "";
 			},
-			incrementTaskListTotal() {
-				this.taskListNew.total++;
+			createTaskNew() {
+				const taskId = this.createTaskId;
+				const taskName = this.createTaskName;
+
+				const task = {
+					id: taskId,
+					name: taskName
+				};
+
+				if (taskName != "") {
+					this.addTask(task);
+				}
+
+				this.cleanTaskNew();
+				this.emitAddTask();
 			},
 			emitAddTask() {
-				this.$emit("task-add", this.taskNew.name, this.taskListNew.total);
-				this.incrementTaskListTotal();
-				this.cleanTaskNew();
-			},
+				this.$emit('add-task');
+			}
 		}
 	};
 </script>
