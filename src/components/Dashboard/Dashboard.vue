@@ -8,14 +8,13 @@
 		/>
 		<DashboardContent
 			:task-list="task.list"
-			@task-remove="removeTask"
-			@task-done="changeTaskDone"
 			@task-add="addTask"
 		/>
 	</div>
 </template>
 
 <script>
+	import { EventBus } from '@/event-bus.js'
 	import DashboardInfo from "@/components/Dashboard/DashboardInfo.vue";
 	import DashboardContent from "@/components/Dashboard/DashboardContent.vue";
 
@@ -55,9 +54,6 @@
 					]
 				},
 			};
-		},
-		mounted() {
-			this.getTaskListLocalStorage();
 		},
 		watch: {
 			'task.list': {
@@ -116,6 +112,13 @@
 			updateTaskListLocalStorage() {
 				localStorage.setItem('tasks', JSON.stringify(this.task.list));
 			}
+		},
+		mounted() {
+			this.getTaskListLocalStorage();
+		},
+		created() {
+			EventBus.$on('task-remove', (data) => this.removeTask(data));
+			EventBus.$on('task-done', (data) => this.changeTaskDone(data));
 		}
 	}
 </script>

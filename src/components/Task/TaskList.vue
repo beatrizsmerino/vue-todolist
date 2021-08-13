@@ -16,8 +16,6 @@
 				<TaskPreview
 					:task-item="item"
 					:task-index="index"
-					@task-remove="emitRemoveTask"
-					@task-done="emitTaskDone"
 				/>
 			</li>
 		</transition-group>
@@ -45,12 +43,6 @@
 					const element = this.$refs.taskListWrapper;
 					element.scrollTop = element.scrollHeight;
 				});
-			},
-			emitRemoveTask(index) {
-				this.$emit("task-remove", index);
-			},
-			emitTaskDone(index) {
-				this.$emit("task-done", index);
 			}
 		},
 		mounted() {
