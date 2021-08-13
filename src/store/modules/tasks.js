@@ -44,6 +44,9 @@ const getters = {
 	getTotalTaskListDone(state) {
 		return state.task.list.filter(item => item.status.done).length
 	},
+	getTaskLast(state) {
+		return state.task.list[state.task.list.length - 1]
+	}
 };
 
 
