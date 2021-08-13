@@ -41,9 +41,9 @@
 			};
 		},
 		computed: {
-			...mapGetters(['getTotalTaskList']),
+			...mapGetters(['getTaskLast']),
 			createTaskId() {
-				return this.getTotalTaskList + 1;
+				return this.getTaskLast.id + 1;
 			},
 			createTaskName() {
 				return this.taskNew.name.trim()

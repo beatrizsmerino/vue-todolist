@@ -51,6 +51,20 @@ And in the lower area of the board there is a field to enter the name of the new
 All the tasks are saved and updated in the browser's `Local Storage`.
 Each task is a `object json` that has an identifier number or `id`, a name and its status. When the task is created the identifier number is generated from the total number of tasks plus the current one, and its status is marked as task not done.
 
+## Tags versions
+
+### **v1.0.0**
+
+Uses straightforward template syntax for create a `Vue Instance` in a single file
+
+### **v2.0.0**
+
+Uses module systems with the `Component Vue-cli` and `Emit events` with `vue methods`, which allow code encapsulation and reuse.
+
+### **v3.0.0**
+
+It uses the `Event Bus` and `Vuex` for a multi-directional data flow, which allows accessing status or triggering actions no matter where the component is located.
+
 ## Project setup
 
 ```
