@@ -1,52 +1,66 @@
 <template>
 	<div
-		class="task"
+		class="task-preview"
 		v-bind:class="{'is-done': taskItem.status.done}"
 	>
-		<div
-			@click="emitTaskDone(taskIndex)"
-			class="task__button-done"
+		<Button
+			class="task-preview__button-done button--icon"
+			@button-click="changeTaskDone(taskItem)"
 		>
-			<FontAwesomeIcon icon="check-circle" />
+			<span class="button__icon">
+				<i class="icon">
+					<FontAwesomeIcon icon="check-circle" />
+				</i>
+			</span>
+		</Button>
+		<div class="task-preview__name">
+			<p>
+				{{ taskItem.name }}
+			</p>
 		</div>
-		<span class="task__name">
-			{{ taskItem.name }}
-		</span>
-		<div
-			@click="emitRemoveTask(taskIndex)"
-			class="task__button-remove"
+		<Button
+			class="task-preview__button-remove button--icon"
+			@button-click="removeTask(taskItem.id)"
 		>
-			<FontAwesomeIcon icon="trash" />
-		</div>
+			<span class="button__icon">
+				<i class="icon">
+					<FontAwesomeIcon icon="trash" />
+				</i>
+			</span>
+		</Button>
 	</div>
 </template>
 
 <script>
+	import { mapActions } from 'vuex';
+	import Button from '@/components/UI/Button.vue'
+
 	export default {
 		name: 'TaskPreview',
+		components: {
+			Button
+		},
 		props: {
 			taskItem: {
 				type: Object,
 				required: true
-			},
-			taskIndex: {
-				type: Number,
-				required: true
 			}
 		},
 		methods: {
-			emitRemoveTask(index) {
-				this.$emit("task-remove", index);
+			...mapActions([
+				'removeTask',
+				'updateTask'
+			]),
+			changeTaskDone(task) {
+				task.status.done = !task.status.done;
+				this.updateTask(task);
 			},
-			emitTaskDone(index) {
-				this.$emit("task-done", index);
-			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	.task {
+	.task-preview {
 		padding: 1rem;
 		display: flex;
 		align-items: center;
@@ -58,7 +72,7 @@
 		&:hover {
 			background-color: $color-ghost;
 
-			.task {
+			.task-preview {
 				&__button-remove {
 					opacity: 1;
 					cursor: pointer;
@@ -67,12 +81,14 @@
 		}
 
 		&.is-done {
-			.task {
+			.task-preview {
 				&__name {
 					color: $color-silver;
 
-					&:before {
-						width: 100%;
+					p {
+						&:before {
+							width: 100%;
+						}
 					}
 				}
 
@@ -83,51 +99,49 @@
 		}
 
 		&__name {
-			position: relative;
+			max-width: calc(100% - 10rem);
 			font-size: 1.5rem;
 			transition: all 0.2s ease-in-out;
 
-			&:before {
-				transition: all 0.2s ease-in-out;
-				content: "";
-				height: 0.1rem;
-				background-color: $color-silver;
-				width: 0%;
-				top: 50%;
-				position: absolute;
-				left: 0;
+			p {
+				width: 100%;
+				position: relative;
+				display: inline-block;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+
+				&:before {
+					content: "";
+					width: 0%;
+					height: 0.1rem;
+					position: absolute;
+					top: 50%;
+					left: 0;
+					background-color: $color-silver;
+					transition: all 0.2s ease-in-out;
+				}
 			}
 		}
 
 		&__button-done {
-			width: 2rem;
-			height: 2rem;
 			margin-right: 1.5rem;
-			display: flex;
-			justify-content: center;
-			align-items: center;
 			font-size: 2.4rem;
 			color: $color-success;
 			opacity: 1;
-			transition: all 0.2s ease-in-out;
-			cursor: pointer;
 
 			&:hover {
-				cursor: pointer;
 				color: mix($color-black, $color-success, 20%);
 			}
 		}
 
 		&__button-remove {
 			margin-left: auto;
-			padding-left: 1.5rem;
-			opacity: 0;
 			color: $color-error;
-			transition: all 0.2s ease-in-out;
 			font-size: 2rem;
+			opacity: 0;
 
 			&:hover {
-				cursor: pointer;
 				color: mix($color-black, $color-error, 20%);
 			}
 		}

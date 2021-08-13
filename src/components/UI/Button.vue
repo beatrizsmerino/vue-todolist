@@ -79,6 +79,18 @@
 			}
 		}
 
+		&__icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			.icon {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+
 		&--icon {
 			padding: 0;
 		}
@@ -98,25 +110,35 @@
 			color: $color-white;
 			background-color: $color-brand-1;
 
-			::v-deep {
-				.icon {
-					&__use {
-						fill: $color-white;
-					}
-				}
-			}
-
 			&:hover {
 				color: $color-white;
 				background-color: mix($color-black, $color-brand-1, 15%);
 			}
 
 			&-1 {
-				color: $color-white;
+				color: $color-black;
 				background-color: $color-brand-1;
 
 				&:hover {
 					background-color: mix($color-black, $color-brand-1, 15%);
+				}
+			}
+
+			&-2 {
+				color: $color-white;
+				background-color: $color-brand-2;
+
+				&:hover {
+					background-color: mix($color-black, $color-brand-2, 15%);
+				}
+			}
+
+			&-3 {
+				color: $color-white;
+				background-color: $color-brand-3;
+
+				&:hover {
+					background-color: mix($color-black, $color-brand-3, 15%);
 				}
 			}
 
@@ -128,58 +150,79 @@
 					background-color: mix($color-black, $color-error, 15%);
 				}
 			}
+
+			&-success {
+				color: $color-white;
+				background-color: $color-success;
+
+				&:hover {
+					background-color: mix($color-black, $color-success, 15%);
+				}
+			}
 		}
 
 		&--line-color {
 			color: $color-brand-1;
 			border-color: $color-brand-1;
 
-			::v-deep {
-				.icon {
-					&__use {
-						fill: $color-brand-1;
-					}
-				}
-			}
-
 			&:hover {
 				color: $color-white;
 				border-color: $color-brand-1;
 				background-color: $color-brand-1;
-
-				::v-deep {
-					.icon {
-						&__use {
-							fill: $color-white;
-						}
-					}
-				}
 			}
 
 			&-1 {
 				color: $color-brand-1;
 				border-color: $color-brand-1;
 
-				::v-deep {
-					.icon {
-						&__use {
-							fill: $color-brand-1;
-						}
-					}
-				}
-
 				&:hover {
 					color: $color-white;
 					border-color: $color-brand-1;
 					background-color: $color-brand-1;
+				}
+			}
 
-					::v-deep {
-						.icon {
-							&__use {
-								fill: $color-white;
-							}
-						}
-					}
+			&-2 {
+				color: $color-brand-2;
+				border-color: $color-brand-2;
+
+				&:hover {
+					color: $color-white;
+					border-color: $color-brand-2;
+					background-color: $color-brand-2;
+				}
+			}
+
+			&-3 {
+				color: $color-brand-3;
+				border-color: $color-brand-3;
+
+				&:hover {
+					color: $color-white;
+					border-color: $color-brand-3;
+					background-color: $color-brand-3;
+				}
+			}
+
+			&-error {
+				color: $color-error;
+				border-color: $color-error;
+
+				&:hover {
+					color: $color-white;
+					border-color: $color-error;
+					background-color: $color-error;
+				}
+			}
+
+			&-success {
+				color: $color-success;
+				border-color: $color-success;
+
+				&:hover {
+					color: $color-white;
+					border-color: $color-success;
+					background-color: $color-success;
 				}
 			}
 		}
@@ -188,25 +231,9 @@
 			color: $color-black;
 			background-color: $color-white;
 
-			::v-deep {
-				.icon {
-					&__use {
-						fill: $color-black;
-					}
-				}
-			}
-
 			&:hover {
 				color: $color-white;
 				background-color: $color-black;
-
-				::v-deep {
-					.icon {
-						&__use {
-							fill: $color-white;
-						}
-					}
-				}
 			}
 		}
 
@@ -214,95 +241,10 @@
 			color: $color-white;
 			border-color: $color-white;
 
-			::v-deep {
-				.icon {
-					&__use {
-						fill: $color-white;
-					}
-				}
-			}
-
 			&:hover {
 				color: $color-black;
 				border-color: $color-white;
 				background-color: $color-white;
-
-				::v-deep {
-					.icon {
-						&__use {
-							fill: $color-black;
-						}
-					}
-				}
-			}
-		}
-
-		&--bg-silver {
-			color: $color-white;
-			background-color: $color-silver;
-
-			::v-deep {
-				.icon {
-					&__use {
-						fill: $color-white;
-					}
-				}
-			}
-
-			&:hover {
-				background-color: $color-silver;
-			}
-		}
-
-		&--line-silver {
-			color: $color-silver;
-			border-color: $color-silver;
-
-			::v-deep {
-				.icon {
-					&__use {
-						fill: $color-silver;
-					}
-				}
-			}
-
-			&:hover {
-				color: $color-white;
-				background-color: $color-black;
-
-				::v-deep {
-					.icon {
-						&__use {
-							fill: $color-white;
-						}
-					}
-				}
-			}
-		}
-
-		&--line-gray {
-			color: $color-gray;
-			border-color: $color-gray;
-
-			::v-deep {
-				.icon {
-					&__use {
-						fill: $color-gray;
-					}
-				}
-			}
-
-			&:hover {
-				color: $color-gray;
-				background-color: $color-light;
-
-				::v-deep {
-					.icon {
-						&__use {
-							fill: $color-gray;
-						}
-					}
-				}
 			}
 		}
 
@@ -310,16 +252,9 @@
 			color: $color-white;
 			background-color: $color-black;
 
-			::v-deep {
-				.icon {
-					&__use {
-						fill: $color-white;
-					}
-				}
-			}
-
 			&:hover {
-				background-color: $color-dark;
+				color: $color-black;
+				background-color: $color-white;
 			}
 		}
 
@@ -327,25 +262,9 @@
 			color: $color-black;
 			border-color: $color-black;
 
-			::v-deep {
-				.icon {
-					&__use {
-						fill: $color-black;
-					}
-				}
-			}
-
 			&:hover {
 				color: $color-white;
 				background-color: $color-black;
-
-				::v-deep {
-					.icon {
-						&__use {
-							fill: $color-white;
-						}
-					}
-				}
 			}
 		}
 	}

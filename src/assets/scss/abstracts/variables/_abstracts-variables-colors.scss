@@ -6,10 +6,27 @@
 
 
 
-// BRAND
+// COLORS
 // -----------------
-$color-brand-1: #9cedff;
-$color-brand-2: #3e82c3;
+$color-1: #9cedff;
+$color-2: #3e82c3;
+$color-3: #012E59;
+
+
+
+// COLOR BRAND VUE
+// -----------------
+$color-vue-1: #42b883;
+$color-vue-2: #35495e;
+
+
+
+// COLOR BRAND
+// -----------------
+$color-brand-1: $color-vue-1;
+$color-brand-2: $color-vue-2;
+$color-brand-3: $color-2;
+$color-brand-4: $color-3;
 
 
 
@@ -28,4 +45,4 @@ $color-black: #000000;
 // STATUS
 // -----------------
 $color-error: #f65050;
-$color-success: #31ecb8;
+$color-success: $color-vue-1;

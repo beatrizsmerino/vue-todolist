@@ -33,7 +33,7 @@
 		display: flex;
 		align-items: center;
 		border-radius: 2rem;
-		background-color: $color-brand-2;
+		background-color: $color-brand-3;
 
 		&__name {
 			margin-right: 0.5rem;
@@ -47,7 +47,7 @@
 			align-items: center;
 			justify-content: center;
 			text-align: center;
-			color: $color-brand-2;
+			color: $color-brand-3;
 			font-weight: 500;
 			border-radius: 2rem;
 			background-color: $color-white;

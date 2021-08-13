@@ -18,7 +18,7 @@
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.page-title {
 		font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
 			"Lucida Sans", Arial, sans-serif;

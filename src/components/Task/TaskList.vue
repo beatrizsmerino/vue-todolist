@@ -9,16 +9,11 @@
 			tag="ul"
 		>
 			<li
-				v-for="(item, index) in taskList"
+				v-for="item in getTaskList"
 				:key="item.id"
 				class="task-list__item"
 			>
-				<TaskPreview
-					:task-item="item"
-					:task-index="index"
-					@task-remove="emitRemoveTask"
-					@task-done="emitTaskDone"
-				/>
+				<TaskPreview :task-item="item" />
 			</li>
 		</transition-group>
 	</div>
@@ -26,18 +21,16 @@
 
 
 <script>
-	import TaskPreview from './TaskPreview.vue'
+	import { mapGetters } from 'vuex'
+	import TaskPreview from '@/components/Task/TaskPreview.vue'
 
 	export default {
 		name: 'TaskList',
 		components: {
 			TaskPreview
 		},
-		props: {
-			taskList: {
-				type: Array,
-				required: true
-			}
+		computed: {
+			...mapGetters(['getTaskList'])
 		},
 		methods: {
 			scrollToBottom() {
@@ -46,12 +39,6 @@
 					element.scrollTop = element.scrollHeight;
 				});
 			},
-			emitRemoveTask(index) {
-				this.$emit("task-remove", index);
-			},
-			emitTaskDone(index) {
-				this.$emit("task-done", index);
-			}
 		},
 		mounted() {
 			this.scrollToBottom();
@@ -68,7 +55,7 @@
 		list-style: none;
 
 		&__wrapper {
-			height: calc(5.05rem * 3);
+			height: calc(5.6rem * 3);
 			margin: 2rem;
 			overflow-y: scroll;
 		}

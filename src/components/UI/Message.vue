@@ -4,31 +4,36 @@
 		:class="{'is-close': isClose}"
 	>
 		<div class="message__inner">
+			<div class="message__content">
+				<slot />
+			</div>
 			<Button
 				v-if="!isClose"
-				class="message__button-close button--bg-white button--icon"
+				class="message__button-close button--bg-black button--icon"
 				@button-click="closeMessage()"
 			>
-				<FontAwesomeIcon icon="times" />
+				<span class="button__icon">
+					<i class="icon">
+						<FontAwesomeIcon icon="times" />
+					</i>
+				</span>
 			</Button>
 			<Button
 				v-else
-				class="message__button-open button--small button--bg-white"
+				class="message__button-open button--small button--bg-color-3"
 				@button-click="openMessage()"
 			>
 				Show info
 			</Button>
-			<div class="message__content">
-				<slot />
-			</div>
 		</div>
 	</div>
 </template>
 
 <script>
-	import Button from './Button.vue'
+	import Button from '@/components/UI/Button.vue'
 
 	export default {
+		name: 'Message',
 		components: {
 			Button
 		},
@@ -55,16 +60,18 @@
 		right: 3rem;
 		bottom: 3rem;
 		z-index: 999;
-		background-color: $color-brand-2;
+		background-color: $color-brand-4;
 		box-shadow: 0 0.1rem 0.4rem 0.1rem rgba($color-black, 0.6);
 
-		@media (max-width: 500px) {
+		@media (max-width: 600px) {
 			max-width: calc(100% - 3rem * 2);
 		}
 
 		&__inner {
+			margin: 0.4rem;
 			position: relative;
 			display: flex;
+			align-items: center;
 		}
 
 		&__button-close {
@@ -95,18 +102,23 @@
 
 			.message {
 				&__content {
+					width: calc(100% - 2.5rem);
 					padding: 0.5rem 3rem 0.5rem 2.5rem;
 				}
 
 				&__button-close {
-					top: -1rem;
-					right: -1rem;
+					position: relative;
+					top: inherit;
+					right: inherit;
 				}
 			}
 		}
 
+		&--local-storage {
+			position: absolute;
+		}
+
 		&.is-close {
-			max-width: 10rem;
 			box-shadow: none;
 			background-color: transparent;
 

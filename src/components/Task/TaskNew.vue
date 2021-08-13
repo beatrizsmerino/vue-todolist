@@ -1,94 +1,124 @@
 <template>
 	<div class="task-new">
-		<input
-			v-model="taskNew.name"
-			@keyup.enter="emitAddTask()"
-			class="task-new__input"
-			type="text"
-			placeholder="New task"
-			autofocus
-		/>
-		<button
-			class="task-new__button-add"
-			@click="emitAddTask()"
-		>
-			<FontAwesomeIcon icon="plus-circle" />
-		</button>
+		<div class="task-new__field">
+			<input
+				v-model="taskNew.name"
+				@keyup.enter="createTaskNew()"
+				class="task-new__input"
+				type="text"
+				placeholder="New task"
+				autofocus
+			/>
+			<Button
+				class="task-new__button-add button--icon"
+				@button-click="createTaskNew()"
+			>
+				<span class="button__icon">
+					<i class="icon">
+						<FontAwesomeIcon icon="plus-circle" />
+					</i>
+				</span>
+			</Button>
+		</div>
 	</div>
 </template>
 
 
 <script>
+	import { mapGetters, mapActions } from 'vuex';
+	import Button from '@/components/UI/Button.vue'
+
 	export default {
 		name: 'TaskNew',
-		props: {
-			taskList: {
-				type: Array,
-				required: true
-			}
+		components: {
+			Button
 		},
 		data() {
 			return {
 				taskNew: {
 					name: ''
-				},
-				taskListNew: {
-					total: this.taskList.length + 1
 				}
 			};
 		},
+		computed: {
+			...mapGetters(['getTaskLast']),
+			createTaskId() {
+				return this.getTaskLast.id + 1;
+			},
+			createTaskName() {
+				return this.taskNew.name.trim()
+			}
+		},
 		methods: {
+			...mapActions([
+				'addTask'
+			]),
 			cleanTaskNew() {
 				this.taskNew.name = "";
 			},
-			incrementTaskListTotal() {
-				this.taskListNew.total++;
+			createTaskNew() {
+				const taskId = this.createTaskId;
+				const taskName = this.createTaskName;
+
+				const task = {
+					id: taskId,
+					name: taskName
+				};
+
+				if (taskName != "") {
+					this.addTask(task);
+				}
+
+				this.cleanTaskNew();
+				this.emitAddTask();
 			},
 			emitAddTask() {
-				this.$emit("task-add", this.taskNew.name, this.taskListNew.total);
-				this.incrementTaskListTotal();
-				this.cleanTaskNew();
-			},
+				this.$emit('add-task');
+			}
 		}
 	};
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.task-new {
-		background-color: rgba($color-black, 0.05);
-		padding: 1.5rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		padding: 1.5rem 2rem;
+		background-color: $color-ghost;
+
+		&__field {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 5rem;
+			border: 0.3rem solid $color-brand-3;
+			background-color: $color-white;
+			overflow: hidden;
+		}
 
 		&__input {
 			border: none;
 			outline: none;
-			margin-right: 1rem;
 			padding: 1.2rem 1.6rem;
 			flex: 1;
-			font-size: 1.6rem;
-			border-left: 0.5rem solid $color-brand-2;
 			font-family: "Roboto", sans-serif;
+			font-size: 1.6rem;
+			font-weight: 500;
+			color: $color-brand-3;
+
+			&::placeholder {
+				font-weight: 400;
+				color: $color-gray;
+			}
 		}
 
 		&__button-add {
-			outline: none;
-			border: none;
-			background-color: transparent;
-			width: 3.5rem;
-			height: 3.5rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
+			width: 5rem;
+			height: 5rem;
+			color: $color-brand-3;
 			font-size: 3.6rem;
-			color: $color-brand-2;
-			transition: all 0.15s ease-in-out;
 
 			&:hover {
-				cursor: pointer;
-				color: mix($color-black, $color-brand-2, 20%);
+				color: mix($color-black, $color-brand-3, 20%);
 			}
 		}
 	}
