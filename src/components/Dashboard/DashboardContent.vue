@@ -3,8 +3,6 @@
 		<TaskList
 			ref="taskList"
 			:task-list="taskList"
-			@task-remove="emitRemoveTask"
-			@task-done="emitTaskDone"
 		/>
 		<TaskNew
 			:task-list="taskList"
@@ -30,12 +28,6 @@
 			}
 		},
 		methods: {
-			emitRemoveTask(index) {
-				this.$emit("task-remove", index);
-			},
-			emitTaskDone(index) {
-				this.$emit("task-done", index);
-			},
 			emitTaskAdd(taskName, taskTotal) {
 				this.$emit("task-add", taskName, taskTotal);
 				this.$refs.taskList.scrollToBottom();

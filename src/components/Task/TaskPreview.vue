@@ -32,6 +32,7 @@
 </template>
 
 <script>
+	import { EventBus } from '@/event-bus.js'
 	import Button from '@/components/UI/Button.vue'
 
 	export default {
@@ -51,10 +52,10 @@
 		},
 		methods: {
 			emitRemoveTask(index) {
-				this.$emit("task-remove", index);
+				EventBus.$emit("task-remove", index);
 			},
 			emitTaskDone(index) {
-				this.$emit("task-done", index);
+				EventBus.$emit("task-done", index);
 			}
 		}
 	}
