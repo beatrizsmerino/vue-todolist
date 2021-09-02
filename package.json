@@ -12,7 +12,7 @@
 		"@fortawesome/fontawesome-svg-core": "^1.2.36",
 		"@fortawesome/free-solid-svg-icons": "^5.15.4",
 		"@fortawesome/vue-fontawesome": "^2.0.2",
-		"core-js": "^3.16.4",
+		"core-js": "^3.17.1",
 		"google-fonts-webpack-plugin": "^0.4.4",
 		"node-fetch": "^2.6.1",
 		"vue": "^2.6.14",
