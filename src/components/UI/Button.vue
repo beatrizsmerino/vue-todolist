@@ -58,7 +58,7 @@
 		white-space: nowrap;
 		text-transform: capitalize;
 		font-size: 1.6rem;
-		font-weight: 400;
+		font-weight: 600;
 		line-height: 110%;
 		border: 0.1rem solid transparent;
 		outline: none;

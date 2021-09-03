@@ -26,6 +26,6 @@
 		text-align: center;
 		line-height: 100%;
 		font-size: 6.4rem;
-		font-weight: normal;
+		font-weight: 600;
 	}
 </style>

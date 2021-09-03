@@ -102,7 +102,7 @@
 			flex: 1;
 			font-family: $font-brand-2;
 			font-size: 1.6rem;
-			font-weight: 500;
+			font-weight: 600;
 			color: $color-brand-3;
 
 			&::placeholder {
