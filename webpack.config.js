@@ -1,5 +1,5 @@
-const GoogleFontsPlugin = require("google-fonts-webpack-plugin")
- 
+const GoogleFontsPlugin = require("@beyonk/google-fonts-webpack-plugin")
+
 module.exports = {
     "entry": "index.js",
     plugins: [
