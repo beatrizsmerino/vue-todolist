@@ -32,8 +32,6 @@
 
 
 <style lang="scss">
-	@import url("https://fonts.googleapis.com/css?family=Roboto");
-
 	*,
 	*:before,
 	*:after {
@@ -61,7 +59,7 @@
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-		font-family: "Roboto", sans-serif;
+		font-family: $font-brand-2;
 		font-size: 1rem;
 		overflow-x: hidden;
 

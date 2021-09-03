@@ -20,8 +20,7 @@
 
 <style lang="scss" scoped>
 	.page-title {
-		font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-			"Lucida Sans", Arial, sans-serif;
+		font-family: $font-brand-1;
 		color: $color-white;
 		margin-bottom: 2rem;
 		text-align: center;

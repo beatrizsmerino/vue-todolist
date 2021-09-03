@@ -5,4 +5,9 @@
 // ABSTRACTS
 //----------------------------------------------------------------------
 // variables
-@import 'abstracts/variables/abstracts-variables-colors';
+@import "abstracts/variables/abstracts-variables-colors";
+@import "abstracts/variables/abstracts-variables-fonts";
+
+// BASE
+//----------------------------------------------------------------------
+@import "base/base-fonts";
