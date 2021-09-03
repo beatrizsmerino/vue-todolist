@@ -3,19 +3,21 @@
 		ref="taskListWrapper"
 		class="task-list__wrapper"
 	>
-		<transition-group
-			class="task-list"
-			name="task-list"
-			tag="ul"
-		>
-			<li
-				v-for="item in getTaskList"
-				:key="item.id"
-				class="task-list__item"
+		<template>
+			<transition-group
+				class="task-list"
+				name="task-list"
+				tag="ul"
 			>
-				<TaskPreview :task-item="item" />
-			</li>
-		</transition-group>
+				<li
+					v-for="item in getTaskList"
+					:key="item.id"
+					class="task-list__item"
+				>
+					<TaskPreview :task-item="item" />
+				</li>
+			</transition-group>
+		</template>
 	</div>
 </template>
 
@@ -47,7 +49,7 @@
 </script>
 
 
-<style lang="scss">
+<style lang="scss" scoped>
 	.task-list {
 		position: relative;
 		display: flex;

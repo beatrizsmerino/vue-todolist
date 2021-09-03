@@ -107,6 +107,7 @@
 				width: 100%;
 				position: relative;
 				display: inline-block;
+				line-height: 150%;
 				white-space: nowrap;
 				overflow: hidden;
 				text-overflow: ellipsis;

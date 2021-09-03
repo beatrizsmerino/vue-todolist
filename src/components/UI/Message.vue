@@ -91,7 +91,7 @@
 		&__content {
 			padding: 2rem;
 			font-size: 1.5rem;
-			font-weight: 500;
+			font-weight: 600;
 			color: $color-white;
 			overflow: hidden;
 			transition: all 0.5s ease-in-out 0s;
