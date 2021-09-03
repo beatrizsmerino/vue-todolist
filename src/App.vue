@@ -32,7 +32,7 @@
 
 
 <style lang="scss">
-	// @import url("https://fonts.googleapis.com/css?family=Kristi|Roboto");
+	@import url("https://fonts.googleapis.com/css?family=Roboto");
 
 	*,
 	*:before,
