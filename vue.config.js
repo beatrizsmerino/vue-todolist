@@ -3,6 +3,8 @@ module.exports = {
 		? '/vue-todolist/'
 		: '/',
 
+	lintOnSave: false,
+
 	pluginOptions: {
 		'style-resources-loader': {
 			preProcessor: 'scss',
