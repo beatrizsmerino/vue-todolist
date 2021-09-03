@@ -38,7 +38,7 @@
 		&__name {
 			margin-right: 0.5rem;
 			color: $color-white;
-			font-weight: 500;
+			font-weight: 600;
 		}
 
 		&__value {
@@ -48,7 +48,7 @@
 			justify-content: center;
 			text-align: center;
 			color: $color-brand-3;
-			font-weight: 500;
+			font-weight: 600;
 			border-radius: 2rem;
 			background-color: $color-white;
 		}
