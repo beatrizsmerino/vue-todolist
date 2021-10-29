@@ -6,10 +6,9 @@
 </template>
 
 <script>
-	import { mapGetters, mapActions } from 'vuex';
-	import DashboardInfo from "@/components/Dashboard/DashboardInfo.vue";
-	import DashboardContent from "@/components/Dashboard/DashboardContent.vue";
-
+	import {mapGetters, mapActions} from 'vuex';
+	import DashboardInfo from '@/components/Dashboard/DashboardInfo.vue';
+	import DashboardContent from '@/components/Dashboard/DashboardContent.vue';
 
 	export default {
 		name: 'Dashboard',
@@ -17,27 +16,27 @@
 			DashboardInfo,
 			DashboardContent
 		},
+		computed: {
+			...mapGetters(['getTaskList'])
+		},
 		watch: {
-			'getTaskList': {
+			getTaskList: {
 				handler() {
 					this.createTaskListLocalStorage();
 				},
-				deep: true,
+				deep: true
 			}
 		},
-		computed: {
-			...mapGetters(['getTaskList'])
+		mounted() {
+			this.checkTaskListLocalStorage();
 		},
 		methods: {
 			...mapActions([
 				'checkTaskListLocalStorage',
 				'createTaskListLocalStorage'
-			]),
-		},
-		mounted() {
-			this.checkTaskListLocalStorage();
+			])
 		}
-	}
+	};
 </script>
 
 <style lang="scss" scoped>

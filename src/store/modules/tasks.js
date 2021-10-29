@@ -1,80 +1,76 @@
-// MODULE VUEX
-// TASKS
-// =================================================
-
-
+/*
+ * MODULE VUEX
+ * TASKS
+ * =================================================
+ */
 
 const state = {
-	"task": {
-		"list": [
+	task: {
+		list: [
 			{
-				"id": 1,
-				"name": "Do something awesome!",
-				"status": {
-					"done": false
+				id: 1,
+				name: 'Do something awesome!',
+				status: {
+					done: false
 				}
 			},
 			{
-				"id": 2,
-				"name": "Buy toilet paper",
-				"status": {
-					"done": false
+				id: 2,
+				name: 'Buy toilet paper',
+				status: {
+					done: false
 				}
 			},
 			{
-				"id": 3,
-				"name": "Learn Vue",
-				"status": {
-					"done": false
+				id: 3,
+				name: 'Learn Vue',
+				status: {
+					done: false
 				}
 			}
 		]
 	}
 };
 
-
-
 const getters = {
 	getTaskList(state) {
-		return state.task.list
+		return state.task.list;
 	},
 	getTotalTaskList(state) {
-		return state.task.list.length
+		return state.task.list.length;
 	},
 	getTotalTaskListDone(state) {
-		return state.task.list.filter(item => item.status.done).length
+		return state.task.list.filter(item => item.status.done).length;
 	},
 	getTaskLast(state) {
-		return state.task.list[state.task.list.length - 1]
+		return state.task.list[state.task.list.length - 1];
 	}
 };
 
-
-
 const actions = {
-	addTask({ commit }, task) {
+	addTask({commit}, task) {
 		const taskNew = {
 			id: task.id,
 			name: task.name,
 			status: {
 				done: false
 			}
-		}
+		};
 		commit('addTask', taskNew);
 	},
-	updateTask({ commit }, task) {
+	updateTask({commit}, task) {
 		commit('updateTask', task);
 	},
-	removeTask({ commit }, taskId) {
+	removeTask({commit}, taskId) {
 		commit('removeTask', taskId);
 	},
-	removeTaskList({ commit }) {
+	removeTaskList({commit}) {
 		commit('removeTaskList');
 	},
-	removeTaskListDone({ commit }) {
+	removeTaskListDone({commit}) {
 		commit('removeTaskListDone');
 	},
-	checkTaskListLocalStorage({ commit }) {
+	checkTaskListLocalStorage({commit}) {
 		if (localStorage.getItem('tasks')) {
 			try {
 				commit('updateTaskListLocalStorage');
@@ -85,12 +81,10 @@ const actions = {
 			commit('createTaskListLocalStorage');
 		}
 	},
-	createTaskListLocalStorage({ commit }) {
+	createTaskListLocalStorage({commit}) {
 		commit('createTaskListLocalStorage');
 	}
 };
-
-
 
 const mutations = {
 	addTask(state, task) {
@@ -119,10 +113,8 @@ const mutations = {
 	},
 	removeTaskListLocalStorage() {
 		localStorage.removeItem('tasks');
-	},
+	}
 };
-
-
 
 export default {
 	state,

@@ -6,8 +6,8 @@
 </template>
 
 <script>
-	import TaskList from "@/components/Task/TaskList.vue";
-	import TaskNew from "@/components/Task/TaskNew.vue";
+	import TaskList from '@/components/Task/TaskList.vue';
+	import TaskNew from '@/components/Task/TaskNew.vue';
 
 	export default {
 		name: 'DashboardContent',
@@ -19,8 +19,8 @@
 			scrollToBottom() {
 				this.$refs.taskList.scrollToBottom();
 			}
-		},
-	}
+		}
+	};
 </script>
 
 <style lang="scss" scoped>
