@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="tag"
-		:class="{'tag--value-number': typeof tagValue == 'number'}"
+		:class="{ 'tag--value-number': typeof tagValue == 'number' }"
 	>
 		<span class="tag__name">
 			{{ tagName }}

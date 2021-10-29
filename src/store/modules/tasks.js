@@ -4,35 +4,33 @@
  * =================================================
  */
 
-
 const state = {
-	'task': {
-		'list': [
+	task: {
+		list: [
 			{
-				'id': 1,
-				'name': 'Do something awesome!',
-				'status': {
-					'done': false
+				id: 1,
+				name: 'Do something awesome!',
+				status: {
+					done: false
 				}
 			},
 			{
-				'id': 2,
-				'name': 'Buy toilet paper',
-				'status': {
-					'done': false
+				id: 2,
+				name: 'Buy toilet paper',
+				status: {
+					done: false
 				}
 			},
 			{
-				'id': 3,
-				'name': 'Learn Vue',
-				'status': {
-					'done': false
+				id: 3,
+				name: 'Learn Vue',
+				status: {
+					done: false
 				}
 			}
 		]
 	}
 };
-
 
 const getters = {
 	getTaskList(state) {
@@ -48,7 +46,6 @@ const getters = {
 		return state.task.list[state.task.list.length - 1];
 	}
 };
-
 
 const actions = {
 	addTask({commit}, task) {
@@ -89,7 +86,6 @@ const actions = {
 	}
 };
 
-
 const mutations = {
 	addTask(state, task) {
 		state.task.list.push(task);
@@ -119,7 +115,6 @@ const mutations = {
 		localStorage.removeItem('tasks');
 	}
 };
-
 
 export default {
 	state,

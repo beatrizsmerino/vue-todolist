@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="task-preview"
-		:class="{'is-done': taskItem.status.done}"
+		:class="{ 'is-done': taskItem.status.done }"
 	>
 		<Button
 			class="task-preview__button-done button--icon"
@@ -48,9 +48,9 @@
 		},
 		methods: {
 			...mapActions([
-				'removeTask',
-				'updateTask'
-			]),
+'removeTask',
+'updateTask'
+]),
 			changeTaskDone(task) {
 				task.status.done = !task.status.done;
 				this.updateTask(task);
@@ -113,7 +113,7 @@
 				text-overflow: ellipsis;
 
 				&:before {
-					content: "";
+					content: '';
 					width: 0%;
 					height: 0.1rem;
 					position: absolute;

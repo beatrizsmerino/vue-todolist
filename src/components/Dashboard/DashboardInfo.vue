@@ -71,9 +71,9 @@
 		},
 		methods: {
 			...mapActions([
-				'removeTaskList',
-				'removeTaskListDone'
-			])
+'removeTaskList',
+'removeTaskListDone'
+])
 		}
 	};
 </script>

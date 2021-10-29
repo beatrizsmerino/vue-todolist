@@ -1,7 +1,5 @@
 module.exports = {
-	publicPath: process.env.NODE_ENV === 'production'
-		? '/vue-todolist/'
-		: '/',
+	publicPath: process.env.NODE_ENV === 'production' ? '/vue-todolist/' : '/',
 	lintOnSave: false,
 	pluginOptions: {
 		'style-resources-loader': {

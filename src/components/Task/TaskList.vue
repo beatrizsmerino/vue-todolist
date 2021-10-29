@@ -19,7 +19,6 @@
 	</div>
 </template>
 
-
 <script>
 	import {mapGetters} from 'vuex';
 	import TaskPreview from '@/components/Task/TaskPreview.vue';
@@ -45,7 +44,6 @@
 		}
 	};
 </script>
-
 
 <style lang="scss" scoped>
 	.task-list {

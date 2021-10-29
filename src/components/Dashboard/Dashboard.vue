@@ -10,7 +10,6 @@
 	import DashboardInfo from '@/components/Dashboard/DashboardInfo.vue';
 	import DashboardContent from '@/components/Dashboard/DashboardContent.vue';
 
-
 	export default {
 		name: 'Dashboard',
 		components: {
@@ -21,7 +20,7 @@
 			...mapGetters(['getTaskList'])
 		},
 		watch: {
-			'getTaskList': {
+			getTaskList: {
 				handler() {
 					this.createTaskListLocalStorage();
 				},

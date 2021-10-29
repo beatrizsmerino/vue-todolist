@@ -23,7 +23,6 @@
 	</div>
 </template>
 
-
 <script>
 	import {mapGetters, mapActions} from 'vuex';
 	import Button from '@/components/UI/Button.vue';
@@ -76,7 +75,6 @@
 		}
 	};
 </script>
-
 
 <style lang="scss" scoped>
 	.task-new {
