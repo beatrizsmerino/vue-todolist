@@ -1,57 +1,42 @@
 {
-	"name": "todo-app",
+	"name": "vue-todolist",
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
-		"lint": "vue-cli-service lint",
+		"prettier:fix": "prettier --write \"./**/*.{vue,js,json}\"",
+		"eslint:fix": "vue-cli-service lint \"**/*.{json,js,vue}\" --fix --ignore-path .eslintignore",
+		"lint": "npm run prettier:fix && npm run eslint:fix",
 		"deploy": "node gh-pages-deploy.js"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^1.2.36",
 		"@fortawesome/free-solid-svg-icons": "^5.15.4",
-		"@fortawesome/vue-fontawesome": "^2.0.2",
-		"core-js": "^3.17.2",
+		"@fortawesome/vue-fontawesome": "^2.0.6",
+		"core-js": "^3.19.0",
 		"vue": "^2.6.14",
 		"vuex": "^3.6.2"
 	},
 	"devDependencies": {
-		"@vue/cli-plugin-babel": "^4.5.13",
-		"@vue/cli-plugin-eslint": "^4.5.13",
-		"@vue/cli-plugin-vuex": "^4.5.13",
-		"@vue/cli-service": "^4.5.13",
+		"@babel/eslint-parser": "^7.15.8",
+		"@vue/cli-plugin-babel": "^4.5.15",
+		"@vue/cli-plugin-eslint": "^4.5.15",
+		"@vue/cli-plugin-vuex": "^4.5.15",
+		"@vue/cli-service": "^4.5.15",
+		"@vue/eslint-config-prettier": "^6.0.0",
 		"babel-eslint": "^10.1.0",
 		"eslint": "^6.8.0",
-		"eslint-plugin-vue": "^6.2.2",
-		"sass": "^1.39.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-loader": "^4.0.2",
+		"eslint-plugin-json": "^3.1.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"eslint-plugin-vue": "^8.0.1",
+		"prettier": "^2.4.1",
+		"sass": "^1.43.4",
 		"sass-loader": "^7.3.1",
 		"style-resources-loader": "^1.4.1",
 		"vue-cli-plugin-style-resources-loader": "~0.1.5",
 		"vue-template-compiler": "^2.6.14"
-	},
-	"eslintConfig": {
-		"root": true,
-		"env": {
-			"node": true
-		},
-		"extends": [
-			"plugin:vue/essential",
-			"eslint:recommended"
-		],
-		"rules": {},
-		"parserOptions": {
-			"parser": "babel-eslint"
-		}
-	},
-	"postcss": {
-		"plugins": {
-			"autoprefixer": {}
-		}
-	},
-	"browserslist": [
-		"> 1%",
-		"last 2 versions",
-		"not ie <= 8"
-	]
+	}
 }

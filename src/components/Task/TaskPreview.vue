@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="task-preview"
-		v-bind:class="{'is-done': taskItem.status.done}"
+		:class="{ 'is-done': taskItem.status.done }"
 	>
 		<Button
 			class="task-preview__button-done button--icon"
@@ -32,8 +32,8 @@
 </template>
 
 <script>
-	import { mapActions } from 'vuex';
-	import Button from '@/components/UI/Button.vue'
+	import {mapActions} from 'vuex';
+	import Button from '@/components/UI/Button.vue';
 
 	export default {
 		name: 'TaskPreview',
@@ -48,15 +48,15 @@
 		},
 		methods: {
 			...mapActions([
-				'removeTask',
-				'updateTask'
-			]),
+'removeTask',
+'updateTask'
+]),
 			changeTaskDone(task) {
 				task.status.done = !task.status.done;
 				this.updateTask(task);
-			},
+			}
 		}
-	}
+	};
 </script>
 
 <style lang="scss" scoped>
@@ -113,7 +113,7 @@
 				text-overflow: ellipsis;
 
 				&:before {
-					content: "";
+					content: '';
 					width: 0%;
 					height: 0.1rem;
 					position: absolute;

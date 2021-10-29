@@ -3,28 +3,25 @@
 		ref="taskListWrapper"
 		class="task-list__wrapper"
 	>
-		<template>
-			<transition-group
-				class="task-list"
-				name="task-list"
-				tag="ul"
+		<transition-group
+			class="task-list"
+			name="task-list"
+			tag="ul"
+		>
+			<li
+				v-for="item in getTaskList"
+				:key="item.id"
+				class="task-list__item"
 			>
-				<li
-					v-for="item in getTaskList"
-					:key="item.id"
-					class="task-list__item"
-				>
-					<TaskPreview :task-item="item" />
-				</li>
-			</transition-group>
-		</template>
+				<TaskPreview :task-item="item" />
+			</li>
+		</transition-group>
 	</div>
 </template>
 
-
 <script>
-	import { mapGetters } from 'vuex'
-	import TaskPreview from '@/components/Task/TaskPreview.vue'
+	import {mapGetters} from 'vuex';
+	import TaskPreview from '@/components/Task/TaskPreview.vue';
 
 	export default {
 		name: 'TaskList',
@@ -34,20 +31,19 @@
 		computed: {
 			...mapGetters(['getTaskList'])
 		},
+		mounted() {
+			this.scrollToBottom();
+		},
 		methods: {
 			scrollToBottom() {
 				this.$nextTick(() => {
 					const element = this.$refs.taskListWrapper;
 					element.scrollTop = element.scrollHeight;
 				});
-			},
-		},
-		mounted() {
-			this.scrollToBottom();
+			}
 		}
 	};
 </script>
-
 
 <style lang="scss" scoped>
 	.task-list {
