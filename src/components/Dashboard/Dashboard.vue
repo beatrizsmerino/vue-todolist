@@ -17,6 +17,9 @@
 			DashboardInfo,
 			DashboardContent
 		},
+		computed: {
+			...mapGetters(['getTaskList'])
+		},
 		watch: {
 			'getTaskList': {
 				handler() {
@@ -25,17 +28,14 @@
 				deep: true,
 			}
 		},
-		computed: {
-			...mapGetters(['getTaskList'])
+		mounted() {
+			this.checkTaskListLocalStorage();
 		},
 		methods: {
 			...mapActions([
 				'checkTaskListLocalStorage',
 				'createTaskListLocalStorage'
-			]),
-		},
-		mounted() {
-			this.checkTaskListLocalStorage();
+			])
 		}
 	}
 </script>
