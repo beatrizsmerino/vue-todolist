@@ -3,12 +3,12 @@
 		<div class="task-new__field">
 			<input
 				v-model="taskNew.name"
-				@keyup.enter="createTaskNew()"
 				class="task-new__input"
 				type="text"
 				placeholder="New task"
 				autofocus
-			/>
+				@keyup.enter="createTaskNew()"
+			>
 			<Button
 				class="task-new__button-add button--icon"
 				@button-click="createTaskNew()"
@@ -25,8 +25,8 @@
 
 
 <script>
-	import { mapGetters, mapActions } from 'vuex';
-	import Button from '@/components/UI/Button.vue'
+	import {mapGetters, mapActions} from 'vuex';
+	import Button from '@/components/UI/Button.vue';
 
 	export default {
 		name: 'TaskNew',
@@ -46,15 +46,13 @@
 				return this.getTaskLast.id + 1;
 			},
 			createTaskName() {
-				return this.taskNew.name.trim()
+				return this.taskNew.name.trim();
 			}
 		},
 		methods: {
-			...mapActions([
-				'addTask'
-			]),
+			...mapActions(['addTask']),
 			cleanTaskNew() {
-				this.taskNew.name = "";
+				this.taskNew.name = '';
 			},
 			createTaskNew() {
 				const taskId = this.createTaskId;
@@ -65,7 +63,7 @@
 					name: taskName
 				};
 
-				if (taskName != "") {
+				if (taskName != '') {
 					this.addTask(task);
 				}
 

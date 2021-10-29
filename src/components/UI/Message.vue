@@ -30,7 +30,7 @@
 </template>
 
 <script>
-	import Button from '@/components/UI/Button.vue'
+	import Button from '@/components/UI/Button.vue';
 
 	export default {
 		name: 'Message',
@@ -40,7 +40,7 @@
 		data() {
 			return {
 				isClose: false
-			}
+			};
 		},
 		methods: {
 			openMessage() {
@@ -50,7 +50,7 @@
 				this.isClose = true;
 			}
 		}
-	}
+	};
 </script>
 
 <style lang="scss" scoped>

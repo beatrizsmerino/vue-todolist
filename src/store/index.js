@@ -1,46 +1,38 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import tasks from './modules/tasks'
-
-
+import Vue from 'vue';
+import Vuex from 'vuex';
+import tasks from './modules/tasks';
 
 
 // LOAD VUEX
-Vue.use(Vuex)
-
+Vue.use(Vuex);
 
 
 // STATE
 const state = {
-	pageTitle: "Vue ToDo List"
-}
-
+	pageTitle: 'Vue ToDo List'
+};
 
 
 // GETTERS
 const getters = {
 	getPageTitle(state) {
-		return state.pageTitle
+		return state.pageTitle;
 	}
-}
-
+};
 
 
 // MUTACTIONS
-const mutations = {}
-
+const mutations = {};
 
 
 // ACTIONS
-const actions = {}
-
+const actions = {};
 
 
 // MODULES
 const modules = {
 	tasks
-}
-
+};
 
 
 // CREATE STORE
@@ -51,7 +43,6 @@ const store = new Vuex.Store({
 	actions,
 	modules
 });
-
 
 
 export default store;

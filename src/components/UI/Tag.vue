@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="tag"
-		:class="{'tag--value-number': typeof this.tagValue == 'number'}"
+		:class="{'tag--value-number': typeof tagValue == 'number'}"
 	>
 		<span class="tag__name">
 			{{ tagName }}
@@ -21,10 +21,13 @@
 				required: true
 			},
 			tagValue: {
-				type: [String, Number]
+				type: [
+					String,
+					Number
+				]
 			}
 		}
-	}
+	};
 </script>
 
 <style lang="scss" scoped>

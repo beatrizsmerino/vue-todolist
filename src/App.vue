@@ -12,10 +12,10 @@
 
 
 <script>
-	import { mapGetters } from 'vuex'
-	import PageTitle from "@/components/Page/PageTitle.vue";
-	import Dashboard from "@/components/Dashboard/Dashboard.vue";
-	import Message from "@/components/UI/Message.vue";
+	import {mapGetters} from 'vuex';
+	import PageTitle from '@/components/Page/PageTitle.vue';
+	import Dashboard from '@/components/Dashboard/Dashboard.vue';
+	import Message from '@/components/UI/Message.vue';
 
 
 	export default {

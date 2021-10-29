@@ -21,8 +21,8 @@
 
 
 <script>
-	import { mapGetters } from 'vuex'
-	import TaskPreview from '@/components/Task/TaskPreview.vue'
+	import {mapGetters} from 'vuex';
+	import TaskPreview from '@/components/Task/TaskPreview.vue';
 
 	export default {
 		name: 'TaskList',
@@ -32,16 +32,16 @@
 		computed: {
 			...mapGetters(['getTaskList'])
 		},
+		mounted() {
+			this.scrollToBottom();
+		},
 		methods: {
 			scrollToBottom() {
 				this.$nextTick(() => {
 					const element = this.$refs.taskListWrapper;
 					element.scrollTop = element.scrollHeight;
 				});
-			},
-		},
-		mounted() {
-			this.scrollToBottom();
+			}
 		}
 	};
 </script>

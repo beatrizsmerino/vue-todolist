@@ -6,9 +6,9 @@
 </template>
 
 <script>
-	import { mapGetters, mapActions } from 'vuex';
-	import DashboardInfo from "@/components/Dashboard/DashboardInfo.vue";
-	import DashboardContent from "@/components/Dashboard/DashboardContent.vue";
+	import {mapGetters, mapActions} from 'vuex';
+	import DashboardInfo from '@/components/Dashboard/DashboardInfo.vue';
+	import DashboardContent from '@/components/Dashboard/DashboardContent.vue';
 
 
 	export default {
@@ -25,7 +25,7 @@
 				handler() {
 					this.createTaskListLocalStorage();
 				},
-				deep: true,
+				deep: true
 			}
 		},
 		mounted() {
@@ -37,7 +37,7 @@
 				'createTaskListLocalStorage'
 			])
 		}
-	}
+	};
 </script>
 
 <style lang="scss" scoped>

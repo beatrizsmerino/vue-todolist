@@ -53,9 +53,9 @@
 </template>
 
 <script>
-	import { mapGetters, mapActions } from 'vuex';
-	import Button from '@/components/UI/Button.vue'
-	import Tag from "@/components/UI/Tag.vue";
+	import {mapGetters, mapActions} from 'vuex';
+	import Button from '@/components/UI/Button.vue';
+	import Tag from '@/components/UI/Tag.vue';
 
 	export default {
 		name: 'DashboardInfo',
@@ -73,9 +73,9 @@
 			...mapActions([
 				'removeTaskList',
 				'removeTaskListDone'
-			]),
+			])
 		}
-	}
+	};
 </script>
 
 <style lang="scss" scoped>
