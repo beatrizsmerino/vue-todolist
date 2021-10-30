@@ -24,7 +24,7 @@
 </template>
 
 <script>
-	import { mapGetters, mapActions } from 'vuex';
+	import {mapGetters, mapActions} from 'vuex';
 	import Button from '@/components/UI/Button.vue';
 
 	export default {
@@ -44,7 +44,6 @@
 			createTaskId() {
 				if (typeof this.getTaskLast !== 'undefined') {
 					return this.getTaskLast.id + 1;
-
 				}
 
 				return 1;
