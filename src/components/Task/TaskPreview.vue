@@ -48,9 +48,9 @@
 		},
 		methods: {
 			...mapActions([
-'removeTask',
-'updateTask'
-]),
+				'removeTask',
+				'updateTask'
+			]),
 			changeTaskDone(task) {
 				task.status.done = !task.status.done;
 				this.updateTask(task);
