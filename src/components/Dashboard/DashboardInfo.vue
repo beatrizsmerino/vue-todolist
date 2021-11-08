@@ -53,7 +53,7 @@
 </template>
 
 <script>
-	import { mapGetters, mapActions } from 'vuex';
+	import {mapGetters, mapActions} from 'vuex';
 	import Button from '@/components/UI/Button.vue';
 	import Tag from '@/components/UI/Tag.vue';
 
