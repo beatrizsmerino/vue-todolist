@@ -8,11 +8,11 @@
 
 ### `vue-todolist` is an app task management application, a very typical productivity tool.
 
-![Vue Todolist](README/videos/vue-todolist.gif)
+![Vue Todolist](./README/videos/vue-todolist.gif)
 
 ## Development interface
 
-![Vue logo](README/images/vue-js-2.jpg)
+![Vue logo](./README/images/vue-js-2.jpg)
 
 Is developed with **[vue.js](https://vuejs.org/)** 2.6.10 a Javascript framework. This project use [Vue Cli](https://cli.vuejs.org/) and has dependencies as webpack, google fonts and font awesome icon.
 
@@ -22,22 +22,23 @@ Is developed with **[vue.js](https://vuejs.org/)** 2.6.10 a Javascript framework
 
 -   assets
     -   scss
-    -   images
 -   components
     -   UI
-        -   Button
-        -   Tag
+        -   [Button](./src/components/UI/Button.vue)
+        -   [Message](./src/components/UI/Message.vue)
+        -   [Tag](./src/components/UI/Tag.vue)
     -   Page
-        -   PageTitle
-    -   Board
-        -   Board
+        -   [PageTitle](./src/components/Page/PageTitle.vue)
+    -   Dashboard
+        -   [Dashboard](./src/components/Dashboard/Dashboard.vue)
+        -   [DashboardContent](./src/components/Dashboard/DashboardContent.vue)
+        -   [DashboardInfo](./src/components/Dashboard/DashboardInfo.vue)
     -   Task
-        -   TaskList
-        -   TaskPreview
-        -   TaskNew
--   _App.vue_
--   _main.js_
--   _index.html_
+        -   [TaskList](./src/components/Task/TaskList.vue)
+        -   [TaskPreview](./src/components/Task/TaskPreview.vue)
+        -   [TaskNew](./src/components/Task/TaskNew.vue)
+-   [App.vue](./src/App.vue)
+-   [main.js](./src/main.js)
 
 ## How work
 
