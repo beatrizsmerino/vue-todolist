@@ -11,13 +11,6 @@
 		"lint": "npm run prettier:fix && npm run eslint:fix",
 		"deploy": "node gh-pages-deploy.js"
 	},
-	"resolutions": {
-		"ansi-html": "https://registry.npmjs.org/ansi-html-community/-/ansi-html-community-0.0.8.tgz",
-		"ansi-regex": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz",
-		"glob-parent": "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz",
-		"nth-check": "https://registry.npmjs.org/nth-check/-/nth-check-2.0.1.tgz",
-		"set-value": "https://registry.npmjs.org/set-value/-/set-value-4.0.1.tgz"
-	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^1.2.36",
 		"@fortawesome/free-solid-svg-icons": "^5.15.4",
@@ -39,12 +32,20 @@
 		"eslint-loader": "^4.0.2",
 		"eslint-plugin-json": "^3.1.0",
 		"eslint-plugin-prettier": "^4.0.0",
-		"eslint-plugin-vue": "^8.0.3",
+		"eslint-plugin-vue": "^8.1.1",
 		"prettier": "^2.4.1",
-		"sass": "^1.43.4",
+		"sass": "^1.43.5",
 		"sass-loader": "^7.3.1",
 		"style-resources-loader": "^1.4.1",
 		"vue-cli-plugin-style-resources-loader": "~0.1.5",
 		"vue-template-compiler": "^2.6.14"
+	},
+	"resolutions": {
+		"ansi-html": "https://registry.npmjs.org/ansi-html-community/-/ansi-html-community-0.0.8.tgz",
+		"ansi-regex": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz",
+		"glob-parent": "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz",
+		"json-schema": "https://registry.npmjs.org/json-schema/-/json-schema-0.4.0.tgz",
+		"nth-check": "https://registry.npmjs.org/nth-check/-/nth-check-2.0.1.tgz",
+		"set-value": "https://registry.npmjs.org/set-value/-/set-value-4.0.1.tgz"
 	}
 }
