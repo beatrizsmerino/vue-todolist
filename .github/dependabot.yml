@@ -1,95 +1,13 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-    time: "09:00"
-    timezone: Europe/Madrid
-  ignore:
-  - dependency-name: eslint
-    versions:
-    - ">= 7.a, < 8"
-  - dependency-name: eslint-plugin-vue
-    versions:
-    - ">= 7.a, < 8"
-  - dependency-name: core-js
-    versions:
-    - 3.10.2
-    - 3.9.1
-  - dependency-name: node-sass
-    versions:
-    - 4.13.1
-    - 5.0.0
-  - dependency-name: babel-eslint
-    versions:
-    - 10.1.0
-  - dependency-name: sass-loader
-    versions:
-    - 7.3.1
-  - dependency-name: "@fortawesome/free-solid-svg-icons"
-    versions:
-    - 5.15.3
-  - dependency-name: "@vue/cli-plugin-eslint"
-    versions:
-    - 4.5.12
-  - dependency-name: eslint-plugin-vue
-    versions:
-    - 6.2.2
-  - dependency-name: vue-template-compiler
-    versions:
-    - 2.6.12
-  - dependency-name: vue
-    versions:
-    - 2.6.12
-  - dependency-name: npm
-    versions:
-    - 6.14.6
-  - dependency-name: websocket-extensions
-    versions:
-    - 0.1.4
-  - dependency-name: yargs-parser
-    versions:
-    - 5.0.1
-  - dependency-name: npm-user-validate
-    versions:
-    - 1.0.1
-  - dependency-name: npm-registry-fetch
-    versions:
-    - 4.0.7
-  - dependency-name: https-proxy-agent
-    versions:
-    - 2.2.4
-  - dependency-name: bin-links
-    versions:
-    - 1.1.8
-  - dependency-name: lodash
-    versions:
-    - 4.17.21
-  - dependency-name: "@vue/cli-service"
-    versions:
-    - 4.5.12
-  - dependency-name: http-proxy
-    versions:
-    - 1.18.1
-  - dependency-name: "@fortawesome/fontawesome-svg-core"
-    versions:
-    - 1.2.35
-  - dependency-name: "@vue/cli-plugin-babel"
-    versions:
-    - 4.5.12
-  - dependency-name: ini
-    versions:
-    - 1.3.8
-  - dependency-name: webpack
-    versions:
-    - 4.46.0
-  - dependency-name: elliptic
-    versions:
-    - 6.5.4
-  - dependency-name: dot-prop
-    versions:
-    - 4.2.1
-  - dependency-name: "@fortawesome/vue-fontawesome"
-    versions:
-    - 2.0.2
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+      time: '09:00'
+      timezone: Europe/Madrid
