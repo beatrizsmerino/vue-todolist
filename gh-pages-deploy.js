@@ -1,6 +1,11 @@
 /* eslint-disable no-console */
 const execa = require('execa');
+const emoji = require('node-emoji');
+const chalk = require('chalk');
 const fs = require('fs');
+
+const iconArrows = emoji.get('fast_forward');
+const iconRocket = emoji.get('rocket');
 (async () => {
 	try {
 		await execa('git', [
@@ -8,8 +13,7 @@ const fs = require('fs');
 			'--orphan',
 			'gh-pages'
 		]);
-		// eslint-disable-next-line no-console
-		console.log('Building started...');
+		console.log(`${iconArrows} ${chalk.yellow('Building started...')}`);
 		await execa('npm', [
 			'run',
 			'build'
@@ -30,7 +34,7 @@ const fs = require('fs');
 			'-m',
 			'gh-pages'
 		]);
-		console.log('Pushing to gh-pages...');
+		console.log(`${iconArrows} ${chalk.yellow('Pushing to gh-pages...')}`);
 		await execa('git', [
 			'push',
 			'origin',
@@ -51,9 +55,8 @@ const fs = require('fs');
 			'-D',
 			'gh-pages'
 		]);
-		console.log('Successfully deployed, check your settings');
+		console.log(`${iconRocket} ${chalk.green('Successfully deployed')} ${iconRocket}`);
 	} catch (e) {
-		// eslint-disable-next-line no-console
 		console.log(e.message);
 		process.exit(1);
 	}

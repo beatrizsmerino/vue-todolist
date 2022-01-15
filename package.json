@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"preinstall": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions",
+		"postinstall": "npm run lint",
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
 		"prettier:fix": "prettier --write \"./**/*.{vue,js,json}\"",
@@ -15,7 +16,10 @@
 		"@fortawesome/fontawesome-svg-core": "^1.2.36",
 		"@fortawesome/free-solid-svg-icons": "^5.15.4",
 		"@fortawesome/vue-fontawesome": "^2.0.6",
+		"chalk": "^4.1.2",
 		"core-js": "^3.20.2",
+		"execa": "^5.1.1",
+		"node-emoji": "^1.11.0",
 		"vue": "^2.6.14",
 		"vuex": "^3.6.2"
 	},
@@ -32,9 +36,9 @@
 		"eslint-loader": "^4.0.2",
 		"eslint-plugin-json": "^3.1.0",
 		"eslint-plugin-prettier": "^4.0.0",
-		"eslint-plugin-vue": "^8.2.0",
+		"eslint-plugin-vue": "^8.3.0",
 		"prettier": "^2.5.1",
-		"sass": "^1.46.0",
+		"sass": "^1.48.0",
 		"sass-loader": "^7.3.1",
 		"style-resources-loader": "^1.5.0",
 		"vue-cli-plugin-style-resources-loader": "~0.1.5",
@@ -45,6 +49,7 @@
 		"ansi-regex": "https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.1.tgz",
 		"glob-parent": "https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.2.tgz",
 		"json-schema": "https://registry.npmjs.org/json-schema/-/json-schema-0.4.0.tgz",
+		"node-forge": "https://registry.npmjs.org/node-forge/-/node-forge-1.0.0.tgz",
 		"nth-check": "https://registry.npmjs.org/nth-check/-/nth-check-2.0.1.tgz",
 		"set-value": "https://registry.npmjs.org/set-value/-/set-value-4.0.1.tgz"
 	}
