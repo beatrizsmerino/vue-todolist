@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"preinstall": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions",
+		"postinstall": "npm run lint",
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
 		"prettier:fix": "prettier --write \"./**/*.{vue,js,json}\"",
