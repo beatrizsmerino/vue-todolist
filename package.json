@@ -16,7 +16,7 @@
 		"@fortawesome/fontawesome-svg-core": "^1.2.36",
 		"@fortawesome/free-solid-svg-icons": "^5.15.4",
 		"@fortawesome/vue-fontawesome": "^2.0.6",
-		"chalk": "^4.1.2",
+		"chalk": "^5.0.0",
 		"core-js": "^3.20.2",
 		"execa": "^5.1.1",
 		"node-emoji": "^1.11.0",
