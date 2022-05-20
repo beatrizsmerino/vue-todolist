@@ -38,7 +38,7 @@
 		"eslint-plugin-prettier": "^4.0.0",
 		"eslint-plugin-vue": "^8.7.1",
 		"prettier": "^2.6.2",
-		"sass": "^1.51.0",
+		"sass": "^1.52.0",
 		"sass-loader": "^10",
 		"style-resources-loader": "^1.5.0",
 		"vue-cli-plugin-style-resources-loader": "~0.1.5",
