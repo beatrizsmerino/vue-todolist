@@ -9,7 +9,7 @@
 				autofocus
 				@keyup.enter="createTaskNew()"
 			>
-			<Button
+			<UIButton
 				class="task-new__button-add button--icon"
 				@button-click="createTaskNew()"
 			>
@@ -18,19 +18,19 @@
 						<FontAwesomeIcon icon="plus-circle" />
 					</i>
 				</span>
-			</Button>
+			</UIButton>
 		</div>
 	</div>
 </template>
 
 <script>
 	import {mapGetters, mapActions} from 'vuex';
-	import Button from '@/components/UI/Button.vue';
+	import UIButton from '@/components/UI/UIButton.vue';
 
 	export default {
 		name: 'TaskNew',
 		components: {
-			Button
+			UIButton
 		},
 		data() {
 			return {
