@@ -2,13 +2,13 @@
 	<div class="dashboard-info">
 		<ul class="dashboard-info__list">
 			<li class="dashboard-info__item">
-				<Tag
+				<UITag
 					tag-name="Tasks"
 					:tag-value="totalTaskList"
 				/>
 			</li>
 			<li class="dashboard-info__item">
-				<Tag
+				<UITag
 					tag-name="Tasks Done"
 					:tag-value="totalTaskListDone"
 				/>
@@ -55,13 +55,13 @@
 <script>
 	import {mapGetters, mapActions} from 'vuex';
 	import UIButton from '@/components/UI/UIButton.vue';
-	import Tag from '@/components/UI/Tag.vue';
+	import UITag from '@/components/UI/UITag.vue';
 
 	export default {
 		name: 'DashboardInfo',
 		components: {
 			UIButton,
-			Tag
+			UITag
 		},
 		computed: {
 			...mapGetters({
