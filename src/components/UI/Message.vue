@@ -7,7 +7,7 @@
 			<div class="message__content">
 				<slot />
 			</div>
-			<Button
+			<UIButton
 				v-if="!isClose"
 				class="message__button-close button--bg-black button--icon"
 				@button-click="closeMessage()"
@@ -17,25 +17,25 @@
 						<FontAwesomeIcon icon="times" />
 					</i>
 				</span>
-			</Button>
-			<Button
+			</UIButton>
+			<UIButton
 				v-else
 				class="message__button-open button--small button--bg-color-3"
 				@button-click="openMessage()"
 			>
 				Show info
-			</Button>
+			</UIButton>
 		</div>
 	</div>
 </template>
 
 <script>
-	import Button from '@/components/UI/Button.vue';
+	import UIButton from '@/components/UI/UIButton.vue';
 
 	export default {
 		name: 'Message',
 		components: {
-			Button
+			UIButton
 		},
 		data() {
 			return {
