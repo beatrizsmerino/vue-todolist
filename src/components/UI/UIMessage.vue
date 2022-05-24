@@ -33,7 +33,7 @@
 	import UIButton from '@/components/UI/UIButton.vue';
 
 	export default {
-		name: 'Message',
+		name: 'UIMessage',
 		components: {
 			UIButton
 		},
