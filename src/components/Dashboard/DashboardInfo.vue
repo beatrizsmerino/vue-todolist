@@ -2,13 +2,13 @@
 	<div class="dashboard-info">
 		<ul class="dashboard-info__list">
 			<li class="dashboard-info__item">
-				<Tag
+				<UITag
 					tag-name="Tasks"
 					:tag-value="totalTaskList"
 				/>
 			</li>
 			<li class="dashboard-info__item">
-				<Tag
+				<UITag
 					tag-name="Tasks Done"
 					:tag-value="totalTaskListDone"
 				/>
@@ -19,7 +19,7 @@
 				v-if="totalTaskListDone !== 0"
 				class="dashboard-info__item"
 			>
-				<Button
+				<UIButton
 					class="button--bg-color-error button--small"
 					@button-click="removeTaskListDone()"
 				>
@@ -31,10 +31,10 @@
 					<span class="button__text">
 						tasks done
 					</span>
-				</Button>
+				</UIButton>
 			</li>
 			<li class="dashboard-info__item">
-				<Button
+				<UIButton
 					class="button--bg-color-error button--small"
 					@button-click="removeTaskList()"
 				>
@@ -46,7 +46,7 @@
 					<span class="button__text">
 						tasks
 					</span>
-				</Button>
+				</UIButton>
 			</li>
 		</ul>
 	</div>
@@ -54,14 +54,14 @@
 
 <script>
 	import {mapGetters, mapActions} from 'vuex';
-	import Button from '@/components/UI/Button.vue';
-	import Tag from '@/components/UI/Tag.vue';
+	import UIButton from '@/components/UI/UIButton.vue';
+	import UITag from '@/components/UI/UITag.vue';
 
 	export default {
 		name: 'DashboardInfo',
 		components: {
-			Button,
-			Tag
+			UIButton,
+			UITag
 		},
 		computed: {
 			...mapGetters({
