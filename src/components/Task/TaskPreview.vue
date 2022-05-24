@@ -3,7 +3,7 @@
 		class="task-preview"
 		:class="{ 'is-done': taskItem.status.done }"
 	>
-		<Button
+		<UIButton
 			class="task-preview__button-done button--icon"
 			@button-click="changeTaskDone(taskItem)"
 		>
@@ -12,13 +12,13 @@
 					<FontAwesomeIcon icon="check-circle" />
 				</i>
 			</span>
-		</Button>
+		</UIButton>
 		<div class="task-preview__name">
 			<p>
 				{{ taskItem.name }}
 			</p>
 		</div>
-		<Button
+		<UIButton
 			class="task-preview__button-remove button--icon"
 			@button-click="removeTask(taskItem.id)"
 		>
@@ -27,18 +27,18 @@
 					<FontAwesomeIcon icon="trash" />
 				</i>
 			</span>
-		</Button>
+		</UIButton>
 	</div>
 </template>
 
 <script>
 	import {mapActions} from 'vuex';
-	import Button from '@/components/UI/Button.vue';
+	import UIButton from '@/components/UI/UIButton.vue';
 
 	export default {
 		name: 'TaskPreview',
 		components: {
-			Button
+			UIButton
 		},
 		props: {
 			taskItem: {
