@@ -13,7 +13,7 @@
 
 <script>
 	export default {
-		name: 'Button',
+		name: 'UIButton',
 		props: {
 			buttonHref: {
 				type: String,

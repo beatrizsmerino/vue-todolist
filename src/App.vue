@@ -2,11 +2,11 @@
 	<div id="app">
 		<PageTitle :title="getPageTitle" />
 		<Dashboard />
-		<Message class="message--local-storage message--rounded-one-line">
+		<UIMessage class="message--local-storage message--rounded-one-line">
 			<p>
 				This application uses the browser's Local Storage to store data
 			</p>
-		</Message>
+		</UIMessage>
 	</div>
 </template>
 
@@ -14,13 +14,13 @@
 	import {mapGetters} from 'vuex';
 	import PageTitle from '@/components/Page/PageTitle.vue';
 	import Dashboard from '@/components/Dashboard/Dashboard.vue';
-	import Message from '@/components/UI/Message.vue';
+	import UIMessage from '@/components/UI/UIMessage.vue';
 
 	export default {
 		components: {
 			PageTitle,
 			Dashboard,
-			Message
+			UIMessage
 		},
 		computed: {
 			...mapGetters(['getPageTitle'])
