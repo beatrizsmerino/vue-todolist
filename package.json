@@ -3,7 +3,8 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"preinstall": "rm -rf node_modules package-lock.json && npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions",
+		"install:clean": "rm -rf node_modules package-lock.json",
+		"preinstall": "npm run install:clean && npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions",
 		"postinstall": "npm run lint",
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
@@ -51,7 +52,7 @@
 		"nth-check": "https://registry.npmjs.org/nth-check/-/nth-check-2.0.1.tgz"
 	},
 	"volta": {
-		"node": "16.15.1",
+		"node": "14.19.3",
 		"npm": "6.14.17"
 	}
 }
