@@ -15,7 +15,7 @@
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^6.1.1",
 		"@fortawesome/free-solid-svg-icons": "^6.1.1",
-		"@fortawesome/vue-fontawesome": "^2.0.6",
+		"@fortawesome/vue-fontawesome": "^2.0.8",
 		"chalk": "^4.1.2",
 		"core-js": "^3.23.3",
 		"execa": "^5.1.1",
@@ -36,7 +36,7 @@
 		"eslint-loader": "^4.0.2",
 		"eslint-plugin-json": "^3.1.0",
 		"eslint-plugin-prettier": "^4.2.1",
-		"eslint-plugin-vue": "^9.1.1",
+		"eslint-plugin-vue": "^9.2.0",
 		"prettier": "^2.7.1",
 		"sass": "^1.53.0",
 		"sass-loader": "^10",
