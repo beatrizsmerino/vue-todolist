@@ -54,5 +54,9 @@
 		"node-forge": "https://registry.npmjs.org/node-forge/-/node-forge-1.3.0.tgz",
 		"nth-check": "https://registry.npmjs.org/nth-check/-/nth-check-2.0.1.tgz",
 		"set-value": "https://registry.npmjs.org/set-value/-/set-value-4.0.1.tgz"
+	},
+	"volta": {
+		"node": "16.15.1",
+		"npm": "6.14.17"
 	}
 }
