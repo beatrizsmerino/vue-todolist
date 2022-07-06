@@ -20,7 +20,7 @@
 		"core-js": "^3.23.3",
 		"execa": "^5.1.1",
 		"node-emoji": "^1.11.0",
-		"vue": "^2.6.14",
+		"vue": "^2.7.3",
 		"vuex": "^3.6.2"
 	},
 	"devDependencies": {
@@ -42,7 +42,7 @@
 		"sass-loader": "^10",
 		"style-resources-loader": "^1.5.0",
 		"vue-cli-plugin-style-resources-loader": "~0.1.5",
-		"vue-template-compiler": "^2.6.14"
+		"vue-template-compiler": "^2.7.3"
 	},
 	"resolutions": {
 		"ansi-html": "https://registry.npmjs.org/ansi-html-community/-/ansi-html-community-0.0.8.tgz",
