@@ -69,35 +69,6 @@
 		border-radius: 0.5rem;
 		box-shadow: 0 0 0.3rem rgba($color-black, 0.4);
 
-		&:hover {
-			background-color: $color-ghost;
-
-			.task-preview {
-				&__button-remove {
-					opacity: 1;
-					cursor: pointer;
-				}
-			}
-		}
-
-		&.is-done {
-			.task-preview {
-				&__name {
-					color: $color-silver;
-
-					p {
-						&:before {
-							width: 100%;
-						}
-					}
-				}
-
-				&__button-done {
-					color: $color-silver;
-				}
-			}
-		}
-
 		&__name {
 			max-width: calc(100% - 10rem);
 			font-size: 1.5rem;
@@ -115,11 +86,11 @@
 				&:before {
 					content: '';
 					width: 0%;
-					height: 0.1rem;
+					height: 0.2rem;
 					position: absolute;
 					top: 50%;
 					left: 0;
-					background-color: $color-silver;
+					background-color: $color-black;
 					transition: all 0.2s ease-in-out;
 				}
 			}
@@ -128,11 +99,11 @@
 		&__button-done {
 			margin-right: 1.5rem;
 			font-size: 2.4rem;
-			color: $color-success;
+			color: $color-silver;
 			opacity: 1;
 
 			&:hover {
-				color: mix($color-black, $color-success, 20%);
+				color: mix($color-black, $color-silver, 20%);
 			}
 		}
 
@@ -144,6 +115,37 @@
 
 			&:hover {
 				color: mix($color-black, $color-error, 20%);
+			}
+		}
+
+		&:hover {
+			background-color: $color-ghost;
+
+			.task-preview {
+				&__button-remove {
+					opacity: 1;
+					cursor: pointer;
+				}
+			}
+		}
+
+		&.is-done {
+			.task-preview {
+				&__name {
+					p {
+						&:before {
+							width: 100%;
+						}
+					}
+				}
+
+				&__button-done {
+					color: $color-success;
+
+					&:hover {
+						color: mix($color-black, $color-success, 20%);
+					}
+				}
 			}
 		}
 	}
