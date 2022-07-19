@@ -86,11 +86,11 @@
 				&:before {
 					content: '';
 					width: 0%;
-					height: 0.1rem;
+					height: 0.2rem;
 					position: absolute;
 					top: 50%;
 					left: 0;
-					background-color: $color-silver;
+					background-color: $color-black;
 					transition: all 0.2s ease-in-out;
 				}
 			}
@@ -99,11 +99,11 @@
 		&__button-done {
 			margin-right: 1.5rem;
 			font-size: 2.4rem;
-			color: $color-success;
+			color: $color-silver;
 			opacity: 1;
 
 			&:hover {
-				color: mix($color-black, $color-success, 20%);
+				color: mix($color-black, $color-silver, 20%);
 			}
 		}
 
@@ -132,8 +132,6 @@
 		&.is-done {
 			.task-preview {
 				&__name {
-					color: $color-silver;
-
 					p {
 						&:before {
 							width: 100%;
@@ -142,7 +140,11 @@
 				}
 
 				&__button-done {
-					color: $color-silver;
+					color: $color-success;
+
+					&:hover {
+						color: mix($color-black, $color-success, 20%);
+					}
 				}
 			}
 		}
