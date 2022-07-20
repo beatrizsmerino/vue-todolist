@@ -92,6 +92,7 @@
 			padding: 2rem;
 			font-size: 1.5rem;
 			font-weight: 600;
+			line-height: 110%;
 			color: $color-white;
 			overflow: hidden;
 			transition: all 0.5s ease-in-out 0s;
