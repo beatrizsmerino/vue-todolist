@@ -2,7 +2,7 @@
 	<div id="app">
 		<PageTitle :title="getPageTitle" />
 		<Dashboard />
-		<UIMessage class="message--local-storage message--rounded-one-line">
+		<UIMessage>
 			<p>
 				This application uses the browser's Local Storage to store data
 			</p>
