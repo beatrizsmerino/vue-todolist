@@ -9,7 +9,7 @@
 			</div>
 			<UIButton
 				v-if="!isClose"
-				class="message__button-close button--bg-black button--icon"
+				class="message__button button--bg-black button--icon"
 				@button-click="closeMessage()"
 			>
 				<span class="button__icon">
@@ -20,10 +20,14 @@
 			</UIButton>
 			<UIButton
 				v-else
-				class="message__button-open button--small button--bg-color-3"
+				class="message__button button--bg-black button--icon"
 				@button-click="openMessage()"
 			>
-				Show info
+				<span class="button__icon">
+					<i class="icon">
+						<FontAwesomeIcon icon="info" />
+					</i>
+				</span>
 			</UIButton>
 		</div>
 	</div>
@@ -56,12 +60,14 @@
 <style lang="scss" scoped>
 	.message {
 		max-width: 60rem;
-		position: fixed;
+		position: absolute;
+		border-radius: 3rem;
 		right: 3rem;
 		bottom: 3rem;
 		z-index: 999;
 		background-color: $color-brand-4;
 		box-shadow: 0 0.1rem 0.4rem 0.1rem rgba($color-black, 0.6);
+		transition: all 0.3s ease-in-out 0s;
 
 		@media (max-width: 600px) {
 			max-width: calc(100% - 3rem * 2);
@@ -72,60 +78,34 @@
 			position: relative;
 			display: flex;
 			align-items: center;
+			justify-content: flex-end;
 		}
 
-		&__button-close {
+		&__button {
 			width: 2.5rem;
 			height: 2.5rem;
-			position: absolute;
-			top: -1.25rem;
-			right: -1.25rem;
 			border-radius: 50%;
 		}
 
-		&__button-open {
-			width: 10rem;
-			display: inline-block;
-		}
-
 		&__content {
-			padding: 2rem;
+			width: calc(100% - 2.5rem);
+			max-height: (2.5rem * 2);
+			padding: 0.5rem 3rem 0.5rem 2.5rem;
 			font-size: 1.5rem;
 			font-weight: 600;
+			line-height: 110%;
 			color: $color-white;
 			overflow: hidden;
-			transition: all 0.5s ease-in-out 0s;
+			transition: all 0.5s ease-in-out 0.3s;
 		}
 
-		&--rounded-one-line {
-			border-radius: 3rem;
-
-			.message {
-				&__content {
-					width: calc(100% - 2.5rem);
-					padding: 0.5rem 3rem 0.5rem 2.5rem;
-				}
-
-				&__button-close {
-					position: relative;
-					top: inherit;
-					right: inherit;
-				}
-			}
-		}
-
-		&--local-storage {
-			position: absolute;
-		}
 
 		&.is-close {
-			box-shadow: none;
-			background-color: transparent;
-
 			.message {
 				&__content {
-					height: 0;
-					transform: translateX(100%);
+					width: 0;
+					max-height: 0;
+					padding: 0;
 					opacity: 0;
 					z-index: -1;
 				}
