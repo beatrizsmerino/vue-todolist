@@ -43,14 +43,16 @@
 	.dashboard {
 		width: 80%;
 		max-width: 50rem;
-		margin: 0 auto 6rem;
+		margin: 0 auto 3rem;
 		position: relative;
 		box-shadow: -0.2rem 0.2rem 0.2rem -0.1rem rgba($color-black, 0.15);
 		background-color: $color-white;
 		overflow: hidden;
+		transition: 0.5s ease-in-out 0s;
 
 		@include media('md') {
 			width: 100%;
+			max-width: inherit;
 		}
 	}
 </style>

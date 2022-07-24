@@ -73,6 +73,24 @@
 			max-width: calc(100% - 3rem * 2);
 		}
 
+		@include media('sm') {
+			max-width: inherit;
+			float: right;
+			display: flex;
+			position: relative;
+			right: inherit;
+			bottom: inherit;
+		}
+
+		@include media('md', 'max', 'height') {
+			max-width: inherit;
+			float: right;
+			display: flex;
+			position: relative;
+			right: inherit;
+			bottom: inherit;
+		}
+
 		&__inner {
 			margin: 0.4rem;
 			position: relative;
@@ -89,7 +107,7 @@
 
 		&__content {
 			width: calc(100% - 2.5rem);
-			max-height: (2.5rem * 2);
+			max-height: 5rem;
 			padding: 0.5rem 3rem 0.5rem 2.5rem;
 			font-size: 1.5rem;
 			font-weight: 600;
@@ -97,8 +115,15 @@
 			color: $color-white;
 			overflow: hidden;
 			transition: all 0.5s ease-in-out 0.3s;
-		}
 
+			@include media('sm') {
+				font-size: 1.2rem;
+			}
+
+			@include media('xs') {
+				font-size: 3vw;
+			}
+		}
 
 		&.is-close {
 			.message {
