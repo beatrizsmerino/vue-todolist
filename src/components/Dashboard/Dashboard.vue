@@ -49,7 +49,7 @@
 		background-color: $color-white;
 		overflow: hidden;
 
-		@media (max-width: 600px) {
+		@include media('md') {
 			width: 100%;
 		}
 	}

@@ -69,7 +69,7 @@
 		box-shadow: 0 0.1rem 0.4rem 0.1rem rgba($color-black, 0.6);
 		transition: all 0.3s ease-in-out 0s;
 
-		@media (max-width: 600px) {
+		@include media('md') {
 			max-width: calc(100% - 3rem * 2);
 		}
 

@@ -40,7 +40,7 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 
-	@media screen and (max-height: 500px) {
+	@include media('sm', 'max', 'height') {
 		height: inherit;
 	}
 }
@@ -73,7 +73,7 @@ body {
 		);
 	}
 
-	@media screen and (max-height: 500px) {
+	@include media('sm', 'max', 'height') {
 		height: inherit;
 	}
 }
