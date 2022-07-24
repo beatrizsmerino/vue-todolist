@@ -84,8 +84,14 @@
 	.task-new {
 		padding: 1.5rem 2rem;
 		background-color: $color-ghost;
+		transition: all 0.5s ease-in-out 0s;
+
+		@include media('sm') {
+			padding: 1.2rem;
+		}
 
 		&__field {
+			padding: 0.8rem 1rem 0.8rem 1.5rem;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -93,13 +99,23 @@
 			border: 0.3rem solid $color-brand-3;
 			background-color: $color-white;
 			overflow: hidden;
+			transition: all 0.5s ease-in-out 0s;
+
+			@include media('md') {
+				padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+			}
+
+			> * {
+				&:not(:last-child) {
+					margin-right: 1rem;
+				}
+			}
 		}
 
 		&__input {
+			width: 100%;
 			border: none;
 			outline: none;
-			padding: 1.2rem 1.6rem;
-			flex: 1;
 			font-family: $font-brand-2;
 			font-size: 1.6rem;
 			font-weight: 600;
@@ -112,10 +128,13 @@
 		}
 
 		&__button-add {
-			width: 5rem;
-			height: 5rem;
 			color: $color-brand-3;
 			font-size: 3.6rem;
+			transition: all 0.5s ease-in-out 0s;
+
+			@include media('md') {
+				font-size: 3rem;
+			}
 
 			&:hover {
 				color: mix($color-black, $color-brand-3, 20%);
