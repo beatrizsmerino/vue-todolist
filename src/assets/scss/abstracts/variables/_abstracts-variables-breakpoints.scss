@@ -1,0 +1,21 @@
+// SETTINGS
+// BREAKPOINTS
+// ------------------
+
+// xs - mobile
+// sm - mobile
+// md - iPad portrait
+// lg - iPad portrait
+// xl - iPad landscape
+// xxl - laptop
+// xxl - big display
+
+$breakpoints: (
+	xs: 480px,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1024px,
+	xxl: 1280px,
+	xxxl: 1600px
+) !default;

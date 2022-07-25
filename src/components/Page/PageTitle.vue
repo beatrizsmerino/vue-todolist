@@ -25,5 +25,9 @@
 		line-height: 100%;
 		font-size: 6.4rem;
 		font-weight: 600;
+
+		@include media('sm') {
+			font-size: 12vw;
+		}
 	}
 </style>
