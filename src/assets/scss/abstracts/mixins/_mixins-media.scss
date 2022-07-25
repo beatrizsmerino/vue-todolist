@@ -1,0 +1,48 @@
+// MIXIN
+// MEDIA QUERIES
+// ------------------
+
+@function contains($list, $item) {
+	@return index($list, $item) != null;
+}
+
+@mixin media($breakpoint, $rule: 'max', $dimension: 'width') {
+	$rules: 'max', 'min';
+	$dimensions: 'width', 'height';
+	$units: 'px', 'em', 'rem', '%', 'vw', 'vh';
+
+	@if not contains($rules, $rule) {
+		$rule: 'max';
+	}
+	@if not contains($dimensions, $dimension) {
+		$rule: 'width';
+	}
+
+	@if type-of($breakpoint) ==number {
+		@if unitless($breakpoint) {
+			@media (#{$rule}-#{$dimension}: #{$breakpoint + 'px'}) {
+				@content;
+			}
+		} @else if contains($units, unit($breakpoint)) {
+			@media (#{$rule}-#{$dimension}: #{$breakpoint}) {
+				@content;
+			}
+		} @else {
+			@error "Invalid units provided";
+		}
+	} @else if variable_exists(breakpoints) {
+		@if map-has-key($breakpoints, $breakpoint) {
+			@media (#{$rule}-#{$dimension}: #{inspect(map-get($breakpoints, $breakpoint))}) {
+				@content;
+			}
+		} @else {
+			@error "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "+"Available breakpoints are: #{map-keys($breakpoints)}.";
+		}
+	} @else if variable_exists(breakpoint) {
+		@media (#{$rule}-#{$dimension}: #{$breakpoint}) {
+			@content;
+		}
+	} @else {
+		@error "Neither $breakpoints map nor variable provided are defined";
+	}
+}
