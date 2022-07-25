@@ -56,6 +56,23 @@ body {
 	flex-direction: column;
 	font-size: 1rem;
 	overflow-x: hidden;
+	transition: all 0.5s ease-in-out 0s;
+
+	@include media('sm') {
+		padding: 4rem 2.5rem;
+		height: inherit;
+		justify-content: flex-start;
+	}
+
+	@include media('md', 'max', 'height') {
+		padding: 4rem 2.5rem;
+		height: inherit;
+		justify-content: flex-start;
+	}
+
+	@media screen and (min-height: #{map-get($breakpoints, 'md')}) {
+		padding: 6rem 3rem;
+	}
 
 	&:after {
 		content: "";
@@ -71,10 +88,6 @@ body {
 			$color-brand-1 0%,
 			$color-brand-2 100%
 		);
-	}
-
-	@include media('sm', 'max', 'height') {
-		height: inherit;
 	}
 }
 
