@@ -20,7 +20,10 @@
 		</div>
 		<ul class="task-preview__tools">
 			<li>
-				<UIButton class="task-preview__button-edit button--icon">
+				<UIButton
+					class="task-preview__button-edit button--icon"
+					@button-click="editTaskName(taskItem)"
+				>
 					<span class="button__icon">
 						<i class="icon">
 							<FontAwesomeIcon icon="edit" />
@@ -66,6 +69,11 @@
 			]),
 			changeTaskDone(task) {
 				task.status.done = !task.status.done;
+				this.updateTask(task);
+			},
+			editTaskName(task) {
+				alert('Edit task name');
+
 				this.updateTask(task);
 			}
 		}
