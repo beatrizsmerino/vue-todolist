@@ -18,16 +18,29 @@
 				{{ taskItem.name }}
 			</p>
 		</div>
-		<UIButton
-			class="task-preview__button-remove button--icon"
-			@button-click="removeTask(taskItem.id)"
-		>
-			<span class="button__icon">
-				<i class="icon">
-					<FontAwesomeIcon icon="trash" />
-				</i>
-			</span>
-		</UIButton>
+		<ul class="task-preview__tools">
+			<li>
+				<UIButton class="task-preview__button-edit button--icon">
+					<span class="button__icon">
+						<i class="icon">
+							<FontAwesomeIcon icon="edit" />
+						</i>
+					</span>
+				</UIButton>
+			</li>
+			<li>
+				<UIButton
+					class="task-preview__button-remove button--icon"
+					@button-click="removeTask(taskItem.id)"
+				>
+					<span class="button__icon">
+						<i class="icon">
+							<FontAwesomeIcon icon="trash" />
+						</i>
+					</span>
+				</UIButton>
+			</li>
+		</ul>
 	</div>
 </template>
 
@@ -62,6 +75,7 @@
 <style lang="scss" scoped>
 	.task-preview {
 		padding: 1rem;
+		position: relative;
 		display: flex;
 		align-items: center;
 		line-height: 1;
@@ -107,11 +121,37 @@
 			}
 		}
 
-		&__button-remove {
-			margin-left: auto;
-			color: $color-error;
-			font-size: 2rem;
+		&__tools {
+			position: absolute;
+			top: 50%;
+			right: 1rem;
+			transform: translateY(-50%);
+			display: flex;
+			list-style: none;
 			opacity: 0;
+
+			>* {
+				&:not(:last-child) {
+					margin-right: 1.2rem;
+				}
+			}
+
+			:deep(.button) {
+				font-size: 2rem;
+			}
+		}
+
+
+		&__button-edit {
+			color: $color-brand-3;
+
+			&:hover {
+				color: mix($color-black, $color-brand-3, 20%);
+			}
+		}
+
+		&__button-remove {
+			color: $color-error;
 
 			&:hover {
 				color: mix($color-black, $color-error, 20%);
@@ -122,7 +162,7 @@
 			background-color: $color-ghost;
 
 			.task-preview {
-				&__button-remove {
+				&__tools {
 					opacity: 1;
 					cursor: pointer;
 				}
