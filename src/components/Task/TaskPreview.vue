@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="task-preview"
-		:class="{ 'is-done': taskItem.status.done }"
+		:class="{ 'is-done': taskItem.status.done, 'is-show': taskItem.status.show }"
 	>
 		<UIButton
 			class="task-preview__button-done button--icon"
@@ -20,16 +20,26 @@
 		</div>
 		<ul class="task-preview__tools">
 			<li>
-				<UIButton
-					class="task-preview__button-edit button--icon"
-					@button-click="editTaskName(taskItem)"
+				<UIModal
+					:class="{ 'is-open': taskItem.status.show }"
+					@modal-close="hideTask(taskItem)"
 				>
-					<span class="button__icon">
-						<i class="icon">
-							<FontAwesomeIcon icon="edit" />
-						</i>
-					</span>
-				</UIButton>
+					<template #modalButtonOpen>
+						<UIButton
+							class="task-preview__button-edit button--icon"
+							@button-click="showTask(taskItem); editTaskName(taskItem);"
+						>
+							<span class="button__icon">
+								<i class="icon">
+									<FontAwesomeIcon icon="edit" />
+								</i>
+							</span>
+						</UIButton>
+					</template>
+					<template #modalInner>
+						{{ taskItem.name }}
+					</template>
+				</UIModal>
 			</li>
 			<li>
 				<UIButton
@@ -50,11 +60,13 @@
 <script>
 	import {mapActions} from 'vuex';
 	import UIButton from '@/components/UI/UIButton.vue';
+	import UIModal from '@/components/UI/UIModal.vue';
 
 	export default {
 		name: 'TaskPreview',
 		components: {
-			UIButton
+			UIButton,
+			UIModal
 		},
 		props: {
 			taskItem: {
@@ -71,6 +83,14 @@
 				task.status.done = !task.status.done;
 				this.updateTask(task);
 			},
+			showTask(task) {
+				task.status.show = true;
+				this.updateTask(task);
+			},
+			hideTask(task) {
+				task.status.show = false;
+				this.updateTask(task);
+			},
 			editTaskName(task) {
 				alert('Edit task name');
 
@@ -83,7 +103,6 @@
 <style lang="scss" scoped>
 	.task-preview {
 		padding: 1rem;
-		position: relative;
 		display: flex;
 		align-items: center;
 		line-height: 1;
@@ -130,10 +149,7 @@
 		}
 
 		&__tools {
-			position: absolute;
-			top: 50%;
-			right: 1rem;
-			transform: translateY(-50%);
+			margin-left: auto;
 			display: flex;
 			list-style: none;
 			opacity: 0;
@@ -143,12 +159,12 @@
 					margin-right: 1.2rem;
 				}
 			}
-
-			:deep(.button) {
-				font-size: 2rem;
-			}
 		}
 
+		&__button-edit,
+		&__button-remove {
+			font-size: 2rem;
+		}
 
 		&__button-edit {
 			color: $color-brand-3;
@@ -193,6 +209,14 @@
 					&:hover {
 						color: mix($color-black, $color-success, 20%);
 					}
+				}
+			}
+		}
+
+		&.is-show {
+			.task-preview {
+				&__tools {
+					opacity: 1;
 				}
 			}
 		}
