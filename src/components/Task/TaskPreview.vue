@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="task-preview"
-		:class="{ 'is-done': taskItem.status.done }"
+		:class="{ 'is-done': taskItem.status.done, 'is-show': taskItem.status.show }"
 	>
 		<UIButton
 			class="task-preview__button-done button--icon"
@@ -18,27 +18,60 @@
 				{{ taskItem.name }}
 			</p>
 		</div>
-		<UIButton
-			class="task-preview__button-remove button--icon"
-			@button-click="removeTask(taskItem.id)"
-		>
-			<span class="button__icon">
-				<i class="icon">
-					<FontAwesomeIcon icon="trash" />
-				</i>
-			</span>
-		</UIButton>
+		<ul class="task-preview__tools">
+			<li>
+				<UIModal
+					:class="{ 'is-open': taskItem.status.show }"
+					@modal-close="hideTask(taskItem)"
+				>
+					<template #modalButtonOpen>
+						<UIButton
+							class="task-preview__button-edit button--icon"
+							@button-click="showTask(taskItem);"
+						>
+							<span class="button__icon">
+								<i class="icon">
+									<FontAwesomeIcon icon="edit" />
+								</i>
+							</span>
+						</UIButton>
+					</template>
+					<template #modalInner>
+						<TaskEdit
+							:task="taskItem"
+							@task-edit-close="hideTask(taskItem)"
+						/>
+					</template>
+				</UIModal>
+			</li>
+			<li>
+				<UIButton
+					class="task-preview__button-remove button--icon"
+					@button-click="removeTask(taskItem.id)"
+				>
+					<span class="button__icon">
+						<i class="icon">
+							<FontAwesomeIcon icon="trash" />
+						</i>
+					</span>
+				</UIButton>
+			</li>
+		</ul>
 	</div>
 </template>
 
 <script>
 	import {mapActions} from 'vuex';
 	import UIButton from '@/components/UI/UIButton.vue';
+	import UIModal from '@/components/UI/UIModal.vue';
+	import TaskEdit from '@/components/Task/TaskEdit.vue';
 
 	export default {
 		name: 'TaskPreview',
 		components: {
-			UIButton
+			UIButton,
+			UIModal,
+			TaskEdit
 		},
 		props: {
 			taskItem: {
@@ -53,6 +86,14 @@
 			]),
 			changeTaskDone(task) {
 				task.status.done = !task.status.done;
+				this.updateTask(task);
+			},
+			showTask(task) {
+				task.status.show = true;
+				this.updateTask(task);
+			},
+			hideTask(task) {
+				task.status.show = false;
 				this.updateTask(task);
 			}
 		}
@@ -107,11 +148,34 @@
 			}
 		}
 
-		&__button-remove {
+		&__tools {
 			margin-left: auto;
-			color: $color-error;
-			font-size: 2rem;
+			display: flex;
+			list-style: none;
 			opacity: 0;
+
+			>* {
+				&:not(:last-child) {
+					margin-right: 1.2rem;
+				}
+			}
+		}
+
+		&__button-edit,
+		&__button-remove {
+			font-size: 2rem;
+		}
+
+		&__button-edit {
+			color: $color-brand-3;
+
+			&:hover {
+				color: mix($color-black, $color-brand-3, 20%);
+			}
+		}
+
+		&__button-remove {
+			color: $color-error;
 
 			&:hover {
 				color: mix($color-black, $color-error, 20%);
@@ -122,7 +186,7 @@
 			background-color: $color-ghost;
 
 			.task-preview {
-				&__button-remove {
+				&__tools {
 					opacity: 1;
 					cursor: pointer;
 				}
@@ -145,6 +209,14 @@
 					&:hover {
 						color: mix($color-black, $color-success, 20%);
 					}
+				}
+			}
+		}
+
+		&.is-show {
+			.task-preview {
+				&__tools {
+					opacity: 1;
 				}
 			}
 		}
