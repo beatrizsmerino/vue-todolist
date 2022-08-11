@@ -17,7 +17,7 @@
 
 			<UIButton
 				class="task-edit__button-save button--bg-color-3"
-				@button-click="editTaskName(task);"
+				@button-click="editTaskName(task); emitTaskEditClose();"
 			>
 				<span class="button__icon">
 					<i class="icon">
@@ -56,6 +56,9 @@
 			...mapActions(['updateTask']),
 			editTaskName(task) {
 				this.updateTask(task);
+			},
+			emitTaskEditClose() {
+				this.$emit('task-edit-close');
 			}
 		}
 	};

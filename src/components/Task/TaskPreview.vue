@@ -37,7 +37,10 @@
 						</UIButton>
 					</template>
 					<template #modalInner>
-						<TaskEdit :task="taskItem" />
+						<TaskEdit
+							:task="taskItem"
+							@task-edit-close="hideTask(taskItem)"
+						/>
 					</template>
 				</UIModal>
 			</li>
