@@ -1,4 +1,5 @@
 const ESLintPlugin = require('eslint-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 module.exports = {
 	publicPath: process.env.NODE_ENV === 'production' ? '/vue-todolist/' : '/',
@@ -22,6 +23,12 @@ module.exports = {
 			new ESLintPlugin({
 				fix: true,
 				files: ['src/**/*.{vue,js}']
+			}),
+
+			// Add configuration for autofix stylelint errors
+			new StyleLintPlugin({
+				fix: true,
+				files: ['src/**/*.{vue,scss}']
 			})
 		]
 	}
