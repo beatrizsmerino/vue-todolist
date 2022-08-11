@@ -11,21 +11,24 @@ const state = {
 				id: 1,
 				name: 'Do something awesome!',
 				status: {
-					done: false
+					done: false,
+					show: false
 				}
 			},
 			{
 				id: 2,
 				name: 'Buy toilet paper',
 				status: {
-					done: false
+					done: false,
+					show: false
 				}
 			},
 			{
 				id: 3,
 				name: 'Learn Vue',
 				status: {
-					done: false
+					done: false,
+					show: false
 				}
 			}
 		]
@@ -53,7 +56,8 @@ const actions = {
 			id: task.id,
 			name: task.name,
 			status: {
-				done: false
+				done: false,
+				show: false
 			}
 		};
 		commit('addTask', taskNew);
