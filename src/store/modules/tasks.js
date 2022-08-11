@@ -56,7 +56,8 @@ const actions = {
 			id: task.id,
 			name: task.name,
 			status: {
-				done: false
+				done: false,
+				show: false
 			}
 		};
 		commit('addTask', taskNew);
