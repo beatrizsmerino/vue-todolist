@@ -80,19 +80,19 @@
 
 <style lang="scss" scoped>
 	.dashboard-info {
-		width: 100%;
-		padding: 0.5rem;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: flex-end;
-		font-size: 1.4rem;
+		width: 100%;
+		padding: 0.5rem;
 		background-color: $color-ghost;
+		font-size: 1.4rem;
 
 		&__list {
 			display: flex;
 			flex-wrap: wrap;
-			justify-content: flex-end;
 			align-items: center;
+			justify-content: flex-end;
 			list-style: none;
 		}
 

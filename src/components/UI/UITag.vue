@@ -32,9 +32,9 @@
 
 <style lang="scss" scoped>
 	.tag {
-		padding: 0.2rem 0.2rem 0.2rem 1rem;
 		display: flex;
 		align-items: center;
+		padding: 0.2rem 0.2rem 0.2rem 1rem;
 		border-radius: 2rem;
 		background-color: $color-brand-3;
 
@@ -45,15 +45,15 @@
 		}
 
 		&__value {
-			padding: 0.2rem 0.5rem;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			text-align: center;
-			color: $color-brand-3;
-			font-weight: 600;
+			padding: 0.2rem 0.5rem;
 			border-radius: 2rem;
 			background-color: $color-white;
+			color: $color-brand-3;
+			font-weight: 600;
+			text-align: center;
 		}
 
 		&--value-number {

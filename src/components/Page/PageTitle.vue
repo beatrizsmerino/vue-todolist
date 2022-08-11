@@ -18,13 +18,13 @@
 
 <style lang="scss" scoped>
 	.page-title {
-		font-family: $font-brand-1;
-		color: $color-white;
 		margin-bottom: 2rem;
-		text-align: center;
-		line-height: 100%;
+		color: $color-white;
+		font-family: $font-brand-1;
 		font-size: 6.4rem;
 		font-weight: 600;
+		line-height: 100%;
+		text-align: center;
 
 		@include media('sm') {
 			font-size: 12vw;
