@@ -27,7 +27,7 @@
 					<template #modalButtonOpen>
 						<UIButton
 							class="task-preview__button-edit button--icon"
-							@button-click="showTask(taskItem); editTaskName(taskItem);"
+							@button-click="showTask(taskItem);"
 						>
 							<span class="button__icon">
 								<i class="icon">
@@ -37,7 +37,7 @@
 						</UIButton>
 					</template>
 					<template #modalInner>
-						{{ taskItem.name }}
+						<TaskEdit :task="taskItem" />
 					</template>
 				</UIModal>
 			</li>
@@ -61,12 +61,14 @@
 	import {mapActions} from 'vuex';
 	import UIButton from '@/components/UI/UIButton.vue';
 	import UIModal from '@/components/UI/UIModal.vue';
+	import TaskEdit from '@/components/Task/TaskEdit.vue';
 
 	export default {
 		name: 'TaskPreview',
 		components: {
 			UIButton,
-			UIModal
+			UIModal,
+			TaskEdit
 		},
 		props: {
 			taskItem: {
@@ -89,11 +91,6 @@
 			},
 			hideTask(task) {
 				task.status.show = false;
-				this.updateTask(task);
-			},
-			editTaskName(task) {
-				alert('Edit task name');
-
 				this.updateTask(task);
 			}
 		}
