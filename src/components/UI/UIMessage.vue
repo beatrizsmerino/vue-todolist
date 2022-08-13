@@ -59,44 +59,44 @@
 
 <style lang="scss" scoped>
 	.message {
-		max-width: 60rem;
 		position: absolute;
-		border-radius: 3rem;
+		z-index: 999;
 		right: 3rem;
 		bottom: 3rem;
-		z-index: 999;
+		max-width: 60rem;
+		transition: all 0.3s ease-in-out 0s;
+		border-radius: 3rem;
 		background-color: $color-brand-4;
 		box-shadow: 0 0.1rem 0.4rem 0.1rem rgba($color-black, 0.6);
-		transition: all 0.3s ease-in-out 0s;
 
 		@include media('md') {
 			max-width: calc(100% - 3rem * 2);
 		}
 
 		@include media('sm') {
-			max-width: inherit;
-			float: right;
 			display: flex;
 			position: relative;
 			right: inherit;
 			bottom: inherit;
+			max-width: inherit;
+			float: right;
 		}
 
 		@include media('md', 'max', 'height') {
-			max-width: inherit;
-			float: right;
 			display: flex;
 			position: relative;
 			right: inherit;
 			bottom: inherit;
+			max-width: inherit;
+			float: right;
 		}
 
 		&__inner {
-			margin: 0.4rem;
-			position: relative;
 			display: flex;
+			position: relative;
 			align-items: center;
 			justify-content: flex-end;
+			margin: 0.4rem;
 		}
 
 		&__button {
@@ -109,12 +109,12 @@
 			width: calc(100% - 2.5rem);
 			max-height: 5rem;
 			padding: 0.5rem 3rem 0.5rem 2.5rem;
+			overflow: hidden;
+			transition: all 0.5s ease-in-out 0.3s;
+			color: $color-white;
 			font-size: 1.5rem;
 			font-weight: 600;
 			line-height: 110%;
-			color: $color-white;
-			overflow: hidden;
-			transition: all 0.5s ease-in-out 0.3s;
 
 			@include media('sm') {
 				font-size: 1.2rem;
@@ -128,11 +128,11 @@
 		&.is-close {
 			.message {
 				&__content {
+					z-index: -1;
 					width: 0;
 					max-height: 0;
 					padding: 0;
 					opacity: 0;
-					z-index: -1;
 				}
 			}
 		}

@@ -51,20 +51,20 @@
 
 <style lang="scss" scoped>
 	.button {
-		padding: 1.2rem 2rem;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		white-space: nowrap;
-		text-transform: capitalize;
-		font-size: 1.6rem;
-		font-weight: 600;
-		line-height: 110%;
+		padding: 1.2rem 2rem;
 		border: 0.1rem solid transparent;
 		outline: none;
 		background-color: transparent;
-		user-select: none;
+		font-size: 1.6rem;
+		font-weight: 600;
+		line-height: 110%;
+		text-transform: capitalize;
+		white-space: nowrap;
 		cursor: pointer;
+		user-select: none;
 		appearance: none;
 
 		> * {
@@ -96,7 +96,8 @@
 		}
 
 		&:not(.button--icon) {
-			transition: color 0.15s ease-in-out 0s,
+			transition:
+				color 0.15s ease-in-out 0s,
 				background-color 0.15s ease-in-out 0s,
 				border-color 0.15s ease-in-out 0s;
 		}
@@ -107,17 +108,17 @@
 		}
 
 		&--bg-color {
-			color: $color-white;
 			background-color: $color-brand-1;
+			color: $color-white;
 
 			&:hover {
-				color: $color-white;
 				background-color: mix($color-black, $color-brand-1, 15%);
+				color: $color-white;
 			}
 
 			&-1 {
-				color: $color-black;
 				background-color: $color-brand-1;
+				color: $color-black;
 
 				&:hover {
 					background-color: mix($color-black, $color-brand-1, 15%);
@@ -125,8 +126,8 @@
 			}
 
 			&-2 {
-				color: $color-white;
 				background-color: $color-brand-2;
+				color: $color-white;
 
 				&:hover {
 					background-color: mix($color-black, $color-brand-2, 15%);
@@ -134,8 +135,8 @@
 			}
 
 			&-3 {
-				color: $color-white;
 				background-color: $color-brand-3;
+				color: $color-white;
 
 				&:hover {
 					background-color: mix($color-black, $color-brand-3, 15%);
@@ -143,8 +144,8 @@
 			}
 
 			&-error {
-				color: $color-white;
 				background-color: $color-error;
+				color: $color-white;
 
 				&:hover {
 					background-color: mix($color-black, $color-error, 15%);
@@ -152,8 +153,8 @@
 			}
 
 			&-success {
-				color: $color-white;
 				background-color: $color-success;
+				color: $color-white;
 
 				&:hover {
 					background-color: mix($color-black, $color-success, 15%);
@@ -162,109 +163,109 @@
 		}
 
 		&--line-color {
-			color: $color-brand-1;
 			border-color: $color-brand-1;
+			color: $color-brand-1;
 
 			&:hover {
-				color: $color-white;
 				border-color: $color-brand-1;
 				background-color: $color-brand-1;
+				color: $color-white;
 			}
 
 			&-1 {
-				color: $color-brand-1;
 				border-color: $color-brand-1;
+				color: $color-brand-1;
 
 				&:hover {
-					color: $color-white;
 					border-color: $color-brand-1;
 					background-color: $color-brand-1;
+					color: $color-white;
 				}
 			}
 
 			&-2 {
-				color: $color-brand-2;
 				border-color: $color-brand-2;
+				color: $color-brand-2;
 
 				&:hover {
-					color: $color-white;
 					border-color: $color-brand-2;
 					background-color: $color-brand-2;
+					color: $color-white;
 				}
 			}
 
 			&-3 {
-				color: $color-brand-3;
 				border-color: $color-brand-3;
+				color: $color-brand-3;
 
 				&:hover {
-					color: $color-white;
 					border-color: $color-brand-3;
 					background-color: $color-brand-3;
+					color: $color-white;
 				}
 			}
 
 			&-error {
-				color: $color-error;
 				border-color: $color-error;
+				color: $color-error;
 
 				&:hover {
-					color: $color-white;
 					border-color: $color-error;
 					background-color: $color-error;
+					color: $color-white;
 				}
 			}
 
 			&-success {
-				color: $color-success;
 				border-color: $color-success;
+				color: $color-success;
 
 				&:hover {
-					color: $color-white;
 					border-color: $color-success;
 					background-color: $color-success;
+					color: $color-white;
 				}
 			}
 		}
 
 		&--bg-white {
-			color: $color-black;
 			background-color: $color-white;
+			color: $color-black;
 
 			&:hover {
-				color: $color-white;
 				background-color: $color-black;
+				color: $color-white;
 			}
 		}
 
 		&--line-white {
-			color: $color-white;
 			border-color: $color-white;
+			color: $color-white;
 
 			&:hover {
-				color: $color-black;
 				border-color: $color-white;
 				background-color: $color-white;
+				color: $color-black;
 			}
 		}
 
 		&--bg-black {
-			color: $color-white;
 			background-color: $color-black;
+			color: $color-white;
 
 			&:hover {
-				color: $color-black;
 				background-color: $color-white;
+				color: $color-black;
 			}
 		}
 
 		&--line-black {
-			color: $color-black;
 			border-color: $color-black;
+			color: $color-black;
 
 			&:hover {
-				color: $color-white;
 				background-color: $color-black;
+				color: $color-white;
 			}
 		}
 	}

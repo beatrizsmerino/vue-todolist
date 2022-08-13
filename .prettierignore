@@ -1,0 +1,11 @@
+# path/to/project/root/.prettierrc
+# /node_modules/* and /bower_components/* in the project root are ignored by default
+
+
+# FOLDERS
+.git
+.nuxt
+dist
+
+# FILES
+.gitignore
