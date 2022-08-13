@@ -1,7 +1,10 @@
 <template>
 	<div
 		class="task-preview"
-		:class="{ 'is-done': taskItem.status.done, 'is-show': taskItem.status.show }"
+		:class="{
+			'is-done': taskItem.status.done,
+			'is-show': taskItem.status.show
+		}"
 	>
 		<UIButton
 			class="task-preview__button-done button--icon"
@@ -27,7 +30,7 @@
 					<template #modalButtonOpen>
 						<UIButton
 							class="task-preview__button-edit button--icon"
-							@button-click="showTask(taskItem);"
+							@button-click="showTask(taskItem)"
 						>
 							<span class="button__icon">
 								<i class="icon">
@@ -102,46 +105,46 @@
 
 <style lang="scss" scoped>
 	.task-preview {
-		padding: 1rem;
 		display: flex;
 		align-items: center;
-		line-height: 1;
-		user-select: none;
+		padding: 1rem;
 		border-radius: 0.5rem;
 		box-shadow: 0 0 0.3rem rgba($color-black, 0.4);
+		line-height: 1;
+		user-select: none;
 
 		&__name {
 			max-width: calc(100% - 10rem);
-			font-size: 1.5rem;
 			transition: all 0.2s ease-in-out;
+			font-size: 1.5rem;
 
 			p {
-				width: 100%;
-				position: relative;
 				display: inline-block;
-				line-height: 150%;
-				white-space: nowrap;
+				position: relative;
+				width: 100%;
 				overflow: hidden;
+				line-height: 150%;
 				text-overflow: ellipsis;
+				white-space: nowrap;
 
 				&:before {
 					content: '';
-					width: 0%;
-					height: 0.2rem;
 					position: absolute;
 					top: 50%;
 					left: 0;
-					background-color: $color-black;
+					width: 0%;
+					height: 0.2rem;
 					transition: all 0.2s ease-in-out;
+					background-color: $color-black;
 				}
 			}
 		}
 
 		&__button-done {
 			margin-right: 1.5rem;
-			font-size: 2.4rem;
-			color: $color-silver;
 			opacity: 1;
+			color: $color-silver;
+			font-size: 2.4rem;
 
 			&:hover {
 				color: mix($color-black, $color-silver, 20%);
@@ -149,12 +152,12 @@
 		}
 
 		&__tools {
-			margin-left: auto;
 			display: flex;
-			list-style: none;
+			margin-left: auto;
 			opacity: 0;
+			list-style: none;
 
-			>* {
+			> * {
 				&:not(:last-child) {
 					margin-right: 1.2rem;
 				}

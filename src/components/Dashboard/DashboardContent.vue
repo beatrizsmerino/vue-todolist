@@ -22,8 +22,3 @@
 		}
 	};
 </script>
-
-<style lang="scss" scoped>
-	.dashboard-content {
-	}
-</style>

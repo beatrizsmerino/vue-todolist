@@ -38,17 +38,17 @@
 <style lang="scss" scoped>
 	.modal {
 		&__overlay {
-			width: 100%;
-			height: 100%;
 			display: flex;
-			align-items: center;
-			justify-content: center;
 			position: fixed;
+			z-index: 999999;
 			top: 0;
 			left: 0;
-			z-index: 999999;
-			background: rgba($color-black, 0.7);
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
 			opacity: 0;
+			background: rgba($color-black, 0.7);
 			pointer-events: none;
 		}
 
@@ -60,13 +60,13 @@
 		}
 
 		&__box {
+			position: relative;
 			width: 100%;
 			max-width: 40rem;
 			padding: 3rem;
-			position: relative;
-			font-size: 1.6rem;
 			border-radius: 0.5rem;
 			background-color: $color-white;
+			font-size: 1.6rem;
 		}
 
 		&.is-open {

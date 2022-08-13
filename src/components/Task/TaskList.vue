@@ -47,8 +47,8 @@
 
 <style lang="scss" scoped>
 	.task-list {
-		position: relative;
 		display: flex;
+		position: relative;
 		flex-direction: column;
 		list-style: none;
 
@@ -64,14 +64,14 @@
 			/* Vue animation 'task-list' for the item transition */
 			&.task-list-enter-active,
 			&.task-list-leave-active {
-				transition: opacity 0.3s, transform 0.3s;
 				transform-origin: left center;
+				transition: opacity 0.3s, transform 0.3s;
 			}
 
 			&.task-list-enter,
 			&.task-list-leave-to {
-				opacity: 0;
 				transform: scale(0.5);
+				opacity: 0;
 			}
 
 			&.task-list-leave-active {
