@@ -15,30 +15,41 @@ module.exports = {
 	],
 	plugins: [
 		"vue",
+		"json",
 		"prettier"
 	],
 	rules: {
 		"accessor-pairs": 2,
-		"array-bracket-newline": 2,
+		"array-bracket-newline": [
+			2,
+			{
+				multiline: true,
+				minItems: 1
+			}
+		],
 		"array-bracket-spacing": 2,
 		"array-callback-return": 1,
-		"array-element-newline": 2,
 		"arrow-body-style": [
 			1,
 			"as-needed"
+		],
+		"array-element-newline": [
+			2,
+			{
+				minItems: 1
+			}
 		],
 		"arrow-parens": 0,
 		"arrow-spacing": 2,
 		"block-scoped-var": 2,
 		"block-spacing": 2,
-		"brace-style": 0,
-		"callback-return": 2,
+		"brace-style": 2,
 		"camelcase": [
 			1,
 			{
 				properties: "always",
 				ignoreDestructuring: true,
-				ignoreImports: true
+				ignoreImports: false
 			}
 		],
 		"capitalized-comments": 0,
@@ -57,7 +68,7 @@ module.exports = {
 		"comma-style": 2,
 		"complexity": 0,
 		"computed-property-spacing": 2,
-		"consistent-return": 2,
+		"consistent-return": 1,
 		"consistent-this": 1,
 		"curly": 2,
 		"default-case": 2,
@@ -133,10 +144,24 @@ module.exports = {
 		"max-nested-callbacks": 2,
 		"max-params": 2,
 		"max-statements": 0,
-		"max-statements-per-line": 2,
-		"multiline-comment-style": 2,
+		"max-statements-per-line": [
+			2,
+			{
+				max: 1
+			}
+		],
+		"multiline-comment-style": [
+			2,
+			"separate-lines"
+		],
 		"multiline-ternary": 0,
-		"new-cap": 2,
+		"new-cap": [
+			2,
+			{
+				newIsCap: true,
+				capIsNew: true
+			}
+		],
 		"new-parens": 2,
 		"newline-after-var": 0,
 		"newline-before-return": 2,
@@ -149,12 +174,8 @@ module.exports = {
 		"no-caller": 2,
 		"no-catch-shadow": 2,
 		"no-confusing-arrow": 2,
-
-		// Allow console.log during development only
-		"no-console": process.env.NODE_ENV === "production" ? "error" : "off",
-
-		// Allow debugger during development only
-		"no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+		"no-console": process.env.NODE_ENV === "production" ? 1 : "off",
+		"no-debugger": process.env.NODE_ENV === "production" ? 1 : "off",
 		"no-constructor-return": 2,
 		"no-continue": 2,
 		"no-div-regex": 2,
@@ -208,7 +229,6 @@ module.exports = {
 		"no-path-concat": 2,
 		"no-plusplus": 0,
 		"no-process-env": 0,
-		"no-process-exit": 0,
 		"no-proto": 2,
 		"no-prototype-builtins": 0,
 		"no-restricted-globals": 2,
@@ -222,10 +242,18 @@ module.exports = {
 		"no-self-compare": 2,
 		"no-sequences": 2,
 		"no-setter-return": 2,
-		"no-shadow": 0,
+		"no-shadow": [
+			2,
+			{
+				allow: [
+					"state"
+				]
+			}
+		],
 		"no-spaced-func": 2,
 		"no-sync": 0,
 		"no-tabs": 0,
+		"no-mixed-spaces-and-tabs": 2,
 		"no-template-curly-in-string": 2,
 		"no-ternary": 0,
 		"no-throw-literal": 2,
@@ -237,7 +265,13 @@ module.exports = {
 		"no-unmodified-loop-condition": 1,
 		"no-unneeded-ternary": 1,
 		"no-unused-vars": 1,
-		"no-unused-expressions": 1,
+		"no-unused-expressions": [
+			1,
+			{
+				allowShortCircuit: true,
+				allowTernary: true
+			}
+		],
 		"no-use-before-define": [
 			2,
 			{
@@ -256,7 +290,20 @@ module.exports = {
 		"no-warning-comments": 2,
 		"no-whitespace-before-property": 2,
 		"nonblock-statement-body-position": 2,
-		"object-curly-newline": 2,
+		"object-curly-newline": [
+			2,
+			{
+				ObjectExpression: "always",
+				ObjectPattern: {
+					multiline: true
+				},
+				ImportDeclaration: "never",
+				ExportDeclaration: {
+					multiline: true,
+					minProperties: 3
+				}
+			}
+		],
 		"object-curly-spacing": [
 			2,
 			"always"
@@ -385,6 +432,7 @@ module.exports = {
 			2,
 			"PascalCase"
 		],
+		"vue/order-in-components": 2,
 		"vue/no-v-html": 0,
 		"vue/script-indent": [
 			2,
@@ -396,10 +444,12 @@ module.exports = {
 			}
 		],
 		"vue/singleline-html-element-content-newline": [
-			1,
+			2,
 			{
 				ignoreWhenEmpty: true,
-				ignores: ["pre"]
+				ignores: [
+					"pre"
+				]
 			}
 		],
 		"vue/no-side-effects-in-computed-properties": 0,
@@ -407,7 +457,9 @@ module.exports = {
 	},
 	overrides: [
 		{
-			files: ["*.vue"],
+			files: [
+				"*.vue"
+			],
 			rules: {
 				indent: "off"
 			}
