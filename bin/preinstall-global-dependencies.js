@@ -1,11 +1,11 @@
-const { execSync } = require('child_process');
-const fs = require('fs');
-const package = JSON.parse(fs.readFileSync('package.json'));
+const { execSync } = require("child_process");
+const fs = require("fs");
+const packageFile = JSON.parse(fs.readFileSync("package.json"));
 
 function getOperatingSystem() {
 	const nameOS = process.platform;
 
-	console.groupCollapsed('Operation System:');
+	console.groupCollapsed("Operation System:");
 	console.log(nameOS);
 	console.groupEnd();
 
@@ -15,23 +15,22 @@ function getOperatingSystem() {
 function checkMacOS() {
 	const nameOS = getOperatingSystem();
 
-	if (nameOS == 'darwin') {
+	if (nameOS == "darwin") {
 		return true;
-	} else {
-		return false;
 	}
+
+	return false;
 }
 
 function getGlobalDependenciesInstalled() {
-	let dependenceList = JSON.parse(execSync(`npm list -g --depth 0 --json`).toString()).dependencies;
+	const dependenceList = JSON.parse(execSync(`npm list -g --depth 0 --json`).toString()).dependencies;
 
-	Object.keys(dependenceList).forEach((dependenceName) => {
-		delete dependenceList[dependenceName]['from'];
-		delete dependenceList[dependenceName]['resolved'];
+	Object.keys(dependenceList).forEach(dependenceName => {
+		delete dependenceList[dependenceName].from;
+		delete dependenceList[dependenceName].resolved;
 	});
 
-
-	console.groupCollapsed('Global dependencies installed:');
+	console.groupCollapsed("Global dependencies installed:");
 	console.table(dependenceList);
 	console.groupEnd();
 
@@ -39,9 +38,9 @@ function getGlobalDependenciesInstalled() {
 }
 
 function getGlobalDependenciesToInstall() {
-	const dependenceList = package.globalDependencies;
+	const dependenceList = packageFile.globalDependencies;
 
-	console.groupCollapsed('Global dependencies to install:');
+	console.groupCollapsed("Global dependencies to install:");
 	console.table(dependenceList);
 	console.groupEnd();
 
@@ -49,27 +48,26 @@ function getGlobalDependenciesToInstall() {
 }
 
 async function installGlobalDependencies() {
-	const installed = getGlobalDependenciesInstalled();
-	const toInstall = getGlobalDependenciesToInstall();
+	const installed = await getGlobalDependenciesInstalled();
+	const toInstall = await getGlobalDependenciesToInstall();
 
-	Object.keys(toInstall).forEach((dependenceName) => {
+	Object.keys(toInstall).forEach(dependenceName => {
 		const found = Object.keys(installed).find(dependenceInstalled => dependenceInstalled === dependenceName);
 		const dependenceVersion = toInstall[dependenceName].replace("~", "").replace("^", "");
 
 		if (!found) {
 			console.log(`Installing dependencies: ${dependenceName}@${dependenceVersion}`);
-			execSync(`${checkMacOS ? 'sudo' : ''} npm i -g ${dependenceName}@${dependenceVersion}`);
-
+			execSync(`${checkMacOS ? "sudo" : ""} npm i -g ${dependenceName}@${dependenceVersion}`);
 		} else {
 			console.log(`Dependencies already installed: ${dependenceName}@${dependenceVersion}`);
 		}
 	});
 }
 
-installGlobalDependencies()
-	.then(result => {
+installGlobalDependencies().
+	then(() => {
 		console.log("Pre-installation of global packages is completed!");
-	})
-	.catch(err => {
-		console.log(err)
+	}).
+	catch(err => {
+		console.log("Error: ", err);
 	});

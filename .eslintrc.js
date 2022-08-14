@@ -257,7 +257,10 @@ module.exports = {
 		'no-whitespace-before-property': 2,
 		'nonblock-statement-body-position': 2,
 		'object-curly-newline': 2,
-		'object-curly-spacing': 2,
+		'object-curly-spacing': [
+			2,
+			'always'
+		],
 		'object-property-newline': [
 			2,
 			{
@@ -299,7 +302,7 @@ module.exports = {
 		],
 		'quotes': [
 			2,
-			'single',
+			'double',
 			{
 				avoidEscape: true,
 				allowTemplateLiterals: true
