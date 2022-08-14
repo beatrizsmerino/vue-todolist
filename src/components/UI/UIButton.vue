@@ -13,7 +13,7 @@
 
 <script>
 	export default {
-		name: 'UIButton',
+		name: "UIButton",
 		props: {
 			buttonHref: {
 				type: String,
@@ -31,19 +31,19 @@
 		computed: {
 			checkTag() {
 				if (this.href) {
-					return 'a';
+					return "a";
 				} else if (this.value) {
-					return 'input';
+					return "input";
 				} else if (this.to) {
-					return 'router-link';
+					return "router-link";
 				}
 
-				return 'button';
+				return "button";
 			}
 		},
 		methods: {
 			buttonClick(event) {
-				this.$emit('button-click', event);
+				this.$emit("button-click", event);
 			}
 		}
 	};

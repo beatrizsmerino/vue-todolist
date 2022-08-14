@@ -20,16 +20,16 @@
 </template>
 
 <script>
-	import {mapGetters} from 'vuex';
-	import TaskPreview from '@/components/Task/TaskPreview.vue';
+	import { mapGetters } from "vuex";
+	import TaskPreview from "@/components/Task/TaskPreview.vue";
 
 	export default {
-		name: 'TaskList',
+		name: "TaskList",
 		components: {
 			TaskPreview
 		},
 		computed: {
-			...mapGetters(['getTaskList'])
+			...mapGetters(["getTaskList"])
 		},
 		mounted() {
 			this.scrollToBottom();

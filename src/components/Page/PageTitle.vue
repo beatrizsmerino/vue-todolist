@@ -6,7 +6,7 @@
 
 <script>
 	export default {
-		name: 'PageTitle',
+		name: "PageTitle",
 		props: {
 			title: {
 				type: String,

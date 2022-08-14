@@ -6,18 +6,18 @@
 </template>
 
 <script>
-	import {mapGetters, mapActions} from 'vuex';
-	import DashboardInfo from '@/components/Dashboard/DashboardInfo.vue';
-	import DashboardContent from '@/components/Dashboard/DashboardContent.vue';
+	import { mapGetters, mapActions } from "vuex";
+	import DashboardInfo from "@/components/Dashboard/DashboardInfo.vue";
+	import DashboardContent from "@/components/Dashboard/DashboardContent.vue";
 
 	export default {
-		name: 'Dashboard',
+		name: "Dashboard",
 		components: {
 			DashboardInfo,
 			DashboardContent
 		},
 		computed: {
-			...mapGetters(['getTaskList'])
+			...mapGetters(["getTaskList"])
 		},
 		watch: {
 			getTaskList: {
@@ -32,8 +32,8 @@
 		},
 		methods: {
 			...mapActions([
-				'checkTaskListLocalStorage',
-				'createTaskListLocalStorage'
+				"checkTaskListLocalStorage",
+				"createTaskListLocalStorage"
 			])
 		}
 	};

@@ -1,13 +1,13 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-import tasks from './modules/tasks';
+import Vue from "vue";
+import Vuex from "vuex";
+import tasks from "./modules/tasks";
 
 // LOAD VUEX
 Vue.use(Vuex);
 
 // STATE
 const state = {
-	pageTitle: 'Vue ToDo List'
+	pageTitle: "Vue ToDo List"
 };
 
 // GETTERS

@@ -14,7 +14,7 @@
 
 <script>
 	export default {
-		name: 'UITag',
+		name: "UITag",
 		props: {
 			tagName: {
 				type: String,

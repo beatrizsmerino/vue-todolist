@@ -1,61 +1,61 @@
 /* eslint-disable no-console */
-const execa = require('execa');
-const emoji = require('node-emoji');
-const chalk = require('chalk');
-const fs = require('fs');
+const execa = require("execa");
+const emoji = require("node-emoji");
+const chalk = require("chalk");
+const fs = require("fs");
 
-const iconArrows = emoji.get('fast_forward');
-const iconRocket = emoji.get('rocket');
+const iconArrows = emoji.get("fast_forward");
+const iconRocket = emoji.get("rocket");
 (async () => {
 	try {
-		await execa('git', [
-			'checkout',
-			'--orphan',
-			'gh-pages'
+		await execa("git", [
+			"checkout",
+			"--orphan",
+			"gh-pages"
 		]);
-		console.log(`${iconArrows} ${chalk.yellow('Building started...')}`);
-		await execa('npm', [
-			'run',
-			'build'
+		console.log(`${iconArrows} ${chalk.yellow("Building started...")}`);
+		await execa("npm", [
+			"run",
+			"build"
 		]);
 
 		// Understand if it's dist or build folder
-		const folderName = fs.existsSync('dist') ? 'dist' : 'build';
-		await execa('git', [
-			'--work-tree',
+		const folderName = fs.existsSync("dist") ? "dist" : "build";
+		await execa("git", [
+			"--work-tree",
 			folderName,
-			'add',
-			'--all'
+			"add",
+			"--all"
 		]);
-		await execa('git', [
-			'--work-tree',
+		await execa("git", [
+			"--work-tree",
 			folderName,
-			'commit',
-			'-m',
-			'gh-pages'
+			"commit",
+			"-m",
+			"gh-pages"
 		]);
-		console.log(`${iconArrows} ${chalk.yellow('Pushing to gh-pages...')}`);
-		await execa('git', [
-			'push',
-			'origin',
-			'HEAD:gh-pages',
-			'--force'
+		console.log(`${iconArrows} ${chalk.yellow("Pushing to gh-pages...")}`);
+		await execa("git", [
+			"push",
+			"origin",
+			"HEAD:gh-pages",
+			"--force"
 		]);
-		await execa('rm', [
-			'-r',
+		await execa("rm", [
+			"-r",
 			folderName
 		]);
-		await execa('git', [
-			'checkout',
-			'-f',
-			'master'
+		await execa("git", [
+			"checkout",
+			"-f",
+			"master"
 		]);
-		await execa('git', [
-			'branch',
-			'-D',
-			'gh-pages'
+		await execa("git", [
+			"branch",
+			"-D",
+			"gh-pages"
 		]);
-		console.log(`${iconRocket} ${chalk.green('Successfully deployed')} ${iconRocket}`);
+		console.log(`${iconRocket} ${chalk.green("Successfully deployed")} ${iconRocket}`);
 	} catch (e) {
 		console.log(e.message);
 		process.exit(1);

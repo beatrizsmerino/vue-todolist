@@ -6,11 +6,11 @@
 </template>
 
 <script>
-	import TaskList from '@/components/Task/TaskList.vue';
-	import TaskNew from '@/components/Task/TaskNew.vue';
+	import TaskList from "@/components/Task/TaskList.vue";
+	import TaskNew from "@/components/Task/TaskNew.vue";
 
 	export default {
-		name: 'DashboardContent',
+		name: "DashboardContent",
 		components: {
 			TaskList,
 			TaskNew

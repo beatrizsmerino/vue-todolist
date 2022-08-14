@@ -34,11 +34,11 @@
 </template>
 
 <script>
-	import {mapActions} from 'vuex';
-	import UIButton from '@/components/UI/UIButton.vue';
+	import { mapActions } from "vuex";
+	import UIButton from "@/components/UI/UIButton.vue";
 
 	export default {
-		name: 'TaskEdit',
+		name: "TaskEdit",
 		components: {
 			UIButton
 		},
@@ -54,12 +54,12 @@
 			};
 		},
 		methods: {
-			...mapActions(['updateTask']),
+			...mapActions(["updateTask"]),
 			editTaskName(task) {
 				this.updateTask(task);
 			},
 			emitTaskEditClose() {
-				this.$emit('task-edit-close');
+				this.$emit("task-edit-close");
 			}
 		}
 	};

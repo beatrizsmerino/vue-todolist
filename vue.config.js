@@ -1,12 +1,12 @@
-const ESLintPlugin = require('eslint-webpack-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
+const ESLintPlugin = require("eslint-webpack-plugin");
+const StyleLintPlugin = require("stylelint-webpack-plugin");
 
 module.exports = {
-	publicPath: process.env.NODE_ENV === 'production' ? '/vue-todolist/' : '/',
+	publicPath: process.env.NODE_ENV === "production" ? "/vue-todolist/" : "/",
 	pluginOptions: {
-		'style-resources-loader': {
-			preProcessor: 'scss',
-			patterns: ['./src/assets/scss/styles.scss']
+		"style-resources-loader": {
+			preProcessor: "scss",
+			patterns: ["./src/assets/scss/styles.scss"]
 		}
 	},
 
@@ -22,13 +22,13 @@ module.exports = {
 			// Add configuration for autofix eslint errors
 			new ESLintPlugin({
 				fix: true,
-				files: ['src/**/*.{vue,js}']
+				files: ["src/**/*.{vue,js}"]
 			}),
 
 			// Add configuration for autofix stylelint errors
 			new StyleLintPlugin({
 				fix: true,
-				files: ['src/**/*.{vue,scss}']
+				files: ["src/**/*.{vue,scss}"]
 			})
 		]
 	}

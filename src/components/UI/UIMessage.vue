@@ -34,10 +34,10 @@
 </template>
 
 <script>
-	import UIButton from '@/components/UI/UIButton.vue';
+	import UIButton from "@/components/UI/UIButton.vue";
 
 	export default {
-		name: 'UIMessage',
+		name: "UIMessage",
 		components: {
 			UIButton
 		},
