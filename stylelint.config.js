@@ -6,12 +6,12 @@ module.exports = {
 		"stylelint-config-sass-guidelines",
 		"stylelint-config-property-sort-order-smacss"
 	],
-	plugins: ["stylelint-scss"],
+	plugins: [
+		"stylelint-scss"
+	],
 
-	/*
-	 * add your custom config here
-	 * https://stylelint.io/user-guide/configuration
-	 */
+	// add your custom config here
+	// https://stylelint.io/user-guide/configuration
 	rules: {
 		"at-rule-empty-line-before": [
 			"always",
@@ -20,7 +20,9 @@ module.exports = {
 					"blockless-after-same-name-blockless",
 					"first-nested"
 				],
-				ignore: ["after-comment"]
+				ignore: [
+					"after-comment"
+				]
 			}
 		],
 		"at-rule-name-case": "lower",
@@ -41,8 +43,12 @@ module.exports = {
 		"comment-empty-line-before": [
 			"always",
 			{
-				except: ["first-nested"],
-				ignore: ["stylelint-commands"]
+				except: [
+					"first-nested"
+				],
+				ignore: [
+					"stylelint-commands"
+				]
 			}
 		],
 		"comment-no-empty": true,
@@ -66,7 +72,9 @@ module.exports = {
 		"declaration-block-no-duplicate-properties": [
 			true,
 			{
-				ignore: ["consecutive-duplicates-with-different-values"]
+				ignore: [
+					"consecutive-duplicates-with-different-values"
+				]
 			}
 		],
 		"declaration-block-no-shorthand-property-overrides": true,
@@ -103,7 +111,9 @@ module.exports = {
 		"function-no-unknown": [
 			true,
 			{
-				ignoreFunctions: ["mix"]
+				ignoreFunctions: [
+					"mix"
+				]
 			}
 		],
 		"function-parentheses-newline-inside": "always-multi-line",
@@ -142,8 +152,12 @@ module.exports = {
 		"rule-empty-line-before": [
 			"always-multi-line",
 			{
-				except: ["first-nested"],
-				ignore: ["after-comment"]
+				except: [
+					"first-nested"
+				],
+				ignore: [
+					"after-comment"
+				]
 			}
 		],
 		"scss/at-rule-no-unknown": true,
@@ -194,7 +208,9 @@ module.exports = {
 		"selector-type-no-unknown": [
 			true,
 			{
-				ignore: ["custom-elements"]
+				ignore: [
+					"custom-elements"
+				]
 			}
 		],
 		"string-no-newline": true,

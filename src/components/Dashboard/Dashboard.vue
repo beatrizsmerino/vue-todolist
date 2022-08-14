@@ -17,7 +17,9 @@
 			DashboardContent
 		},
 		computed: {
-			...mapGetters(["getTaskList"])
+			...mapGetters([
+				"getTaskList"
+			])
 		},
 		watch: {
 			getTaskList: {

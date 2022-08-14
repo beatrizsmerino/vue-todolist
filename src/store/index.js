@@ -18,10 +18,12 @@ const getters = {
 };
 
 // MUTACTIONS
-const mutations = {};
+const mutations = {
+};
 
 // ACTIONS
-const actions = {};
+const actions = {
+};
 
 // MODULES
 const modules = {

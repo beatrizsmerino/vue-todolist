@@ -40,7 +40,9 @@
 			};
 		},
 		computed: {
-			...mapGetters(["getTaskLast"]),
+			...mapGetters([
+				"getTaskLast"
+			]),
 			createTaskId() {
 				if (typeof this.getTaskLast !== "undefined") {
 					return this.getTaskLast.id + 1;
@@ -53,7 +55,9 @@
 			}
 		},
 		methods: {
-			...mapActions(["addTask"]),
+			...mapActions([
+				"addTask"
+			]),
 			cleanTaskNew() {
 				this.taskNew.name = "";
 			},

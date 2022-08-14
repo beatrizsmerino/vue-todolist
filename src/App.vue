@@ -21,7 +21,9 @@
 			UIMessage
 		},
 		computed: {
-			...mapGetters(["getPageTitle"])
+			...mapGetters([
+				"getPageTitle"
+			])
 		}
 	};
 </script>

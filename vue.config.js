@@ -6,14 +6,14 @@ module.exports = {
 	pluginOptions: {
 		"style-resources-loader": {
 			preProcessor: "scss",
-			patterns: ["./src/assets/scss/styles.scss"]
+			patterns: [
+				"./src/assets/scss/styles.scss"
+			]
 		}
 	},
 
-	/*
-	 * Emit 'eslint' errors and warnings in the console
-	 * https://cli.vuejs.org/config/#lintonsave
-	 */
+	// Emit 'eslint' errors and warnings in the console
+	// https://cli.vuejs.org/config/#lintonsave
 	lintOnSave: true,
 
 	configureWebpack: {
@@ -22,13 +22,17 @@ module.exports = {
 			// Add configuration for autofix eslint errors
 			new ESLintPlugin({
 				fix: true,
-				files: ["src/**/*.{vue,js}"]
+				files: [
+					"src/**/*.{vue,js}"
+				]
 			}),
 
 			// Add configuration for autofix stylelint errors
 			new StyleLintPlugin({
 				fix: true,
-				files: ["src/**/*.{vue,scss}"]
+				files: [
+					"src/**/*.{vue,scss}"
+				]
 			})
 		]
 	}

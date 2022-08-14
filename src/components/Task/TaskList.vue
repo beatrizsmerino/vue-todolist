@@ -29,7 +29,9 @@
 			TaskPreview
 		},
 		computed: {
-			...mapGetters(["getTaskList"])
+			...mapGetters([
+				"getTaskList"
+			])
 		},
 		mounted() {
 			this.scrollToBottom();

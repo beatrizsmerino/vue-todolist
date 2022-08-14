@@ -54,7 +54,9 @@
 			};
 		},
 		methods: {
-			...mapActions(["updateTask"]),
+			...mapActions([
+				"updateTask"
+			]),
 			editTaskName(task) {
 				this.updateTask(task);
 			},
