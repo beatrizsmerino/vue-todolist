@@ -1,6 +1,6 @@
 {
 	"name": "vue-todolist",
-	"version": "0.1.1",
+	"version": "3.1.0",
 	"private": true,
 	"scripts": {
 		"install:global": "node ./bin/preinstall-global-dependencies.js",
