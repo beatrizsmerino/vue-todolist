@@ -1,6 +1,6 @@
 {
 	"name": "vue-todolist",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"private": true,
 	"scripts": {
 		"install:global": "node ./bin/preinstall-global-dependencies.js",
@@ -15,6 +15,7 @@
 		"lint": "npm run prettier:fix && npm run eslint:fix && npm run stylelint:fix",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+		"release": "standard-version",
 		"deploy": "node gh-pages-deploy.js",
 		"prepare": "husky install"
 	},
@@ -55,6 +56,7 @@
 		"prettier": "^2.7.1",
 		"sass": "^1.54.4",
 		"sass-loader": "^10",
+		"standard-version": "^9.5.0",
 		"style-resources-loader": "^1.5.0",
 		"stylelint": "^14.10.0",
 		"stylelint-config-prettier": "^9.0.3",
@@ -71,7 +73,8 @@
 		"@commitlint/config-conventional": "17.0.3",
 		"commitizen": "4.2.4",
 		"conventional-changelog-cli": "^2.2.2",
-		"cz-conventional-changelog": "3.3.0"
+		"cz-conventional-changelog": "3.3.0",
+		"standard-version": "^9.5.0"
 	},
 	"resolutions": {
 		"ejs": ">=3.1.7",
