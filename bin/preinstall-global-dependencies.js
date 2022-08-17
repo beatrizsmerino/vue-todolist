@@ -77,26 +77,30 @@ async function installGlobalDependencies() {
 	if (usingVolta) {
 		await getGlobalDependenciesInstalledVolta();
 
+		console.groupCollapsed("🚀 Preinstall global dependencies:");
 		Object.entries(toInstall).forEach(([
 			dependenceName,
 			dependenceVersion
 		]) => {
-			console.log(`Installing dependencies: ${dependenceName}@${dependenceVersion}`);
 			execSync(`${usingMacOS ? "sudo" : ""} volta install ${dependenceName}@${dependenceVersion} `);
+			console.log(`➕ Installing dependency: ${dependenceName}@${dependenceVersion}`);
 		});
+		console.groupEnd();
 	} else {
 		const installedNVM = await getGlobalDependenciesInstalledNVM();
 
+		console.groupCollapsed("🚀 Dependencies:");
 		Object.keys(toInstall).forEach(dependenceName => {
 			const found = Object.keys(installedNVM).find(dependenceInstalled => dependenceInstalled === dependenceName);
 			const dependenceVersion = toInstall[dependenceName].replace("~", "").replace("^", "");
 			if (!found) {
-				console.log(`Installing dependencies: ${dependenceName} @${dependenceVersion} `);
 				execSync(`${usingMacOS ? "sudo" : ""} npm i - g ${dependenceName} @${dependenceVersion} `);
+				console.log(`➕ Installing dependency: ${dependenceName}@${dependenceVersion}`);
 			} else {
-				console.log(`Dependencies already installed: ${dependenceName} @${dependenceVersion} `);
+				console.log(`✅ Dependency already installed: ${dependenceName} @${dependenceVersion} `);
 			}
 		});
+		console.groupEnd();
 	}
 }
 
