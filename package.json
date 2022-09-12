@@ -22,6 +22,7 @@
 		"core-js": "^3.25.1",
 		"execa": "^5.1.1",
 		"node-emoji": "^1.11.0",
+		"svg-symbol-sprite-loader": "^4.0.0",
 		"vue": "^2.7.10",
 		"vuex": "^3.6.2"
 	},
