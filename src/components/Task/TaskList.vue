@@ -22,6 +22,8 @@
 			class="task-list__message"
 		>
 			<p>Your task list is empty</p>
+
+			<UIIcon name="emptyTasks" />
 		</div>
 	</div>
 </template>
@@ -95,13 +97,25 @@
 
 		&__message {
 			display: flex;
+			flex-direction: column;
 			align-items: center;
 			justify-content: center;
 			height: 100%;
-			color: $color-error;
+			color: $color-light;
 			font-size: 2rem;
 			line-height: 100%;
 			text-align: center;
+
+			>* {
+				&:not(:last-child) {
+					margin-bottom: 1rem;
+				}
+			}
+
+			:deep(.icon) {
+				width: 15rem;
+				height: 10rem;
+			}
 		}
 	}
 </style>
