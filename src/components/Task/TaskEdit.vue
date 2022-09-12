@@ -53,6 +53,13 @@
 				taskCopy: this.task
 			};
 		},
+		watch: {
+			task(newVal, oldVal) {
+				if (newVal !== oldVal) {
+					this.taskCopy = newVal;
+				}
+			}
+		},
 		methods: {
 			...mapActions(['updateTask']),
 			editTaskName(task) {
