@@ -7,8 +7,8 @@
 import tasks from '../../assets/data/tasks.json';
 
 const state = {
-	task: {
-		list: tasks
+	'task': {
+		'list': tasks
 	}
 };
 
@@ -30,11 +30,11 @@ const getters = {
 const actions = {
 	addTask({commit}, task) {
 		const taskNew = {
-			id: task.id,
-			name: task.name,
-			status: {
-				done: false,
-				show: false
+			'id': task.id,
+			'name': task.name,
+			'status': {
+				'done': false,
+				'show': false
 			}
 		};
 		commit('addTask', taskNew);
