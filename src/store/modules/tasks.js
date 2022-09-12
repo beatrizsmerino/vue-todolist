@@ -4,34 +4,11 @@
  * =================================================
  */
 
+import tasks from '../../assets/data/tasks.json';
+
 const state = {
-	task: {
-		list: [
-			{
-				id: 1,
-				name: 'Do something awesome!',
-				status: {
-					done: false,
-					show: false
-				}
-			},
-			{
-				id: 2,
-				name: 'Buy toilet paper',
-				status: {
-					done: false,
-					show: false
-				}
-			},
-			{
-				id: 3,
-				name: 'Learn Vue',
-				status: {
-					done: false,
-					show: false
-				}
-			}
-		]
+	'task': {
+		'list': tasks
 	}
 };
 
@@ -53,11 +30,11 @@ const getters = {
 const actions = {
 	addTask({commit}, task) {
 		const taskNew = {
-			id: task.id,
-			name: task.name,
-			status: {
-				done: false,
-				show: false
+			'id': task.id,
+			'name': task.name,
+			'status': {
+				'done': false,
+				'show': false
 			}
 		};
 		commit('addTask', taskNew);

@@ -4,6 +4,7 @@
 		class="task-list__wrapper"
 	>
 		<transition-group
+			v-if="getTotalTaskList !== 0"
 			class="task-list"
 			name="task-list"
 			tag="ul"
@@ -16,6 +17,14 @@
 				<TaskPreview :task-item="item" />
 			</li>
 		</transition-group>
+		<div
+			v-else
+			class="task-list__message"
+		>
+			<p>Your task list is empty</p>
+
+			<UIIcon name="emptyTasks" />
+		</div>
 	</div>
 </template>
 
@@ -29,7 +38,10 @@
 			TaskPreview
 		},
 		computed: {
-			...mapGetters(['getTaskList'])
+			...mapGetters([
+				'getTaskList',
+				'getTotalTaskList'
+			])
 		},
 		mounted() {
 			this.scrollToBottom();
@@ -80,6 +92,29 @@
 
 			&.task-list-move {
 				transition: transform 0.4s linear 0.3;
+			}
+		}
+
+		&__message {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			color: $color-light;
+			font-size: 2rem;
+			line-height: 100%;
+			text-align: center;
+
+			>* {
+				&:not(:last-child) {
+					margin-bottom: 1rem;
+				}
+			}
+
+			:deep(.icon) {
+				width: 15rem;
+				height: 10rem;
 			}
 		}
 	}
