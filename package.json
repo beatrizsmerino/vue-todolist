@@ -17,7 +17,7 @@
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^6.2.0",
 		"@fortawesome/free-solid-svg-icons": "^6.2.0",
-		"@fortawesome/vue-fontawesome": "^2.0.8",
+		"@fortawesome/vue-fontawesome": "^2.0.9",
 		"chalk": "^4.1.2",
 		"core-js": "^3.26.0",
 		"execa": "^5.1.1",
