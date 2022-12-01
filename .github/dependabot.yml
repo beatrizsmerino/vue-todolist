@@ -8,9 +8,9 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
-      day: "friday"
-      time: "18:00"
+      interval: "monthly"
+      day: "saturday"
+      time: "09:00"
       timezone: "Europe/Madrid"
     ignore:
       - dependency-name: "*"

@@ -106,7 +106,7 @@
 			line-height: 100%;
 			text-align: center;
 
-			>* {
+			> * {
 				&:not(:last-child) {
 					margin-bottom: 1rem;
 				}
