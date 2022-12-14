@@ -136,7 +136,7 @@ async function installGlobalDependencies() {
 					dependenceVersionInstalled.replace("~", "").replace("^", "") === dependenceVersionToInstall);
 
 			if (!found) {
-				execSync(`${usingMacOS ? "sudo" : ""} npm i - g ${dependenceNameToInstall}@${dependenceVersionToInstall}`);
+				execSync(`${usingMacOS ? "sudo" : ""} npm i -g ${dependenceNameToInstall}@${dependenceVersionToInstall}`);
 				console.log(`➕ Installing dependency: ${dependenceNameToInstall}@${dependenceVersionToInstall}`);
 			} else {
 				console.log(`✅ Dependency already installed: ${dependenceNameToInstall}@${dependenceVersionToInstall}`);
