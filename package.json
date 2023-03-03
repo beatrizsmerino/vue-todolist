@@ -50,7 +50,7 @@
 		"stylelint-config-property-sort-order-smacss": "^9.1.0",
 		"stylelint-config-sass-guidelines": "^9.0.1",
 		"stylelint-config-standard": "^26.0.0",
-		"stylelint-scss": "^4.3.0",
+		"stylelint-scss": "^4.4.0",
 		"stylelint-webpack-plugin": "^2.4.0",
 		"style-resources-loader": "^1.5.0",
 		"vue-cli-plugin-style-resources-loader": "~0.1.5",
