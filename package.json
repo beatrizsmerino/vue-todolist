@@ -19,7 +19,7 @@
 		"@fortawesome/free-solid-svg-icons": "^6.4.0",
 		"@fortawesome/vue-fontawesome": "^2.0.10",
 		"chalk": "^4.1.2",
-		"core-js": "^3.30.2",
+		"core-js": "^3.31.0",
 		"execa": "^5.1.1",
 		"node-emoji": "^1.11.0",
 		"svg-symbol-sprite-loader": "^4.0.0",
