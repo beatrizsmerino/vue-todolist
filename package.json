@@ -45,6 +45,7 @@
 		"prettier": "^2.8.8",
 		"sass": "^1.63.6",
 		"sass-loader": "^10",
+		"style-resources-loader": "^1.5.0",
 		"stylelint": "^14.16.1",
 		"stylelint-config-prettier": "^9.0.5",
 		"stylelint-config-property-sort-order-smacss": "^9.1.0",
@@ -52,7 +53,6 @@
 		"stylelint-config-standard": "^26.0.0",
 		"stylelint-scss": "^4.7.0",
 		"stylelint-webpack-plugin": "^2.5.0",
-		"style-resources-loader": "^1.5.0",
 		"vue-cli-plugin-style-resources-loader": "~0.1.5",
 		"vue-template-compiler": "^2.7.14"
 	},
