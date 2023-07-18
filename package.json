@@ -12,7 +12,7 @@
 		"eslint:fix": "vue-cli-service lint \"**/*.{json,js,vue}\" --fix --ignore-path .eslintignore",
 		"stylelint:fix": "stylelint \"**/*.{css,scss,sass,vue}\" --fix --ignore-path .stylelintignore",
 		"lint": "npm run prettier:fix && npm run eslint:fix && npm run stylelint:fix",
-		"deploy": "node gh-pages-deploy.js"
+		"deploy": "node gh-pages-deploy.mjs"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^6.4.0",
