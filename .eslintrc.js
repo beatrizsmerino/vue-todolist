@@ -15,7 +15,8 @@ module.exports = {
 	],
 	plugins: [
 		'vue',
-		'prettier'
+		'prettier',
+		'json'
 	],
 	rules: {
 		'accessor-pairs': 2,
