@@ -1,5 +1,5 @@
 <template>
-	<div id="app">
+	<div class="app">
 		<PageTitle :title="getPageTitle" />
 		<Dashboard />
 		<UIMessage>
@@ -31,7 +31,7 @@
 </script>
 
 <style lang="scss">
-	#app {
+	.app {
 		width: 100%;
 	}
 
