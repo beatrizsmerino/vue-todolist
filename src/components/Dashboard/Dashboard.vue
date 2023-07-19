@@ -6,36 +6,38 @@
 </template>
 
 <script>
-	import {mapGetters, mapActions} from 'vuex';
-	import DashboardInfo from '@/components/Dashboard/DashboardInfo.vue';
-	import DashboardContent from '@/components/Dashboard/DashboardContent.vue';
+	import { mapGetters, mapActions } from "vuex";
+	import DashboardInfo from "@/components/Dashboard/DashboardInfo.vue";
+	import DashboardContent from "@/components/Dashboard/DashboardContent.vue";
 
 	export default {
-		name: 'Dashboard',
-		components: {
+		"name": "Dashboard",
+		"components": {
 			DashboardInfo,
-			DashboardContent
+			DashboardContent,
 		},
-		computed: {
-			...mapGetters(['getTaskList'])
+		"computed": {
+			...mapGetters([
+				"getTaskList",
+			]),
 		},
-		watch: {
-			getTaskList: {
+		"watch": {
+			"getTaskList": {
 				handler() {
 					this.createTaskListLocalStorage();
 				},
-				deep: true
-			}
+				"deep": true,
+			},
 		},
 		mounted() {
 			this.checkTaskListLocalStorage();
 		},
-		methods: {
+		"methods": {
 			...mapActions([
-				'checkTaskListLocalStorage',
-				'createTaskListLocalStorage'
-			])
-		}
+				"checkTaskListLocalStorage",
+				"createTaskListLocalStorage",
+			]),
+		},
 	};
 </script>
 

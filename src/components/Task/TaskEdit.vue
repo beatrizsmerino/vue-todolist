@@ -34,41 +34,43 @@
 </template>
 
 <script>
-	import {mapActions} from 'vuex';
-	import UIButton from '@/components/UI/UIButton.vue';
+	import { mapActions } from "vuex";
+	import UIButton from "@/components/UI/UIButton.vue";
 
 	export default {
-		name: 'TaskEdit',
-		components: {
-			UIButton
+		"name": "TaskEdit",
+		"components": {
+			UIButton,
 		},
-		props: {
-			task: {
-				type: Object,
-				required: true
-			}
+		"props": {
+			"task": {
+				"type": Object,
+				"required": true,
+			},
 		},
 		data() {
 			return {
-				taskCopy: this.task
+				"taskCopy": this.task,
 			};
 		},
-		watch: {
+		"watch": {
 			task(newVal, oldVal) {
 				if (newVal !== oldVal) {
 					this.taskCopy = newVal;
 				}
-			}
+			},
 		},
-		methods: {
-			...mapActions(['updateTask']),
+		"methods": {
+			...mapActions([
+				"updateTask",
+			]),
 			editTaskName(task) {
 				this.updateTask(task);
 			},
 			emitTaskEditClose() {
-				this.$emit('task-edit-close');
-			}
-		}
+				this.$emit("task-edit-close");
+			},
+		},
 	};
 </script>
 

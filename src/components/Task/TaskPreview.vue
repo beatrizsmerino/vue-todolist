@@ -64,28 +64,28 @@
 </template>
 
 <script>
-	import {mapActions} from 'vuex';
-	import UIButton from '@/components/UI/UIButton.vue';
-	import UIModal from '@/components/UI/UIModal.vue';
-	import TaskEdit from '@/components/Task/TaskEdit.vue';
+	import { mapActions } from "vuex";
+	import UIButton from "@/components/UI/UIButton.vue";
+	import UIModal from "@/components/UI/UIModal.vue";
+	import TaskEdit from "@/components/Task/TaskEdit.vue";
 
 	export default {
-		name: 'TaskPreview',
-		components: {
+		"name": "TaskPreview",
+		"components": {
 			UIButton,
 			UIModal,
-			TaskEdit
+			TaskEdit,
 		},
-		props: {
-			taskItem: {
-				type: Object,
-				required: true
-			}
+		"props": {
+			"taskItem": {
+				"type": Object,
+				"required": true,
+			},
 		},
-		methods: {
+		"methods": {
 			...mapActions([
-				'removeTask',
-				'updateTask'
+				"removeTask",
+				"updateTask",
 			]),
 			changeTaskDone(task) {
 				task.status.done = !task.status.done;
@@ -98,8 +98,8 @@
 			hideTask(task) {
 				task.status.show = false;
 				this.updateTask(task);
-			}
-		}
+			},
+		},
 	};
 </script>
 

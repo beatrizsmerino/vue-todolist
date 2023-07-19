@@ -11,20 +11,22 @@
 </template>
 
 <script>
-	import {mapGetters} from 'vuex';
-	import PageTitle from '@/components/Page/PageTitle.vue';
-	import Dashboard from '@/components/Dashboard/Dashboard.vue';
-	import UIMessage from '@/components/UI/UIMessage.vue';
+	import { mapGetters } from "vuex";
+	import PageTitle from "@/components/Page/PageTitle.vue";
+	import Dashboard from "@/components/Dashboard/Dashboard.vue";
+	import UIMessage from "@/components/UI/UIMessage.vue";
 
 	export default {
-		components: {
+		"components": {
 			PageTitle,
 			Dashboard,
-			UIMessage
+			UIMessage,
 		},
-		computed: {
-			...mapGetters(['getPageTitle'])
-		}
+		"computed": {
+			...mapGetters([
+				"getPageTitle",
+			]),
+		},
 	};
 </script>
 

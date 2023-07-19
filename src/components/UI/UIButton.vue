@@ -13,39 +13,39 @@
 
 <script>
 	export default {
-		name: 'UIButton',
-		props: {
-			buttonHref: {
-				type: String,
-				default: null
+		"name": "UIButton",
+		"props": {
+			"buttonHref": {
+				"type": String,
+				"default": null,
 			},
-			buttonTo: {
-				type: String,
-				default: null
+			"buttonTo": {
+				"type": String,
+				"default": null,
 			},
-			buttonValue: {
-				type: String,
-				default: null
-			}
+			"buttonValue": {
+				"type": String,
+				"default": null,
+			},
 		},
-		computed: {
+		"computed": {
 			checkTag() {
 				if (this.href) {
-					return 'a';
+					return "a";
 				} else if (this.value) {
-					return 'input';
+					return "input";
 				} else if (this.to) {
-					return 'router-link';
+					return "router-link";
 				}
 
-				return 'button';
-			}
+				return "button";
+			},
 		},
-		methods: {
+		"methods": {
 			buttonClick(event) {
-				this.$emit('button-click', event);
-			}
-		}
+				this.$emit("button-click", event);
+			},
+		},
 	};
 </script>
 

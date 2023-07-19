@@ -24,25 +24,27 @@
 </template>
 
 <script>
-	import {mapGetters, mapActions} from 'vuex';
-	import UIButton from '@/components/UI/UIButton.vue';
+	import { mapGetters, mapActions } from "vuex";
+	import UIButton from "@/components/UI/UIButton.vue";
 
 	export default {
-		name: 'TaskNew',
-		components: {
-			UIButton
+		"name": "TaskNew",
+		"components": {
+			UIButton,
 		},
 		data() {
 			return {
-				taskNew: {
-					name: ''
-				}
+				"taskNew": {
+					"name": "",
+				},
 			};
 		},
-		computed: {
-			...mapGetters(['getTaskLast']),
+		"computed": {
+			...mapGetters([
+				"getTaskLast",
+			]),
 			createTaskId() {
-				if (typeof this.getTaskLast !== 'undefined') {
+				if (typeof this.getTaskLast !== "undefined") {
 					return this.getTaskLast.id + 1;
 				}
 
@@ -50,23 +52,25 @@
 			},
 			createTaskName() {
 				return this.taskNew.name.trim();
-			}
+			},
 		},
-		methods: {
-			...mapActions(['addTask']),
+		"methods": {
+			...mapActions([
+				"addTask",
+			]),
 			cleanTaskNew() {
-				this.taskNew.name = '';
+				this.taskNew.name = "";
 			},
 			createTaskNew() {
 				const taskId = this.createTaskId;
 				const taskName = this.createTaskName;
 
 				const task = {
-					id: taskId,
-					name: taskName
+					"id": taskId,
+					"name": taskName,
 				};
 
-				if (taskName != '') {
+				if (taskName != "") {
 					this.addTask(task);
 				}
 
@@ -74,9 +78,9 @@
 				this.emitAddTask();
 			},
 			emitAddTask() {
-				this.$emit('add-task');
-			}
-		}
+				this.$emit("add-task");
+			},
+		},
 	};
 </script>
 

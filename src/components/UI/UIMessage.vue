@@ -34,26 +34,26 @@
 </template>
 
 <script>
-	import UIButton from '@/components/UI/UIButton.vue';
+	import UIButton from "@/components/UI/UIButton.vue";
 
 	export default {
-		name: 'UIMessage',
-		components: {
-			UIButton
+		"name": "UIMessage",
+		"components": {
+			UIButton,
 		},
 		data() {
 			return {
-				isClose: false
+				"isClose": false,
 			};
 		},
-		methods: {
+		"methods": {
 			openMessage() {
 				this.isClose = false;
 			},
 			closeMessage() {
 				this.isClose = true;
-			}
-		}
+			},
+		},
 	};
 </script>
 

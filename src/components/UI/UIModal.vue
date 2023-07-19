@@ -20,18 +20,18 @@
 </template>
 
 <script>
-	import UIButton from '@/components/UI/UIButton.vue';
+	import UIButton from "@/components/UI/UIButton.vue";
 
 	export default {
-		name: 'UIModal',
-		components: {
-			UIButton
+		"name": "UIModal",
+		"components": {
+			UIButton,
 		},
-		methods: {
+		"methods": {
 			emitCloseModal() {
-				this.$emit('modal-close');
-			}
-		}
+				this.$emit("modal-close");
+			},
+		},
 	};
 </script>
 
