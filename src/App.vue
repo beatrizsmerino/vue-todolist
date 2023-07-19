@@ -3,9 +3,7 @@
 		<PageTitle :title="getPageTitle" />
 		<Dashboard />
 		<UIMessage>
-			<p>
-				This application uses the browser's Local Storage to store data.
-			</p>
+			<p>This application uses the browser's Local Storage to store data.</p>
 		</UIMessage>
 	</div>
 </template>
