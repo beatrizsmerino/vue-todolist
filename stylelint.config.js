@@ -142,6 +142,6 @@ module.exports = {
 		],
 		'string-no-newline': true,
 		'unit-no-unknown': true,
-		'value-keyword-case': 'lower',
+		'value-keyword-case': 'lower'
 	}
 };
