@@ -1,0 +1,91 @@
+{
+	"[vue]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"editor.accessibilitySupport": "on",
+	"editor.bracketPairColorization.enabled": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true,
+		"source.fixAll.markdownlint": true,
+		"source.fixAll.prettier": true,
+		"source.fixAll.stylelint": true
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.detectIndentation": false,
+	"editor.fontFamily": "JetBrains Mono, Menlo, Monaco, 'Courier New', monospace",
+	"editor.fontLigatures": true,
+	"editor.fontSize": 12,
+	"editor.formatOnSave": true,
+	"editor.guides.bracketPairs": "active",
+	"editor.inlineSuggest.enabled": true,
+	"editor.insertSpaces": false,
+	"editor.lineHeight": 20,
+	"editor.linkedEditing": true,
+	"editor.multiCursorModifier": "ctrlCmd",
+	"editor.quickSuggestions": {
+		"comments": true,
+		"other": true,
+		"strings": true
+	},
+	"editor.suggestSelection": "first",
+	"editor.tabSize": 4,
+	"editor.wordWrap": "wordWrapColumn",
+	"editor.wordWrapColumn": 120,
+	"emojisense.languages": {
+		"markdown": true,
+		"plaintext": {
+			"emojiDecoratorsEnabled": false,
+			"markupCompletionsEnabled": false
+		},
+		"scminput": true
+	},
+	"eslint.enable": true,
+	"explorer.compactFolders": false,
+	"explorer.confirmDelete": false,
+	"explorer.confirmDragAndDrop": false,
+	"files.exclude": {
+		"**/.git": false
+	},
+	"incrementor.enums.values": [
+		[
+			"%",
+			"em",
+			"px",
+			"rem"
+		],
+		[
+			"block",
+			"flex",
+			"inline-block"
+		],
+		[
+			"const",
+			"let"
+		],
+		[
+			"false",
+			"true"
+		],
+		[
+			"private",
+			"protected",
+			"public"
+		]
+	],
+	"indentRainbow.excludedLanguages": [
+		"plaintext"
+	],
+	"indentRainbow.updateDelay": 100,
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"prettier.enable": true,
+	"stylelint.enable": true,
+	"terminal.integrated.defaultProfile.osx": "zsh",
+	"terminal.integrated.env.osx": {
+		"FIG_NEW_SESSION": "1"
+	},
+	"terminal.integrated.fontFamily": "'SourceCodePro+Powerline+Awesome Regular'",
+	"terminal.integrated.fontSize": 14,
+	"window.zoomLevel": 2,
+	"workbench.colorTheme": "Better Solarized Dark Italics",
+	"workbench.iconTheme": "material-icon-theme"
+}
