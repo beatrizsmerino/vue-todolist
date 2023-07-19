@@ -13,7 +13,7 @@
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.detectIndentation": false,
 	"editor.fontFamily": "JetBrains Mono, Menlo, Monaco, 'Courier New', monospace",
-	"editor.fontLigatures": true,
+	"editor.fontLigatures": false,
 	"editor.fontSize": 12,
 	"editor.formatOnSave": true,
 	"editor.guides.bracketPairs": "active",
@@ -29,7 +29,7 @@
 	},
 	"editor.suggestSelection": "first",
 	"editor.tabSize": 4,
-	"editor.wordWrap": "wordWrapColumn",
+	"editor.wordWrap": "off",
 	"editor.wordWrapColumn": 120,
 	"emojisense.languages": {
 		"markdown": true,
