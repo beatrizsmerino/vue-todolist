@@ -50,7 +50,7 @@
 		background-color: $color-white;
 		box-shadow: -0.2rem 0.2rem 0.2rem -0.1rem rgba($color-black, 0.15);
 
-		@include media('md') {
+		@include media("md") {
 			width: 100%;
 			max-width: inherit;
 		}

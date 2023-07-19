@@ -86,7 +86,7 @@
 		transition: all 0.5s ease-in-out 0s;
 		background-color: $color-ghost;
 
-		@include media('sm') {
+		@include media("sm") {
 			padding: 1.2rem;
 		}
 
@@ -101,7 +101,7 @@
 			border-radius: 5rem;
 			background-color: $color-white;
 
-			@include media('md') {
+			@include media("md") {
 				padding: 0.5rem 0.5rem 0.5rem 1.5rem;
 			}
 
@@ -132,7 +132,7 @@
 			color: $color-brand-3;
 			font-size: 3.6rem;
 
-			@include media('md') {
+			@include media("md") {
 				font-size: 3rem;
 			}
 

@@ -3,7 +3,7 @@
 		class="task-preview"
 		:class="{
 			'is-done': taskItem.status.done,
-			'is-show': taskItem.status.show
+			'is-show': taskItem.status.show,
 		}"
 	>
 		<UIButton
@@ -128,7 +128,7 @@
 				white-space: nowrap;
 
 				&:before {
-					content: '';
+					content: "";
 					position: absolute;
 					top: 50%;
 					left: 0;

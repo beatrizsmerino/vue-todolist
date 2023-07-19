@@ -18,8 +18,8 @@
 			<UIButton
 				class="task-edit__button-save button--bg-color-3"
 				@button-click="
-					editTaskName(task)
-					emitTaskEditClose()
+					editTaskName(task);
+					emitTaskEditClose();
 				"
 			>
 				<span class="button__icon">

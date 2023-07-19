@@ -69,11 +69,11 @@
 		background-color: $color-brand-4;
 		box-shadow: 0 0.1rem 0.4rem 0.1rem rgba($color-black, 0.6);
 
-		@include media('md') {
+		@include media("md") {
 			max-width: calc(100% - 3rem * 2);
 		}
 
-		@include media('sm') {
+		@include media("sm") {
 			display: flex;
 			position: relative;
 			right: inherit;
@@ -82,7 +82,7 @@
 			float: right;
 		}
 
-		@include media('md', 'max', 'height') {
+		@include media("md", "max", "height") {
 			display: flex;
 			position: relative;
 			right: inherit;
@@ -116,11 +116,11 @@
 			font-weight: 600;
 			line-height: 100%;
 
-			@include media('sm') {
+			@include media("sm") {
 				font-size: 1.2rem;
 			}
 
-			@include media('xs') {
+			@include media("xs") {
 				font-size: 3vw;
 			}
 		}

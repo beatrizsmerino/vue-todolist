@@ -26,7 +26,7 @@
 		line-height: 100%;
 		text-align: center;
 
-		@include media('sm') {
+		@include media("sm") {
 			font-size: 12vw;
 		}
 	}
