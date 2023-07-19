@@ -103,6 +103,7 @@ module.exports = {
 			}
 		],
 		'scss/at-rule-no-unknown': true,
+		'scss/no-global-function-names': null,
 		'selector-class-pattern': null,
 		'selector-no-qualifying-type': [
 			true,
