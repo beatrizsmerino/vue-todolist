@@ -24,7 +24,7 @@
 			}
 		}
 	],
-	"printWidth": 80,
+	"printWidth": 120,
 	"proseWrap": "always",
 	"quoteProps": "preserve",
 	"requirePragma": false,
