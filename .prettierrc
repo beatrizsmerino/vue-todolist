@@ -1,22 +1,11 @@
 {
 	"arrowParens": "avoid",
+	"bracketSameLine": false,
 	"bracketSpacing": true,
 	"embeddedLanguageFormatting": "auto",
 	"htmlWhitespaceSensitivity": "ignore",
 	"insertPragma": false,
-	"bracketSameLine": false,
 	"jsxSingleQuote": false,
-	"printWidth": 80,
-	"proseWrap": "always",
-	"quoteProps": "preserve",
-	"requirePragma": false,
-	"semi": true,
-	"singleAttributePerLine": true,
-	"singleQuote": false,
-	"tabWidth": 4,
-	"trailingComma": "all",
-	"useTabs": true,
-	"vueIndentScriptAndStyle": true,
 	"overrides": [
 		{
 			"files": [
@@ -34,5 +23,16 @@
 				"printWidth": 0
 			}
 		}
-	]
+	],
+	"printWidth": 80,
+	"proseWrap": "always",
+	"quoteProps": "preserve",
+	"requirePragma": false,
+	"semi": true,
+	"singleAttributePerLine": true,
+	"singleQuote": false,
+	"tabWidth": 4,
+	"trailingComma": "all",
+	"useTabs": true,
+	"vueIndentScriptAndStyle": true
 }

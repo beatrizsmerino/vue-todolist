@@ -1,11 +1,7 @@
 module.exports = {
-	"root": true,
 	"env": {
 		"browser": true,
 		"node": true,
-	},
-	"parserOptions": {
-		"parser": "@babel/eslint-parser",
 	},
 	"extends": [
 		"prettier",
@@ -13,18 +9,32 @@ module.exports = {
 		"plugin:vue/recommended",
 		"plugin:json/recommended",
 	],
+	"overrides": [
+		{
+			"files": [
+				"*.vue",
+			],
+			"rules": {
+				"indent": "off",
+			},
+		},
+	],
+	"parserOptions": {
+		"parser": "@babel/eslint-parser",
+	},
 	"plugins": [
 		"vue",
 		"prettier",
 		"json",
 	],
+	"root": true,
 	"rules": {
 		"accessor-pairs": 2,
 		"array-bracket-newline": [
 			2,
 			{
-				"multiline": true,
 				"minItems": 1,
+				"multiline": true,
 			},
 		],
 		"array-bracket-spacing": [
@@ -35,8 +45,8 @@ module.exports = {
 		"array-element-newline": [
 			2,
 			{
-				"multiline": true,
 				"minItems": 1,
+				"multiline": true,
 			},
 		],
 		"arrow-body-style": [
@@ -52,9 +62,9 @@ module.exports = {
 		"camelcase": [
 			2,
 			{
-				"properties": "always",
 				"ignoreDestructuring": true,
 				"ignoreImports": false,
+				"properties": "always",
 			},
 		],
 		"capitalized-comments": 0,
@@ -105,11 +115,11 @@ module.exports = {
 		"id-match": 2,
 		"implicit-arrow-linebreak": 2,
 		"import/no-named-as-default": 0,
-		"init-declarations": 2,
 		"indent": [
 			2,
 			"tab",
 		],
+		"init-declarations": 2,
 		"jsx-quotes": [
 			2,
 			"prefer-double",
@@ -135,8 +145,8 @@ module.exports = {
 			1,
 			{
 				"max": 500,
-				"skipComments": true,
 				"skipBlankLines": true,
+				"skipComments": true,
 			},
 		],
 		"max-lines-per-function": [
@@ -167,8 +177,8 @@ module.exports = {
 		"new-cap": [
 			2,
 			{
-				"newIsCap": true,
 				"capIsNew": true,
+				"newIsCap": true,
 			},
 		],
 		"new-parens": 2,
@@ -184,9 +194,9 @@ module.exports = {
 		"no-catch-shadow": 2,
 		"no-confusing-arrow": 2,
 		"no-console": process.env.NODE_ENV === "production" ? 1 : "off",
-		"no-debugger": process.env.NODE_ENV === "production" ? 1 : "off",
 		"no-constructor-return": 2,
 		"no-continue": 2,
+		"no-debugger": process.env.NODE_ENV === "production" ? 1 : "off",
 		"no-div-regex": 2,
 		"no-dupe-else-if": 2,
 		"no-duplicate-imports": 2,
@@ -215,6 +225,7 @@ module.exports = {
 		"no-magic-numbers": 0,
 		"no-mixed-operators": 0,
 		"no-mixed-requires": 2,
+		"no-mixed-spaces-and-tabs": 2,
 		"no-multi-assign": 2,
 		"no-multi-spaces": 2,
 		"no-multi-str": 2,
@@ -263,7 +274,6 @@ module.exports = {
 		"no-spaced-func": 2,
 		"no-sync": 0,
 		"no-tabs": 0,
-		"no-mixed-spaces-and-tabs": 2,
 		"no-template-curly-in-string": 2,
 		"no-ternary": 0,
 		"no-throw-literal": 2,
@@ -274,7 +284,6 @@ module.exports = {
 		"no-underscore-dangle": 1,
 		"no-unmodified-loop-condition": 1,
 		"no-unneeded-ternary": 1,
-		"no-unused-vars": 1,
 		"no-unused-expressions": [
 			1,
 			{
@@ -282,11 +291,12 @@ module.exports = {
 				"allowTernary": true,
 			},
 		],
+		"no-unused-vars": 1,
 		"no-use-before-define": [
 			2,
 			{
-				"functions": false,
 				"classes": true,
+				"functions": false,
 			},
 		],
 		"no-useless-call": 1,
@@ -303,8 +313,8 @@ module.exports = {
 		"object-curly-newline": [
 			2,
 			{
-				"multiline": false,
 				"consistent": true,
+				"multiline": false,
 			},
 		],
 		"object-curly-spacing": [
@@ -354,8 +364,8 @@ module.exports = {
 			2,
 			"double",
 			{
-				"avoidEscape": true,
 				"allowTemplateLiterals": true,
+				"avoidEscape": true,
 			},
 		],
 		"radix": [
@@ -380,8 +390,8 @@ module.exports = {
 			2,
 			{
 				"anonymous": "never",
-				"named": "never",
 				"asyncArrow": "always",
+				"named": "never",
 			},
 		],
 		"space-in-parens": 2,
@@ -398,38 +408,36 @@ module.exports = {
 			"never",
 		],
 		"vars-on-top": 2,
-		"wrap-iife": 2,
-		"wrap-regex": 2,
-		"yield-star-spacing": 2,
-		"yoda": 2,
-
-		// VUE
-		"vue/html-closing-bracket-spacing": 0,
+		"vue/component-name-in-template-casing": [
+			2,
+			"PascalCase",
+		],
 		"vue/html-closing-bracket-newline": [
 			2,
 			{
-				"singleline": "never",
 				"multiline": "always",
+				"singleline": "never",
 			},
 		],
+		"vue/html-closing-bracket-spacing": 0,
 		"vue/html-indent": [
 			2,
 			"tab",
 			{
+				"alignAttributesVertically": true,
 				"attribute": 1,
 				"baseIndent": 1,
 				"closeBracket": 0,
-				"alignAttributesVertically": true,
 				"ignores": [],
 			},
 		],
 		"vue/max-attributes-per-line": [
 			2,
 			{
-				"singleline": {
+				"multiline": {
 					"max": 1,
 				},
-				"multiline": {
+				"singleline": {
 					"max": 1,
 				},
 			},
@@ -438,50 +446,40 @@ module.exports = {
 		"vue/multiline-html-element-content-newline": [
 			2,
 			{
-				"ignoreWhenEmpty": true,
+				"allowEmptyLines": false,
 				"ignores": [
 					"pre",
 					"textarea",
 				],
-				"allowEmptyLines": false,
+				"ignoreWhenEmpty": true,
 			},
 		],
-		"vue/component-name-in-template-casing": [
-			2,
-			"PascalCase",
-		],
-		"vue/order-in-components": 2,
 		"vue/no-reserved-component-names": 0,
+		"vue/no-side-effects-in-computed-properties": 0,
 		"vue/no-v-html": 0,
+		"vue/order-in-components": 2,
+		"vue/require-default-prop": 0,
 		"vue/script-indent": [
 			2,
 			"tab",
 			{
 				"baseIndent": 1,
-				"switchCase": 0,
 				"ignores": [],
+				"switchCase": 0,
 			},
 		],
 		"vue/singleline-html-element-content-newline": [
 			2,
 			{
-				"ignoreWhenEmpty": true,
 				"ignores": [
 					"pre",
 				],
+				"ignoreWhenEmpty": true,
 			},
 		],
-		"vue/no-side-effects-in-computed-properties": 0,
-		"vue/require-default-prop": 0,
+		"wrap-iife": 2,
+		"wrap-regex": 2,
+		"yield-star-spacing": 2,
+		"yoda": 2,
 	},
-	"overrides": [
-		{
-			"files": [
-				"*.vue",
-			],
-			"rules": {
-				"indent": "off",
-			},
-		},
-	],
 };
