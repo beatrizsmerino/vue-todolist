@@ -53,28 +53,28 @@
 </template>
 
 <script>
-	import {mapGetters, mapActions} from 'vuex';
-	import UIButton from '@/components/UI/UIButton.vue';
-	import UITag from '@/components/UI/UITag.vue';
+	import { mapGetters, mapActions } from "vuex";
+	import UIButton from "@/components/UI/UIButton.vue";
+	import UITag from "@/components/UI/UITag.vue";
 
 	export default {
-		name: 'DashboardInfo',
-		components: {
+		"name": "DashboardInfo",
+		"components": {
 			UIButton,
-			UITag
+			UITag,
 		},
-		computed: {
+		"computed": {
 			...mapGetters({
-				totalTaskList: 'getTotalTaskList',
-				totalTaskListDone: 'getTotalTaskListDone'
-			})
+				"totalTaskList": "getTotalTaskList",
+				"totalTaskListDone": "getTotalTaskListDone",
+			}),
 		},
-		methods: {
+		"methods": {
 			...mapActions([
-				'removeTaskList',
-				'removeTaskListDone'
-			])
-		}
+				"removeTaskList",
+				"removeTaskListDone",
+			]),
+		},
 	};
 </script>
 

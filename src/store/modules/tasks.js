@@ -1,15 +1,13 @@
-/*
- * MODULE VUEX
- * TASKS
- * =================================================
- */
+// MODULE VUEX
+// TASKS
+// =================================================
 
-import tasks from '../../assets/data/tasks.json';
+import tasks from "../../assets/data/tasks.json";
 
 const state = {
-	task: {
-		list: tasks
-	}
+	"task": {
+		"list": tasks,
+	},
 };
 
 const getters = {
@@ -24,47 +22,47 @@ const getters = {
 	},
 	getTaskLast(state) {
 		return state.task.list[state.task.list.length - 1];
-	}
+	},
 };
 
 const actions = {
-	addTask({commit}, task) {
+	addTask({ commit }, task) {
 		const taskNew = {
-			id: task.id,
-			name: task.name,
-			status: {
-				done: false,
-				show: false
-			}
+			"id": task.id,
+			"name": task.name,
+			"status": {
+				"done": false,
+				"show": false,
+			},
 		};
-		commit('addTask', taskNew);
+		commit("addTask", taskNew);
 	},
-	updateTask({commit}, task) {
-		commit('updateTask', task);
+	updateTask({ commit }, task) {
+		commit("updateTask", task);
 	},
-	removeTask({commit}, taskId) {
-		commit('removeTask', taskId);
+	removeTask({ commit }, taskId) {
+		commit("removeTask", taskId);
 	},
-	removeTaskList({commit}) {
-		commit('removeTaskList');
+	removeTaskList({ commit }) {
+		commit("removeTaskList");
 	},
-	removeTaskListDone({commit}) {
-		commit('removeTaskListDone');
+	removeTaskListDone({ commit }) {
+		commit("removeTaskListDone");
 	},
-	checkTaskListLocalStorage({commit}) {
-		if (localStorage.getItem('tasks')) {
+	checkTaskListLocalStorage({ commit }) {
+		if (localStorage.getItem("tasks")) {
 			try {
-				commit('updateTaskListLocalStorage');
+				commit("updateTaskListLocalStorage");
 			} catch (e) {
-				commit('removeTaskListLocalStorage');
+				commit("removeTaskListLocalStorage");
 			}
 		} else {
-			commit('createTaskListLocalStorage');
+			commit("createTaskListLocalStorage");
 		}
 	},
-	createTaskListLocalStorage({commit}) {
-		commit('createTaskListLocalStorage');
-	}
+	createTaskListLocalStorage({ commit }) {
+		commit("createTaskListLocalStorage");
+	},
 };
 
 const mutations = {
@@ -87,19 +85,19 @@ const mutations = {
 		state.task.list = state.task.list.filter(item => !item.status.done);
 	},
 	createTaskListLocalStorage(state) {
-		localStorage.setItem('tasks', JSON.stringify(state.task.list));
+		localStorage.setItem("tasks", JSON.stringify(state.task.list));
 	},
 	updateTaskListLocalStorage(state) {
-		state.task.list = JSON.parse(localStorage.getItem('tasks'));
+		state.task.list = JSON.parse(localStorage.getItem("tasks"));
 	},
 	removeTaskListLocalStorage() {
-		localStorage.removeItem('tasks');
-	}
+		localStorage.removeItem("tasks");
+	},
 };
 
 export default {
 	state,
 	getters,
 	actions,
-	mutations
+	mutations,
 };

@@ -24,25 +24,27 @@
 </template>
 
 <script>
-	import {mapGetters, mapActions} from 'vuex';
-	import UIButton from '@/components/UI/UIButton.vue';
+	import { mapGetters, mapActions } from "vuex";
+	import UIButton from "@/components/UI/UIButton.vue";
 
 	export default {
-		name: 'TaskNew',
-		components: {
-			UIButton
+		"name": "TaskNew",
+		"components": {
+			UIButton,
 		},
 		data() {
 			return {
-				taskNew: {
-					name: ''
-				}
+				"taskNew": {
+					"name": "",
+				},
 			};
 		},
-		computed: {
-			...mapGetters(['getTaskLast']),
+		"computed": {
+			...mapGetters([
+				"getTaskLast",
+			]),
 			createTaskId() {
-				if (typeof this.getTaskLast !== 'undefined') {
+				if (typeof this.getTaskLast !== "undefined") {
 					return this.getTaskLast.id + 1;
 				}
 
@@ -50,23 +52,25 @@
 			},
 			createTaskName() {
 				return this.taskNew.name.trim();
-			}
+			},
 		},
-		methods: {
-			...mapActions(['addTask']),
+		"methods": {
+			...mapActions([
+				"addTask",
+			]),
 			cleanTaskNew() {
-				this.taskNew.name = '';
+				this.taskNew.name = "";
 			},
 			createTaskNew() {
 				const taskId = this.createTaskId;
 				const taskName = this.createTaskName;
 
 				const task = {
-					id: taskId,
-					name: taskName
+					"id": taskId,
+					"name": taskName,
 				};
 
-				if (taskName != '') {
+				if (taskName != "") {
 					this.addTask(task);
 				}
 
@@ -74,9 +78,9 @@
 				this.emitAddTask();
 			},
 			emitAddTask() {
-				this.$emit('add-task');
-			}
-		}
+				this.$emit("add-task");
+			},
+		},
 	};
 </script>
 
@@ -86,7 +90,7 @@
 		transition: all 0.5s ease-in-out 0s;
 		background-color: $color-ghost;
 
-		@include media('sm') {
+		@include media("sm") {
 			padding: 1.2rem;
 		}
 
@@ -101,7 +105,7 @@
 			border-radius: 5rem;
 			background-color: $color-white;
 
-			@include media('md') {
+			@include media("md") {
 				padding: 0.5rem 0.5rem 0.5rem 1.5rem;
 			}
 
@@ -132,7 +136,7 @@
 			color: $color-brand-3;
 			font-size: 3.6rem;
 
-			@include media('md') {
+			@include media("md") {
 				font-size: 3rem;
 			}
 

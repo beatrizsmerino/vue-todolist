@@ -14,19 +14,19 @@
 
 <script>
 	export default {
-		name: 'UITag',
-		props: {
-			tagName: {
-				type: String,
-				required: true
+		"name": "UITag",
+		"props": {
+			"tagName": {
+				"type": String,
+				"required": true,
 			},
-			tagValue: {
-				type: [
+			"tagValue": {
+				"type": [
 					String,
-					Number
-				]
-			}
-		}
+					Number,
+				],
+			},
+		},
 	};
 </script>
 
