@@ -7,7 +7,7 @@
 
 # Vue Todolist
 
-`vue-todolist` is an app task management application, a very typical productivity tool.
+This repository is a **task management application**, a productivity tool created to practice and learn the `Vue` Framework.
 
 ![Vue Todolist](./README/videos/vue-todolist.gif)
 
