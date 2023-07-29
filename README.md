@@ -23,25 +23,27 @@ Is developed with **[vue.js](https://vuejs.org/)** 2.6.10 a Javascript framework
 
 ### Structure of folders
 
--   assets
-    -   scss
--   components
-    -   UI
-        -   [Button](./src/components/UI/Button.vue)
-        -   [Message](./src/components/UI/Message.vue)
-        -   [Tag](./src/components/UI/Tag.vue)
-    -   Page
-        -   [PageTitle](./src/components/Page/PageTitle.vue)
-    -   Dashboard
-        -   [Dashboard](./src/components/Dashboard/Dashboard.vue)
-        -   [DashboardContent](./src/components/Dashboard/DashboardContent.vue)
-        -   [DashboardInfo](./src/components/Dashboard/DashboardInfo.vue)
-    -   Task
-        -   [TaskList](./src/components/Task/TaskList.vue)
-        -   [TaskPreview](./src/components/Task/TaskPreview.vue)
-        -   [TaskNew](./src/components/Task/TaskNew.vue)
--   [App.vue](./src/App.vue)
--   [main.js](./src/main.js)
+```shell
+- assets
+    - scss
+- components
+    - UI
+        - [Button](./src/components/UI/Button.vue)
+        - [Message](./src/components/UI/Message.vue)
+        - [Tag](./src/components/UI/Tag.vue)
+    - Page
+        - [PageTitle](./src/components/Page/PageTitle.vue)
+    - Dashboard
+        - [Dashboard](./src/components/Dashboard/Dashboard.vue)
+        - [DashboardContent](./src/components/Dashboard/DashboardContent.vue)
+        - [DashboardInfo](./src/components/Dashboard/DashboardInfo.vue)
+    - Task
+        - [TaskList](./src/components/Task/TaskList.vue)
+        - [TaskPreview](./src/components/Task/TaskPreview.vue)
+        - [TaskNew](./src/components/Task/TaskNew.vue)
+- [App.vue](./src/App.vue)
+- [main.js](./src/main.js)
+```
 
 ## How work
 
@@ -77,37 +79,37 @@ actions no matter where the component is located.
 
 ## Project setup
 
-```
+```shell
 npm install
 ```
 
 ### Compiles and hot-reloads for development
 
-```
+```shell
 npm run serve
 ```
 
 ### Compiles and minifies for production
 
-```
+```shell
 npm run build
 ```
 
 ### Run your tests
 
-```
+```shell
 npm run test
 ```
 
 ### Lints and fixes files
 
-```
+```shell
 npm run lint
 ```
 
 ### Publish in Github Pages
 
-```
+```shell
 npm run deploy
 ```
 
