@@ -1,10 +1,15 @@
 {
-	"name": "vue-todolist",
 	"version": "0.1.0",
 	"private": true,
+	"name": "vue-todolist",
+	"description": "To-do list made with Vue.",
+	"author": "beatrizsmerino@gmail.com",
+	"license": "ISC",
+	"main": "index.js",
 	"scripts": {
 		"install:clean": "rm -rf node_modules package-lock.json",
-		"preinstall": "npm run install:clean && npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions",
+		"dependencies:fix": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions",
+		"preinstall": "npm run install:clean && npm run dependencies:fix",
 		"postinstall": "npm run lint",
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
@@ -58,7 +63,7 @@
 	},
 	"resolutions": {},
 	"volta": {
-		"node": "14.19.3",
-		"npm": "6.14.17"
+		"node": "14.21.3",
+		"npm": "6.14.18"
 	}
 }
