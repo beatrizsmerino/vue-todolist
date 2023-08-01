@@ -2,6 +2,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"name": "vue-todolist",
+	"description": "To-do list made with Vue.",
 	"scripts": {
 		"install:clean": "rm -rf node_modules package-lock.json",
 		"dependencies:fix": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions",
