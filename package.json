@@ -33,7 +33,7 @@
 	},
 	"devDependencies": {
 		"@babel/core": "^7.22.20",
-		"@babel/eslint-parser": "^7.22.11",
+		"@babel/eslint-parser": "^7.22.15",
 		"@vue/cli-plugin-babel": "^5.0.8",
 		"@vue/cli-plugin-eslint": "^5.0.8",
 		"@vue/cli-plugin-vuex": "^5.0.8",
@@ -45,7 +45,7 @@
 		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-vue": "^9.17.0",
 		"eslint-webpack-plugin": "^2.7.0",
-		"postcss": "^8.4.27",
+		"postcss": "^8.4.29",
 		"postcss-html": "^1.5.0",
 		"prettier": "^2.8.8",
 		"sass": "^1.67.0",
