@@ -6,13 +6,13 @@
 
 <script>
 	export default {
-		name: 'PageTitle',
-		props: {
-			title: {
-				type: String,
-				required: true
-			}
-		}
+		"name": "PageTitle",
+		"props": {
+			"title": {
+				"type": String,
+				"required": true,
+			},
+		},
 	};
 </script>
 
@@ -26,7 +26,7 @@
 		line-height: 100%;
 		text-align: center;
 
-		@include media('sm') {
+		@include media("sm") {
 			font-size: 12vw;
 		}
 	}

@@ -29,31 +29,31 @@
 </template>
 
 <script>
-	import {mapGetters} from 'vuex';
-	import TaskPreview from '@/components/Task/TaskPreview.vue';
+	import { mapGetters } from "vuex";
+	import TaskPreview from "@/components/Task/TaskPreview.vue";
 
 	export default {
-		name: 'TaskList',
-		components: {
-			TaskPreview
+		"name": "TaskList",
+		"components": {
+			TaskPreview,
 		},
-		computed: {
+		"computed": {
 			...mapGetters([
-				'getTaskList',
-				'getTotalTaskList'
-			])
+				"getTaskList",
+				"getTotalTaskList",
+			]),
 		},
 		mounted() {
 			this.scrollToBottom();
 		},
-		methods: {
+		"methods": {
 			scrollToBottom() {
 				this.$nextTick(() => {
 					const element = this.$refs.taskListWrapper;
 					element.scrollTop = element.scrollHeight;
 				});
-			}
-		}
+			},
+		},
 	};
 </script>
 

@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
-const execa = require('execa');
-const emoji = require('node-emoji');
-const chalk = require('chalk');
-const fs = require('fs');
+import {execa} from 'execa';
+import * as emoji from 'node-emoji';
+import chalk from 'chalk';
+import * as fs from 'fs';
 
 const iconArrows = emoji.get('fast_forward');
 const iconRocket = emoji.get('rocket');

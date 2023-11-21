@@ -13,22 +13,22 @@
 </template>
 
 <script>
-	import {iconMap} from '@/assets/images/icons/icons-list.js';
+	import { iconMap } from "@/assets/images/icons/icons-list.js";
 
 	export default {
-		name: 'UIIcon',
-		props: {
-			name: {
-				type: String,
-				required: true,
-				validate: name => Object.keys(iconMap).includes(name)
-			}
+		"name": "UIIcon",
+		"props": {
+			"name": {
+				"type": String,
+				"required": true,
+				"validate": name => Object.keys(iconMap).includes(name),
+			},
 		},
-		computed: {
+		"computed": {
 			iconId() {
 				return iconMap[this.name];
-			}
-		}
+			},
+		},
 	};
 </script>
 

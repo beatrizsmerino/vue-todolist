@@ -1,3 +1,3 @@
-import svgSymbolSpriteLoader from 'svg-symbol-sprite-loader';
+import svgSymbolSpriteLoader from "svg-symbol-sprite-loader";
 
-svgSymbolSpriteLoader({useCache: process.env.NODE_ENV === 'production'});
+svgSymbolSpriteLoader({ "useCache": process.env.NODE_ENV === "production" });
