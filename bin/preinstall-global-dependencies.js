@@ -32,8 +32,12 @@ function getGlobalDependenciesInstalledNVM() {
 	const dependenceListInstalled = JSON.parse(execSync(`npm list -g --depth 0 --json`).toString()).dependencies;
 
 	Object.keys(dependenceListInstalled).forEach(dependenceName => {
-		delete dependenceListInstalled[dependenceName].from;
-		delete dependenceListInstalled[dependenceName].resolved;
+		if (dependenceListInstalled[dependenceName].from) {
+			delete dependenceListInstalled[dependenceName].from;
+		}
+		if (dependenceListInstalled[dependenceName].resolved) {
+			delete dependenceListInstalled[dependenceName].resolved;
+		}
 	});
 
 	console.groupCollapsed("🚀 Global dependencies installed with the 'Manage Multiple Node Versions' NVM:");
@@ -71,8 +75,12 @@ function getGlobalDependenciesInstalledVolta() {
 	);
 
 	Object.keys(dependenceListInstalled).forEach(dependenceName => {
-		delete dependenceListInstalled[dependenceName].from;
-		delete dependenceListInstalled[dependenceName].resolved;
+		if (dependenceListInstalled[dependenceName].from) {
+			delete dependenceListInstalled[dependenceName].from;
+		}
+		if (dependenceListInstalled[dependenceName].resolved) {
+			delete dependenceListInstalled[dependenceName].resolved;
+		}
 	});
 
 	console.groupCollapsed("🚀 Global dependencies installed with the 'Manage Multiple Node Versions' VOLTA:");
@@ -111,8 +119,16 @@ async function installGlobalDependencies() {
 			const found = Object.entries(installedVOLTA).find(([
 				dependenceNameInstalled,
 				dependenceVersionInstalled,
-			]) => dependenceNameInstalled === dependenceNameToInstall &&
-					dependenceVersionInstalled.replace("~", "").replace("^", "") === dependenceVersionToInstall);
+			]) => {
+				if (typeof dependenceVersionInstalled === "string") {
+					return (
+						dependenceNameInstalled === dependenceNameToInstall &&
+							dependenceVersionInstalled.replace("~", "").replace("^", "") === dependenceVersionToInstall
+					);
+				}
+
+				return false;
+			});
 
 			if (!found) {
 				execSync(`${
@@ -133,8 +149,16 @@ async function installGlobalDependencies() {
 			const found = Object.entries(installedNVM).find(([
 				dependenceNameInstalled,
 				dependenceVersionInstalled,
-			]) => dependenceNameInstalled === dependenceNameToInstall &&
-					dependenceVersionInstalled.replace("~", "").replace("^", "") === dependenceVersionToInstall);
+			]) => {
+				if (typeof dependenceVersionInstalled === "string") {
+					return (
+						dependenceNameInstalled === dependenceNameToInstall &&
+						dependenceVersionInstalled.replace("~", "").replace("^", "") === dependenceVersionToInstall
+					);
+				}
+
+				return false;
+			});
 
 			if (!found) {
 				execSync(`${usingMacOS ? "sudo" : ""} npm i -g ${dependenceNameToInstall}@${dependenceVersionToInstall}`);
