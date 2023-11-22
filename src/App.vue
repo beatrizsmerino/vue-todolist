@@ -1,5 +1,5 @@
 <template>
-	<div id="app">
+	<div class="app">
 		<PageTitle :title="getPageTitle" />
 		<Dashboard />
 		<UIMessage>
@@ -15,21 +15,21 @@
 	import UIMessage from "@/components/UI/UIMessage.vue";
 
 	export default {
-		components: {
+		"components": {
 			PageTitle,
 			Dashboard,
-			UIMessage
+			UIMessage,
 		},
-		computed: {
+		"computed": {
 			...mapGetters([
-				"getPageTitle"
-			])
-		}
+				"getPageTitle",
+			]),
+		},
 	};
 </script>
 
 <style lang="scss">
-	#app {
+	.app {
 		width: 100%;
 	}
 

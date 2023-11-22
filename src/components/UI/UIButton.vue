@@ -13,22 +13,22 @@
 
 <script>
 	export default {
-		name: "UIButton",
-		props: {
-			buttonHref: {
-				type: String,
-				default: null
+		"name": "UIButton",
+		"props": {
+			"buttonHref": {
+				"type": String,
+				"default": null,
 			},
-			buttonTo: {
-				type: String,
-				default: null
+			"buttonTo": {
+				"type": String,
+				"default": null,
 			},
-			buttonValue: {
-				type: String,
-				default: null
-			}
+			"buttonValue": {
+				"type": String,
+				"default": null,
+			},
 		},
-		computed: {
+		"computed": {
 			checkTag() {
 				if (this.href) {
 					return "a";
@@ -39,13 +39,13 @@
 				}
 
 				return "button";
-			}
+			},
 		},
-		methods: {
+		"methods": {
 			buttonClick(event) {
 				this.$emit("button-click", event);
-			}
-		}
+			},
+		},
 	};
 </script>
 
@@ -96,7 +96,8 @@
 		}
 
 		&:not(.button--icon) {
-			transition: color 0.15s ease-in-out 0s, background-color 0.15s ease-in-out 0s, border-color 0.15s ease-in-out 0s;
+			transition: color 0.15s ease-in-out 0s, background-color 0.15s ease-in-out 0s,
+				border-color 0.15s ease-in-out 0s;
 		}
 
 		&--small {

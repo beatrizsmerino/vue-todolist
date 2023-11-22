@@ -11,33 +11,33 @@
 	import DashboardContent from "@/components/Dashboard/DashboardContent.vue";
 
 	export default {
-		name: "Dashboard",
-		components: {
+		"name": "Dashboard",
+		"components": {
 			DashboardInfo,
-			DashboardContent
+			DashboardContent,
 		},
-		computed: {
+		"computed": {
 			...mapGetters([
-				"getTaskList"
-			])
+				"getTaskList",
+			]),
 		},
-		watch: {
-			getTaskList: {
+		"watch": {
+			"getTaskList": {
 				handler() {
 					this.createTaskListLocalStorage();
 				},
-				deep: true
-			}
+				"deep": true,
+			},
 		},
 		mounted() {
 			this.checkTaskListLocalStorage();
 		},
-		methods: {
+		"methods": {
 			...mapActions([
 				"checkTaskListLocalStorage",
-				"createTaskListLocalStorage"
-			])
-		}
+				"createTaskListLocalStorage",
+			]),
+		},
 	};
 </script>
 
@@ -52,7 +52,7 @@
 		background-color: $color-white;
 		box-shadow: -0.2rem 0.2rem 0.2rem -0.1rem rgba($color-black, 0.15);
 
-		@include media('md') {
+		@include media("md") {
 			width: 100%;
 			max-width: inherit;
 		}

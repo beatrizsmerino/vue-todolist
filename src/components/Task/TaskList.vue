@@ -4,6 +4,7 @@
 		class="task-list__wrapper"
 	>
 		<transition-group
+			v-if="getTotalTaskList !== 0"
 			class="task-list"
 			name="task-list"
 			tag="ul"
@@ -16,6 +17,14 @@
 				<TaskPreview :task-item="item" />
 			</li>
 		</transition-group>
+		<div
+			v-else
+			class="task-list__message"
+		>
+			<p>Your task list is empty</p>
+
+			<UIIcon name="emptyTasks" />
+		</div>
 	</div>
 </template>
 
@@ -24,26 +33,27 @@
 	import TaskPreview from "@/components/Task/TaskPreview.vue";
 
 	export default {
-		name: "TaskList",
-		components: {
-			TaskPreview
+		"name": "TaskList",
+		"components": {
+			TaskPreview,
 		},
-		computed: {
+		"computed": {
 			...mapGetters([
-				"getTaskList"
-			])
+				"getTaskList",
+				"getTotalTaskList",
+			]),
 		},
 		mounted() {
 			this.scrollToBottom();
 		},
-		methods: {
+		"methods": {
 			scrollToBottom() {
 				this.$nextTick(() => {
 					const element = this.$refs.taskListWrapper;
 					element.scrollTop = element.scrollHeight;
 				});
-			}
-		}
+			},
+		},
 	};
 </script>
 
@@ -82,6 +92,29 @@
 
 			&.task-list-move {
 				transition: transform 0.4s linear 0.3;
+			}
+		}
+
+		&__message {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			color: $color-light;
+			font-size: 2rem;
+			line-height: 100%;
+			text-align: center;
+
+			> * {
+				&:not(:last-child) {
+					margin-bottom: 1rem;
+				}
+			}
+
+			:deep(.icon) {
+				width: 15rem;
+				height: 10rem;
 			}
 		}
 	}

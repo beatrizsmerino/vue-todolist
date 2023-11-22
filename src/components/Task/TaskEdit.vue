@@ -18,8 +18,8 @@
 			<UIButton
 				class="task-edit__button-save button--bg-color-3"
 				@button-click="
-					editTaskName(task)
-					emitTaskEditClose()
+					editTaskName(task);
+					emitTaskEditClose();
 				"
 			>
 				<span class="button__icon">
@@ -38,32 +38,39 @@
 	import UIButton from "@/components/UI/UIButton.vue";
 
 	export default {
-		name: "TaskEdit",
-		components: {
-			UIButton
+		"name": "TaskEdit",
+		"components": {
+			UIButton,
 		},
-		props: {
-			task: {
-				type: Object,
-				required: true
-			}
+		"props": {
+			"task": {
+				"type": Object,
+				"required": true,
+			},
 		},
 		data() {
 			return {
-				taskCopy: this.task
+				"taskCopy": this.task,
 			};
 		},
-		methods: {
+		"watch": {
+			task(newVal, oldVal) {
+				if (newVal !== oldVal) {
+					this.taskCopy = newVal;
+				}
+			},
+		},
+		"methods": {
 			...mapActions([
-				"updateTask"
+				"updateTask",
 			]),
 			editTaskName(task) {
 				this.updateTask(task);
 			},
 			emitTaskEditClose() {
 				this.$emit("task-edit-close");
-			}
-		}
+			},
+		},
 	};
 </script>
 

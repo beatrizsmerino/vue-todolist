@@ -59,16 +59,15 @@ function getGlobalDependenciesInstalledVolta() {
 		}
 
 		return {
-			[dependenceNameInstalled]: dependenceVersionInstalled
+			[dependenceNameInstalled]: dependenceVersionInstalled,
 		};
 	});
 	dependenceListInstalled = dependenceListInstalled.reduce(
 		(previousItem, currentItem) => ({
 			...previousItem,
-			...currentItem
+			...currentItem,
 		}),
-		{
-		}
+		{},
 	);
 
 	Object.keys(dependenceListInstalled).forEach(dependenceName => {
@@ -111,12 +110,14 @@ async function installGlobalDependencies() {
 			const dependenceVersionToInstall = toInstall[dependenceNameToInstall].replace("~", "").replace("^", "");
 			const found = Object.entries(installedVOLTA).find(([
 				dependenceNameInstalled,
-				dependenceVersionInstalled
+				dependenceVersionInstalled,
 			]) => dependenceNameInstalled === dependenceNameToInstall &&
 					dependenceVersionInstalled.replace("~", "").replace("^", "") === dependenceVersionToInstall);
 
 			if (!found) {
-				execSync(`${usingMacOS ? "sudo" : ""} volta install ${dependenceNameToInstall}@${dependenceVersionToInstall}`);
+				execSync(`${
+					usingMacOS ? "sudo" : ""
+				} volta install ${dependenceNameToInstall}@${dependenceVersionToInstall}`);
 				console.log(`➕ Installing dependency: ${dependenceNameToInstall}@${dependenceVersionToInstall}`);
 			} else {
 				console.log(`✅ Dependency already installed: ${dependenceNameToInstall}@${dependenceVersionToInstall}`);
@@ -131,7 +132,7 @@ async function installGlobalDependencies() {
 			const dependenceVersionToInstall = toInstall[dependenceNameToInstall].replace("~", "").replace("^", "");
 			const found = Object.entries(installedNVM).find(([
 				dependenceNameInstalled,
-				dependenceVersionInstalled
+				dependenceVersionInstalled,
 			]) => dependenceNameInstalled === dependenceNameToInstall &&
 					dependenceVersionInstalled.replace("~", "").replace("^", "") === dependenceVersionToInstall);
 

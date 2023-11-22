@@ -1,74 +1,94 @@
 module.exports = {
-	root: true,
-	env: {
-		browser: true,
-		node: true
+	"env": {
+		"browser": true,
+		"node": true,
 	},
-	parserOptions: {
-		parser: "@babel/eslint-parser"
-	},
-	extends: [
+	"extends": [
 		"prettier",
 		"eslint:recommended",
 		"plugin:vue/recommended",
-		"plugin:json/recommended"
+		"plugin:json/recommended",
 	],
-	plugins: [
+	"overrides": [
+		{
+			"files": [
+				"*.vue",
+			],
+			"rules": {
+				"indent": "off",
+			},
+		},
+	],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true,
+		},
+		"ecmaVersion": "latest",
+		"parser": "@babel/eslint-parser",
+		"requireConfigFile": false,
+		"sourceType": "module",
+	},
+	"plugins": [
 		"vue",
+		"prettier",
 		"json",
-		"prettier"
 	],
-	rules: {
+	"root": true,
+	"rules": {
 		"accessor-pairs": 2,
 		"array-bracket-newline": [
 			2,
 			{
-				multiline: true,
-				minItems: 1
-			}
+				"minItems": 1,
+				"multiline": true,
+			},
 		],
-		"array-bracket-spacing": 2,
+		"array-bracket-spacing": [
+			2,
+			"always",
+		],
 		"array-callback-return": 1,
-		"arrow-body-style": [
-			1,
-			"as-needed"
-		],
 		"array-element-newline": [
 			2,
 			{
-				minItems: 1
-			}
+				"minItems": 1,
+				"multiline": true,
+			},
+		],
+		"arrow-body-style": [
+			1,
+			"as-needed",
 		],
 		"arrow-parens": 0,
 		"arrow-spacing": 2,
 		"block-scoped-var": 2,
 		"block-spacing": 2,
 		"brace-style": 2,
+		"callback-return": 2,
 		"camelcase": [
-			1,
+			2,
 			{
-				properties: "always",
-				ignoreDestructuring: true,
-				ignoreImports: false
-			}
+				"ignoreDestructuring": true,
+				"ignoreImports": false,
+				"properties": "always",
+			},
 		],
 		"capitalized-comments": 0,
 		"class-methods-use-this": 2,
 		"comma-dangle": [
 			2,
-			{
-				arrays: "never",
-				objects: "never",
-				imports: "never",
-				exports: "never",
-				functions: "never"
-			}
+			"always-multiline",
 		],
 		"comma-spacing": 2,
 		"comma-style": 2,
-		"complexity": 0,
+		"complexity": [
+			2,
+			{
+				"max": 4,
+			},
+		],
 		"computed-property-spacing": 2,
-		"consistent-return": 1,
+		"consistent-return": 2,
 		"consistent-this": 1,
 		"curly": 2,
 		"default-case": 2,
@@ -83,32 +103,32 @@ module.exports = {
 		"func-style": 0,
 		"function-call-argument-newline": [
 			2,
-			"consistent"
+			"consistent",
 		],
 		"function-paren-newline": 2,
 		"generator-star-spacing": 0,
 		"global-require": 0,
 		"grouped-accessor-pairs": 2,
-		"guard-for-in": 1,
+		"guard-for-in": 2,
 		"handle-callback-err": 2,
 		"id-blacklist": 2,
 		"id-length": [
 			2,
 			{
-				min: 1
-			}
+				"min": 1,
+			},
 		],
 		"id-match": 2,
 		"implicit-arrow-linebreak": 2,
 		"import/no-named-as-default": 0,
-		"init-declarations": 1,
 		"indent": [
 			2,
-			"tab"
+			"tab",
 		],
+		"init-declarations": 2,
 		"jsx-quotes": [
 			2,
-			"prefer-double"
+			"prefer-double",
 		],
 		"key-spacing": 2,
 		"keyword-spacing": 2,
@@ -117,50 +137,55 @@ module.exports = {
 		"lines-around-comment": [
 			1,
 			{
-				allowBlockStart: true,
-				beforeBlockComment: true,
-				beforeLineComment: true
-			}
+				"allowBlockStart": true,
+				"beforeBlockComment": true,
+				"beforeLineComment": true,
+			},
 		],
 		"lines-around-directive": 2,
 		"lines-between-class-members": 2,
 		"max-classes-per-file": 1,
 		"max-depth": 1,
-		"max-length": 0,
+		"max-len": 0,
 		"max-lines": [
 			1,
 			{
-				max: 500,
-				skipComments: true,
-				skipBlankLines: true
-			}
+				"max": 500,
+				"skipBlankLines": true,
+				"skipComments": true,
+			},
 		],
 		"max-lines-per-function": [
 			1,
 			{
-				max: 100
-			}
+				"max": 100,
+			},
 		],
 		"max-nested-callbacks": 2,
 		"max-params": 2,
-		"max-statements": 0,
+		"max-statements": [
+			1,
+			{
+				"max": 10,
+			},
+		],
 		"max-statements-per-line": [
 			2,
 			{
-				max: 1
-			}
+				"max": 1,
+			},
 		],
 		"multiline-comment-style": [
 			2,
-			"separate-lines"
+			"separate-lines",
 		],
 		"multiline-ternary": 0,
 		"new-cap": [
 			2,
 			{
-				newIsCap: true,
-				capIsNew: true
-			}
+				"capIsNew": true,
+				"newIsCap": true,
+			},
 		],
 		"new-parens": 2,
 		"newline-after-var": 0,
@@ -174,10 +199,10 @@ module.exports = {
 		"no-caller": 2,
 		"no-catch-shadow": 2,
 		"no-confusing-arrow": 2,
-		"no-console": process.env.NODE_ENV === "production" ? 1 : "off",
-		"no-debugger": process.env.NODE_ENV === "production" ? 1 : "off",
+		"no-console": process.env.NODE_ENV === "production" ? 2 : "off",
 		"no-constructor-return": 2,
 		"no-continue": 2,
+		"no-debugger": process.env.NODE_ENV === "production" ? 2 : "off",
 		"no-div-regex": 2,
 		"no-dupe-else-if": 2,
 		"no-duplicate-imports": 2,
@@ -206,6 +231,7 @@ module.exports = {
 		"no-magic-numbers": 0,
 		"no-mixed-operators": 0,
 		"no-mixed-requires": 2,
+		"no-mixed-spaces-and-tabs": 2,
 		"no-multi-assign": 2,
 		"no-multi-spaces": 2,
 		"no-multi-str": 2,
@@ -223,12 +249,13 @@ module.exports = {
 		"no-param-reassign": [
 			1,
 			{
-				props: false
-			}
+				"props": false,
+			},
 		],
 		"no-path-concat": 2,
 		"no-plusplus": 0,
 		"no-process-env": 0,
+		"no-process-exit": 2,
 		"no-proto": 2,
 		"no-prototype-builtins": 0,
 		"no-restricted-globals": 2,
@@ -245,15 +272,14 @@ module.exports = {
 		"no-shadow": [
 			2,
 			{
-				allow: [
-					"state"
-				]
-			}
+				"allow": [
+					"state",
+				],
+			},
 		],
 		"no-spaced-func": 2,
 		"no-sync": 0,
 		"no-tabs": 0,
-		"no-mixed-spaces-and-tabs": 2,
 		"no-template-curly-in-string": 2,
 		"no-ternary": 0,
 		"no-throw-literal": 2,
@@ -264,20 +290,20 @@ module.exports = {
 		"no-underscore-dangle": 1,
 		"no-unmodified-loop-condition": 1,
 		"no-unneeded-ternary": 1,
-		"no-unused-vars": 1,
 		"no-unused-expressions": [
 			1,
 			{
-				allowShortCircuit: true,
-				allowTernary: true
-			}
+				"allowShortCircuit": true,
+				"allowTernary": true,
+			},
 		],
+		"no-unused-vars": 1,
 		"no-use-before-define": [
 			2,
 			{
-				functions: false,
-				classes: true
-			}
+				"classes": true,
+				"functions": false,
+			},
 		],
 		"no-useless-call": 1,
 		"no-useless-computed-key": 1,
@@ -293,26 +319,19 @@ module.exports = {
 		"object-curly-newline": [
 			2,
 			{
-				ObjectExpression: "always",
-				ObjectPattern: {
-					multiline: true
-				},
-				ImportDeclaration: "never",
-				ExportDeclaration: {
-					multiline: true,
-					minProperties: 3
-				}
-			}
+				"consistent": true,
+				"multiline": false,
+			},
 		],
 		"object-curly-spacing": [
 			2,
-			"always"
+			"always",
 		],
 		"object-property-newline": [
 			2,
 			{
-				allowAllPropertiesOnSameLine: true
-			}
+				"allowAllPropertiesOnSameLine": false,
+			},
 		],
 		"object-shorthand": 2,
 		"one-var": 0,
@@ -321,15 +340,15 @@ module.exports = {
 		"operator-linebreak": 2,
 		"padded-blocks": [
 			1,
-			"never"
+			"never",
 		],
 		"padding-line-between-statements": 2,
 		"prefer-arrow-callback": [
 			0,
 			{
-				allowNamedFunctions: false,
-				allowUnboundThis: false
-			}
+				"allowNamedFunctions": false,
+				"allowUnboundThis": false,
+			},
 		],
 		"prefer-const": 1,
 		"prefer-destructuring": 0,
@@ -345,27 +364,27 @@ module.exports = {
 		"prefer-template": 2,
 		"quote-props": [
 			2,
-			"consistent"
+			"always",
 		],
 		"quotes": [
 			2,
 			"double",
 			{
-				avoidEscape: true,
-				allowTemplateLiterals: true
-			}
+				"allowTemplateLiterals": true,
+				"avoidEscape": true,
+			},
 		],
 		"radix": [
 			2,
-			"as-needed"
+			"as-needed",
 		],
 		"require-atomic-updates": 2,
-		"require-await": 1,
+		"require-await": 2,
 		"require-unicode-regexp": 2,
 		"rest-spread-spacing": 2,
 		"semi": [
 			2,
-			"always"
+			"always",
 		],
 		"semi-spacing": 2,
 		"semi-style": 2,
@@ -376,10 +395,10 @@ module.exports = {
 		"space-before-function-paren": [
 			2,
 			{
-				anonymous: "never",
-				named: "never",
-				asyncArrow: "always"
-			}
+				"anonymous": "never",
+				"asyncArrow": "always",
+				"named": "never",
+			},
 		],
 		"space-in-parens": 2,
 		"space-infix-ops": 2,
@@ -392,77 +411,81 @@ module.exports = {
 		"template-tag-spacing": 2,
 		"unicode-bom": [
 			2,
-			"never"
+			"never",
 		],
 		"vars-on-top": 2,
-		"wrap-iife": 2,
-		"wrap-regex": 2,
-		"yield-star-spacing": 2,
-		"yoda": 2,
-
-		// VUE
-		"vue/html-closing-bracket-spacing": 0,
+		"vue/component-name-in-template-casing": [
+			2,
+			"PascalCase",
+		],
 		"vue/html-closing-bracket-newline": [
 			2,
 			{
-				singleline: "never",
-				multiline: "always"
-			}
+				"multiline": "always",
+				"singleline": "never",
+			},
 		],
+		"vue/html-closing-bracket-spacing": 0,
 		"vue/html-indent": [
 			2,
 			"tab",
 			{
-				attribute: 1,
-				baseIndent: 1,
-				closeBracket: 0,
-				alignAttributesVertically: true,
-				ignores: []
-			}
+				"alignAttributesVertically": true,
+				"attribute": 1,
+				"baseIndent": 1,
+				"closeBracket": 0,
+				"ignores": [],
+			},
 		],
 		"vue/max-attributes-per-line": [
 			2,
 			{
-				singleline: 1,
-				multiline: 1
-			}
+				"multiline": {
+					"max": 1,
+				},
+				"singleline": {
+					"max": 1,
+				},
+			},
 		],
 		"vue/multi-word-component-names": 0,
-		"vue/component-name-in-template-casing": [
+		"vue/multiline-html-element-content-newline": [
 			2,
-			"PascalCase"
+			{
+				"allowEmptyLines": false,
+				"ignores": [
+					"pre",
+					"textarea",
+				],
+				"ignoreWhenEmpty": true,
+			},
 		],
-		"vue/order-in-components": 2,
+		"vue/no-reserved-component-names": 0,
+		"vue/no-side-effects-in-computed-properties": 0,
 		"vue/no-v-html": 0,
+		"vue/order-in-components": 2,
+		"vue/require-default-prop": 0,
 		"vue/script-indent": [
 			2,
 			"tab",
 			{
-				baseIndent: 1,
-				switchCase: 0,
-				ignores: []
-			}
+				"baseIndent": 1,
+				"ignores": [],
+				"switchCase": 0,
+			},
 		],
 		"vue/singleline-html-element-content-newline": [
 			2,
 			{
-				ignoreWhenEmpty: true,
-				ignores: [
-					"pre"
-				]
-			}
+				"ignores": [
+					"pre",
+				],
+				"ignoreWhenEmpty": true,
+			},
 		],
-		"vue/no-side-effects-in-computed-properties": 0,
-		"vue/require-default-prop": 0
+		"wrap-iife": 2,
+		"wrap-regex": 2,
+		"yield-star-spacing": 2,
+		"yoda": 2,
 	},
-	overrides: [
-		{
-			files: [
-				"*.vue"
-			],
-			rules: {
-				indent: "off"
-			}
-		}
-	]
 };

@@ -3,7 +3,7 @@
 		class="task-preview"
 		:class="{
 			'is-done': taskItem.status.done,
-			'is-show': taskItem.status.show
+			'is-show': taskItem.status.show,
 		}"
 	>
 		<UIButton
@@ -70,22 +70,22 @@
 	import TaskEdit from "@/components/Task/TaskEdit.vue";
 
 	export default {
-		name: "TaskPreview",
-		components: {
+		"name": "TaskPreview",
+		"components": {
 			UIButton,
 			UIModal,
-			TaskEdit
+			TaskEdit,
 		},
-		props: {
-			taskItem: {
-				type: Object,
-				required: true
-			}
+		"props": {
+			"taskItem": {
+				"type": Object,
+				"required": true,
+			},
 		},
-		methods: {
+		"methods": {
 			...mapActions([
 				"removeTask",
-				"updateTask"
+				"updateTask",
 			]),
 			changeTaskDone(task) {
 				task.status.done = !task.status.done;
@@ -98,8 +98,8 @@
 			hideTask(task) {
 				task.status.show = false;
 				this.updateTask(task);
-			}
-		}
+			},
+		},
 	};
 </script>
 
@@ -128,7 +128,7 @@
 				white-space: nowrap;
 
 				&:before {
-					content: '';
+					content: "";
 					position: absolute;
 					top: 50%;
 					left: 0;

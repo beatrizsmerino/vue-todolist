@@ -10,15 +10,15 @@
 	import TaskNew from "@/components/Task/TaskNew.vue";
 
 	export default {
-		name: "DashboardContent",
-		components: {
+		"name": "DashboardContent",
+		"components": {
 			TaskList,
-			TaskNew
+			TaskNew,
 		},
-		methods: {
+		"methods": {
 			scrollToBottom() {
 				this.$refs.taskList.scrollToBottom();
-			}
-		}
+			},
+		},
 	};
 </script>
