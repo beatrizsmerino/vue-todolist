@@ -91,7 +91,7 @@ const installDependencies = ({ dependenciesToInstall, installedDependencies, usi
 		const targetVersion = dependenciesToInstall[dependenceNameToInstall].replace(/[~^]/gu, "");
 		const installedVersion = installedDependencies[dependenceNameToInstall];
 
-		if (!installedVersion || installedVersion !== targetVersion) {
+		if (installedVersion.version !== targetVersion) {
 			installDependency({
 				"name": dependenceNameToInstall,
 				targetVersion,
@@ -99,7 +99,7 @@ const installDependencies = ({ dependenciesToInstall, installedDependencies, usi
 				installCommand,
 			});
 		} else {
-			console.log(`✅ Dependency already installed: ${dependenceNameToInstall}@${installedVersion}`);
+			console.log(`✅ Dependency already installed: ${dependenceNameToInstall}@${installedVersion.version}`);
 		}
 	});
 	console.groupEnd();
