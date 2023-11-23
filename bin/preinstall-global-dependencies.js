@@ -3,8 +3,11 @@ const fs = require("fs");
 const packageFile = JSON.parse(fs.readFileSync("package.json"));
 
 const getOperatingSystem = () => process.platform;
-const checkMacOS = () => getOperatingSystem() === "darwin";
-const checkVolta = () => Boolean(packageFile.volta);
+const isMacOS = () => getOperatingSystem() === "darwin";
+const isVolta = () => Boolean(packageFile.volta);
+const getPackageManagement = () => (isVolta() ? "Volta" : "NPM");
+const getCommandListDeps = () => (isVolta() ? "volta list --format=plain" : "npm list -g --depth 0 --json");
+const getCommandInstallDeps = () => (isVolta() ? "volta install" : "npm i -g");
 
 const printTableData = (title, data) => {
 	console.groupCollapsed(title);
@@ -12,94 +15,66 @@ const printTableData = (title, data) => {
 	console.groupEnd();
 };
 
-const printInitialConfig = toInstall => {
-	printTableData("🚀 Operating System:", { "Operating System": getOperatingSystem() });
-	printTableData("🚀 Global dependencies to install:", toInstall);
-};
+const parseVoltaDeps = deps => deps.
+	split("\n").
+	filter(line => line.includes("@")).
+	map(dep => {
+		const [
+			name,
+			version,
+		] = dep.split("@");
 
-const getDependencyVersion = dependency => dependency.version || "unknown";
-const isDependencyOverridden = dependency => dependency.overridden;
+		return { [name]: version };
+	}).
+	reduce(
+		(acc, dep) => ({
+			...acc,
+			...dep,
+		}),
+		{},
+	);
 
-const parseDependencies = dependenceList => Object.keys(dependenceList).reduce((acc, key) => {
-	const version = getDependencyVersion(dependenceList[key]);
-	const overridden = isDependencyOverridden(dependenceList[key]);
-
+const parseNpmDeps = deps => Object.entries(JSON.parse(deps).dependencies).reduce((acc, [
+	key,
+	value,
+]) => {
 	acc[key] = {
-		version,
-		overridden,
+		"version": value.version || "unknown",
+		"overridden": Boolean(value.overridden),
 	};
 
 	return acc;
 }, {});
 
-const getDependencyInfo = dependence => {
-	const [
-		name,
-		version,
-	] = dependence.split("@");
+const getGlobalDepsToInstall = () => packageFile.globalDependencies || {};
 
-	return { [name]: version };
+const getGlobalDepsInstalled = () => {
+	const deps = execSync(getCommandListDeps()).toString();
+
+	return isVolta() ? parseVoltaDeps(deps) : parseNpmDeps(deps);
 };
 
-const getInstallationConfig = () => {
-	const toInstall = packageFile.globalDependencies;
-	const usingMacOS = checkMacOS();
-	const installCommand = checkVolta() ? "volta install" : "npm i -g";
-
-	return {
-		toInstall,
-		usingMacOS,
-		installCommand,
-	};
+const installGlobalDep = ({ depNameToInstall, depVersionToInstall }) => {
+	console.log(`➕ Installing dependency: ${depNameToInstall}@${depVersionToInstall}`);
+	execSync(`${isMacOS() ? "sudo " : ""}${getCommandInstallDeps()} ${depNameToInstall}@${depVersionToInstall}`);
 };
 
-const getDependenciesNVM = () => {
-	const dependenceListInstalled = JSON.parse(execSync(`npm list -g --depth 0 --json`).toString()).dependencies;
-	const parsedDependencies = parseDependencies(dependenceListInstalled);
-	printTableData("🚀 Global dependencies installed with NVM:", parsedDependencies);
-
-	return parsedDependencies;
-};
-
-const getDependenciesVolta = () => {
-	const rawList = execSync(`volta list --format=plain`).toString();
-	const installedDependencies = rawList.
-		split("\n").
-		filter(line => line && line.includes("@")).
-		map(getDependencyInfo).
-		reduce(
-			(acc, dep) => ({
-				...acc,
-				...dep,
-			}),
-			{},
-		);
-
-	printTableData("🚀 Global dependencies installed with Volta:", installedDependencies);
-
-	return installedDependencies;
-};
-
-const installDependency = ({ name, targetVersion, usingMacOS, installCommand }) => {
-	console.log(`➕ Installing dependency: ${name}@${targetVersion}`);
-	execSync(`${usingMacOS ? "sudo " : ""}${installCommand} ${name}@${targetVersion}`);
-};
-
-const installDependencies = ({ dependenciesToInstall, installedDependencies, usingMacOS, installCommand }) => {
+const installGlobalDeps = () => {
 	console.groupCollapsed("🚀 Installing global dependencies:");
-	Object.keys(dependenciesToInstall).forEach(dependenceNameToInstall => {
-		const targetVersion = dependenciesToInstall[dependenceNameToInstall].replace(/[~^]/gu, "");
-		const installedVersion = installedDependencies[dependenceNameToInstall];
+	const listDepsToInstall = getGlobalDepsToInstall();
+	const listDepsInstalled = getGlobalDepsInstalled();
 
-		if (installedVersion.version !== targetVersion) {
-			installDependency({
-				"name": dependenceNameToInstall,
-				targetVersion,
-				usingMacOS,
-				installCommand,
+	Object.keys(listDepsToInstall).forEach(depNameToInstall => {
+		const depVersionToInstall = listDepsToInstall[depNameToInstall].replace(/[~^]/gu, "");
+		const depVersionInstalled = listDepsInstalled[depNameToInstall]?.version || "";
+
+		if (depVersionInstalled !== depVersionToInstall) {
+			installGlobalDep({
+				"name": depNameToInstall,
+				"version": depVersionToInstall,
 			});
 		} else {
-			console.log(`✅ Dependency already installed: ${dependenceNameToInstall}@${installedVersion.version}`);
+			console.log(`✅ Dependency already installed: ${depNameToInstall}@${depVersionInstalled}`);
 		}
 	});
 	console.groupEnd();
@@ -107,19 +82,11 @@ const installDependencies = ({ dependenciesToInstall, installedDependencies, usi
 
 const init = () => {
 	try {
-		const { toInstall, usingMacOS, installCommand } = getInstallationConfig();
-
-		printInitialConfig(toInstall);
-
-		const installedDependencies = checkVolta() ? getDependenciesVolta() : getDependenciesNVM();
-
-		installDependencies({
-			"dependenciesToInstall": toInstall,
-			installedDependencies,
-			usingMacOS,
-			installCommand,
+		printTableData("🚀 Project environment:", {
+			"Operating System": getOperatingSystem(),
+			"Package Management": getPackageManagement(),
 		});
-
+		installGlobalDeps();
 		console.log("✅ Pre-installation of global packages is completed!");
 	} catch (error) {
 		console.error("🚨 Error: ", error);
