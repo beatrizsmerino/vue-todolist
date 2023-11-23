@@ -1,10 +1,11 @@
 const { execSync } = require("child_process");
 const fs = require("fs");
-const packageFile = JSON.parse(fs.readFileSync("package.json"));
+const packageFileName = "package.json";
+const packageFileContent = JSON.parse(fs.readFileSync(packageFileName));
 
 const getOperatingSystem = () => process.platform;
 const isMacOS = () => getOperatingSystem() === "darwin";
-const isVolta = () => Boolean(packageFile.volta);
+const isVolta = () => Boolean(packageFileContent.volta);
 const getPackageManagement = () => (isVolta() ? "Volta" : "NPM");
 const getCommandListDeps = () => (isVolta() ? "volta list --format=plain" : "npm list -g --depth 0 --json");
 const getCommandInstallDeps = () => (isVolta() ? "volta install" : "npm i -g");
@@ -14,6 +15,8 @@ const printTableData = (title, data) => {
 	console.table(data);
 	console.groupEnd();
 };
+
+const getCleanVersion = version => version.replace(/[~^]/gu, "");
 
 const parseVoltaDeps = deps => deps.
 	split("\n").
@@ -38,20 +41,83 @@ const parseNpmDeps = deps => Object.entries(JSON.parse(deps).dependencies).reduc
 	key,
 	value,
 ]) => {
-	acc[key] = {
-		"version": value.version || "unknown",
-		"overridden": Boolean(value.overridden),
-	};
+	acc[key] = value.version || "unknown";
 
 	return acc;
 }, {});
 
-const getGlobalDepsToInstall = () => packageFile.globalDependencies || {};
+const getLocalDepsToInstall = () => {
+	try {
+		const dependencies = packageFileContent.dependencies || {};
+		const devDependencies = packageFileContent.devDependencies || {};
+		const localDeps = {
+			...dependencies,
+			...devDependencies,
+		};
+
+		return localDeps;
+	} catch (error) {
+		console.error(`🚨 Error al leer ${packageFileName}:`, error);
+
+		return {};
+	}
+};
+
+const getGlobalDepsToInstall = () => packageFileContent.globalDependencies || {};
 
 const getGlobalDepsInstalled = () => {
 	const deps = execSync(getCommandListDeps()).toString();
 
 	return isVolta() ? parseVoltaDeps(deps) : parseNpmDeps(deps);
+};
+
+const getGlobalDepsToUpdate = () => {
+	const localDeps = getLocalDepsToInstall();
+	const globalDeps = getGlobalDepsToInstall();
+	const installedDeps = getGlobalDepsInstalled();
+	const updatedDeps = {};
+
+	Object.entries(globalDeps).forEach(([
+		depName,
+		globalVersion,
+	]) => {
+		if (
+			!installedDeps[depName] ||
+			(getCleanVersion(globalVersion) !== getCleanVersion(installedDeps[depName]) &&
+				getCleanVersion(localDeps[depName]))
+		) {
+			updatedDeps[depName] = getCleanVersion(localDeps[depName]);
+		}
+	});
+
+	return updatedDeps;
+};
+
+const setGlobalDepsToUpdate = () => {
+	const depsToUpdate = getGlobalDepsToUpdate();
+	packageFileContent.globalDependencies = depsToUpdate;
+	fs.writeFileSync(packageFileName, JSON.stringify(packageFileContent, null, 2));
+
+	return depsToUpdate;
+};
+
+const setGlobalDepsToInstall = () => {
+	const depsToUpdate = getGlobalDepsToUpdate();
+	const installedDeps = getGlobalDepsInstalled();
+	const depsToInstall = {};
+
+	for (const [
+		dep,
+		version,
+	] of Object.entries(depsToUpdate)) {
+		if (!installedDeps[dep] || installedDeps[dep].version !== version) {
+			depsToInstall[dep] = version;
+		}
+	}
+
+	setGlobalDepsToUpdate();
+
+	return depsToInstall;
 };
 
 const installGlobalDep = ({ depNameToInstall, depVersionToInstall }) => {
@@ -61,22 +127,20 @@ const installGlobalDep = ({ depNameToInstall, depVersionToInstall }) => {
 
 const installGlobalDeps = () => {
 	console.groupCollapsed("🚀 Installing global dependencies:");
-	const listDepsToInstall = getGlobalDepsToInstall();
-	const listDepsInstalled = getGlobalDepsInstalled();
+	const listDepsToInstall = setGlobalDepsToInstall();
 
-	Object.keys(listDepsToInstall).forEach(depNameToInstall => {
-		const depVersionToInstall = listDepsToInstall[depNameToInstall].replace(/[~^]/gu, "");
-		const depVersionInstalled = listDepsInstalled[depNameToInstall]?.version || "";
-
-		if (depVersionInstalled !== depVersionToInstall) {
+	for (const [
+		depNameToInstall,
+		depVersionToInstall,
+	] of Object.entries(listDepsToInstall)) {
+		if (depNameToInstall && depVersionToInstall) {
 			installGlobalDep({
-				"name": depNameToInstall,
-				"version": depVersionToInstall,
+				depNameToInstall,
+				"depVersionToInstall": getCleanVersion(depVersionToInstall),
 			});
-		} else {
-			console.log(`✅ Dependency already installed: ${depNameToInstall}@${depVersionInstalled}`);
 		}
-	});
+	}
+
 	console.groupEnd();
 };
 
@@ -86,6 +150,10 @@ const init = () => {
 			"Operating System": getOperatingSystem(),
 			"Package Management": getPackageManagement(),
 		});
+		printTableData("🚀 Local dependencies to install:", getLocalDepsToInstall());
+		printTableData("🚀 Global dependencies to install:", getGlobalDepsToInstall());
+		printTableData("🚀 Global dependencies installed:", getGlobalDepsInstalled());
+		printTableData("🚀 Global dependencies to update:", getGlobalDepsToUpdate());
 		installGlobalDeps();
 		console.log("✅ Pre-installation of global packages is completed!");
 	} catch (error) {
