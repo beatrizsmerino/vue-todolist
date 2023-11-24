@@ -14,8 +14,7 @@ const isVolta = () => Boolean(packageContent.volta);
 const getPackageManagement = () => (isVolta() ? "Volta" : "NPM");
 const getCommandListDeps = () => (isVolta() ? "volta list --format=plain" : "npm list -g --depth 0 --json");
 const getCommandInstallDeps = () => `${isMacOS() ? "sudo " : ""}${isVolta() ? "volta install" : "npm i -g"}`;
-const getCleanVersion = version => version.replace(/[~^]/gu, "");
-const ensureVersionPrefix = version => (version.startsWith("^") ? version : `^${version}`);
+const getCleanVersion = version => (version?.startsWith("^") ? version : `^${version}`) || (version?.startsWith("~") ? version : `~${version}`);
 
 const printTableData = (title, data) => {
 	if (isObjectEmpty(data)) {
@@ -105,12 +104,25 @@ const getGlobalDepsNotInstalled = () => {
 	return deps;
 };
 
+const shouldUpdateDependency = ({ localVersion, globalVersion, installedVersion }) => getCleanVersion(localVersion) !== getCleanVersion(globalVersion) ||
+	getCleanVersion(localVersion) !== getCleanVersion(installedVersion) ||
+	getCleanVersion(installedVersion) !== getCleanVersion(globalVersion);
+
 const syncGlobalDeps = () => {
 	Object.entries(getGlobalDepsToInstall()).forEach(([
 		depName,
 		depVersion,
 	]) => {
-		packageContent.globalDependencies[depName] = ensureVersionPrefix(depVersion);
+		if (
+			getGlobalDepsInstalled()[depName] &&
+			shouldUpdateDependency({
+				"localVersion": getLocalDepsToInstall()[depName],
+				"globalVersion": depVersion,
+				"installedVersion": getGlobalDepsInstalled()[depName],
+			})
+		) {
+			packageGlobalDeps[depName] = `${getCleanVersion(getGlobalDepsInstalled()[depName])}`;
+		}
 	});
 
 	fs.writeFileSync(packageName, JSON.stringify(packageContent, null, 2));
