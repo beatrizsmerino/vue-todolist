@@ -4,13 +4,14 @@ const packageFileName = "package.json";
 const packageFileContent = JSON.parse(fs.readFileSync(packageFileName));
 
 const getOperatingSystem = () => process.platform;
+const isObjectEmpty = obj => Object.keys(obj).length === 0;
 const isMacOS = () => getOperatingSystem() === "darwin";
 const isVolta = () => Boolean(packageFileContent.volta);
 const getPackageManagement = () => (isVolta() ? "Volta" : "NPM");
 const getCommandListDeps = () => (isVolta() ? "volta list --format=plain" : "npm list -g --depth 0 --json");
-const getCommandInstallDeps = () => (isVolta() ? "volta install" : "npm i -g");
-
-const isObjectEmpty = obj => Object.keys(obj).length === 0;
+const getCommandInstallDeps = () => `${isMacOS() ? "sudo " : ""}${isVolta() ? "volta install" : "npm i -g"}`;
+const getCleanVersion = version => version.replace(/[~^]/gu, "");
+const ensureVersionPrefix = version => (version.startsWith("^") ? version : `^${version}`);
 
 const printTableData = (title, data) => {
 	if (isObjectEmpty(data)) {
@@ -24,10 +25,6 @@ const printTableData = (title, data) => {
 		console.groupEnd();
 	}
 };
-
-const getCleanVersion = version => version.replace(/[~^]/gu, "");
-
-const ensureVersionPrefix = version => (version.startsWith("^") ? version : `^${version}`);
 
 const parseVoltaDeps = deps => deps.
 	split("\n").
@@ -135,27 +132,26 @@ const setGlobalDepsToInstall = () => {
 	return depsToInstall;
 };
 
-const installGlobalDep = ({ depNameToInstall, depVersionToInstall }) => {
-	console.log(`➕ Installing dependency: ${depNameToInstall}@${depVersionToInstall}`);
-	execSync(`${isMacOS() ? "sudo " : ""}${getCommandInstallDeps()} ${depNameToInstall}@${depVersionToInstall}`);
-};
-
 const installGlobalDeps = () => {
-	console.groupCollapsed("🚀 Installing global dependencies:");
 	const listDepsToInstall = setGlobalDepsToInstall();
+	const installationMessages = [];
 
-	for (const [
+	Object.entries(listDepsToInstall).forEach(([
 		depNameToInstall,
 		depVersionToInstall,
-	] of Object.entries(listDepsToInstall)) {
+	]) => {
 		if (depNameToInstall && depVersionToInstall) {
-			installGlobalDep({
-				depNameToInstall,
-				"depVersionToInstall": getCleanVersion(depVersionToInstall),
+			const commandInstallDeps = getCommandInstallDeps();
+			execSync(`${commandInstallDeps} ${depNameToInstall}@${getCleanVersion(depVersionToInstall)}`);
+			installationMessages.push({
+				"Status": `➕`,
+				"Name": depNameToInstall,
+				"Version": depVersionToInstall,
 			});
 		}
-	}
-	console.groupEnd();
+	});
+
+	printTableData("🚀 Installing global dependencies:", installationMessages);
 };
 
 const init = () => {
