@@ -10,10 +10,19 @@ const getPackageManagement = () => (isVolta() ? "Volta" : "NPM");
 const getCommandListDeps = () => (isVolta() ? "volta list --format=plain" : "npm list -g --depth 0 --json");
 const getCommandInstallDeps = () => (isVolta() ? "volta install" : "npm i -g");
 
+const isObjectEmpty = obj => Object.keys(obj).length === 0;
+
 const printTableData = (title, data) => {
-	console.groupCollapsed(title);
-	console.table(data);
-	console.groupEnd();
+	if (isObjectEmpty(data)) {
+		console.groupCollapsed(title);
+		console.log(`No found data !!`);
+		console.table(data);
+		console.log();
+	} else {
+		console.groupCollapsed(title);
+		console.table(data);
+		console.groupEnd();
+	}
 };
 
 const getCleanVersion = version => version.replace(/[~^]/gu, "");
