@@ -93,12 +93,19 @@ const getGlobalDepsToUpdate = () => {
 	return updatedDeps;
 };
 
-const setGlobalDepsToUpdate = () => {
-	const depsToUpdate = getGlobalDepsToUpdate();
-	packageFileContent.globalDependencies = depsToUpdate;
-	fs.writeFileSync(packageFileName, JSON.stringify(packageFileContent, null, 2));
+const setGlobalDepsToUpdate = updatedDeps => {
+	const packageJsonPath = "./package.json";
+	const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
 
-	return depsToUpdate;
+	packageJson.globalDependencies = packageJson.globalDependencies || {};
+	for (const [
+		depName,
+		version,
+	] of Object.entries(updatedDeps)) {
+		packageJson.globalDependencies[depName] = version;
+	}
+
+	fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
 };
 
 const setGlobalDepsToInstall = () => {
@@ -114,8 +121,6 @@ const setGlobalDepsToInstall = () => {
 			depsToInstall[dep] = version;
 		}
 	}
-
-	setGlobalDepsToUpdate();
 
 	return depsToInstall;
 };
@@ -140,7 +145,6 @@ const installGlobalDeps = () => {
 			});
 		}
 	}
-
 	console.groupEnd();
 };
 
@@ -155,6 +159,7 @@ const init = () => {
 		printTableData("🚀 Global dependencies installed:", getGlobalDepsInstalled());
 		printTableData("🚀 Global dependencies to update:", getGlobalDepsToUpdate());
 		installGlobalDeps();
+		setGlobalDepsToUpdate(getGlobalDepsToUpdate());
 		console.log("✅ Pre-installation of global packages is completed!");
 	} catch (error) {
 		console.error("🚨 Error: ", error);
