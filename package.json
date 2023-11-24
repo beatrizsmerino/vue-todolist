@@ -75,11 +75,13 @@
 		"vue-template-compiler": "^2.7.15"
 	},
 	"globalDependencies": {
+		"@vue/cli": "^5.0.8",
 		"@commitlint/cli": "^17.0.3",
 		"@commitlint/config-conventional": "^17.0.3",
 		"commitizen": "^4.3.0",
 		"conventional-changelog-cli": "^2.2.2",
 		"cz-conventional-changelog": "^3.3.0",
+		"prettier": "^2.8.8",
 		"standard-version": "^9.5.0"
 	},
 	"resolutions": {},
