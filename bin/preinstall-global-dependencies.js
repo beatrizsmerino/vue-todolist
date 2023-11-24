@@ -18,6 +18,8 @@ const printTableData = (title, data) => {
 
 const getCleanVersion = version => version.replace(/[~^]/gu, "");
 
+const ensureVersionPrefix = version => (version.startsWith("^") ? version : `^${version}`);
+
 const parseVoltaDeps = deps => deps.
 	split("\n").
 	filter(line => line.includes("@")).
@@ -93,19 +95,18 @@ const getGlobalDepsToUpdate = () => {
 	return updatedDeps;
 };
 
-const setGlobalDepsToUpdate = updatedDeps => {
-	const packageJsonPath = "./package.json";
-	const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
+const setGlobalDepsToUpdate = () => {
+	const packageJson = JSON.parse(fs.readFileSync(packageFileName, "utf8"));
+	const updatedDeps = packageJson.globalDependencies || {};
 
-	packageJson.globalDependencies = packageJson.globalDependencies || {};
 	for (const [
 		depName,
 		version,
 	] of Object.entries(updatedDeps)) {
-		packageJson.globalDependencies[depName] = version;
+		packageJson.globalDependencies[depName] = ensureVersionPrefix(version);
 	}
 
-	fs.writeFileSync(packageJsonPath, JSON.stringify(packageJson, null, 2));
+	fs.writeFileSync(packageFileName, JSON.stringify(packageJson, null, 2));
 };
 
 const setGlobalDepsToInstall = () => {
@@ -159,7 +160,7 @@ const init = () => {
 		printTableData("🚀 Global dependencies installed:", getGlobalDepsInstalled());
 		printTableData("🚀 Global dependencies to update:", getGlobalDepsToUpdate());
 		installGlobalDeps();
-		setGlobalDepsToUpdate(getGlobalDepsToUpdate());
+		setGlobalDepsToUpdate();
 		console.log("✅ Pre-installation of global packages is completed!");
 	} catch (error) {
 		console.error("🚨 Error: ", error);
