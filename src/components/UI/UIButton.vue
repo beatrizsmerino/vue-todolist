@@ -96,7 +96,9 @@
 		}
 
 		&:not(.button--icon) {
-			transition: color 0.15s ease-in-out 0s, background-color 0.15s ease-in-out 0s,
+			transition:
+				color 0.15s ease-in-out 0s,
+				background-color 0.15s ease-in-out 0s,
 				border-color 0.15s ease-in-out 0s;
 		}
 
