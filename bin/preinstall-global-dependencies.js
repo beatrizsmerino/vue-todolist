@@ -21,7 +21,7 @@ const printTableData = (title, data) => {
 		console.groupCollapsed(title);
 		console.log(`No found data !!`);
 		console.table(data);
-		console.log();
+		console.groupEnd();
 	} else {
 		console.groupCollapsed(title);
 		console.table(data);
