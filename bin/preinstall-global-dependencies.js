@@ -18,12 +18,11 @@ const getCleanVersion = version => (version?.startsWith("^") ? version : `^${ver
 
 const printTableData = (title, data) => {
 	if (isObjectEmpty(data)) {
-		console.groupCollapsed(title);
-		console.log(`No found data !!`);
-		console.table(data);
+		console.groupCollapsed(`${title}`);
+		console.table({ "💔 📂 No found data": data });
 		console.groupEnd();
 	} else {
-		console.groupCollapsed(title);
+		console.groupCollapsed(`${title}:`);
 		console.table(data);
 		console.groupEnd();
 	}
@@ -145,19 +144,19 @@ const installGlobalDeps = () => {
 		}
 	});
 
-	printTableData("🚀 Installing global dependencies:", logDeps);
+	printTableData("🚀 ⬇️  Global dependencies Installing...", logDeps);
 };
 
 function printInfo() {
-	printTableData("🚀 Project environment:", {
-		"Operating System": getOperatingSystem(),
-		"Package Management": getPackageManagement(),
+	printTableData("🔍️ 🛠️  Project environment", {
+		"🖥️  Operating System": getOperatingSystem(),
+		"📦️ Package Management": getPackageManagement(),
 	});
-	printTableData("🚀 Local dependencies to install:", getLocalDepsToInstall());
-	printTableData("🚀 Global dependencies to install:", getGlobalDepsToInstall());
-	printTableData("🚀 Global dependencies installed:", getGlobalDepsInstalled());
-	printTableData("🚀 Global dependencies not installed:", getGlobalDepsNotInstalled());
-	printTableData("🚀 Global dependencies not updated:", getGlobalDepsNotUpdated());
+	printTableData("🔍️ 📃 Local dependencies To Install", getLocalDepsToInstall());
+	printTableData("🔍️ 📃 Global dependencies To Install", getGlobalDepsToInstall());
+	printTableData("✅ 📃 Global dependencies Installed", getGlobalDepsInstalled());
+	printTableData("🚀 💀 Global dependencies Not Installed!!", getGlobalDepsNotInstalled());
+	printTableData("🚀 ♻️  Global dependencies Not Updated!!", getGlobalDepsNotUpdated());
 }
 
 const init = () => {
@@ -166,9 +165,9 @@ const init = () => {
 		installGlobalDeps();
 		syncGlobalDeps();
 
-		console.log("✅ Pre-installation of global packages is completed!");
+		console.log("✅ 💚 Pre-installation of global packages is completed!");
 	} catch (error) {
-		console.error("🚨 Error: ", error);
+		console.error("🚨 ⚠️ Error: ", error);
 	}
 };
 
