@@ -19,32 +19,6 @@ Framework.
 Is developed with **[vue.js](https://vuejs.org/)** 2.6.10 a Javascript framework. This project use
 [Vue Cli](https://cli.vuejs.org/) and has dependencies as webpack, google fonts and font awesome icon.
 
-## Content
-
-### Structure of folders
-
-```shell
-- assets
-    - scss
-- components
-    - UI
-        - [Button](./src/components/UI/Button.vue)
-        - [Message](./src/components/UI/Message.vue)
-        - [Tag](./src/components/UI/Tag.vue)
-    - Page
-        - [PageTitle](./src/components/Page/PageTitle.vue)
-    - Dashboard
-        - [Dashboard](./src/components/Dashboard/Dashboard.vue)
-        - [DashboardContent](./src/components/Dashboard/DashboardContent.vue)
-        - [DashboardInfo](./src/components/Dashboard/DashboardInfo.vue)
-    - Task
-        - [TaskList](./src/components/Task/TaskList.vue)
-        - [TaskPreview](./src/components/Task/TaskPreview.vue)
-        - [TaskNew](./src/components/Task/TaskNew.vue)
-- [App.vue](./src/App.vue)
-- [main.js](./src/main.js)
-```
-
 ## How work
 
 The `vue-todolist` is an application created in vue that allows you to list your pending tasks, both on a personal level
