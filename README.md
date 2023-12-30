@@ -91,6 +91,6 @@ npm run deploy
 
 ## References
 
-- [Configuration Reference](https://cli.vuejs.org/config/).
+- [Configuration Vue Cli](https://cli.vuejs.org/config/)
 
 ![Giphy Todolist](https://media.giphy.com/media/B7o99rIuystY4/giphy.gif)
