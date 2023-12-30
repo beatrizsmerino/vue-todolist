@@ -39,16 +39,16 @@ total number of tasks plus the current one, and its status is marked as task not
 
 ## Tags versions
 
-### **v1.0.0**
+### v1.0.0
 
 Uses straightforward template syntax for create a `Vue Instance` in a single file
 
-### **v2.0.0**
+### v2.0.0
 
 Uses module systems with the `Component Vue-cli` and `Emit events` with `vue methods`, which allow code encapsulation
 and reuse.
 
-### **v3.0.0**
+### v3.0.0
 
 It uses the `Event Bus` and `Vuex` for a multi-directional data flow, which allows accessing status or triggering
 actions no matter where the component is located.
