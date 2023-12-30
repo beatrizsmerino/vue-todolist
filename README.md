@@ -7,6 +7,8 @@
 
 # Vue Todolist
 
+## Description
+
 This repository is a **task management application**, a productivity tool created to practice and learn the `Vue`
 Framework.
 
