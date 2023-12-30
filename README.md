@@ -89,7 +89,7 @@ npm run lint
 npm run deploy
 ```
 
-## Customize configuration
+## References
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
