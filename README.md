@@ -16,8 +16,6 @@ Framework.
 
 ## Development interface
 
-![Vue logo](./README/images/vue-js-2.jpg)
-
 Is developed with **[vue.js](https://vuejs.org/)** 2.6.10 a Javascript framework. This project use
 [Vue Cli](https://cli.vuejs.org/) and has dependencies as webpack, google fonts and font awesome icon.
 
