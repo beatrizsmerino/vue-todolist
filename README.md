@@ -55,6 +55,8 @@ actions no matter where the component is located.
 
 ## Commands
 
+### Install dependencies
+
 ```shell
 npm install
 ```
