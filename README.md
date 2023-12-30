@@ -53,7 +53,7 @@ and reuse.
 It uses the `Event Bus` and `Vuex` for a multi-directional data flow, which allows accessing status or triggering
 actions no matter where the component is located.
 
-## Project setup
+## Commands
 
 ```shell
 npm install
