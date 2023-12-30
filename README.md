@@ -7,12 +7,12 @@
 
 # Vue Todolist
 
+![Vue Todolist](./README/videos/vue-todolist.gif)
+
 ## Description
 
 This repository is a **task management application**, a productivity tool created to practice and learn the `Vue`
 Framework.
-
-![Vue Todolist](./README/videos/vue-todolist.gif)
 
 ## Development interface
 
