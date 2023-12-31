@@ -72,8 +72,4 @@ npm run lint
 npm run deploy
 ```
 
-## 🔗 References
-
-- [Configuration Vue Cli](https://cli.vuejs.org/config/)
-
 ![Giphy Todolist](https://media.giphy.com/media/B7o99rIuystY4/giphy.gif)
