@@ -16,8 +16,8 @@ Framework.
 
 ## Developed with
 
-Is developed with **[vue.js](https://vuejs.org/)** 2.6.10 a Javascript framework. This project use
-[Vue Cli](https://cli.vuejs.org/) and has dependencies as webpack, google fonts and font awesome icon.
+Is developed with **[Vue 2](https://vuejs.org/)** a Javascript framework, use
+[Vue Cli](https://cli.vuejs.org/) and has dependencies as `webpack`, `google fonts` and `font awesome icon`.
 
 ## How work
 
