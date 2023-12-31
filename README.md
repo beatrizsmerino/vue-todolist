@@ -11,17 +11,10 @@
 
 ## Description
 
-This repository is a **task management application**, a productivity tool created to practice and learn the `Vue`
+The `vue-todolist` repository is a **task management application**, a productivity tool created to practice and learn the `Vue`
 Framework.
 
-## Developed with
-
-Is developed with **[Vue 2](https://vuejs.org/)** a Javascript framework, use
-[Vue Cli](https://cli.vuejs.org/) and has dependencies as `webpack`, `google fonts` and `font awesome icon`.
-
-## How work
-
-The `vue-todolist` is an application created in vue that allows you to list your pending tasks, both on a personal level
+An application that allows you to list your pending tasks, both on a personal level
 for "shopping" or "reminders" and on a professional level to manage your projects.
 
 It has a dashboard where you can add a task, mark it as done and delete it. At the top of this board, you can see the
@@ -34,6 +27,11 @@ of the new task by clicking on the button on the right or by pressing the enter 
 All the tasks are saved and updated in the browser's `Local Storage`. Each task is a `object json` that has an
 identifier number or `id`, a name and its status. When the task is created the identifier number is generated from the
 total number of tasks plus the current one, and its status is marked as task not done.
+
+## Developed with
+
+Is developed with **[Vue 2](https://vuejs.org/)** a Javascript framework, use
+[Vue Cli](https://cli.vuejs.org/) and has dependencies as `webpack`, `google fonts` and `font awesome icon`.
 
 ## Tags versions
 
