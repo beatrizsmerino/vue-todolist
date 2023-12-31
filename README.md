@@ -60,12 +60,6 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
-
-```shell
-npm run test
-```
-
 ### Lints and fixes files
 
 ```shell
