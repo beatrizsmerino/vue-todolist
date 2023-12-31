@@ -1,5 +1,5 @@
-![GitHub last commit](https://img.shields.io/github/last-commit/beatrizsmerino/vue-todolist)
 ![GitHub dependabot](https://img.shields.io/badge/dependabot-enabled-025e8c?logo=Dependabot)
+![GitHub last commit](https://img.shields.io/github/last-commit/beatrizsmerino/vue-todolist)
 ![GitHub issues](https://img.shields.io/github/issues/beatrizsmerino/vue-todolist)
 ![GitHub forks](https://img.shields.io/github/forks/beatrizsmerino/vue-todolist)
 ![GitHub stars](https://img.shields.io/github/stars/beatrizsmerino/vue-todolist)
@@ -9,7 +9,7 @@
 
 ![Vue Todolist](./README/videos/vue-todolist.gif)
 
-## Description
+## 🎯 Description
 
 The `vue-todolist` repository is a **task management application**, a productivity tool created to practice and learn the `Vue` Framework.
 
@@ -19,12 +19,12 @@ It has a dashboard where you can add a task, mark it as done and delete it. At t
 
 All the tasks are saved and updated in the browser's `Local Storage`. Each task is a `object json` that has an identifier number or `id`, a name and its status. When the task is created the identifier number is generated from the total number of tasks plus the current one, and its status is marked as task not done.
 
-## Developed with
+## 🏗️ Developed with
 
 Is developed with **[Vue 2](https://vuejs.org/)** a Javascript framework, use
 [Vue Cli](https://cli.vuejs.org/) and has dependencies as `webpack`, `google fonts` and `font awesome icon`.
 
-## Tags versions
+## 🔖 Tags versions
 
 ### v1.0.0
 
@@ -40,7 +40,7 @@ and reuse.
 It uses the `Event Bus` and `Vuex` for a multi-directional data flow, which allows accessing status or triggering
 actions no matter where the component is located.
 
-## Commands
+## 🚀 Commands
 
 ### Install dependencies
 
@@ -78,7 +78,7 @@ npm run lint
 npm run deploy
 ```
 
-## References
+## 🔗 References
 
 - [Configuration Vue Cli](https://cli.vuejs.org/config/)
 
