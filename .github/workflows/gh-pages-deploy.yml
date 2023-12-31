@@ -12,13 +12,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version:  20
-
       - name: Checkout branch
         uses: actions/checkout@v4
-
       - name: Clean install dependencies
         run: npm install
-
       - name: Run deploy script
         run: |
           git config user.name "Beatriz Sopeña Merino" && git config user.email "beatrizsmerino@gmail.com"
