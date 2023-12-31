@@ -11,22 +11,13 @@
 
 ## Description
 
-The `vue-todolist` repository is a **task management application**, a productivity tool created to practice and learn the `Vue`
-Framework.
+The `vue-todolist` repository is a **task management application**, a productivity tool created to practice and learn the `Vue` Framework.
 
-An application that allows you to list your pending tasks, both on a personal level
-for "shopping" or "reminders" and on a professional level to manage your projects.
+An application that allows you to list your pending tasks, both on a personal level for "shopping" or "reminders" and on a professional level to manage your projects.
 
-It has a dashboard where you can add a task, mark it as done and delete it. At the top of this board, you can see the
-total number of tasks and the total number of completed tasks, it also has 2 buttons, one to delete all tasks and
-another to delete only the completed tasks when there are any. In the middle area of the board is shown the list of
-tasks, each task has 2 buttons, one to mark it as done and another one to delete it, any of these 2 actions animates the
-task when it enters and when it leaves the list. And in the lower area of the board there is a field to enter the name
-of the new task by clicking on the button on the right or by pressing the enter key.
+It has a dashboard where you can add a task, mark it as done and delete it. At the top of this board, you can see the total number of tasks and the total number of completed tasks, it also has 2 buttons, one to delete all tasks and another to delete only the completed tasks when there are any. In the middle area of the board is shown the list of tasks, each task has 2 buttons, one to mark it as done and another one to delete it, any of these 2 actions animates the task when it enters and when it leaves the list. And in the lower area of the board there is a field to enter the name of the new task by clicking on the button on the right or by pressing the enter key.
 
-All the tasks are saved and updated in the browser's `Local Storage`. Each task is a `object json` that has an
-identifier number or `id`, a name and its status. When the task is created the identifier number is generated from the
-total number of tasks plus the current one, and its status is marked as task not done.
+All the tasks are saved and updated in the browser's `Local Storage`. Each task is a `object json` that has an identifier number or `id`, a name and its status. When the task is created the identifier number is generated from the total number of tasks plus the current one, and its status is marked as task not done.
 
 ## Developed with
 
