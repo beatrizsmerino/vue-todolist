@@ -1,8 +1,9 @@
+# For more information see: https://github.com/beatrizsmerino/vue-gh-pages
+
 name: Deploy to github pages
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
 jobs:
   gh-pages-deploy:
     name: Deploying to gh-pages
@@ -11,14 +12,11 @@ jobs:
       - name: Setup Node.js for use with actions
         uses: actions/setup-node@v4
         with:
-          node-version:  20
-
+          node-version: 20
       - name: Checkout branch
         uses: actions/checkout@v4
-
       - name: Clean install dependencies
         run: npm install
-
       - name: Run deploy script
         run: |
           git config user.name "Beatriz Sopeña Merino" && git config user.email "beatrizsmerino@gmail.com"
