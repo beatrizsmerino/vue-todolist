@@ -24,6 +24,16 @@
 		"deploy": "node gh-pages-deploy.mjs",
 		"prepare": "husky install"
 	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*": [
+			"npm run lint"
+		]
+	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^6.5.1",
 		"@fortawesome/free-solid-svg-icons": "^6.5.1",
