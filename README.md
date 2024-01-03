@@ -24,20 +24,21 @@ All the tasks are saved and updated in the browser's `Local Storage`. Each task 
 Is developed with **[Vue 2](https://vuejs.org/)** a Javascript framework, use
 [Vue Cli](https://cli.vuejs.org/) and has dependencies as `webpack`, `google fonts` and `font awesome icon`.
 
-[![GitHub actions](https://img.shields.io/badge/github--actions-025e8c.svg?logo=githubactions&logoColor=FFFFFF)](https://docs.github.com/es/actions)  
+
 [![NVM](https://img.shields.io/badge/nvm-F4DD4B.svg)](https://github.com/nvm-sh/nvm)
 [![Node](https://img.shields.io/badge/node-43853D.svg)](https://nodejs.org/en/)
 [![NPM](https://img.shields.io/badge/npm-CC3534.svg)](https://www.npmjs.com/)  
 [![Prettier](https://img.shields.io/badge/prettier-F8BC45.svg?logo=prettier&labelColor=1A2B34)](https://prettier.io/)
 [![Eslint](https://img.shields.io/badge/eslint-4B32C3.svg?logo=eslint&labelColor=341BAB)](https://eslint.org/)
 [![Stylelint](https://img.shields.io/badge/stylelint-3578e5.svg?logo=stylelint&logoColor=000000&labelColor=306cce)](https://stylelint.io/)  
-[![Conventional commits](https://img.shields.io/badge/conventional--commits-fa6673.svg?logo=conventionalcommits&logoColor=FFFFFF)](https://www.conventionalcommits.org/en/v1.0.0/)
+[![Semantic release](https://img.shields.io/badge/semantic--release-e10079.svg?logo=semantic-release&labelColor=494949)](https://semantic-release.gitbook.io/semantic-release/)
+[![Conventional commits](https://img.shields.io/badge/conventional--commits-fa6673.svg?logo=conventionalcommits&logoColor=FFFFFF)](https://www.conventionalcommits.org/en/v1.0.0/)  
 [![Commitlint](https://img.shields.io/badge/commitlint-51B1DD.svg?logo=commitlint&logoColor=51B1DD&labelColor=000000&color=51B1DD)](https://commitlint.js.org/#/)
-[![Commitzen](https://img.shields.io/badge/commitzen-FDF6E4.svg?logo=gnometerminal&logoColor=000000)](https://commitizen-tools.github.io/commitizen/)
+[![Commitzen](https://img.shields.io/badge/commitzen-FDF6E4.svg?logo=gnometerminal&logoColor=000000)](https://commitizen-tools.github.io/commitizen/)  
 [![Lint staged](https://img.shields.io/badge/lint--staged-885430.svg?logo=gnometerminal)](https://github.com/okonet/lint-staged)
 [![Pre-commit](https://img.shields.io/badge/pre--commit-76877C.svg?logo=pre-commit&labelColor=1F2D23)](https://pre-commit.com/)
-[![Semantic release](https://img.shields.io/badge/semantic--release-e10079.svg?logo=semantic-release&labelColor=494949)](https://semantic-release.gitbook.io/semantic-release/)
-[![Husky](https://img.shields.io/badge/husky-42B983.svg?logo=gnometerminal&logoColor=000000)](https://typicode.github.io/husky/#/)
+[![Husky](https://img.shields.io/badge/husky-42B983.svg?logo=gnometerminal&logoColor=000000)](https://typicode.github.io/husky/#/)  
+[![GitHub actions](https://img.shields.io/badge/github--actions-025e8c.svg?logo=githubactions&logoColor=FFFFFF)](https://docs.github.com/es/actions)
 
 ## 🔖 Tags versions
 
