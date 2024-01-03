@@ -16,10 +16,10 @@
 [![Conventional commits](https://img.shields.io/badge/conventional--commits-fa6673.svg?logo=conventionalcommits&logoColor=FFFFFF)](https://www.conventionalcommits.org/en/v1.0.0/)
 [![Commitlint](https://img.shields.io/badge/commitlint-51B1DD.svg?logo=commitlint&logoColor=51B1DD&labelColor=000000&color=51B1DD)](https://commitlint.js.org/#/)
 [![Commitzen](https://img.shields.io/badge/commitzen-FDF6E4.svg?logo=gnometerminal&logoColor=000000)](https://commitizen-tools.github.io/commitizen/)
-[![Lint staged](https://img.shields.io/badge/lint--staged-885430.svg)](https://github.com/okonet/lint-staged)
+[![Lint staged](https://img.shields.io/badge/lint--staged-885430.svg?logo=gnometerminal)](https://github.com/okonet/lint-staged)
 [![Pre-commit](https://img.shields.io/badge/pre--commit-76877C.svg?logo=pre-commit&labelColor=1F2D23)](https://pre-commit.com/)
 [![Semantic release](https://img.shields.io/badge/semantic--release-e10079.svg?logo=semantic-release&labelColor=494949)](https://semantic-release.gitbook.io/semantic-release/)
-[![Husky](https://img.shields.io/badge/husky-42B983.svg)](https://typicode.github.io/husky/#/)
+[![Husky](https://img.shields.io/badge/husky-42B983.svg?logo=gnometerminal&logoColor=000000)](https://typicode.github.io/husky/#/)
 
 # Vue Todolist
 
