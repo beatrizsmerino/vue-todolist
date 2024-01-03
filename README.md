@@ -91,7 +91,7 @@ npm run changelog:init
 ### Create new semantic release and update the Changelog
 
 ```shell
-npm run release
+npm run changelog:update
 ```
 
 ### Publish in Github Pages
