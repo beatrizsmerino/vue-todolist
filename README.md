@@ -8,7 +8,6 @@
 [![GitHub dependabot](https://img.shields.io/badge/dependabot-025e8c.svg?logo=Dependabot)](https://github.com/dependabot)
 [![GitHub actions](https://img.shields.io/badge/github--actions-025e8c.svg?logo=githubactions&logoColor=FFFFFF)](https://docs.github.com/es/actions)  
 [![NVM](https://img.shields.io/badge/nvm-F4DD4B.svg)](https://github.com/nvm-sh/nvm)
-[![Volta](https://img.shields.io/badge/volta-79BAC1.svg)](https://docs.volta.sh/reference/setup)
 [![Node](https://img.shields.io/badge/node-43853D.svg)](https://nodejs.org/en/)
 [![NPM](https://img.shields.io/badge/npm-CC3534.svg)](https://www.npmjs.com/)  
 [![Prettier](https://img.shields.io/badge/prettier-F8BC45.svg?logo=prettier&labelColor=1A2B34)](https://prettier.io/)
