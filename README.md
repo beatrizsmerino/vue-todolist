@@ -82,6 +82,18 @@ npm run build
 npm run lint
 ```
 
+### Generate Changelog file
+
+```shell
+npm run changelog
+```
+
+### Create new semantic release and update the Changelog
+
+```shell
+npm run release
+```
+
 ### Publish in Github Pages
 
 ```shell
