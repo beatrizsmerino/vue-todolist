@@ -20,6 +20,7 @@
 		"lint": "npm run prettier:fix && npm run eslint:fix && npm run stylelint:fix",
 		"changelog:init": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
 		"changelog:update": "standard-version --tag-prefix=''",
+		"changelog:update:gitflow": "sh ./bin/standar-version-updater-gitflow.sh",
 		"deploy": "node gh-pages-deploy.mjs",
 		"prepare": "husky install"
 	},
