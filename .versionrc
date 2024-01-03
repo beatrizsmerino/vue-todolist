@@ -7,36 +7,36 @@
 	],
 	"types": [
 		{
-			"type": "feat",
-			"section": "Features"
+			"section": "Features",
+			"type": "feat"
 		},
 		{
-			"type": "fix",
-			"section": "Bug Fixes"
+			"section": "Bug Fixes",
+			"type": "fix"
 		},
 		{
-			"type": "chore",
-			"hidden": true
+			"hidden": true,
+			"type": "chore"
 		},
 		{
-			"type": "docs",
-			"hidden": true
+			"hidden": true,
+			"type": "docs"
 		},
 		{
-			"type": "style",
-			"hidden": true
+			"hidden": true,
+			"type": "style"
 		},
 		{
-			"type": "refactor",
-			"section": "Refactor"
+			"section": "Refactor",
+			"type": "refactor"
 		},
 		{
-			"type": "perf",
-			"section": "Performance"
+			"section": "Performance",
+			"type": "perf"
 		},
 		{
-			"type": "test",
-			"hidden": true
+			"hidden": true,
+			"type": "test"
 		}
 	]
 }
