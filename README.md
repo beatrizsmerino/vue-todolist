@@ -85,7 +85,7 @@ npm run lint
 ### Generate Changelog file
 
 ```shell
-npm run changelog
+npm run changelog:init
 ```
 
 ### Create new semantic release and update the Changelog
