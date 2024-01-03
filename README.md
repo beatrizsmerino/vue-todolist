@@ -5,7 +5,6 @@
 ![GitHub stars](https://img.shields.io/github/stars/beatrizsmerino/vue-todolist)
 ![GitHub watchers](https://img.shields.io/github/watchers/beatrizsmerino/vue-todolist)
 
-[![GitHub dependabot](https://img.shields.io/badge/dependabot-025e8c.svg?logo=Dependabot)](https://github.com/dependabot)
 [![GitHub actions](https://img.shields.io/badge/github--actions-025e8c.svg?logo=githubactions&logoColor=FFFFFF)](https://docs.github.com/es/actions)  
 [![NVM](https://img.shields.io/badge/nvm-F4DD4B.svg)](https://github.com/nvm-sh/nvm)
 [![Node](https://img.shields.io/badge/node-43853D.svg)](https://nodejs.org/en/)
