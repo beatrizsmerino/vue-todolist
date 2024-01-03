@@ -19,7 +19,7 @@
 		"stylelint:fix": "stylelint \"**/*.{css,scss,sass,vue}\" --fix --ignore-path .stylelintignore",
 		"lint": "npm run prettier:fix && npm run eslint:fix && npm run stylelint:fix",
 		"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-		"release": "standard-version --first-release --tag-prefix=''",
+		"release": "standard-version --tag-prefix=''",
 		"deploy": "node gh-pages-deploy.mjs",
 		"prepare": "husky install"
 	},
