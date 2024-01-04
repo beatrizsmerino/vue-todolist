@@ -19,7 +19,7 @@
 		"stylelint:fix": "stylelint \"**/*.{css,scss,sass,vue}\" --fix --ignore-path .stylelintignore",
 		"lint": "npm run prettier:fix && npm run eslint:fix && npm run stylelint:fix",
 		"changelog:init": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-		"changelog:update": "standard-version --tag-prefix=''",
+		"changelog:update": "standard-version --tag-prefix='' --release-commit-message-format 'ci(changelog): update files with the new version {{currentTag}}'",
 		"changelog:update:gitflow": "sh ./bin/standar-version-updater-gitflow.sh",
 		"deploy": "node gh-pages-deploy.mjs",
 		"prepare": "husky install"
