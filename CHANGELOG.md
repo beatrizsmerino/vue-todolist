@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.4.1](https://github.com/beatrizsmerino/vue-todolist/compare/3.4.0...3.4.1) (2024-01-04)
+
+
+### Bug Fixes
+
+* **globalDependencies:** dependencies are not installed correctly ([fd4ec60](https://github.com/beatrizsmerino/vue-todolist/commit/fd4ec603b07972a5ef2e21918e0bbf9e50fd073e))
+* **globalDependencies:** dependencies are not installed correctly ([0706df0](https://github.com/beatrizsmerino/vue-todolist/commit/0706df0d1d855c2b4103eae7cbefd343c665e90b))
+
 ## [3.4.0](https://github.com/beatrizsmerino/vue-todolist/compare/3.3.4...3.4.0) (2024-01-04)
 
 
