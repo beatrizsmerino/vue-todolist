@@ -63,11 +63,17 @@ const getLocalDepsToInstall = () => ({
 
 const getGlobalDepsToInstall = () => packageGlobalDeps;
 
+const isGlobalDepAlsoLocal = depName => getLocalDepsToInstall().hasOwnProperty(depName);
+
 const getGlobalDepsInstalled = () => {
 	const deps = execSync(getCommandListDeps()).toString();
 
 	return isVolta() ? parseVoltaDeps(deps) : parseNpmDeps(deps);
 };
+
+const shouldUpdateDependency = ({ localVersion, globalVersion, installedVersion }) => getCleanVersion(localVersion) !== getCleanVersion(globalVersion) ||
+	getCleanVersion(localVersion) !== getCleanVersion(installedVersion) ||
+	getCleanVersion(installedVersion) !== getCleanVersion(globalVersion);
 
 const getGlobalDepsNotUpdated = () => {
 	const deps = {};
@@ -76,12 +82,18 @@ const getGlobalDepsNotUpdated = () => {
 		depName,
 		depVersion,
 	]) => {
-		if (
-			!getGlobalDepsInstalled()[depName] ||
-			(getCleanVersion(depVersion) !== getCleanVersion(getGlobalDepsInstalled()[depName]) &&
-				getCleanVersion(getLocalDepsToInstall()[depName]))
-		) {
-			deps[depName] = getCleanVersion(getLocalDepsToInstall()[depName]);
+		if (isGlobalDepAlsoLocal(depName)) {
+			const isVersionDifferent = shouldUpdateDependency({
+				"localVersion": getLocalDepsToInstall()[depName],
+				"globalVersion": depVersion,
+				"installedVersion": getGlobalDepsInstalled()[depName],
+			});
+
+			if (isVersionDifferent) {
+				deps[depName] = getCleanVersion(getLocalDepsToInstall()[depName]);
+			}
+		} else if (!getGlobalDepsInstalled()[depName]) {
+			deps[depName] = depVersion;
 		}
 	});
 
@@ -102,10 +114,6 @@ const getGlobalDepsNotInstalled = () => {
 
 	return deps;
 };
-
-const shouldUpdateDependency = ({ localVersion, globalVersion, installedVersion }) => getCleanVersion(localVersion) !== getCleanVersion(globalVersion) ||
-	getCleanVersion(localVersion) !== getCleanVersion(installedVersion) ||
-	getCleanVersion(installedVersion) !== getCleanVersion(globalVersion);
 
 const syncGlobalDeps = () => {
 	Object.entries(getGlobalDepsToInstall()).forEach(([
