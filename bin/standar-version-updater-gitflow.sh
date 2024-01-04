@@ -79,5 +79,12 @@ merge_branch develop
 # Push develop to remote
 git push origin develop
 
-# Checkout the original branch
-git checkout "$branchName"
+# Delete the release/hotfix branch
+git branch -D "$branchName"
+
+# Checkout to develop or master based on the branch type
+if [ "$branchType" = "release" ]; then
+    git checkout develop
+elif [ "$branchType" = "hotfix" ]; then
+    git checkout master
+fi
