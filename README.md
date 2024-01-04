@@ -88,13 +88,13 @@ npm run lint
 npm run changelog:init
 ```
 
-### Create new semantic release and update the Changelog in the current branch
+### Create tag version and update files in the current branch
 
 ```shell
 npm run changelog:update
 ```
 
-### Create a new semantic version and update the changelog with the gitflow structure
+### Create tag version and update files using gitflow structure
 
 ```shell
 npm run changelog:update:gitflow
