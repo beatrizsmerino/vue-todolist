@@ -1,5 +1,5 @@
 {
-	"version": "0.1.0",
+	"version": "3.4.0",
 	"private": true,
 	"name": "vue-todolist",
 	"description": "To-do list made with Vue.",
@@ -7,9 +7,10 @@
 	"license": "ISC",
 	"main": "index.js",
 	"scripts": {
+		"install:global": "node ./bin/preinstall-global-dependencies.js",
 		"install:clean": "rm -rf node_modules package-lock.json",
 		"dependencies:fix": "npm install --ignore-scripts && npx npm-force-resolutions",
-		"preinstall": "npm run install:clean && npm run dependencies:fix",
+		"preinstall": "npm run install:clean && npm run install:global && npm run dependencies:fix",
 		"postinstall": "npm run lint",
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
@@ -17,7 +18,21 @@
 		"eslint:fix": "vue-cli-service lint \"**/*.{json,js,vue}\" --fix --ignore-path .eslintignore",
 		"stylelint:fix": "stylelint \"**/*.{css,scss,sass,vue}\" --fix --ignore-path .stylelintignore",
 		"lint": "npm run prettier:fix && npm run eslint:fix && npm run stylelint:fix",
-		"deploy": "node gh-pages-deploy.mjs"
+		"changelog:init": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+		"changelog:update": "standard-version --tag-prefix='' --release-commit-message-format 'ci(changelog): update files with the new version {{currentTag}}'",
+		"changelog:update:gitflow": "sh ./bin/standar-version-updater-gitflow.sh",
+		"deploy": "node gh-pages-deploy.mjs",
+		"prepare": "husky install"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*": [
+			"npm run lint"
+		]
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^6.5.1",
@@ -25,7 +40,7 @@
 		"@fortawesome/vue-fontawesome": "^2.0.10",
 		"chalk": "^5.3.0",
 		"core-js": "^3.35.0",
-		"execa": "^7.2.0",
+		"execa": "^8.0.1",
 		"node-emoji": "^2.1.3",
 		"svg-symbol-sprite-loader": "^5.1.0",
 		"vue": "^2.7.16",
@@ -34,22 +49,30 @@
 	"devDependencies": {
 		"@babel/core": "^7.23.7",
 		"@babel/eslint-parser": "^7.23.3",
+		"@commitlint/cli": "^18.4.3",
+		"@commitlint/config-conventional": "^18.4.3",
 		"@vue/cli-plugin-babel": "^5.0.8",
 		"@vue/cli-plugin-eslint": "^5.0.8",
 		"@vue/cli-plugin-vuex": "^5.0.8",
 		"@vue/cli-service": "^5.0.8",
-		"@vue/eslint-config-prettier": "^7.1.0",
-		"eslint": "^7.32.0",
-		"eslint-config-prettier": "^8.10.0",
+		"@vue/eslint-config-prettier": "^8.0.0",
+		"commitizen": "^4.3.0",
+		"conventional-changelog-cli": "^4.1.0",
+		"cz-conventional-changelog": "^3.3.0",
+		"eslint": "^8.54.0",
+		"eslint-config-prettier": "^9.0.0",
 		"eslint-plugin-json": "^3.1.0",
-		"eslint-plugin-prettier": "^4.2.1",
+		"eslint-plugin-prettier": "^5.0.1",
 		"eslint-plugin-vue": "^9.19.2",
-		"eslint-webpack-plugin": "^2.7.0",
+		"eslint-webpack-plugin": "^4.0.1",
+		"husky": "^8.0.3",
+		"lint-staged": "^15.1.0",
 		"postcss": "^8.4.32",
 		"postcss-html": "^1.5.0",
-		"prettier": "^2.8.8",
+		"prettier": "^3.1.0",
 		"sass": "^1.69.6",
-		"sass-loader": "^10",
+		"sass-loader": "^13",
+		"standard-version": "^9.5.0",
 		"style-resources-loader": "^1.5.0",
 		"stylelint": "^15.11.0",
 		"stylelint-config-property-sort-order-smacss": "^9.1.0",
@@ -60,6 +83,16 @@
 		"stylelint-webpack-plugin": "^4.1.1",
 		"vue-cli-plugin-style-resources-loader": "~0.1.5",
 		"vue-template-compiler": "^2.7.16"
+	},
+	"globalDependencies": {
+		"@vue/cli": "^5.0.8",
+		"@commitlint/cli": "^18.4.3",
+		"@commitlint/config-conventional": "^18.4.3",
+		"commitizen": "^4.3.0",
+		"conventional-changelog-cli": "^4.1.0",
+		"cz-conventional-changelog": "^3.3.0",
+		"prettier": "^3.1.0",
+		"standard-version": "^9.5.0"
 	},
 	"resolutions": {},
 	"engines": {
