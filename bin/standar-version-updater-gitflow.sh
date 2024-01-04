@@ -48,7 +48,7 @@ if git show-ref --verify --quiet "refs/heads/$branchName"; then
     git checkout develop
     # Delete the tag created by standard-version
     git tag -d "$versionNew"
-    # Delete the branchType branch if it exists
+    # Delete the branch if it exists
     git branch -D "$branchNameTemp"
     # Exit with error
     exit 1
