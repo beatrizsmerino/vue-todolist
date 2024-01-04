@@ -15,7 +15,7 @@ branchNameTemp="$branchTypeTemp/$timestamp"
 git checkout -b "$branchNameTemp"
 
 # Run standard-version to update the changelog and the version
-npx standard-version --tag-prefix='' --release-commit-message-format "ci(changelog): update files with the new version {{currentTag}}"
+npm run changelog:update
 
 # Get the new version created by standard-version
 versionNew=$(node -p "require('./package.json').version")
