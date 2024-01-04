@@ -214,7 +214,7 @@ module.exports = {
 		"no-extend-native": 2,
 		"no-extra-bind": 2,
 		"no-extra-label": 2,
-		"no-extra-parens": 2,
+		"no-extra-parens": 0,
 		"no-floating-decimal": 2,
 		"no-implicit-coercion": 2,
 		"no-implicit-globals": 2,

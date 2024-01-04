@@ -1,0 +1,50 @@
+{
+	"bumpFiles": [
+		{
+			"filename": "version.sbt",
+			"updater": "bin/standard-version-updater.js"
+		},
+		{
+			"filename": "package.json",
+			"type": "json"
+		},
+		{
+			"filename": "package-lock.json",
+			"type": "json"
+		}
+	],
+	"types": [
+		{
+			"section": "Features",
+			"type": "feat"
+		},
+		{
+			"section": "Bug Fixes",
+			"type": "fix"
+		},
+		{
+			"hidden": true,
+			"type": "chore"
+		},
+		{
+			"hidden": true,
+			"type": "docs"
+		},
+		{
+			"hidden": true,
+			"type": "style"
+		},
+		{
+			"section": "Refactor",
+			"type": "refactor"
+		},
+		{
+			"section": "Performance",
+			"type": "perf"
+		},
+		{
+			"hidden": true,
+			"type": "test"
+		}
+	]
+}

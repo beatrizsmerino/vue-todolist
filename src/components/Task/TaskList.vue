@@ -77,7 +77,9 @@
 			&.task-list-enter-active,
 			&.task-list-leave-active {
 				transform-origin: left center;
-				transition: opacity 0.3s, transform 0.3s;
+				transition:
+					opacity 0.3s,
+					transform 0.3s;
 			}
 
 			&.task-list-enter,
