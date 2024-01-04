@@ -88,10 +88,16 @@ npm run lint
 npm run changelog:init
 ```
 
-### Create new semantic release and update the Changelog
+### Create new semantic release and update the Changelog in the current branch
 
 ```shell
 npm run changelog:update
+```
+
+### Create a new semantic version and update the changelog with the gitflow structure
+
+```shell
+npm run changelog:update:gitflow
 ```
 
 ### Publish in Github Pages
