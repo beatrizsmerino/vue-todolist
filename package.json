@@ -55,7 +55,7 @@
 		"@vue/cli-plugin-eslint": "^5.0.8",
 		"@vue/cli-plugin-vuex": "^5.0.8",
 		"@vue/cli-service": "^5.0.8",
-		"@vue/eslint-config-prettier": "^8.0.0",
+		"@vue/eslint-config-prettier": "^9.0.0",
 		"commitizen": "^4.3.0",
 		"conventional-changelog-cli": "^4.1.0",
 		"cz-conventional-changelog": "^3.3.0",
