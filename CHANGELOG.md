@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.4.2](https://github.com/beatrizsmerino/vue-todolist/compare/3.4.1...3.4.2) (2024-01-05)
+
+
+### Bug Fixes
+
+* **config:** missing `.vscode` folder was deleted by mistake ([c21e236](https://github.com/beatrizsmerino/vue-todolist/commit/c21e2360e93d37e6de17db9bc8bce810c5815b18))
+
 ### [3.4.1](https://github.com/beatrizsmerino/vue-todolist/compare/3.4.0...3.4.1) (2024-01-04)
 
 
