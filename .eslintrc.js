@@ -130,6 +130,11 @@ module.exports = {
 			2,
 			"prefer-double",
 		],
+		"json/*": [
+			"warn",
+		],
+		"json/duplicate-key": "error",
+		"json/trailing-comma": "off",
 		"key-spacing": 2,
 		"keyword-spacing": 2,
 		"line-comment-position": 2,
