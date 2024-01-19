@@ -7,7 +7,7 @@ module.exports = {
 		"prettier",
 		"eslint:recommended",
 		"plugin:vue/recommended",
-		"plugin:json/recommended",
+		"plugin:jsonc/recommended-with-json",
 	],
 	"overrides": [
 		{
@@ -16,6 +16,23 @@ module.exports = {
 			],
 			"rules": {
 				"indent": "off",
+			},
+		},
+		{
+			"files": [
+				"*.json",
+			],
+			"rules": {
+				"jsonc/comma-dangle": "off",
+			},
+		},
+		{
+			"files": [
+				"package-lock.json",
+				".eslintrc.js",
+			],
+			"rules": {
+				"max-lines": "off",
 			},
 		},
 	],
@@ -31,7 +48,7 @@ module.exports = {
 	"plugins": [
 		"vue",
 		"prettier",
-		"json",
+		"jsonc",
 	],
 	"root": true,
 	"rules": {
