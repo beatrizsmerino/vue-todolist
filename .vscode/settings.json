@@ -5,10 +5,10 @@
 	"editor.accessibilitySupport": "off",
 	"editor.bracketPairColorization.enabled": true,
 	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": true,
-		"source.fixAll.markdownlint": true,
-		"source.fixAll.prettier": true,
-		"source.fixAll.stylelint": true
+		"source.fixAll.eslint": "explicit",
+		"source.fixAll.markdownlint": "explicit",
+		"source.fixAll.prettier": "explicit",
+		"source.fixAll.stylelint": "explicit"
 	},
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.detectIndentation": false,
