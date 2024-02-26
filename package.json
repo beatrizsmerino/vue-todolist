@@ -67,7 +67,7 @@
 		"eslint-webpack-plugin": "^4.0.1",
 		"husky": "^8.0.3",
 		"lint-staged": "^15.2.1",
-		"postcss": "^8.4.33",
+		"postcss": "^8.4.35",
 		"postcss-html": "^1.6.0",
 		"prettier": "^3.2.4",
 		"sass": "^1.71.1",
