@@ -13,4 +13,8 @@ updates:
       - beatrizsmerino
     assignees:
       - beatrizsmerino
+    commit-message:
+      prefix: build
+      prefix-development: build
+      include: scope
     open-pull-requests-limit: 10
