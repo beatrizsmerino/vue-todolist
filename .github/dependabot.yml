@@ -17,4 +17,7 @@ updates:
       prefix: build
       prefix-development: build
       include: scope
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
     open-pull-requests-limit: 10
