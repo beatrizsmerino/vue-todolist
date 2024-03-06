@@ -21,3 +21,22 @@ updates:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
     open-pull-requests-limit: 10
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      day: "saturday"
+      time: "09:00"
+      timezone: "Europe/Madrid"
+    reviewers:
+      - beatrizsmerino
+    assignees:
+      - beatrizsmerino
+    commit-message:
+      prefix: build
+      prefix-development: build
+      include: scope
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    open-pull-requests-limit: 10
