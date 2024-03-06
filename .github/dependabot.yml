@@ -9,4 +9,8 @@ updates:
       day: "saturday"
       time: "09:00"
       timezone: "Europe/Madrid"
+    reviewers:
+      - beatrizsmerino
+    assignees:
+      - beatrizsmerino
     open-pull-requests-limit: 10
