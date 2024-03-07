@@ -21,4 +21,5 @@ jobs:
         run: |
           git config user.name "Beatriz Sopeña Merino"
           git config user.email "beatrizsmerino@gmail.com"
-          npm run deploy
+      - name: Run deploy script
+        run: npm run deploy
