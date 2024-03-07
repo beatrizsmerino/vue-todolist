@@ -6,7 +6,7 @@ on:
     branches: [ master ]
 jobs:
   gh-pages-deploy:
-    name: Deploying to gh-pages
+    name: Deploying code to gh-pages branch
     runs-on: ubuntu-latest
     steps:
       - name: Setup Node.js for use with actions
