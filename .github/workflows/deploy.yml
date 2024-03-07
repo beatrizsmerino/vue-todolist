@@ -9,17 +9,17 @@ jobs:
     name: Deploying code to gh-pages branch
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
+      - name: Checkout code from repository
         uses: actions/checkout@v4
-      - name: Setup Node.js for use with actions
+      - name: Setup Node version
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Clean install dependencies
+      - name: Install dependencies
         run: npm install
-      - name: Run deploy script
+      - name: Setup git user
         run: |
           git config user.name "Beatriz Sopeña Merino"
           git config user.email "beatrizsmerino@gmail.com"
-      - name: Run deploy script
+      - name: Deploy project
         run: npm run deploy
