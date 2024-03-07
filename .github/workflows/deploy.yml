@@ -9,12 +9,12 @@ jobs:
     name: Deploying code to gh-pages branch
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
       - name: Setup Node.js for use with actions
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Checkout branch
-        uses: actions/checkout@v4
       - name: Clean install dependencies
         run: npm install
       - name: Run deploy script
