@@ -1,0 +1,25 @@
+# For more information see: https://github.com/beatrizsmerino/vue-gh-pages
+
+name: 🚀 Deploy project in GitHub Pages
+on:
+  push:
+    branches: [ master ]
+jobs:
+  gh-pages-deploy:
+    name: 🧩 Deploying code to gh-pages branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔀 Checkout code from repository
+        uses: actions/checkout@v4
+      - name: 🛠️ Setup Node version
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+      - name: 📦 Install dependencies
+        run: npm install
+      - name: 🙍‍♂️ Setup git user
+        run: |
+          git config user.name "Beatriz Sopeña Merino"
+          git config user.email "beatrizsmerino@gmail.com"
+      - name: 🏗️ Deploy project
+        run: npm run deploy

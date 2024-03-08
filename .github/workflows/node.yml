@@ -1,0 +1,28 @@
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: 🚀 Check project in different Node versions
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  check-node-build:
+    name: 🧩 Build and test code
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 16, 18, 20 ]
+    steps:
+    - name: 🔀 Checkout code from repository
+      uses: actions/checkout@v4
+    - name: 🛠️ Setup Node version ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: 📦 Install dependencies
+      run: npm install
+    - name: 🏗️ Build project
+      run: npm run build --if-present
+    - name: 🧪 Test code
+      run: npm test --if-present
