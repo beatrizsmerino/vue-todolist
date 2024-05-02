@@ -50,7 +50,7 @@
 		"@babel/core": "^7.24.5",
 		"@babel/eslint-parser": "^7.24.5",
 		"@commitlint/cli": "^19.2.1",
-		"@commitlint/config-conventional": "^19.1.0",
+		"@commitlint/config-conventional": "^19.2.2",
 		"@vue/cli-plugin-babel": "^5.0.8",
 		"@vue/cli-plugin-eslint": "^5.0.8",
 		"@vue/cli-plugin-vuex": "^5.0.8",
