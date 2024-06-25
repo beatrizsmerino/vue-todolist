@@ -22,17 +22,7 @@
 		"changelog:update": "standard-version --tag-prefix='' --release-commit-message-format 'ci(changelog): update files with the new version {{currentTag}}'",
 		"changelog:update:gitflow": "sh ./bin/standar-version-updater-gitflow.sh",
 		"deploy": "node gh-pages-deploy.mjs",
-		"prepare": "husky install"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
-	"lint-staged": {
-		"*": [
-			"npm run lint"
-		]
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^6.5.2",
