@@ -83,7 +83,6 @@
 		"prettier": "^3.3.2",
 		"standard-version": "^9.5.0"
 	},
-	"resolutions": {},
 	"engines": {
 		"node": "20.11.0",
 		"npm": "10.4.0"
