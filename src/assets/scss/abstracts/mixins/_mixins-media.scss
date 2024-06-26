@@ -6,16 +6,16 @@
 	@return index($list, $item) != null;
 }
 
-@mixin media($breakpoint, $rule: 'max', $dimension: 'width') {
-	$rules: 'max', 'min';
-	$dimensions: 'width', 'height';
-	$units: 'px', 'em', 'rem', '%', 'vw', 'vh';
+@mixin media($breakpoint, $rule: "max", $dimension: "width") {
+	$rules: "max", "min";
+	$dimensions: "width", "height";
+	$units: "px", "em", "rem", "%", "vw", "vh";
 
 	@if not contains($rules, $rule) {
-		$rule: 'max';
+		$rule: "max";
 	}
 	@if not contains($dimensions, $dimension) {
-		$rule: 'width';
+		$rule: "width";
 	}
 
 	@if type-of($breakpoint) ==number {

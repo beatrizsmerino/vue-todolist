@@ -1,5 +1,5 @@
 {
-	"version": "3.5.0",
+	"version": "3.5.1",
 	"private": true,
 	"name": "vue-todolist",
 	"description": "To-do list made with Vue.",
@@ -9,13 +9,12 @@
 	"scripts": {
 		"install:global": "node ./bin/preinstall-global-dependencies.js",
 		"install:clean": "rm -rf node_modules package-lock.json",
-		"dependencies:fix": "npm install --ignore-scripts && npx npm-force-resolutions",
-		"preinstall": "npm run install:clean && npm run install:global && npm run dependencies:fix",
+		"preinstall": "npm run install:global",
 		"postinstall": "npm run lint",
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
-		"prettier:fix": "prettier --write \"./**/*.{vue,js,json}\"",
-		"eslint:fix": "vue-cli-service lint \"**/*.{json,js,vue}\" --fix --ignore-path .eslintignore",
+		"prettier:fix": "prettier --write \"./**/*.{css,scss,sass,json,js,cjs,mjs,vue}\"",
+		"eslint:fix": "vue-cli-service lint \"**/*.{json,js,cjs,mjs,vue}\" --fix --ignore-path .eslintignore",
 		"stylelint:fix": "stylelint \"**/*.{css,scss,sass,vue}\" --fix --ignore-path .stylelintignore",
 		"lint": "npm run prettier:fix && npm run eslint:fix && npm run stylelint:fix",
 		"changelog:init": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
@@ -84,7 +83,6 @@
 		"prettier": "^3.3.2",
 		"standard-version": "^9.5.0"
 	},
-	"resolutions": {},
 	"engines": {
 		"node": "20.11.0",
 		"npm": "10.4.0"
