@@ -2,10 +2,6 @@
 // GLOBAL SETTINGS
 // =================================================
 
-
-
-
-
 *,
 *::before,
 *::after {
@@ -40,7 +36,7 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 
-	@include media('sm', 'max', 'height') {
+	@include media("sm", "max", "height") {
 		height: inherit;
 	}
 }
@@ -58,13 +54,13 @@ body {
 	overflow-x: hidden;
 	transition: all 0.5s ease-in-out 0s;
 
-	@include media('sm') {
+	@include media("sm") {
 		padding: 4rem 2.5rem;
 		height: inherit;
 		justify-content: flex-start;
 	}
 
-	@include media('md', 'max', 'height') {
+	@include media("md", "max", "height") {
 		padding: 4rem 2.5rem;
 		height: inherit;
 		justify-content: flex-start;
@@ -83,11 +79,7 @@ body {
 		top: 0;
 		left: 0;
 		z-index: -1;
-		background: linear-gradient(
-			to bottom,
-			$color-brand-1 0%,
-			$color-brand-2 100%
-		);
+		background: linear-gradient(to bottom, $color-brand-1 0%, $color-brand-2 100%);
 	}
 }
 
