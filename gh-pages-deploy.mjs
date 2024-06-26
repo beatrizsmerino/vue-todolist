@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable max-statements, no-process-exit, no-console */
 import { execa } from 'execa';
 import * as emoji from 'node-emoji';
 import chalk from 'chalk';
