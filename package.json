@@ -9,8 +9,7 @@
 	"scripts": {
 		"install:global": "node ./bin/preinstall-global-dependencies.js",
 		"install:clean": "rm -rf node_modules package-lock.json",
-		"dependencies:fix": "npm install --ignore-scripts && npx npm-force-resolutions",
-		"preinstall": "npm run install:clean && npm run install:global && npm run dependencies:fix",
+		"preinstall": "npm run install:global",
 		"postinstall": "npm run lint",
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
