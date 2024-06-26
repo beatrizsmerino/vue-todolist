@@ -2,20 +2,14 @@
 // ABSTRACTS (variables, functions, mixins), BASE, COMPONENTS, LAYOUTS and PAGES
 // ===============================================================================
 
-
-
-
-
 // ABSTRACTS
 //----------------------------------------------------------------------
 // variables
-@import 'abstracts/variables/abstracts-variables-breakpoints';
+@import "abstracts/variables/abstracts-variables-breakpoints";
 @import "abstracts/variables/abstracts-variables-colors";
 @import "abstracts/variables/abstracts-variables-fonts";
 // mixins
-@import 'abstracts/mixins/mixins-media';
-
-
+@import "abstracts/mixins/mixins-media";
 
 // BASE
 //----------------------------------------------------------------------
