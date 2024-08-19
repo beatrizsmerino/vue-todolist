@@ -1,5 +1,5 @@
 {
-	"version": "3.5.1",
+	"version": "3.6.0",
 	"private": true,
 	"name": "vue-todolist",
 	"description": "To-do list made with Vue.",
