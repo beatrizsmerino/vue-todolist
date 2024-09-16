@@ -75,8 +75,8 @@
 	},
 	"globalDependencies": {
 		"@vue/cli": "^5.0.8",
-		"@commitlint/cli": "^19.4.1",
-		"@commitlint/config-conventional": "^19.4.1",
+		"@commitlint/cli": "^19.5.0",
+		"@commitlint/config-conventional": "^19.5.0",
 		"commitizen": "^4.3.0",
 		"conventional-changelog-cli": "^5.0.0",
 		"cz-conventional-changelog": "^3.3.0",
