@@ -1,6 +1,6 @@
 <template>
 	<div class="modal">
-		<slot name="modalButtonOpen" />
+		<slot name="modalButtonOpen"></slot>
 		<div class="modal__overlay">
 			<div class="modal__box">
 				<UIButton
@@ -13,7 +13,7 @@
 						</i>
 					</span>
 				</UIButton>
-				<slot name="modalInner" />
+				<slot name="modalInner"></slot>
 			</div>
 		</div>
 	</div>

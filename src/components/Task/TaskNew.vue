@@ -8,7 +8,7 @@
 				placeholder="New task"
 				autofocus
 				@keyup.enter="createTaskNew()"
-			>
+			/>
 			<UIButton
 				class="task-new__button-add button--icon"
 				@button-click="createTaskNew()"

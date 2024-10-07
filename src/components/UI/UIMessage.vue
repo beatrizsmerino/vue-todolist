@@ -5,7 +5,7 @@
 	>
 		<div class="message__inner">
 			<div class="message__content">
-				<slot />
+				<slot></slot>
 			</div>
 			<UIButton
 				v-if="!isClose"

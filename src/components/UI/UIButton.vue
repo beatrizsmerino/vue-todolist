@@ -7,7 +7,7 @@
 		class="button"
 		@click="buttonClick"
 	>
-		<slot />
+		<slot></slot>
 	</component>
 </template>
 
