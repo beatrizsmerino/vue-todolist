@@ -12,7 +12,7 @@
 					v-model="taskCopy.name"
 					class="task-edit__field"
 					type="text"
-				>
+				/>
 			</article>
 
 			<UIButton
