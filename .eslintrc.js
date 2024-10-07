@@ -454,6 +454,18 @@ module.exports = {
 				"ignores": [],
 			},
 		],
+		"vue/html-self-closing": [
+			2,
+			{
+				"html": {
+					"void": "always",
+					"normal": "never",
+					"component": "always",
+				},
+				"svg": "always",
+				"math": "always",
+			},
+		],
 		"vue/max-attributes-per-line": [
 			2,
 			{
