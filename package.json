@@ -1,5 +1,5 @@
 {
-	"version": "3.6.1",
+	"version": "3.7.0",
 	"private": true,
 	"name": "vue-todolist",
 	"description": "To-do list made with Vue.",
@@ -84,7 +84,7 @@
 		"standard-version": "^9.5.0"
 	},
 	"engines": {
-		"node": "20.11.0",
-		"npm": "10.4.0"
+		"node": "20.18.0",
+		"npm": "10.8.2"
 	}
 }
