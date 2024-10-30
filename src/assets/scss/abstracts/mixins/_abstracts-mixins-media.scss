@@ -25,7 +25,7 @@
 			@media (#{$rule}-#{$dimension}: #{$breakpoint + "px"}) {
 				@content;
 			}
-		} @else if contains($units, unit($breakpoint)) {
+		} @else if contains($units, math.unit($breakpoint)) {
 			@media (#{$rule}-#{$dimension}: #{$breakpoint}) {
 				@content;
 			}
