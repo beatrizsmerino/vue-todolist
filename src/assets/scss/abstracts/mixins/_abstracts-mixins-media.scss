@@ -37,7 +37,7 @@
 				@content;
 			}
 		} @else {
-			@error "Unfortunately, no value could be retrieved from `#{$breakpoint}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
+			@error "Unfortunately, no value could be retrieved from `#{$breakpoint}`. " + "Available breakpoints are: #{map.keys($breakpoints)}.";
 		}
 	} @else if meta.variable-exists(breakpoint) {
 		@media (#{$rule}-#{$dimension}: #{$breakpoint}) {
