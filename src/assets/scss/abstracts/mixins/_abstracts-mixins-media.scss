@@ -17,7 +17,7 @@
 	}
 
 	@if not contains($dimensions, $dimension) {
-		$rule: "width";
+		$dimension: "width";
 	}
 
 	@if meta.type-of($breakpoint) == number {
