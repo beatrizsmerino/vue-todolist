@@ -1,6 +1,10 @@
 // BASE
 // GLOBAL SETTINGS
 // =================================================
+@use "../abstracts/mixins/abstracts-mixins-media" as *;
+@use "../abstracts/variables/abstracts-variables-breakpoints" as *;
+@use "../abstracts/variables/abstracts-variables-colors" as *;
+@use "../abstracts/variables/abstracts-variables-fonts" as *;
 
 *,
 *::before,

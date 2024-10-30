@@ -1,6 +1,8 @@
 // MIXIN
 // MEDIA QUERIES
 // ------------------
+@use "../functions/abstracts-functions-contains" as *;
+@use "../variables/abstracts-variables-breakpoints" as *;
 
 @mixin media($breakpoint, $rule: "max", $dimension: "width") {
 	$rules: "max", "min";

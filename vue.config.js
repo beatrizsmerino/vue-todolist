@@ -15,7 +15,7 @@ module.exports = {
 	"css": {
 		"loaderOptions": {
 			"sass": {
-				"additionalData": `@import "@/assets/scss/styles.scss";`,
+				"additionalData": `@use "@/assets/scss/styles.scss" as *;`,
 			},
 		},
 	},
