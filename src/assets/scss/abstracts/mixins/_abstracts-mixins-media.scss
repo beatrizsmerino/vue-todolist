@@ -1,9 +1,9 @@
 // MIXIN
 // MEDIA QUERIES
 // ------------------
-@use "sass:meta";
-@use "sass:math";
 @use "sass:map";
+@use "sass:math";
+@use "sass:meta";
 @use "../functions/abstracts-functions-contains" as *;
 @use "../variables/abstracts-variables-breakpoints" as *;
 
