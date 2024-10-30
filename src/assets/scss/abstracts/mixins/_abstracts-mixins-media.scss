@@ -32,7 +32,7 @@
 			@error "Invalid units provided";
 		}
 	} @else if meta.variable-exists(breakpoints) {
-		@if map-has-key($breakpoints, $breakpoint) {
+		@if map.has-key($breakpoints, $breakpoint) {
 			@media (#{$rule}-#{$dimension}: #{inspect(map.get($breakpoints, $breakpoint))}) {
 				@content;
 			}
