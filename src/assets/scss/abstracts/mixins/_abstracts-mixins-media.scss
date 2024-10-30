@@ -18,7 +18,7 @@
 		$rule: "width";
 	}
 
-	@if type-of($breakpoint) == number {
+	@if meta.type-of($breakpoint) == number {
 		@if unitless($breakpoint) {
 			@media (#{$rule}-#{$dimension}: #{$breakpoint + "px"}) {
 				@content;
