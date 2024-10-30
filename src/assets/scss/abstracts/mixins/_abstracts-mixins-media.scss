@@ -1,6 +1,7 @@
 // MIXIN
 // MEDIA QUERIES
 // ------------------
+@use "sass:meta";
 @use "../functions/abstracts-functions-contains" as *;
 @use "../variables/abstracts-variables-breakpoints" as *;
 
@@ -29,7 +30,7 @@
 		} @else {
 			@error "Invalid units provided";
 		}
-	} @else if variable-exists(breakpoints) {
+	} @else if meta.variable-exists(breakpoints) {
 		@if map-has-key($breakpoints, $breakpoint) {
 			@media (#{$rule}-#{$dimension}: #{inspect(map-get($breakpoints, $breakpoint))}) {
 				@content;
@@ -37,7 +38,7 @@
 		} @else {
 			@error "Unfortunately, no value could be retrieved from `#{$breakpoint}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
 		}
-	} @else if variable-exists(breakpoint) {
+	} @else if meta.variable-exists(breakpoint) {
 		@media (#{$rule}-#{$dimension}: #{$breakpoint}) {
 			@content;
 		}
