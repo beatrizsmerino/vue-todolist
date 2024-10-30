@@ -12,13 +12,14 @@
 	@if not contains($rules, $rule) {
 		$rule: "max";
 	}
+
 	@if not contains($dimensions, $dimension) {
 		$rule: "width";
 	}
 
-	@if type-of($breakpoint) ==number {
+	@if type-of($breakpoint) == number {
 		@if unitless($breakpoint) {
-			@media (#{$rule}-#{$dimension}: #{$breakpoint + 'px'}) {
+			@media (#{$rule}-#{$dimension}: #{$breakpoint + "px"}) {
 				@content;
 			}
 		} @else if contains($units, unit($breakpoint)) {
@@ -34,7 +35,7 @@
 				@content;
 			}
 		} @else {
-			@error "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "+"Available breakpoints are: #{map-keys($breakpoints)}.";
+			@error "Unfortunately, no value could be retrieved from `#{$breakpoint}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
 		}
 	} @else if variable-exists(breakpoint) {
 		@media (#{$rule}-#{$dimension}: #{$breakpoint}) {
