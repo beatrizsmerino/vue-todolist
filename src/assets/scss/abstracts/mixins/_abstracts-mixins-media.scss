@@ -28,7 +28,7 @@
 		} @else {
 			@error "Invalid units provided";
 		}
-	} @else if variable_exists(breakpoints) {
+	} @else if variable-exists(breakpoints) {
 		@if map-has-key($breakpoints, $breakpoint) {
 			@media (#{$rule}-#{$dimension}: #{inspect(map-get($breakpoints, $breakpoint))}) {
 				@content;
@@ -36,7 +36,7 @@
 		} @else {
 			@error "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "+"Available breakpoints are: #{map-keys($breakpoints)}.";
 		}
-	} @else if variable_exists(breakpoint) {
+	} @else if variable-exists(breakpoint) {
 		@media (#{$rule}-#{$dimension}: #{$breakpoint}) {
 			@content;
 		}
