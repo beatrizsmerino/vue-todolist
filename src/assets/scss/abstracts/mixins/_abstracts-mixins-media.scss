@@ -33,7 +33,7 @@
 		}
 	} @else if meta.variable-exists(breakpoints) {
 		@if map.has-key($breakpoints, $breakpoint) {
-			@media (#{$rule}-#{$dimension}: #{inspect(map.get($breakpoints, $breakpoint))}) {
+			@media (#{$rule}-#{$dimension}: #{meta.inspect(map.get($breakpoints, $breakpoint))}) {
 				@content;
 			}
 		} @else {
