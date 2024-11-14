@@ -2,20 +2,19 @@
 // BREAKPOINTS
 // ------------------
 
-// xs - mobile
-// sm - mobile
-// md - iPad portrait
-// lg - iPad portrait
-// xl - iPad landscape
-// xxl - laptop
-// xxl - big display
-
 $breakpoints: (
 	xs: 480px,
+	// mobile portrait
 	sm: 576px,
+	// mobile landscape
 	md: 768px,
+	// tablet portrait
 	lg: 992px,
+	// tablet portrait
 	xl: 1024px,
+	// tablet landscape
 	xxl: 1280px,
+	// laptop
 	xxxl: 1600px,
+	// desktop
 ) !default;
