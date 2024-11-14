@@ -4,15 +4,10 @@
 
 // ABSTRACTS
 //----------------------------------------------------------------------
-// variables
-@import "abstracts/variables/abstracts-variables-breakpoints";
-@import "abstracts/variables/abstracts-variables-colors";
-@import "abstracts/variables/abstracts-variables-fonts";
-// mixins
-@import "abstracts/mixins/mixins-media";
-
-// BASE
-//----------------------------------------------------------------------
-@import "base/base-reset";
-@import "base/base-global";
-@import "base/base-fonts";
+@forward "abstracts/functions/abstracts-functions-contains";
+// -----------------
+@forward "abstracts/mixins/abstracts-mixins-media";
+// -----------------
+@forward "abstracts/variables/abstracts-variables-breakpoints";
+@forward "abstracts/variables/abstracts-variables-colors";
+@forward "abstracts/variables/abstracts-variables-fonts";

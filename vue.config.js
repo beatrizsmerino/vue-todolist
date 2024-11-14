@@ -12,12 +12,11 @@ module.exports = {
 	"publicPath": process.env.NODE_ENV === "production" ? "/vue-todolist/" : "/",
 
 	// Add configuration for use Dart sass/scss and compile files of 'assets' folder
-	"pluginOptions": {
-		"style-resources-loader": {
-			"preProcessor": "scss",
-			"patterns": [
-				"./src/assets/scss/styles.scss",
-			],
+	"css": {
+		"loaderOptions": {
+			"sass": {
+				"additionalData": `@use "@/assets/scss/styles.scss" as *;`,
+			},
 		},
 	},
 
