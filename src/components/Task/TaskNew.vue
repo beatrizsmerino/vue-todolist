@@ -85,6 +85,8 @@
 </script>
 
 <style lang="scss" scoped>
+	@use "sass:color";
+
 	.task-new {
 		padding: 1.5rem 2rem;
 		transition: all 0.5s ease-in-out 0s;
@@ -141,7 +143,7 @@
 			}
 
 			&:hover {
-				color: mix($color-black, $color-brand-3, 20%);
+				color: color.mix($color-black, $color-brand-3, 20%);
 			}
 		}
 	}

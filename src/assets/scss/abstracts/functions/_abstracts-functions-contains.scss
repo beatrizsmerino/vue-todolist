@@ -1,0 +1,8 @@
+// ABSTRACTS - FUNCTIONS
+// CONTAINS
+// =================================================
+@use "sass:list";
+
+@function contains($list, $item) {
+	@return list.index($list, $item) !=null;
+}

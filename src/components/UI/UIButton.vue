@@ -50,6 +50,8 @@
 </script>
 
 <style lang="scss" scoped>
+	@use "sass:color";
+
 	.button {
 		display: flex;
 		align-items: center;
@@ -112,7 +114,7 @@
 			color: $color-white;
 
 			&:hover {
-				background-color: mix($color-black, $color-brand-1, 15%);
+				background-color: color.mix($color-black, $color-brand-1, 15%);
 				color: $color-white;
 			}
 
@@ -121,7 +123,7 @@
 				color: $color-black;
 
 				&:hover {
-					background-color: mix($color-black, $color-brand-1, 15%);
+					background-color: color.mix($color-black, $color-brand-1, 15%);
 				}
 			}
 
@@ -130,7 +132,7 @@
 				color: $color-white;
 
 				&:hover {
-					background-color: mix($color-black, $color-brand-2, 15%);
+					background-color: color.mix($color-black, $color-brand-2, 15%);
 				}
 			}
 
@@ -139,7 +141,7 @@
 				color: $color-white;
 
 				&:hover {
-					background-color: mix($color-black, $color-brand-3, 15%);
+					background-color: color.mix($color-black, $color-brand-3, 15%);
 				}
 			}
 
@@ -148,7 +150,7 @@
 				color: $color-white;
 
 				&:hover {
-					background-color: mix($color-black, $color-error, 15%);
+					background-color: color.mix($color-black, $color-error, 15%);
 				}
 			}
 
@@ -157,7 +159,7 @@
 				color: $color-white;
 
 				&:hover {
-					background-color: mix($color-black, $color-success, 15%);
+					background-color: color.mix($color-black, $color-success, 15%);
 				}
 			}
 		}

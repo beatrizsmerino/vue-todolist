@@ -1,6 +1,11 @@
 // BASE
 // GLOBAL SETTINGS
 // =================================================
+@use "sass:map";
+@use "../abstracts/mixins/abstracts-mixins-media" as *;
+@use "../abstracts/variables/abstracts-variables-breakpoints" as *;
+@use "../abstracts/variables/abstracts-variables-colors" as *;
+@use "../abstracts/variables/abstracts-variables-fonts" as *;
 
 *,
 *::before,
@@ -66,7 +71,7 @@ body {
 		justify-content: flex-start;
 	}
 
-	@media screen and (min-height: #{map-get($breakpoints, 'md')}) {
+	@media screen and (min-height: #{map.get($breakpoints, 'md')}) {
 		padding: 6rem 3rem;
 	}
 

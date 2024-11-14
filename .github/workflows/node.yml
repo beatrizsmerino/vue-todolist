@@ -15,9 +15,9 @@ jobs:
         node-version: [ 16, 18, 20 ]
     steps:
     - name: 🔀 Checkout code from repository
-      uses: actions/checkout@v4.2.1
+      uses: actions/checkout@v4.2.2
     - name: 🛠️ Setup Node version ${{ matrix.node-version }}
-      uses: actions/setup-node@v4.0.4
+      uses: actions/setup-node@v4.1.0
       with:
         node-version: ${{ matrix.node-version }}
     - name: 📦 Install dependencies

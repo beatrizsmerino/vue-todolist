@@ -1,0 +1,50 @@
+// MIXIN
+// MEDIA QUERIES
+// ------------------
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+@use "../functions/abstracts-functions-contains" as *;
+@use "../variables/abstracts-variables-breakpoints" as *;
+
+@mixin media($breakpoint, $rule: "max", $dimension: "width") {
+	$rules: "max", "min";
+	$dimensions: "width", "height";
+	$units: "px", "em", "rem", "%", "vw", "vh";
+
+	@if not contains($rules, $rule) {
+		$rule: "max";
+	}
+
+	@if not contains($dimensions, $dimension) {
+		$dimension: "width";
+	}
+
+	@if meta.type-of($breakpoint) == number {
+		@if math.is-unitless($breakpoint) {
+			@media (#{$rule}-#{$dimension}: #{$breakpoint + "px"}) {
+				@content;
+			}
+		} @else if contains($units, math.unit($breakpoint)) {
+			@media (#{$rule}-#{$dimension}: #{$breakpoint}) {
+				@content;
+			}
+		} @else {
+			@error "Invalid units provided";
+		}
+	} @else if meta.variable-exists(breakpoints) {
+		@if map.has-key($breakpoints, $breakpoint) {
+			@media (#{$rule}-#{$dimension}: #{meta.inspect(map.get($breakpoints, $breakpoint))}) {
+				@content;
+			}
+		} @else {
+			@error "Unfortunately, no value could be retrieved from `#{$breakpoint}`. " + "Available breakpoints are: #{map.keys($breakpoints)}.";
+		}
+	} @else if meta.variable-exists(breakpoint) {
+		@media (#{$rule}-#{$dimension}: #{$breakpoint}) {
+			@content;
+		}
+	} @else {
+		@error "Neither $breakpoints map nor variable provided are defined";
+	}
+}

@@ -104,6 +104,8 @@
 </script>
 
 <style lang="scss" scoped>
+	@use "sass:color";
+
 	.task-preview {
 		display: flex;
 		align-items: center;
@@ -147,7 +149,7 @@
 			font-size: 2.4rem;
 
 			&:hover {
-				color: mix($color-black, $color-silver, 20%);
+				color: color.mix($color-black, $color-silver, 20%);
 			}
 		}
 
@@ -173,7 +175,7 @@
 			color: $color-brand-3;
 
 			&:hover {
-				color: mix($color-black, $color-brand-3, 20%);
+				color: color.mix($color-black, $color-brand-3, 20%);
 			}
 		}
 
@@ -181,7 +183,7 @@
 			color: $color-error;
 
 			&:hover {
-				color: mix($color-black, $color-error, 20%);
+				color: color.mix($color-black, $color-error, 20%);
 			}
 		}
 
@@ -210,7 +212,7 @@
 					color: $color-success;
 
 					&:hover {
-						color: mix($color-black, $color-success, 20%);
+						color: color.mix($color-black, $color-success, 20%);
 					}
 				}
 			}

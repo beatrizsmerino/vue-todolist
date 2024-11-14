@@ -29,6 +29,15 @@
 </script>
 
 <style lang="scss">
+	// PARTIALS SCSS
+	// ===============================================================================
+
+	// BASE
+	//----------------------------------------------------------------------
+	@use "@/assets/scss/base/base-reset";
+	@use "@/assets/scss/base/base-global";
+	@use "@/assets/scss/base/base-fonts";
+
 	.app {
 		width: 100%;
 	}
