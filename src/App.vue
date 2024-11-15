@@ -29,20 +29,12 @@
 </script>
 
 <style lang="scss">
-	// PARTIALS SCSS
+	// PARTIALS SASS
 	// ===============================================================================
 
 	// BASE
-	//----------------------------------------------------------------------
+	// ----------------------------------------------------------------------
 	@use "@/assets/scss/base/base-reset";
 	@use "@/assets/scss/base/base-global";
 	@use "@/assets/scss/base/base-fonts";
-
-	.app {
-		width: 100%;
-	}
-
-	[v-cloak] {
-		display: none;
-	}
 </style>
