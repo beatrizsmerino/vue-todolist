@@ -1,5 +1,5 @@
 // BASE
-// GLOBAL SETTINGS
+// GLOBAL
 // =================================================
 @use "sass:map";
 @use "../abstracts/mixins/abstracts-mixins-media" as *;
@@ -106,4 +106,12 @@ p {
 	&:only-of-type {
 		margin-bottom: 0;
 	}
+}
+
+.app {
+	width: 100%;
+}
+
+[v-cloak] {
+	display: none;
 }
