@@ -49,7 +49,7 @@
 		"conventional-changelog-cli": "^5.0.0",
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.57.0",
-		"eslint-config-prettier": "^10.0.1",
+		"eslint-config-prettier": "^10.1.1",
 		"eslint-plugin-jsonc": "^2.19.1",
 		"eslint-plugin-prettier": "^5.2.3",
 		"eslint-plugin-vue": "^9.32.0",
