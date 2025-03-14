@@ -48,6 +48,9 @@
 				"required": true,
 			},
 		},
+		"emits": [
+			"task-edit-close",
+		],
 		data() {
 			return {
 				"taskCopy": this.task,

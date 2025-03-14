@@ -28,6 +28,9 @@
 				"default": null,
 			},
 		},
+		"emits": [
+			"button-click",
+		],
 		"computed": {
 			checkTag() {
 				if (this.href) {

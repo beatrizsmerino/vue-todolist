@@ -32,6 +32,9 @@
 		"components": {
 			UIButton,
 		},
+		"emits": [
+			"add-task",
+		],
 		data() {
 			return {
 				"taskNew": {

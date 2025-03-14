@@ -27,6 +27,9 @@
 		"components": {
 			UIButton,
 		},
+		"emits": [
+			"modal-close",
+		],
 		"methods": {
 			emitCloseModal() {
 				this.$emit("modal-close");
