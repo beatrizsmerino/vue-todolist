@@ -5,7 +5,7 @@
 		:to="buttonTo"
 		:value="buttonValue"
 		class="button"
-		@click="buttonClick"
+		@click="emitClickButton"
 	>
 		<slot></slot>
 	</component>
@@ -45,7 +45,7 @@
 			},
 		},
 		"methods": {
-			buttonClick(event) {
+			emitClickButton(event) {
 				this.$emit("click-button", event);
 			},
 		},
