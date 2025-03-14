@@ -17,7 +17,7 @@
 
 			<UIButton
 				class="task-edit__button-save button--bg-color-3"
-				@button-click="
+				@click-button="
 					editTaskName(task);
 					emitEditTask();
 				"

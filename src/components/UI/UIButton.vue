@@ -29,7 +29,7 @@
 			},
 		},
 		"emits": [
-			"button-click",
+			"click-button",
 		],
 		"computed": {
 			checkTag() {
@@ -46,7 +46,7 @@
 		},
 		"methods": {
 			buttonClick(event) {
-				this.$emit("button-click", event);
+				this.$emit("click-button", event);
 			},
 		},
 	};

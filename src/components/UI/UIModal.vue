@@ -5,7 +5,7 @@
 			<div class="modal__box">
 				<UIButton
 					class="modal__button-close button--line-black button--small"
-					@button-click="emitCloseModal()"
+					@click-button="emitCloseModal()"
 				>
 					<span class="button__icon">
 						<i class="icon">

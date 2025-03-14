@@ -11,7 +11,7 @@
 			/>
 			<UIButton
 				class="task-new__button-add button--icon"
-				@button-click="createTaskNew()"
+				@click-button="createTaskNew()"
 			>
 				<span class="button__icon">
 					<i class="icon">

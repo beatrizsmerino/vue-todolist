@@ -10,7 +10,7 @@
 			<UIButton
 				v-if="!isClose"
 				class="message__button button--bg-black button--icon"
-				@button-click="closeMessage()"
+				@click-button="closeMessage()"
 			>
 				<span class="button__icon">
 					<i class="icon">
@@ -21,7 +21,7 @@
 			<UIButton
 				v-else
 				class="message__button button--bg-black button--icon"
-				@button-click="openMessage()"
+				@click-button="openMessage()"
 			>
 				<span class="button__icon">
 					<i class="icon">
