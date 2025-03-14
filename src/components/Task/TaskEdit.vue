@@ -49,7 +49,7 @@
 			},
 		},
 		"emits": [
-			"task-edit-close",
+			"edit-task",
 		],
 		data() {
 			return {
@@ -71,7 +71,7 @@
 				this.updateTask(task);
 			},
 			emitTaskEditClose() {
-				this.$emit("task-edit-close");
+				this.$emit("edit-task");
 			},
 		},
 	};

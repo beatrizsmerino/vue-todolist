@@ -42,7 +42,7 @@
 					<template #modalInner>
 						<TaskEdit
 							:task="taskItem"
-							@task-edit-close="hideTask(taskItem)"
+							@edit-task="hideTask(taskItem)"
 						/>
 					</template>
 				</UIModal>
