@@ -5,7 +5,7 @@
 		:to="buttonTo"
 		:value="buttonValue"
 		class="button"
-		@click="buttonClick"
+		@click="emitClickButton"
 	>
 		<slot></slot>
 	</component>
@@ -28,6 +28,9 @@
 				"default": null,
 			},
 		},
+		"emits": [
+			"click-button",
+		],
 		"computed": {
 			checkTag() {
 				if (this.href) {
@@ -42,8 +45,8 @@
 			},
 		},
 		"methods": {
-			buttonClick(event) {
-				this.$emit("button-click", event);
+			emitClickButton(event) {
+				this.$emit("click-button", event);
 			},
 		},
 	};

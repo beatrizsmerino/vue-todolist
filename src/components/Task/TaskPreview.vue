@@ -8,7 +8,7 @@
 	>
 		<UIButton
 			class="task-preview__button-done button--icon"
-			@button-click="changeTaskDone(taskItem)"
+			@click-button="changeTaskDone(taskItem)"
 		>
 			<span class="button__icon">
 				<i class="icon">
@@ -25,12 +25,12 @@
 			<li>
 				<UIModal
 					:class="{ 'is-open': taskItem.status.show }"
-					@modal-close="hideTask(taskItem)"
+					@close-modal="hideTask(taskItem)"
 				>
 					<template #modalButtonOpen>
 						<UIButton
 							class="task-preview__button-edit button--icon"
-							@button-click="showTask(taskItem)"
+							@click-button="showTask(taskItem)"
 						>
 							<span class="button__icon">
 								<i class="icon">
@@ -42,7 +42,7 @@
 					<template #modalInner>
 						<TaskEdit
 							:task="taskItem"
-							@task-edit-close="hideTask(taskItem)"
+							@edit-task="hideTask(taskItem)"
 						/>
 					</template>
 				</UIModal>
@@ -50,7 +50,7 @@
 			<li>
 				<UIButton
 					class="task-preview__button-remove button--icon"
-					@button-click="removeTask(taskItem.id)"
+					@click-button="removeTask(taskItem.id)"
 				>
 					<span class="button__icon">
 						<i class="icon">

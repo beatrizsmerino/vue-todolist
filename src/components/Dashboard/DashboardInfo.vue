@@ -21,7 +21,7 @@
 			>
 				<UIButton
 					class="button--bg-color-error button--small"
-					@button-click="removeTaskListDone()"
+					@click-button="removeTaskListDone()"
 				>
 					<span class="button__icon">
 						<i class="icon">
@@ -36,7 +36,7 @@
 			<li class="dashboard-info__item">
 				<UIButton
 					class="button--bg-color-error button--small"
-					@button-click="removeTaskList()"
+					@click-button="removeTaskList()"
 				>
 					<span class="button__icon">
 						<i class="icon">
