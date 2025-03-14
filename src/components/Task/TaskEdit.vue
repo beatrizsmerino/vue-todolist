@@ -19,7 +19,7 @@
 				class="task-edit__button-save button--bg-color-3"
 				@button-click="
 					editTaskName(task);
-					emitTaskEditClose();
+					emitEditTask();
 				"
 			>
 				<span class="button__icon">
@@ -70,7 +70,7 @@
 			editTaskName(task) {
 				this.updateTask(task);
 			},
-			emitTaskEditClose() {
+			emitEditTask() {
 				this.$emit("edit-task");
 			},
 		},
