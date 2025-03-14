@@ -28,11 +28,11 @@
 			UIButton,
 		},
 		"emits": [
-			"modal-close",
+			"close-modal",
 		],
 		"methods": {
 			emitCloseModal() {
-				this.$emit("modal-close");
+				this.$emit("close-modal");
 			},
 		},
 	};

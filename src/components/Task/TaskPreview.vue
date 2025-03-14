@@ -25,7 +25,7 @@
 			<li>
 				<UIModal
 					:class="{ 'is-open': taskItem.status.show }"
-					@modal-close="hideTask(taskItem)"
+					@close-modal="hideTask(taskItem)"
 				>
 					<template #modalButtonOpen>
 						<UIButton
