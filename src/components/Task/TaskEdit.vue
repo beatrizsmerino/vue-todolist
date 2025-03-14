@@ -17,9 +17,9 @@
 
 			<UIButton
 				class="task-edit__button-save button--bg-color-3"
-				@button-click="
+				@click-button="
 					editTaskName(task);
-					emitTaskEditClose();
+					emitEditTask();
 				"
 			>
 				<span class="button__icon">
@@ -48,6 +48,9 @@
 				"required": true,
 			},
 		},
+		"emits": [
+			"edit-task",
+		],
 		data() {
 			return {
 				"taskCopy": this.task,
@@ -67,8 +70,8 @@
 			editTaskName(task) {
 				this.updateTask(task);
 			},
-			emitTaskEditClose() {
-				this.$emit("task-edit-close");
+			emitEditTask() {
+				this.$emit("edit-task");
 			},
 		},
 	};
