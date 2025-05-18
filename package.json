@@ -50,7 +50,7 @@
 		"cz-conventional-changelog": "^3.3.0",
 		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^10.1.5",
-		"eslint-plugin-jsonc": "^2.20.0",
+		"eslint-plugin-jsonc": "^2.20.1",
 		"eslint-plugin-prettier": "^5.4.0",
 		"eslint-plugin-vue": "^10.1.0",
 		"eslint-webpack-plugin": "^5.0.1",
