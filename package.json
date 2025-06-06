@@ -52,7 +52,7 @@
 		"eslint-config-prettier": "^10.1.5",
 		"eslint-plugin-jsonc": "^2.20.1",
 		"eslint-plugin-prettier": "^5.4.1",
-		"eslint-plugin-vue": "^10.1.0",
+		"eslint-plugin-vue": "^10.2.0",
 		"eslint-webpack-plugin": "^5.0.1",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.1.0",
