@@ -55,7 +55,7 @@
 		"eslint-plugin-vue": "^10.2.0",
 		"eslint-webpack-plugin": "^5.0.2",
 		"husky": "^9.1.7",
-		"lint-staged": "^16.1.0",
+		"lint-staged": "^16.1.2",
 		"postcss": "^8.5.4",
 		"postcss-html": "^1.8.0",
 		"prettier": "^3.5.3",
