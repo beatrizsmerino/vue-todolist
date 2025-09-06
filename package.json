@@ -43,7 +43,7 @@
 		"@vue/cli-plugin-babel": "^5.0.9",
 		"@vue/cli-plugin-eslint": "^5.0.9",
 		"@vue/cli-plugin-vuex": "^5.0.9",
-		"@vue/cli-service": "^5.0.8",
+		"@vue/cli-service": "^5.0.9",
 		"@vue/eslint-config-prettier": "^10.2.0",
 		"commitizen": "^4.3.1",
 		"conventional-changelog-cli": "^5.0.0",
