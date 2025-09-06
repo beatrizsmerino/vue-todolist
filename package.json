@@ -24,7 +24,7 @@
 		"prepare": "husky"
 	},
 	"dependencies": {
-		"@fortawesome/fontawesome-svg-core": "^6.7.2",
+		"@fortawesome/fontawesome-svg-core": "^7.0.1",
 		"@fortawesome/free-solid-svg-icons": "^6.7.2",
 		"@fortawesome/vue-fontawesome": "^2.0.10",
 		"chalk": "^5.6.0",
