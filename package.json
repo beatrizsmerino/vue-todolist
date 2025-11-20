@@ -84,5 +84,17 @@
 	"engines": {
 		"node": "20.18.0",
 		"npm": "10.8.2"
+	},
+	"overrides": {
+		"semver": "^7.6.3",
+		"tough-cookie": "^4.1.4",
+		"inquirer": "^8.2.6",
+		"webpack-dev-server": "^5.2.1",
+		"@vue/component-compiler-utils": {
+			"postcss": "^8.4.31"
+		},
+		"yorkie": {
+			"execa": "^8.0.1"
+		}
 	}
 }
