@@ -1,10 +1,24 @@
 {
-	"version": "3.7.7",
+	"version": "3.8.0",
 	"private": true,
 	"name": "vue-todolist",
 	"description": "To-do list made with Vue.",
 	"author": "beatrizsmerino@gmail.com",
 	"license": "ISC",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/beatrizsmerino/vue-todolist.git"
+	},
+	"homepage": "https://beatrizsmerino.github.io/vue-todolist",
+	"bugs": {
+		"url": "https://github.com/beatrizsmerino/vue-todolist/issues"
+	},
+	"keywords": [
+		"vue",
+		"vuex",
+		"javascript",
+		"todolist"
+	],
 	"main": "index.js",
 	"scripts": {
 		"install:global": "node ./bin/preinstall-global-dependencies.js",
