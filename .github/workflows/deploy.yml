@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🔀 Checkout code from repository
-        uses: actions/checkout@v6.0.0
+        uses: actions/checkout@v6.0.1
       - name: 🛠️ Setup Node version
         uses: actions/setup-node@v6.1.0
         with:
