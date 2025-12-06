@@ -52,7 +52,7 @@
 	"devDependencies": {
 		"@babel/core": "^7.28.5",
 		"@babel/eslint-parser": "^7.28.5",
-		"@commitlint/cli": "^20.1.0",
+		"@commitlint/cli": "^20.2.0",
 		"@commitlint/config-conventional": "^20.0.0",
 		"@vue/cli-plugin-babel": "^5.0.9",
 		"@vue/cli-plugin-eslint": "^5.0.9",
