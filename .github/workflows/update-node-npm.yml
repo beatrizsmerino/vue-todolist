@@ -1,0 +1,305 @@
+# Workflow to automatically detect new Node.js LTS versions and create a PR to update the project
+
+# Requirements:
+# - Secret `PAT_WORKFLOW` must be configured:
+#   1. Create a Personal Access Token (PAT) in GitHub:
+#      → Profile → Settings → Developer settings → Personal access tokens → Tokens (classic)
+#      → Generate new token with `repo` and `workflow` permissions
+#   2. Add the token as a repository secret:
+#      → Repository → Settings → Secrets and variables → Actions → New repository secret
+#      → Name: PAT_WORKFLOW, Value: (paste the token)
+
+# Files updated by this workflow:
+# - .nvmrc
+# - package.json (engines.node and engines.npm)
+# - .github/workflows/check-node.yml (matrix node-version)
+
+name: 📦 Create PR to update Node and NPM versions
+
+on:
+  schedule:
+    # Monthly: First Saturday at 09:00 Spain (08:00 UTC)
+    # Runs on days 1-7 of each month, but only if it's Saturday (day 6)
+    - cron: '0 8 1-7 * 6'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-node:
+    name: 🔍 Check and update Node.js version
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔀 Checkout code
+        uses: actions/checkout@v6
+        with:
+          token: ${{ secrets.PAT_WORKFLOW }}
+
+      - name: 🌐 Get Node.js LTS versions info
+        id: node-versions
+        run: |
+          # Fetch Node.js release schedule
+          RELEASES=$(curl -s https://raw.githubusercontent.com/nodejs/Release/main/schedule.json)
+
+          # Fetch all Node.js versions
+          ALL_VERSIONS=$(curl -s https://nodejs.org/dist/index.json)
+
+          # Get current date
+          CURRENT_DATE=$(date +%Y-%m-%d)
+
+          # Find active LTS versions (started and not ended)
+          ACTIVE_LTS=$(echo "$RELEASES" | jq -r --arg date "$CURRENT_DATE" '
+            to_entries |
+            map(select(
+              .value.start <= $date and
+              .value.end >= $date and
+              .value.lts != null and
+              .value.lts <= $date
+            )) |
+            map(.key | ltrimstr("v") | tonumber) |
+            sort |
+            .[-2:]
+          ')
+
+          echo "Active LTS versions: $ACTIVE_LTS"
+
+          # Get the two active LTS major versions for the matrix
+          LTS_OLDEST=$(echo "$ACTIVE_LTS" | jq '.[0]')
+          LTS_LATEST=$(echo "$ACTIVE_LTS" | jq '.[1]')
+
+          echo "LTS oldest: $LTS_OLDEST"
+          echo "LTS latest: $LTS_LATEST"
+
+          # Get the latest version of the newest LTS
+          LATEST_VERSION=$(echo "$ALL_VERSIONS" | jq -r --argjson major "$LTS_LATEST" '
+            map(select(.version | startswith("v\($major)."))) |
+            .[0].version |
+            ltrimstr("v")
+          ')
+
+          echo "Latest LTS version: $LATEST_VERSION"
+
+          # Get npm version bundled with this Node version
+          NPM_VERSION=$(echo "$ALL_VERSIONS" | jq -r --arg ver "v$LATEST_VERSION" '
+            map(select(.version == $ver)) |
+            .[0].npm
+          ')
+
+          echo "Bundled npm version: $NPM_VERSION"
+
+          # Set outputs
+          echo "latest_version=$LATEST_VERSION" >> $GITHUB_OUTPUT
+          echo "npm_version=$NPM_VERSION" >> $GITHUB_OUTPUT
+          echo "lts_oldest=$LTS_OLDEST" >> $GITHUB_OUTPUT
+          echo "lts_latest=$LTS_LATEST" >> $GITHUB_OUTPUT
+          echo "matrix=[ $LTS_OLDEST, $LTS_LATEST ]" >> $GITHUB_OUTPUT
+
+      - name: 📖 Get current versions
+        id: current-versions
+        run: |
+          # Check if .nvmrc exists
+          if [ ! -f .nvmrc ]; then
+            echo "❌ .nvmrc file not found"
+            echo "has_nvmrc=false" >> $GITHUB_OUTPUT
+            echo "current_node=unknown" >> $GITHUB_OUTPUT
+          else
+            echo "has_nvmrc=true" >> $GITHUB_OUTPUT
+            CURRENT_NODE=$(cat .nvmrc | tr -d 'v' | tr -d '\n')
+            echo "Current Node version: $CURRENT_NODE"
+            echo "current_node=$CURRENT_NODE" >> $GITHUB_OUTPUT
+          fi
+
+          # Check if package.json has engines.node
+          if [ ! -f package.json ] || [ "$(jq -r '.engines.node // empty' package.json)" == "" ]; then
+            echo "❌ package.json engines.node not found"
+            echo "has_engines=false" >> $GITHUB_OUTPUT
+            echo "current_npm=unknown" >> $GITHUB_OUTPUT
+          else
+            echo "has_engines=true" >> $GITHUB_OUTPUT
+            CURRENT_NPM=$(jq -r '.engines.npm // "unknown"' package.json)
+            echo "Current npm version: $CURRENT_NPM"
+            echo "current_npm=$CURRENT_NPM" >> $GITHUB_OUTPUT
+          fi
+
+          # Check if check-node.yml exists and get current matrix
+          if [ ! -f .github/workflows/check-node.yml ]; then
+            echo "❌ check-node.yml workflow not found"
+            echo "has_node_yml=false" >> $GITHUB_OUTPUT
+            echo "current_matrix=unknown" >> $GITHUB_OUTPUT
+          else
+            echo "has_node_yml=true" >> $GITHUB_OUTPUT
+            CURRENT_MATRIX=$(grep "node-version: \[" .github/workflows/check-node.yml | sed 's/.*node-version: //' | tr -d ' ')
+            echo "Current matrix: $CURRENT_MATRIX"
+            echo "current_matrix=$CURRENT_MATRIX" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 🔄 Check if update is needed
+        id: check-update
+        run: |
+          LATEST="${{ steps.node-versions.outputs.latest_version }}"
+          CURRENT="${{ steps.current-versions.outputs.current_node }}"
+
+          # Get current date in DD-MM-YYYY format
+          echo "date=$(date +%d-%m-%Y)" >> $GITHUB_OUTPUT
+
+          if [ "$LATEST" != "$CURRENT" ]; then
+            echo "Update needed: $CURRENT -> $LATEST"
+            echo "update_needed=true" >> $GITHUB_OUTPUT
+          else
+            echo "Already up to date: $CURRENT"
+            echo "update_needed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 📝 Update .nvmrc
+        if: steps.check-update.outputs.update_needed == 'true' && steps.current-versions.outputs.has_nvmrc == 'true'
+        run: |
+          echo "v${{ steps.node-versions.outputs.latest_version }}" > .nvmrc
+          echo "Updated .nvmrc to v${{ steps.node-versions.outputs.latest_version }}"
+
+      - name: 📝 Update package.json engines
+        if: steps.check-update.outputs.update_needed == 'true' && steps.current-versions.outputs.has_engines == 'true'
+        run: |
+          # Update node and npm versions preserving tab indentation
+          jq --tab '.engines.node = "${{ steps.node-versions.outputs.latest_version }}" | .engines.npm = "${{ steps.node-versions.outputs.npm_version }}"' package.json > package.json.tmp
+          mv package.json.tmp package.json
+
+          echo "Updated package.json engines"
+          cat package.json | jq '.engines'
+
+      - name: 📝 Update check-node.yml matrix
+        if: steps.check-update.outputs.update_needed == 'true' && steps.current-versions.outputs.has_node_yml == 'true'
+        run: |
+          # Update the node-version matrix in check-node.yml
+          sed -i "s/node-version: \[.*\]/node-version: ${{ steps.node-versions.outputs.matrix }}/" .github/workflows/check-node.yml
+
+          echo "Updated check-node.yml matrix"
+          grep "node-version:" .github/workflows/check-node.yml
+
+      - name: 🚀 Create Pull Request
+        if: |
+          steps.check-update.outputs.update_needed == 'true' &&
+          (steps.current-versions.outputs.has_nvmrc == 'true' ||
+           steps.current-versions.outputs.has_engines == 'true' ||
+           steps.current-versions.outputs.has_node_yml == 'true')
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.PAT_WORKFLOW }}
+          commit-message: |
+            ci(deps): update `node@${{ steps.node-versions.outputs.latest_version }}` and `npm@${{ steps.node-versions.outputs.npm_version }}` versions
+
+            Description:
+            - Update `node` from `${{ steps.current-versions.outputs.current_node }}` to `${{ steps.node-versions.outputs.latest_version }}`
+            - Update `npm` from `${{ steps.current-versions.outputs.current_npm }}` to `${{ steps.node-versions.outputs.npm_version }}`
+
+            Steps:
+            - Update `.nvmrc` file: v${{ steps.current-versions.outputs.current_node }} → v${{ steps.node-versions.outputs.latest_version }}
+            - Update `package.json` file in `engines.node`: ${{ steps.current-versions.outputs.current_node }} → ${{ steps.node-versions.outputs.latest_version }}
+            - Update `package.json` file in `engines.npm`: ${{ steps.current-versions.outputs.current_npm }} → ${{ steps.node-versions.outputs.npm_version }}
+            - Update `check-node.yml` file in matrix: ${{ steps.current-versions.outputs.current_matrix }} → ${{ steps.node-versions.outputs.matrix }}
+          title: "build(deps): update `node@${{ steps.node-versions.outputs.latest_version }}` and `npm@${{ steps.node-versions.outputs.npm_version }}` versions"
+          body: |
+            # build(deps): update `node@${{ steps.node-versions.outputs.latest_version }}` and `npm@${{ steps.node-versions.outputs.npm_version }}` versions
+
+            | ⏱️ Time | 📊 Priority | 📏 Size | 📅 Date |
+            |---------|-------------|---------|---------|
+            | 5min    | P2          | XS      | ${{ steps.check-update.outputs.date }} |
+
+            ## 🔧 Build Type
+            - [x] Dependency update
+            - [x] Build configuration
+            - [x] CI/CD configuration
+
+            ## 📝 Description
+
+            Automatic update of Node.js version detected by the `update-node-npm.yml` workflow.
+
+            | Package | Previous | New |
+            |---------|----------|-----|
+            | `node` | `${{ steps.current-versions.outputs.current_node }}` | `${{ steps.node-versions.outputs.latest_version }}` |
+            | `npm` | `${{ steps.current-versions.outputs.current_npm }}` | `${{ steps.node-versions.outputs.npm_version }}` |
+
+            ## 📋 Steps
+
+            - Update `.nvmrc` file: `v${{ steps.current-versions.outputs.current_node }}` → `v${{ steps.node-versions.outputs.latest_version }}`
+            - Update `package.json` file in `engines.node`: `${{ steps.current-versions.outputs.current_node }}` → `${{ steps.node-versions.outputs.latest_version }}`
+            - Update `package.json` file in `engines.npm`: `${{ steps.current-versions.outputs.current_npm }}` → `${{ steps.node-versions.outputs.npm_version }}`
+            - Update `check-node.yml` file in matrix: `${{ steps.current-versions.outputs.current_matrix }}` → `${{ steps.node-versions.outputs.matrix }}`
+
+            ## 🧪 Tests
+
+            - [ ] Build completes successfully
+            - [ ] All tests pass
+            - [ ] Development workflow still works
+
+            ## 🔗 References
+
+            - [Node.js Release](https://nodejs.org/en/about/releases/)
+            - Generated automatically by [update-node-npm.yml](./.github/workflows/update-node-npm.yml) workflow
+          branch: dependabot/npm_and_yarn/node-${{ steps.node-versions.outputs.latest_version }}
+          delete-branch: true
+          labels: |
+            github_actions
+            dependencies
+          assignees: beatrizsmerino
+
+      - name: 📊 Summary
+        run: |
+          # Set status badge
+          if [ "${{ steps.check-update.outputs.update_needed }}" == "true" ]; then
+            UPDATE_BADGE="![Update](https://img.shields.io/badge/Status-Update%20Available-yellow)"
+          else
+            UPDATE_BADGE="![Up to date](https://img.shields.io/badge/Status-Up%20to%20Date-green)"
+          fi
+
+          if [ "${{ steps.current-versions.outputs.has_nvmrc }}" == "true" ]; then
+            NVMRC_ICON="✅ Found"
+          else
+            NVMRC_ICON="❌ Not found"
+          fi
+
+          if [ "${{ steps.current-versions.outputs.has_engines }}" == "true" ]; then
+            ENGINES_ICON="✅ Found"
+          else
+            ENGINES_ICON="❌ Not found"
+          fi
+
+          if [ "${{ steps.current-versions.outputs.has_node_yml }}" == "true" ]; then
+            NODE_YML_ICON="✅ Found"
+          else
+            NODE_YML_ICON="❌ Not found"
+          fi
+
+          cat >> $GITHUB_STEP_SUMMARY << EOF
+          # Node.js Update Check Summary
+
+          ${UPDATE_BADGE}
+
+          > 📅 Last check: $(date +%d-%m-%Y)
+
+          ## 🔢 Version Comparison
+
+          | Package | Current | → | Latest LTS |
+          |---------|:-------:|:-:|:----------:|
+          | **Node.js** | \`${{ steps.current-versions.outputs.current_node }}\` | → | \`${{ steps.node-versions.outputs.latest_version }}\` |
+          | **npm** | \`${{ steps.current-versions.outputs.current_npm }}\` | → | \`${{ steps.node-versions.outputs.npm_version }}\` |
+          | **CI Matrix** | \`${{ steps.current-versions.outputs.current_matrix }}\` | → | \`${{ steps.node-versions.outputs.matrix }}\` |
+
+          ## 📁 Project Files
+
+          | File | Status | Description |
+          |------|:------:|-------------|
+          | \`.nvmrc\` | ${NVMRC_ICON} | Node version for nvm |
+          | \`package.json\` | ${ENGINES_ICON} | Engines of node and npm |
+          | \`check-node.yml\` | ${NODE_YML_ICON} | CI workflow matrix |
+
+          ## 🔗 Resources
+
+          - [Node.js Releases](https://nodejs.org/en/about/releases/)
+          - [Node.js Changelog](https://github.com/nodejs/node/blob/main/CHANGELOG.md)
+          - [NPM Releases](https://github.com/npm/cli/releases)
+          - [NVM - Node Version Manager](https://github.com/nvm-sh/nvm)
+          - [GitHub Actions setup-node](https://github.com/actions/setup-node?tab=readme-ov-file#matrix-testing)
+          EOF
