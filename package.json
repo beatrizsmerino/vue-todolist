@@ -1,5 +1,5 @@
 {
-	"version": "3.8.0",
+	"version": "3.9.0",
 	"private": true,
 	"name": "vue-todolist",
 	"description": "To-do list made with Vue.",
@@ -73,7 +73,7 @@
 		"postcss": "^8.5.6",
 		"postcss-html": "^1.8.0",
 		"prettier": "^3.7.4",
-		"sass": "^1.97.0",
+		"sass": "^1.97.1",
 		"sass-loader": "^16",
 		"standard-version": "^9.5.0",
 		"stylelint": "^16.26.1",
@@ -86,7 +86,7 @@
 		"vue-template-compiler": "^2.7.16"
 	},
 	"globalDependencies": {
-		"@vue/cli": "^5.0.8",
+		"@vue/cli": "^5.0.9",
 		"@commitlint/cli": "^20.2.0",
 		"@commitlint/config-conventional": "^20.2.0",
 		"commitizen": "^4.3.1",
@@ -96,8 +96,8 @@
 		"standard-version": "^9.5.0"
 	},
 	"engines": {
-		"node": "20.18.0",
-		"npm": "10.8.2"
+		"node": "24.12.0",
+		"npm": "11.6.2"
 	},
 	"overrides": {
 		"semver": "^7.6.3",
