@@ -1,4 +1,6 @@
 ![GitHub dependabot](https://img.shields.io/badge/dependabot-enabled-025e8c?logo=Dependabot)
+![node](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/beatrizsmerino/vue-todolist/master/package.json&query=$.engines.node&label=node&logo=node.js&color=339933)
+![npm](https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/beatrizsmerino/vue-todolist/master/package.json&query=$.engines.npm&label=npm&logo=npm&color=CB3837)  
 ![GitHub last commit](https://img.shields.io/github/last-commit/beatrizsmerino/vue-todolist)
 ![GitHub issues](https://img.shields.io/github/issues/beatrizsmerino/vue-todolist)
 ![GitHub forks](https://img.shields.io/github/forks/beatrizsmerino/vue-todolist)
