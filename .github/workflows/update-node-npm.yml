@@ -14,6 +14,12 @@
 # - package.json (engines.node and engines.npm)
 # - .github/workflows/check-node.yml (matrix node-version)
 
+# Optional configuration file (.noderc.json):
+# {
+#   "maxMajorVersion": 22  // Limits updates to this major version (receives minor/patch only)
+# }
+# If the file doesn't exist, the workflow will update to the latest LTS version.
+
 name: 📦 Create PR to update Node and NPM versions
 
 on:
@@ -38,6 +44,26 @@ jobs:
         with:
           token: ${{ secrets.PAT_WORKFLOW }}
 
+      - name: 📋 Read configuration
+        id: config
+        run: |
+          # Check if .noderc.json exists
+          if [ -f .noderc.json ]; then
+            echo "📄 Configuration file found"
+            MAX_MAJOR=$(jq -r '.maxMajorVersion // empty' .noderc.json)
+            if [ -n "$MAX_MAJOR" ]; then
+              echo "🔒 Max major version configured: $MAX_MAJOR"
+              echo "has_config=true" >> $GITHUB_OUTPUT
+              echo "max_major=$MAX_MAJOR" >> $GITHUB_OUTPUT
+            else
+              echo "⚠️ Configuration file exists but maxMajorVersion not set"
+              echo "has_config=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            echo "📄 No configuration file found, using latest LTS"
+            echo "has_config=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: 🌐 Get Node.js LTS versions info
         id: node-versions
         run: |
@@ -50,37 +76,71 @@ jobs:
           # Get current date
           CURRENT_DATE=$(date +%Y-%m-%d)
 
-          # Find active LTS versions (started and not ended)
-          ACTIVE_LTS=$(echo "$RELEASES" | jq -r --arg date "$CURRENT_DATE" '
-            to_entries |
-            map(select(
-              .value.start <= $date and
-              .value.end >= $date and
-              .value.lts != null and
-              .value.lts <= $date
-            )) |
-            map(.key | ltrimstr("v") | tonumber) |
-            sort |
-            .[-2:]
-          ')
+          # Check if maxMajorVersion is configured
+          HAS_CONFIG="${{ steps.config.outputs.has_config }}"
+          MAX_MAJOR="${{ steps.config.outputs.max_major }}"
+
+          if [ "$HAS_CONFIG" == "true" ]; then
+            echo "🔒 Using configured max major version: $MAX_MAJOR"
+            TARGET_MAJOR=$MAX_MAJOR
+
+            # For matrix, find the previous LTS version
+            ACTIVE_LTS=$(echo "$RELEASES" | jq -r --arg date "$CURRENT_DATE" --argjson max "$MAX_MAJOR" '
+              to_entries |
+              map(select(
+                .value.start <= $date and
+                .value.end >= $date and
+                .value.lts != null and
+                .value.lts <= $date and
+                (.key | ltrimstr("v") | tonumber) <= $max
+              )) |
+              map(.key | ltrimstr("v") | tonumber) |
+              sort |
+              .[-2:]
+            ')
+
+            LTS_OLDEST=$(echo "$ACTIVE_LTS" | jq '.[0]')
+            LTS_LATEST=$(echo "$ACTIVE_LTS" | jq '.[1] // .[0]')
+
+            # If only one version in array, use it for both
+            if [ "$LTS_LATEST" == "null" ] || [ -z "$LTS_LATEST" ]; then
+              LTS_LATEST=$LTS_OLDEST
+            fi
+          else
+            echo "📦 Using latest LTS version (no config)"
+
+            # Find active LTS versions (started and not ended)
+            ACTIVE_LTS=$(echo "$RELEASES" | jq -r --arg date "$CURRENT_DATE" '
+              to_entries |
+              map(select(
+                .value.start <= $date and
+                .value.end >= $date and
+                .value.lts != null and
+                .value.lts <= $date
+              )) |
+              map(.key | ltrimstr("v") | tonumber) |
+              sort |
+              .[-2:]
+            ')
+
+            LTS_OLDEST=$(echo "$ACTIVE_LTS" | jq '.[0]')
+            LTS_LATEST=$(echo "$ACTIVE_LTS" | jq '.[1]')
+            TARGET_MAJOR=$LTS_LATEST
+          fi
 
           echo "Active LTS versions: $ACTIVE_LTS"
-
-          # Get the two active LTS major versions for the matrix
-          LTS_OLDEST=$(echo "$ACTIVE_LTS" | jq '.[0]')
-          LTS_LATEST=$(echo "$ACTIVE_LTS" | jq '.[1]')
-
           echo "LTS oldest: $LTS_OLDEST"
           echo "LTS latest: $LTS_LATEST"
+          echo "Target major: $TARGET_MAJOR"
 
-          # Get the latest version of the newest LTS
-          LATEST_VERSION=$(echo "$ALL_VERSIONS" | jq -r --argjson major "$LTS_LATEST" '
+          # Get the latest version of the target major
+          LATEST_VERSION=$(echo "$ALL_VERSIONS" | jq -r --argjson major "$TARGET_MAJOR" '
             map(select(.version | startswith("v\($major)."))) |
             .[0].version |
             ltrimstr("v")
           ')
 
-          echo "Latest LTS version: $LATEST_VERSION"
+          echo "Latest version for major $TARGET_MAJOR: $LATEST_VERSION"
 
           # Get npm version bundled with this Node version
           NPM_VERSION=$(echo "$ALL_VERSIONS" | jq -r --arg ver "v$LATEST_VERSION" '
@@ -96,6 +156,7 @@ jobs:
           echo "lts_oldest=$LTS_OLDEST" >> $GITHUB_OUTPUT
           echo "lts_latest=$LTS_LATEST" >> $GITHUB_OUTPUT
           echo "matrix=[ $LTS_OLDEST, $LTS_LATEST ]" >> $GITHUB_OUTPUT
+          echo "has_version_limit=$HAS_CONFIG" >> $GITHUB_OUTPUT
 
       - name: 📖 Get current versions
         id: current-versions
@@ -254,6 +315,15 @@ jobs:
             UPDATE_BADGE="![Up to date](https://img.shields.io/badge/Status-Up%20to%20Date-green)"
           fi
 
+          # Set version limit badge
+          if [ "${{ steps.config.outputs.has_config }}" == "true" ]; then
+            VERSION_LIMIT_BADGE="![Limited](https://img.shields.io/badge/Version%20Limit-v${{ steps.config.outputs.max_major }}-blue)"
+            CONFIG_ICON="✅ maxMajorVersion: ${{ steps.config.outputs.max_major }}"
+          else
+            VERSION_LIMIT_BADGE="![No Limit](https://img.shields.io/badge/Version%20Limit-None-gray)"
+            CONFIG_ICON="❌ Not configured"
+          fi
+
           if [ "${{ steps.current-versions.outputs.has_nvmrc }}" == "true" ]; then
             NVMRC_ICON="✅ Found"
           else
@@ -275,14 +345,14 @@ jobs:
           cat >> $GITHUB_STEP_SUMMARY << EOF
           # Node.js Update Check Summary
 
-          ${UPDATE_BADGE}
+          ${UPDATE_BADGE} ${VERSION_LIMIT_BADGE}
 
           > 📅 Last check: $(date +%d-%m-%Y)
 
           ## 🔢 Version Comparison
 
-          | Package | Current | → | Latest LTS |
-          |---------|:-------:|:-:|:----------:|
+          | Package | Current | → | Latest |
+          |---------|:-------:|:-:|:------:|
           | **Node.js** | \`${{ steps.current-versions.outputs.current_node }}\` | → | \`${{ steps.node-versions.outputs.latest_version }}\` |
           | **npm** | \`${{ steps.current-versions.outputs.current_npm }}\` | → | \`${{ steps.node-versions.outputs.npm_version }}\` |
           | **CI Matrix** | \`${{ steps.current-versions.outputs.current_matrix }}\` | → | \`${{ steps.node-versions.outputs.matrix }}\` |
@@ -291,6 +361,7 @@ jobs:
 
           | File | Status | Description |
           |------|:------:|-------------|
+          | \`.noderc.json\` | ${CONFIG_ICON} | Version limit configuration |
           | \`.nvmrc\` | ${NVMRC_ICON} | Node version for nvm |
           | \`package.json\` | ${ENGINES_ICON} | Engines of node and npm |
           | \`check-node.yml\` | ${NODE_YML_ICON} | CI workflow matrix |
