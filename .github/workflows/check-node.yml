@@ -20,6 +20,7 @@ jobs:
       uses: actions/setup-node@v6.1.0
       with:
         node-version: ${{ matrix.node-version }}
+        cache: 'npm'
     - name: 📦 Install dependencies
       run: npm install
     - name: 🧪 Test code
