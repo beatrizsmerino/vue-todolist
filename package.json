@@ -50,7 +50,7 @@
 		"vuex": "^3.6.2"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.28.5",
+		"@babel/core": "^7.28.6",
 		"@babel/eslint-parser": "^7.28.5",
 		"@commitlint/cli": "^20.3.1",
 		"@commitlint/config-conventional": "^20.3.1",
