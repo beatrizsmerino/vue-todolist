@@ -1,5 +1,5 @@
 {
-	"version": "3.10.2",
+	"version": "3.11.0",
 	"private": true,
 	"name": "vue-todolist",
 	"description": "To-do list made with Vue.",
@@ -50,10 +50,10 @@
 		"vuex": "^3.6.2"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.28.5",
-		"@babel/eslint-parser": "^7.28.5",
-		"@commitlint/cli": "^20.2.0",
-		"@commitlint/config-conventional": "^20.2.0",
+		"@babel/core": "^7.28.6",
+		"@babel/eslint-parser": "^7.28.6",
+		"@commitlint/cli": "^20.3.1",
+		"@commitlint/config-conventional": "^20.3.1",
 		"@vue/cli-plugin-babel": "^5.0.9",
 		"@vue/cli-plugin-eslint": "^5.0.9",
 		"@vue/cli-plugin-vuex": "^5.0.9",
@@ -65,15 +65,15 @@
 		"eslint": "^8.57.0",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-jsonc": "^2.21.0",
-		"eslint-plugin-prettier": "^5.5.4",
+		"eslint-plugin-prettier": "^5.5.5",
 		"eslint-plugin-vue": "^10.6.2",
 		"eslint-webpack-plugin": "^5.0.2",
 		"husky": "^9.1.7",
 		"lint-staged": "^16.2.7",
 		"postcss": "^8.5.6",
-		"postcss-html": "^1.8.0",
-		"prettier": "^3.7.4",
-		"sass": "^1.97.1",
+		"postcss-html": "^1.8.1",
+		"prettier": "^3.8.0",
+		"sass": "^1.97.2",
 		"sass-loader": "^16",
 		"standard-version": "^9.5.0",
 		"stylelint": "^16.26.1",
@@ -81,14 +81,14 @@
 		"stylelint-config-recommended-vue": "^1.6.1",
 		"stylelint-config-sass-guidelines": "^12.1.0",
 		"stylelint-config-standard": "^39.0.1",
-		"stylelint-scss": "^6.13.0",
+		"stylelint-scss": "^6.14.0",
 		"stylelint-webpack-plugin": "^5.0.1",
 		"vue-template-compiler": "^2.7.16"
 	},
 	"globalDependencies": {
 		"@vue/cli": "^5.0.9",
-		"@commitlint/cli": "^20.2.0",
-		"@commitlint/config-conventional": "^20.2.0",
+		"@commitlint/cli": "^20.3.1",
+		"@commitlint/config-conventional": "^20.3.1",
 		"commitizen": "^4.3.1",
 		"conventional-changelog-cli": "^5.0.0",
 		"cz-conventional-changelog": "^3.3.0",
@@ -96,7 +96,7 @@
 		"standard-version": "^9.5.0"
 	},
 	"engines": {
-		"node": "22.21.1",
+		"node": "22.22.0",
 		"npm": "10.9.4"
 	},
 	"overrides": {
