@@ -92,7 +92,7 @@
 		"commitizen": "^4.3.1",
 		"conventional-changelog-cli": "^5.0.0",
 		"cz-conventional-changelog": "^3.3.0",
-		"prettier": "^3.7.4",
+		"prettier": "^3.8.1",
 		"standard-version": "^9.5.0"
 	},
 	"engines": {
