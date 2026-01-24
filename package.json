@@ -104,6 +104,7 @@
 		"npm": "10.9.4"
 	},
 	"overrides": {
+		"stylelint-config-recommended": "17.0.0",
 		"semver": "^7.6.3",
 		"tough-cookie": "^4.1.4",
 		"inquirer": "^8.2.6",
