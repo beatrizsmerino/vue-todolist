@@ -3,7 +3,11 @@
 	"private": true,
 	"name": "vue-todolist",
 	"description": "To-do list made with Vue.",
-	"author": "beatrizsmerino@gmail.com",
+	"author": {
+		"name": "Beatriz Sopeña Merino",
+		"email": "beatrizsmerino@gmail.com",
+		"url": "https://github.com/beatrizsmerino"
+	},
 	"license": "MIT",
 	"repository": {
 		"type": "git",
