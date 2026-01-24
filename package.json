@@ -4,7 +4,7 @@
 	"name": "vue-todolist",
 	"description": "To-do list made with Vue.",
 	"author": "beatrizsmerino@gmail.com",
-	"license": "ISC",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/beatrizsmerino/vue-todolist.git"
