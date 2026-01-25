@@ -10,7 +10,8 @@
 		{
 			"files": [
 				"*.json",
-				".prettierrc"
+				".prettierrc",
+				".lintstagedrc"
 			],
 			"options": {
 				"parser": "json",
