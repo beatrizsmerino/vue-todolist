@@ -3,7 +3,7 @@
 name: 🚀 Deploy project in GitHub Pages
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 jobs:
   gh-pages-deploy:
     name: 🧩 Deploying code to gh-pages branch

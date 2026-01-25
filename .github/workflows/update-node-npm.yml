@@ -26,7 +26,7 @@ on:
   schedule:
     # Monthly: First Saturday at 09:00 Spain (08:00 UTC)
     # Runs on days 1-7 of each month, but only if it's Saturday (day 6)
-    - cron: '0 8 1-7 * 6'
+    - cron: "0 8 1-7 * 6"
   workflow_dispatch:
 
 permissions:
@@ -242,9 +242,7 @@ jobs:
       - name: 🚀 Create Pull Request
         if: |
           steps.check-update.outputs.update_needed == 'true' &&
-          (steps.current-versions.outputs.has_nvmrc == 'true' ||
-           steps.current-versions.outputs.has_engines == 'true' ||
-           steps.current-versions.outputs.has_node_yml == 'true')
+          (steps.current-versions.outputs.has_nvmrc == 'true' || steps.current-versions.outputs.has_engines == 'true' || steps.current-versions.outputs.has_node_yml == 'true')
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.PAT_WORKFLOW }}

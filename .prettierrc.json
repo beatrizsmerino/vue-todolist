@@ -15,6 +15,17 @@
 				"parser": "json",
 				"printWidth": 0
 			}
+		},
+		{
+			"files": [
+				"*.yml",
+				"*.yaml"
+			],
+			"options": {
+				"printWidth": 10000,
+				"tabWidth": 2,
+				"useTabs": false
+			}
 		}
 	],
 	"printWidth": 120,
