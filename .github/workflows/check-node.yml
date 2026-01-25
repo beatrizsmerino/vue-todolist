@@ -3,27 +3,27 @@
 name: ✅ Check project in different Node versions
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 jobs:
   check-node-build:
     name: 🧩 Build and test code
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 20, 22 ]
+        node-version: [20, 22]
     steps:
-    - name: 🔀 Checkout code from repository
-      uses: actions/checkout@v6.0.1
-    - name: 🛠️ Setup Node version ${{ matrix.node-version }}
-      uses: actions/setup-node@v6.2.0
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: 📦 Install dependencies
-      run: npm install
-    - name: 🧪 Test code
-      run: npm run test --if-present
-    - name: 🏗️ Build project
-      run: npm run build --if-present
+      - name: 🔀 Checkout code from repository
+        uses: actions/checkout@v6.0.1
+      - name: 🛠️ Setup Node version ${{ matrix.node-version }}
+        uses: actions/setup-node@v6.2.0
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - name: 📦 Install dependencies
+        run: npm install
+      - name: 🧪 Test code
+        run: npm run test --if-present
+      - name: 🏗️ Build project
+        run: npm run build --if-present
