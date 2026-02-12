@@ -11,6 +11,10 @@ updates:
       timezone: "Europe/Madrid"
     assignees:
       - beatrizsmerino
+    labels:
+      - "dependencies"
+      - "dependabot"
+    milestone: 5
     commit-message:
       prefix: build
       prefix-development: build
@@ -25,8 +29,14 @@ updates:
       timezone: "Europe/Madrid"
     assignees:
       - beatrizsmerino
+    labels:
+      - "dependencies"
+      - "github_actions"
+      - "dependabot"
+    milestone: 5
     commit-message:
       prefix: build
       prefix-development: build
       include: scope
     open-pull-requests-limit: 10
+
