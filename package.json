@@ -104,11 +104,16 @@
 		"npm": "10.9.4"
 	},
 	"overrides": {
-		"stylelint-config-recommended": "17.0.0",
 		"semver": "^7.6.3",
-		"tough-cookie": "^4.1.4",
-		"inquirer": "^8.2.6",
-		"webpack-dev-server": "^5.2.1",
+		"stylelint-config-recommended-vue": {
+			"stylelint-config-recommended": "17.0.0"
+		},
+		"commitizen": {
+			"inquirer": "^8.2.6"
+		},
+		"@vue/cli-service": {
+			"webpack-dev-server": "^5.2.1"
+		},
 		"@vue/component-compiler-utils": {
 			"postcss": "^8.4.31"
 		},
