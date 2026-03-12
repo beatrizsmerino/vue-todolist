@@ -112,6 +112,7 @@
 			"inquirer": "^8.2.6"
 		},
 		"@vue/cli-service": {
+			"serialize-javascript": "^7.0.4",
 			"webpack-dev-server": "^5.2.1"
 		},
 		"@vue/component-compiler-utils": {
