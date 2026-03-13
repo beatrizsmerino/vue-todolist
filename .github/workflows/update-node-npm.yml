@@ -156,7 +156,7 @@ jobs:
           echo "npm_version=$NPM_VERSION" >> $GITHUB_OUTPUT
           echo "lts_oldest=$LTS_OLDEST" >> $GITHUB_OUTPUT
           echo "lts_latest=$LTS_LATEST" >> $GITHUB_OUTPUT
-          echo "matrix=[ $LTS_OLDEST, $LTS_LATEST ]" >> $GITHUB_OUTPUT
+          echo "matrix=[$LTS_LATEST]" >> $GITHUB_OUTPUT
           echo "has_version_limit=$HAS_CONFIG" >> $GITHUB_OUTPUT
 
       - name: 📖 Get current versions
