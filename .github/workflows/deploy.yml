@@ -3,7 +3,7 @@
 name: 🚀 Deploy project in GitHub Pages
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 jobs:
   gh-pages-deploy:
     name: 🧩 Deploying code to gh-pages branch
@@ -14,7 +14,7 @@ jobs:
       - name: 🛠️ Setup Node version
         uses: actions/setup-node@v6.3.0
         with:
-          node-version: 20.x
+          node-version: 22.22.1
       - name: 📦 Install dependencies
         run: npm install
       - name: 🙍‍♂️ Setup git user
