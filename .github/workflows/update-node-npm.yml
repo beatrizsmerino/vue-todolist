@@ -156,7 +156,7 @@ jobs:
           echo "npm_version=$NPM_VERSION" >> $GITHUB_OUTPUT
           echo "lts_oldest=$LTS_OLDEST" >> $GITHUB_OUTPUT
           echo "lts_latest=$LTS_LATEST" >> $GITHUB_OUTPUT
-          echo "matrix=[$LTS_LATEST]" >> $GITHUB_OUTPUT
+          echo "matrix=[$LATEST_VERSION]" >> $GITHUB_OUTPUT
           echo "has_version_limit=$HAS_CONFIG" >> $GITHUB_OUTPUT
 
       - name: 📖 Get current versions
@@ -243,7 +243,7 @@ jobs:
       - name: 📝 Update deploy.yml node-version
         if: steps.check-update.outputs.update_needed == 'true'
         run: |
-          sed -i "s/node-version: [0-9]*\.x/node-version: ${{ steps.node-versions.outputs.lts_latest }}.x/" .github/workflows/deploy.yml
+          sed -i "s/node-version: [0-9][0-9.]*/node-version: ${{ steps.node-versions.outputs.latest_version }}/" .github/workflows/deploy.yml
           echo "Updated deploy.yml node-version"
           grep "node-version:" .github/workflows/deploy.yml
 
@@ -266,7 +266,7 @@ jobs:
             - Update `package.json` file in `engines.node`: ${{ steps.current-versions.outputs.current_node }} → ${{ steps.node-versions.outputs.latest_version }}
             - Update `package.json` file in `engines.npm`: ${{ steps.current-versions.outputs.current_npm }} → ${{ steps.node-versions.outputs.npm_version }}
             - Update `check-node.yml` file in matrix: ${{ steps.current-versions.outputs.current_matrix }} → ${{ steps.node-versions.outputs.matrix }}
-            - Update `deploy.yml` file in node-version: ${{ steps.node-versions.outputs.lts_latest }}.x
+            - Update `deploy.yml` file in node-version: ${{ steps.node-versions.outputs.latest_version }}
           title: "build(deps): update `node@${{ steps.node-versions.outputs.latest_version }}` and `npm@${{ steps.node-versions.outputs.npm_version }}` versions"
           body: |
             # build(deps): update `node@${{ steps.node-versions.outputs.latest_version }}` and `npm@${{ steps.node-versions.outputs.npm_version }}` versions
@@ -295,7 +295,7 @@ jobs:
             - Update `package.json` file in `engines.node`: `${{ steps.current-versions.outputs.current_node }}` → `${{ steps.node-versions.outputs.latest_version }}`
             - Update `package.json` file in `engines.npm`: `${{ steps.current-versions.outputs.current_npm }}` → `${{ steps.node-versions.outputs.npm_version }}`
             - Update `check-node.yml` file in matrix: `${{ steps.current-versions.outputs.current_matrix }}` → `${{ steps.node-versions.outputs.matrix }}`
-            - Update `deploy.yml` file in node-version: `${{ steps.node-versions.outputs.lts_latest }}.x`
+            - Update `deploy.yml` file in node-version: `${{ steps.node-versions.outputs.latest_version }}`
 
             ## 🧪 Tests
 
