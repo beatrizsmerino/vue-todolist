@@ -76,25 +76,7 @@ module.exports = {
 				],
 			},
 		],
-		"declaration-property-value-no-unknown": [
-			true,
-			{
-				"ignoreProperties": {
-					"box-shadow": [
-						"/^((inset\\s+)?-?[0-9.]+(px|rem|em|%)?(\\s+-?[0-9.]+(px|rem|em|%|0)?){0,3})\\s*rgba\\(\\$[a-zA-Z0-9-_]+,\\s*[0-9.]+\\)$/",
-					],
-					"border": [
-						"/^-?[0-9.]+(px|rem|em|%)\\s+(solid|dashed|dotted)\\s+(\\$[a-zA-Z0-9-_]+|rgba\\(\\$[a-zA-Z0-9-_]+,\\s*[0-9.]+\\))$/",
-					],
-					"transition": [
-						"/^(all|transform|opacity|color)?\\s*[0-9.]+(s|ms)?(\\s+(ease|linear|ease-in|ease-out|ease-in-out))?(\\s+[0-9.]+(s|ms)?)?$/",
-					],
-					"background": [
-						"/^rgba\\(\\$[a-zA-Z0-9-_]+,\\s*[0-9.]+\\)$/",
-					],
-				},
-			},
-		],
+		"declaration-property-value-no-unknown": null,
 		"font-family-no-duplicate-names": true,
 		"font-family-no-missing-generic-family-keyword": true,
 		"function-calc-no-unspaced-operator": true,
@@ -134,6 +116,7 @@ module.exports = {
 			},
 		],
 		"scss/at-rule-no-unknown": true,
+		"scss/declaration-property-value-no-unknown": true,
 		"scss/no-global-function-names": null,
 		"selector-class-pattern": [
 			"^([a-z]+[a-z0-9]*)(-[a-z0-9]+)*(__[a-z]+[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z]+[a-z0-9]+(-[a-z0-9]+)*)?$",
