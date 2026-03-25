@@ -100,8 +100,8 @@
 		"standard-version": "^9.5.0"
 	},
 	"engines": {
-		"node": "24.14.0",
-		"npm": "11.9.0"
+		"node": "24.14.1",
+		"npm": "11.11.0"
 	},
 	"overrides": {
 		"semver": "^7.6.3",
