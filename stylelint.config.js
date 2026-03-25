@@ -10,6 +10,15 @@ module.exports = {
 		"stylelint-scss",
 	],
 	"rules": {
+		"annotation-no-unknown": [
+			true,
+			{
+				"ignoreAnnotations": [
+					"default",
+					"global",
+				],
+			},
+		],
 		"at-rule-empty-line-before": [
 			"always",
 			{
