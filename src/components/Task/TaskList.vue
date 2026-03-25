@@ -93,7 +93,7 @@
 			}
 
 			&.task-list-move {
-				transition: transform 0.4s linear 0.3;
+				transition: transform 0.4s linear 0.3s;
 			}
 		}
 
