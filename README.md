@@ -66,6 +66,14 @@ actions no matter where the component is located.
 npm install
 ```
 
+### Install global dependencies
+
+Install global dependencies required by the project before `npm install`.
+
+```bash
+npm run install:global
+```
+
 ### Compiles and hot-reloads for development
 
 ```bash
