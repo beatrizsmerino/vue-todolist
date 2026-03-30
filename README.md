@@ -62,6 +62,8 @@ actions no matter where the component is located.
 
 ### Install dependencies
 
+Install all dependencies listed in `package.json`.
+
 ```bash
 npm install
 ```
