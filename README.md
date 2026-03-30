@@ -98,6 +98,14 @@ Runs automatically after `npm install` to run `npm run lint` on all project file
 npm run postinstall
 ```
 
+### Set up Husky git hooks
+
+Runs automatically after `postinstall` to enable `pre-commit` and `commit-msg` hooks of [Husky](https://typicode.github.io/husky/).
+
+```bash
+npm run prepare
+```
+
 ### Compiles and hot-reloads for development
 
 ```bash
