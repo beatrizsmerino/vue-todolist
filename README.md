@@ -158,6 +158,8 @@ npm run stylelint:fix
 
 ### Generate Changelog file
 
+Generate `CHANGELOG.md` from commit history using [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog).
+
 ```bash
 npm run changelog:init
 ```
