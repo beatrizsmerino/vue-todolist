@@ -174,6 +174,8 @@ npm run changelog:update
 
 ### Create tag version and update files using gitflow structure
 
+Same as `changelog:update` but adapted for gitflow branching structure.
+
 ```bash
 npm run changelog:update:gitflow
 ```
