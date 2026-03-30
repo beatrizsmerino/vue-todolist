@@ -90,6 +90,14 @@ Runs automatically before `npm install` to execute `npm run install:global`.
 npm run preinstall
 ```
 
+### Lint after install
+
+Runs automatically after `npm install` to run `npm run lint` on all project files.
+
+```bash
+npm run postinstall
+```
+
 ### Compiles and hot-reloads for development
 
 ```bash
