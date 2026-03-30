@@ -74,6 +74,14 @@ Install global dependencies required by the project before `npm install`.
 npm run install:global
 ```
 
+### Clean install dependencies
+
+Remove `node_modules` and `package-lock.json` to reinstall from scratch.
+
+```bash
+npm run install:clean
+```
+
 ### Compiles and hot-reloads for development
 
 ```bash
