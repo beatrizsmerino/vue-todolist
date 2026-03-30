@@ -62,49 +62,49 @@ actions no matter where the component is located.
 
 ### Install dependencies
 
-```shell
+```bash
 npm install
 ```
 
 ### Compiles and hot-reloads for development
 
-```shell
+```bash
 npm run serve
 ```
 
 ### Compiles and minifies for production
 
-```shell
+```bash
 npm run build
 ```
 
 ### Lints and fixes files
 
-```shell
+```bash
 npm run lint
 ```
 
 ### Generate Changelog file
 
-```shell
+```bash
 npm run changelog:init
 ```
 
 ### Create tag version and update files in the current branch
 
-```shell
+```bash
 npm run changelog:update
 ```
 
 ### Create tag version and update files using gitflow structure
 
-```shell
+```bash
 npm run changelog:update:gitflow
 ```
 
 ### Publish in Github Pages
 
-```shell
+```bash
 npm run deploy
 ```
 
