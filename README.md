@@ -182,6 +182,8 @@ npm run changelog:update:gitflow
 
 ### Publish in Github Pages
 
+Publish the `dist` folder to GitHub Pages (`gh-pages` branch).
+
 ```bash
 npm run deploy
 ```
