@@ -82,6 +82,14 @@ Remove `node_modules` and `package-lock.json` to reinstall from scratch.
 npm run install:clean
 ```
 
+### Pre-install hook
+
+Runs automatically before `npm install` to execute `npm run install:global`.
+
+```bash
+npm run preinstall
+```
+
 ### Compiles and hot-reloads for development
 
 ```bash
