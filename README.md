@@ -166,6 +166,8 @@ npm run changelog:init
 
 ### Create tag version and update files in the current branch
 
+Create a new version tag and update `CHANGELOG.md` and `package.json` using [standard-version](https://github.com/conventional-changelog/standard-version).
+
 ```bash
 npm run changelog:update
 ```
