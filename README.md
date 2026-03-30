@@ -110,6 +110,8 @@ npm run prepare
 
 ### Compiles and hot-reloads for development
 
+Launch the development server on `localhost` with hot reload.
+
 ```bash
 npm run serve
 ```
