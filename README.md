@@ -116,14 +116,6 @@ Launch the development server on `localhost` with hot reload.
 npm run serve
 ```
 
-### Compiles and minifies for production
-
-Build and minify the project for production.
-
-```bash
-npm run build
-```
-
 ### Lints and fixes files
 
 Run [Prettier](https://prettier.io/) (`prettier:fix`), [ESLint](https://eslint.org/) (`eslint:fix`) and [Stylelint](https://stylelint.io/) (`stylelint:fix`) to format and lint all project files.
@@ -178,6 +170,14 @@ Same as `changelog:update` but adapted for gitflow branching structure.
 
 ```bash
 npm run changelog:update:gitflow
+```
+
+### Compiles and minifies for production
+
+Build and minify the project for production.
+
+```bash
+npm run build
 ```
 
 ### Publish in Github Pages
