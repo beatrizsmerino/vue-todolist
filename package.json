@@ -91,8 +91,8 @@
 	},
 	"globalDependencies": {
 		"@vue/cli": "^5.0.9",
-		"@commitlint/cli": "^20.4.4",
-		"@commitlint/config-conventional": "^20.4.4",
+		"@commitlint/cli": "^20.5.0",
+		"@commitlint/config-conventional": "^20.5.0",
 		"commitizen": "^4.3.1",
 		"conventional-changelog-cli": "^5.0.0",
 		"cz-conventional-changelog": "^3.3.0",
@@ -100,8 +100,8 @@
 		"standard-version": "^9.5.0"
 	},
 	"engines": {
-		"node": "24.14.0",
-		"npm": "11.9.0"
+		"node": "24.14.1",
+		"npm": "11.11.0"
 	},
 	"overrides": {
 		"semver": "^7.6.3",
