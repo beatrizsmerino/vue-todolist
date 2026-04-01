@@ -1,14 +1,10 @@
 {
-	"version": "3.12.0",
+	"version": "3.11.1",
 	"private": true,
 	"name": "vue-todolist",
 	"description": "To-do list made with Vue.",
-	"author": {
-		"name": "Beatriz Sopeña Merino",
-		"email": "beatrizsmerino@gmail.com",
-		"url": "https://github.com/beatrizsmerino"
-	},
-	"license": "MIT",
+	"author": "beatrizsmerino@gmail.com",
+	"license": "ISC",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/beatrizsmerino/vue-todolist.git"
@@ -31,7 +27,7 @@
 		"postinstall": "npm run lint",
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
-		"prettier:fix": "prettier --write \"./**/*.{css,scss,sass,json,yml,yaml,js,cjs,mjs,vue}\"",
+		"prettier:fix": "prettier --write \"./**/*.{css,scss,sass,json,js,cjs,mjs,vue}\"",
 		"eslint:fix": "vue-cli-service lint \"**/*.{json,js,cjs,mjs,vue}\" --fix --ignore-path .eslintignore",
 		"stylelint:fix": "stylelint \"**/*.{css,scss,sass,vue}\" --fix --ignore-path .stylelintignore",
 		"lint": "npm run prettier:fix && npm run eslint:fix && npm run stylelint:fix",
@@ -105,16 +101,9 @@
 	},
 	"overrides": {
 		"semver": "^7.6.3",
-		"stylelint-config-recommended-vue": {
-			"stylelint-config-recommended": "17.0.0"
-		},
-		"commitizen": {
-			"inquirer": "^8.2.6"
-		},
-		"@vue/cli-service": {
-			"serialize-javascript": "^7.0.4",
-			"webpack-dev-server": "^5.2.1"
-		},
+		"tough-cookie": "^4.1.4",
+		"inquirer": "^8.2.6",
+		"webpack-dev-server": "^5.2.1",
 		"@vue/component-compiler-utils": {
 			"postcss": "^8.4.31"
 		},

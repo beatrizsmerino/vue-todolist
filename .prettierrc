@@ -9,22 +9,18 @@
 	"overrides": [
 		{
 			"files": [
-				"*.json"
+				".prettierrc"
 			],
 			"options": {
-				"parser": "json",
-				"printWidth": 0
+				"parser": "json"
 			}
 		},
 		{
 			"files": [
-				"*.yml",
-				"*.yaml"
+				"*.json"
 			],
 			"options": {
-				"printWidth": 10000,
-				"tabWidth": 2,
-				"useTabs": false
+				"printWidth": 0
 			}
 		}
 	],
