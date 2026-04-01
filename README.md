@@ -62,50 +62,134 @@ actions no matter where the component is located.
 
 ### Install dependencies
 
-```shell
+Install all dependencies listed in `package.json`.
+
+```bash
 npm install
+```
+
+### Install global dependencies
+
+Install global dependencies required by the project before `npm install`.
+
+```bash
+npm run install:global
+```
+
+### Clean install dependencies
+
+Remove `node_modules` and `package-lock.json` to reinstall from scratch.
+
+```bash
+npm run install:clean
+```
+
+### Pre-install hook
+
+Runs automatically before `npm install` to execute `npm run install:global`.
+
+```bash
+npm run preinstall
+```
+
+### Lint after install
+
+Runs automatically after `npm install` to run `npm run lint` on all project files.
+
+```bash
+npm run postinstall
+```
+
+### Set up Husky git hooks
+
+Runs automatically after `postinstall` to enable `pre-commit` and `commit-msg` hooks of [Husky](https://typicode.github.io/husky/).
+
+```bash
+npm run prepare
 ```
 
 ### Compiles and hot-reloads for development
 
-```shell
+Launch the development server on `localhost` with hot reload.
+
+```bash
 npm run serve
-```
-
-### Compiles and minifies for production
-
-```shell
-npm run build
 ```
 
 ### Lints and fixes files
 
-```shell
+Run [Prettier](https://prettier.io/) (`prettier:fix`), [ESLint](https://eslint.org/) (`eslint:fix`) and [Stylelint](https://stylelint.io/) (`stylelint:fix`) to format and lint all project files.
+
+```bash
 npm run lint
+```
+
+### Format files with Prettier
+
+Format CSS, SCSS, JSON, YAML, JS and Vue files with [Prettier](https://prettier.io/).
+
+```bash
+npm run prettier:fix
+```
+
+### Lint and fix files with ESLint
+
+Lint and fix JSON, JS and Vue files with [ESLint](https://eslint.org/).
+
+```bash
+npm run eslint:fix
+```
+
+### Lint and fix styles with Stylelint
+
+Lint and fix CSS, SCSS and Vue files with [Stylelint](https://stylelint.io/).
+
+```bash
+npm run stylelint:fix
 ```
 
 ### Generate Changelog file
 
-```shell
+Generate `CHANGELOG.md` from commit history using [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog).
+
+```bash
 npm run changelog:init
 ```
 
 ### Create tag version and update files in the current branch
 
-```shell
+Create a new version tag and update `CHANGELOG.md` and `package.json` using [standard-version](https://github.com/conventional-changelog/standard-version).
+
+```bash
 npm run changelog:update
 ```
 
 ### Create tag version and update files using gitflow structure
 
-```shell
+Same as `changelog:update` but adapted for gitflow branching structure.
+
+```bash
 npm run changelog:update:gitflow
+```
+
+### Compiles and minifies for production
+
+Build and minify the project for production.
+
+```bash
+npm run build
 ```
 
 ### Publish in Github Pages
 
-```shell
+Publish the `dist` folder to GitHub Pages (`gh-pages` branch).
+
+```bash
 npm run deploy
 ```
+
+## 📄 License
+
+This project is licensed under the `MIT` License, which allows free use, modification and distribution. See [LICENSE](LICENSE) for details.
 
 ![Giphy Todolist](https://media.giphy.com/media/B7o99rIuystY4/giphy.gif)

@@ -1,10 +1,14 @@
 {
-	"version": "3.11.1",
+	"version": "3.12.0",
 	"private": true,
 	"name": "vue-todolist",
 	"description": "To-do list made with Vue.",
-	"author": "beatrizsmerino@gmail.com",
-	"license": "ISC",
+	"author": {
+		"name": "Beatriz Sopeña Merino",
+		"email": "beatrizsmerino@gmail.com",
+		"url": "https://github.com/beatrizsmerino"
+	},
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/beatrizsmerino/vue-todolist.git"
@@ -27,9 +31,9 @@
 		"postinstall": "npm run lint",
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
-		"prettier:fix": "prettier --write \"./**/*.{css,scss,sass,json,js,cjs,mjs,vue}\"",
-		"eslint:fix": "vue-cli-service lint \"**/*.{json,js,cjs,mjs,vue}\" --fix --ignore-path .eslintignore",
-		"stylelint:fix": "stylelint \"**/*.{css,scss,sass,vue}\" --fix --ignore-path .stylelintignore",
+		"prettier:fix": "prettier --write './**/*.{css,scss,json,yml,yaml,js,cjs,mjs,vue}'",
+		"eslint:fix": "vue-cli-service lint './**/*.{json,js,cjs,mjs,vue}' --fix --ignore-path .eslintignore",
+		"stylelint:fix": "stylelint './**/*.{css,scss,vue}' --fix --ignore-path .stylelintignore",
 		"lint": "npm run prettier:fix && npm run eslint:fix && npm run stylelint:fix",
 		"changelog:init": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
 		"changelog:update": "standard-version --tag-prefix='' --release-commit-message-format 'ci(changelog): update files with the new version {{currentTag}}'",
@@ -101,9 +105,16 @@
 	},
 	"overrides": {
 		"semver": "^7.6.3",
-		"tough-cookie": "^4.1.4",
-		"inquirer": "^8.2.6",
-		"webpack-dev-server": "^5.2.1",
+		"stylelint-config-recommended-vue": {
+			"stylelint-config-recommended": "17.0.0"
+		},
+		"commitizen": {
+			"inquirer": "^8.2.6"
+		},
+		"@vue/cli-service": {
+			"serialize-javascript": "^7.0.4",
+			"webpack-dev-server": "^5.2.1"
+		},
 		"@vue/component-compiler-utils": {
 			"postcss": "^8.4.31"
 		},
