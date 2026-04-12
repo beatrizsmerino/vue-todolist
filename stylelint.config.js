@@ -73,6 +73,14 @@ module.exports = {
 				],
 			},
 		],
+		"declaration-block-no-redundant-longhand-properties": [
+			true,
+			{
+				"ignoreShorthands": [
+					"flex-flow",
+				],
+			},
+		],
 		"declaration-block-no-shorthand-property-overrides": true,
 		"declaration-block-single-line-max-declarations": 1,
 		"declaration-empty-line-before": [
@@ -124,16 +132,22 @@ module.exports = {
 		"scss/declaration-property-value-no-unknown": true,
 		"scss/function-no-unknown": true,
 		"scss/no-global-function-names": null,
+
+		// Allows: BEM pattern (block__element--modifier)
+		// Examples (BEM): card, card-product, card--primary, card-product--primary, card-product__title, card-product__title-text, card-product__title--primary, card-product__title--primary-dark, card-product__title--primary-2, card-product__title--2, is-active
 		"selector-class-pattern": [
-			"^([a-z]+[a-z0-9]*)(-[a-z0-9]+)*(__[a-z]+[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z]+[a-z0-9]+(-[a-z0-9]+)*)?$",
+			"^([a-z]+[a-z0-9]*)(-[a-z0-9]+)*(__[a-z]+[a-z0-9]+(-[a-z0-9]+)*)?(--[a-z0-9]+(-[a-z0-9]+)*)?$",
 			{
 				"resolveNestedSelectors": true,
 			},
 		],
+
+		// Allows: camelCase pattern
+		// Examples (camelCase): header, mainContent, userProfile2
 		"selector-id-pattern": [
-			"error",
+			"^[a-z][a-zA-Z0-9]*$",
 			{
-				"format": "camelCase",
+				"message": "Expected ID selector to be camelCase",
 			},
 		],
 		"selector-max-compound-selectors": null,
@@ -156,7 +170,7 @@ module.exports = {
 				],
 			},
 		],
-		"selector-pseudo-element-colon-notation": "single",
+		"selector-pseudo-element-colon-notation": "double",
 		"selector-pseudo-element-no-unknown": [
 			true,
 			{

@@ -129,7 +129,7 @@
 				text-overflow: ellipsis;
 				white-space: nowrap;
 
-				&:before {
+				&::before {
 					content: "";
 					position: absolute;
 					top: 50%;
@@ -202,7 +202,7 @@
 			.task-preview {
 				&__name {
 					p {
-						&:before {
+						&::before {
 							width: 100%;
 						}
 					}

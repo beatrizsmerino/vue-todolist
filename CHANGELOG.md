@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.12.2](https://github.com/beatrizsmerino/vue-todolist/compare/3.12.1...3.12.2) (2026-04-12)
+
+### Features
+
+* **stylelint:** add `declaration-block-no-redundant-longhand-properties` rule ([de653ae](https://github.com/beatrizsmerino/vue-todolist/commit/de653aea2aed3b37a0189bfe9c3f7891bfb6ca12)), closes [#1108](https://github.com/beatrizsmerino/vue-todolist/issues/1108)
+
+### Bug Fixes
+
+* **stylelint:** change `selector-pseudo-element-colon-notation` from single to double ([5a1c4ec](https://github.com/beatrizsmerino/vue-todolist/commit/5a1c4ec92179c4a5ac8dbdd08c5475bc5d1756d7)), closes [#1107](https://github.com/beatrizsmerino/vue-todolist/issues/1107)
+* **stylelint:** allow numeric BEM modifiers in `selector-class-pattern` ([8022138](https://github.com/beatrizsmerino/vue-todolist/commit/8022138f3ddf4cda1dab09df47a1cd18184a1e22)), closes [#1109](https://github.com/beatrizsmerino/vue-todolist/issues/1109)
+* **stylelint:** fix `selector-id-pattern` to allow `camelCase` IDs ([fc7cca7](https://github.com/beatrizsmerino/vue-todolist/commit/fc7cca7fd81aa38608ad6ff097b7e4974a4dd959)), closes [#1110](https://github.com/beatrizsmerino/vue-todolist/issues/1110)
+* **stylelint:** remove stale `.nuxt` entry from `.stylelintignore` ([dacf729](https://github.com/beatrizsmerino/vue-todolist/commit/dacf729ddad561e18e6ef79b1e40d36cada96ca5)), closes [#1113](https://github.com/beatrizsmerino/vue-todolist/issues/1113)
+
+### Documentation
+
+* **stylelint:** add explanatory comments to selector pattern regex ([daa4d8c](https://github.com/beatrizsmerino/vue-todolist/commit/daa4d8c8a02237269f50a9c2566604b979d08d85)), closes [#1111](https://github.com/beatrizsmerino/vue-todolist/issues/1111)
+
+### Styles
+
+* **stylelint:** add trailing newline to `.stylelintignore` ([a81b723](https://github.com/beatrizsmerino/vue-todolist/commit/a81b7231caee16d1429e277bc21fc9a79657d148)), closes [#1112](https://github.com/beatrizsmerino/vue-todolist/issues/1112)
+* **stylelint:** format pseudo-elements with double colon notation ([8560e87](https://github.com/beatrizsmerino/vue-todolist/commit/8560e87bccf34ddf166ae661d161ba2ebcd69f90))
+
+### Build
+
+* **package:** bump version from `3.12.1` to `3.12.2` ([343ab9b](https://github.com/beatrizsmerino/vue-todolist/commit/343ab9befdcd59e3f3c318933f0c6d3c678af836))
+* **deps-dev:** bump prettier from 3.8.1 to 3.8.2 ([92cf5da](https://github.com/beatrizsmerino/vue-todolist/commit/92cf5dadb435bf28e44c304154fac28ea8833b46))
+
 ## [3.12.1](https://github.com/beatrizsmerino/vue-todolist/compare/3.12.0...3.12.1) (2026-04-09)
 
 ### Bug Fixes
