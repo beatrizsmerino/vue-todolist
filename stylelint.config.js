@@ -131,9 +131,9 @@ module.exports = {
 			},
 		],
 		"selector-id-pattern": [
-			"error",
+			"^[a-z][a-zA-Z0-9]*$",
 			{
-				"format": "camelCase",
+				"message": "Expected ID selector to be camelCase",
 			},
 		],
 		"selector-max-compound-selectors": null,
