@@ -73,6 +73,14 @@ module.exports = {
 				],
 			},
 		],
+		"declaration-block-no-redundant-longhand-properties": [
+			true,
+			{
+				"ignoreShorthands": [
+					"flex-flow",
+				],
+			},
+		],
 		"declaration-block-no-shorthand-property-overrides": true,
 		"declaration-block-single-line-max-declarations": 1,
 		"declaration-empty-line-before": [
