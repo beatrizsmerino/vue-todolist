@@ -1,5 +1,5 @@
 {
-	"version": "3.12.1",
+	"version": "3.12.2",
 	"private": true,
 	"name": "vue-todolist",
 	"description": "To-do list made with Vue.",
@@ -76,7 +76,7 @@
 		"lint-staged": "^16.4.0",
 		"postcss": "^8.5.9",
 		"postcss-html": "^1.8.1",
-		"prettier": "^3.8.1",
+		"prettier": "^3.8.2",
 		"sass": "^1.99.0",
 		"sass-loader": "^16",
 		"standard-version": "^9.5.0",
