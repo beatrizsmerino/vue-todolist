@@ -1,11 +1,11 @@
-# path/to/project/root/.prettierrc
-# /node_modules/* and /bower_components/* in the project root are ignored by default
+# Prettier defaults (no need to list):
+#   - Folders excluded automatically (node_modules/, .git/)
+#   - Files with unknown or extensionless types (.gitignore, LICENSE, .editorconfig)
+#   - Binary files (images, fonts, etc.)
+#
+# Add below any extra paths that should not be formatted.
 
 
 # FOLDERS
-.git
 .nuxt
 dist
-
-# FILES
-.gitignore
