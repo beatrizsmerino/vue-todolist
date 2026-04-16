@@ -1,13 +1,11 @@
-# path/to/project/root/.eslintignore
-# /node_modules/* and /bower_components/* in the project root are ignored by default
+# ESLint defaults (no need to list):
+#   - Folders excluded automatically (node_modules/)
+#   - Non-JS files (CSS, images, fonts, *.md, LICENSE, etc.)
+#   - Files with unknown or extensionless types (.gitignore, .editorconfig)
+#
+# Add below any extra paths that should not be linted.
 
 
 # FOLDERS
-.git
 .nuxt
 dist
-
-# FILES
-.gitignore
-*.md
-LICENSE
