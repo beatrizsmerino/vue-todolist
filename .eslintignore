@@ -6,6 +6,5 @@
 # Add below any extra paths that should not be linted.
 
 
-# FOLDERS
-.nuxt
-dist
+# Build output
+dist/
