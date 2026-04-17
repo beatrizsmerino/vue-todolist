@@ -6,5 +6,5 @@
 # Add below any extra paths that should not be linted.
 
 
-# FOLDERS
-dist
+# Build output
+dist/
