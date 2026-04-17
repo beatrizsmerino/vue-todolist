@@ -1,7 +1,7 @@
 # ESLint defaults (no need to list):
-#   - Folders excluded automatically (node_modules/)
-#   - Non-JS files (CSS, images, fonts, *.md, LICENSE, etc.)
-#   - Files with unknown or extensionless types (.gitignore, .editorconfig)
+#   - Folders excluded automatically (node_modules/, .git/)
+#   - Files with unknown or extensionless types (.gitignore, LICENSE, .editorconfig)
+#   - Non-JS files (CSS, images, fonts, *.md, etc.)
 #
 # Add below any extra paths that should not be linted.
 
