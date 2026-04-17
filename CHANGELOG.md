@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.12.3](https://github.com/beatrizsmerino/vue-todolist/compare/3.12.2...3.12.3) (2026-04-17)
+
+
+### Refactor
+
+* **eslintignore:** restructure entries under 'Build output' block ([7a99ca3](https://github.com/beatrizsmerino/vue-todolist/commit/7a99ca37b23eb5618b701fcb7a891b263256f5f8)), closes [#1120](https://github.com/beatrizsmerino/vue-todolist/issues/1120)
+* **eslintignore:** update header and remove entries already ignored by default ([1715bae](https://github.com/beatrizsmerino/vue-todolist/commit/1715baeb13486550cb8a8aed341b889ff1f416e7)), closes [#1120](https://github.com/beatrizsmerino/vue-todolist/issues/1120)
+* **gitignore:** simplify to minimum viable ignore rules ([40ab821](https://github.com/beatrizsmerino/vue-todolist/commit/40ab8216e15ef634501c7042c4033eda4c381283)), closes [#1117](https://github.com/beatrizsmerino/vue-todolist/issues/1117)
+* **ignores:** unify header structure across `.prettierignore`, `.eslintignore` and `.stylelintignore` ([c81aede](https://github.com/beatrizsmerino/vue-todolist/commit/c81aedebddc9eaadf6c5f12cc99af1a1170914a6)), closes [#1118](https://github.com/beatrizsmerino/vue-todolist/issues/1118) [#1119](https://github.com/beatrizsmerino/vue-todolist/issues/1119) [#1120](https://github.com/beatrizsmerino/vue-todolist/issues/1120)
+* **prettierignore:** restructure entries under 'Build output' block ([ea09066](https://github.com/beatrizsmerino/vue-todolist/commit/ea09066ae9d36812ade3ece6609755c4e87f1f19)), closes [#1118](https://github.com/beatrizsmerino/vue-todolist/issues/1118)
+* **prettierignore:** update header and remove entries already ignored by default ([0fac7d6](https://github.com/beatrizsmerino/vue-todolist/commit/0fac7d678e9b6c49cf44eaa70d293bac8f8ad19e)), closes [#1118](https://github.com/beatrizsmerino/vue-todolist/issues/1118)
+* **stylelintignore:** restructure entries under 'Build output' block ([f391e3d](https://github.com/beatrizsmerino/vue-todolist/commit/f391e3dd25e4aa158ae0c60b0554e30a44b14719)), closes [#1119](https://github.com/beatrizsmerino/vue-todolist/issues/1119)
+* **stylelintignore:** update header and remove entries already ignored by default ([ba2b2ce](https://github.com/beatrizsmerino/vue-todolist/commit/ba2b2cefd46326e43db84d8463264c79c769635b)), closes [#1119](https://github.com/beatrizsmerino/vue-todolist/issues/1119)
+
+### Build
+
+* **package:** bump version from `3.12.2` to `3.12.3` ([8af7ec4](https://github.com/beatrizsmerino/vue-todolist/commit/8af7ec463ee46741dcc0e0c1e0efffcd5ea6be07))
+* **deps-dev:** update `prettier` from `3.8.1` to `3.8.3` ([4860693](https://github.com/beatrizsmerino/vue-todolist/commit/48606932c49e0eb7aac721554ba6b58eec917e37))
+
 ## [3.12.2](https://github.com/beatrizsmerino/vue-todolist/compare/3.12.1...3.12.2) (2026-04-12)
 
 ### Features
