@@ -289,6 +289,10 @@ jobs:
             - Update `.nvmrc` file: v${{ steps.current-versions.outputs.current_node }} → v${{ steps.node-versions.outputs.latest_version }}
             - Update `package.json` file in `engines.node`: ${{ steps.current-versions.outputs.current_node }} → ${{ steps.node-versions.outputs.latest_version }}
             - Update `package.json` file in `engines.npm`: ${{ steps.current-versions.outputs.current_npm }} → ${{ steps.node-versions.outputs.npm_version }}
+            - Update `packages/*/package.json` files in `engines.node`: ${{ steps.current-versions.outputs.current_node }} → ${{ steps.node-versions.outputs.latest_version }}
+            - Update `packages/*/package.json` files in `engines.npm`: ${{ steps.current-versions.outputs.current_npm }} → ${{ steps.node-versions.outputs.npm_version }}
+            - Update `package-lock.json` in `engines.node`: ${{ steps.current-versions.outputs.current_node }} → ${{ steps.node-versions.outputs.latest_version }}
+            - Update `package-lock.json` in `engines.npm`: ${{ steps.current-versions.outputs.current_npm }} → ${{ steps.node-versions.outputs.npm_version }}
             - Update `check-node.yml` file in matrix: ${{ steps.current-versions.outputs.current_matrix }} → ${{ steps.node-versions.outputs.matrix }}
             - Update `deploy.yml` file in node-version: ${{ steps.node-versions.outputs.latest_version }}
           title: "build(deps): update `node@${{ steps.node-versions.outputs.latest_version }}` and `npm@${{ steps.node-versions.outputs.npm_version }}` versions"
@@ -318,6 +322,10 @@ jobs:
             - Update `.nvmrc` file: `v${{ steps.current-versions.outputs.current_node }}` → `v${{ steps.node-versions.outputs.latest_version }}`
             - Update `package.json` file in `engines.node`: `${{ steps.current-versions.outputs.current_node }}` → `${{ steps.node-versions.outputs.latest_version }}`
             - Update `package.json` file in `engines.npm`: `${{ steps.current-versions.outputs.current_npm }}` → `${{ steps.node-versions.outputs.npm_version }}`
+            - Update `packages/*/package.json` files in `engines.node`: `${{ steps.current-versions.outputs.current_node }}` → `${{ steps.node-versions.outputs.latest_version }}`
+            - Update `packages/*/package.json` files in `engines.npm`: `${{ steps.current-versions.outputs.current_npm }}` → `${{ steps.node-versions.outputs.npm_version }}`
+            - Update `package-lock.json` in `engines.node`: `${{ steps.current-versions.outputs.current_node }}` → `${{ steps.node-versions.outputs.latest_version }}`
+            - Update `package-lock.json` in `engines.npm`: `${{ steps.current-versions.outputs.current_npm }}` → `${{ steps.node-versions.outputs.npm_version }}`
             - Update `check-node.yml` file in matrix: `${{ steps.current-versions.outputs.current_matrix }}` → `${{ steps.node-versions.outputs.matrix }}`
             - Update `deploy.yml` file in node-version: `${{ steps.node-versions.outputs.latest_version }}`
 
@@ -374,6 +382,20 @@ jobs:
             NODE_YML_ICON="❌ Not found"
           fi
 
+          shopt -s nullglob
+          WS_PKGS=(packages/*/package.json)
+          if [ ${#WS_PKGS[@]} -gt 0 ]; then
+            WS_PKG_ICON="✅ Found (${#WS_PKGS[@]})"
+          else
+            WS_PKG_ICON="❌ Not found"
+          fi
+
+          if [ -f package-lock.json ]; then
+            LOCKFILE_ICON="✅ Found"
+          else
+            LOCKFILE_ICON="❌ Not found"
+          fi
+
           if [ -f .github/workflows/deploy.yml ]; then
             DEPLOY_YML_ICON="✅ Found"
           else
@@ -402,6 +424,8 @@ jobs:
           | \`.noderc.json\` | ${CONFIG_ICON} | Version limit configuration |
           | \`.nvmrc\` | ${NVMRC_ICON} | Node version for nvm |
           | \`package.json\` | ${ENGINES_ICON} | Engines of node and npm |
+          | \`packages/*/package.json\` | ${WS_PKG_ICON} | Engines of node and npm in workspaces |
+          | \`package-lock.json\` | ${LOCKFILE_ICON} | Engines for root and workspace entries |
           | \`check-node.yml\` | ${NODE_YML_ICON} | CI workflow matrix |
           | \`deploy.yml\` | ${DEPLOY_YML_ICON} | Deploy workflow node-version |
 
