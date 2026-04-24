@@ -13,6 +13,7 @@
 # - .nvmrc
 # - package.json (engines.node and engines.npm)
 # - packages/*/package.json (engines.node and engines.npm)
+# - package-lock.json (engines for root and workspace entries)
 # - .github/workflows/check-node.yml (matrix node-version)
 # - .github/workflows/deploy.yml (node-version)
 
@@ -241,6 +242,18 @@ jobs:
             mv "$ws_pkg.tmp" "$ws_pkg"
             echo "Updated $ws_pkg"
           done
+
+      - name: 📝 Update package-lock.json engines
+        if: steps.check-update.outputs.update_needed == 'true' && hashFiles('package-lock.json') != ''
+        run: |
+          jq --tab '.packages |= with_entries(
+            if (.key == "" or (.key | startswith("packages/")))
+            then .value.engines.node = "${{ steps.node-versions.outputs.latest_version }}" | .value.engines.npm = "${{ steps.node-versions.outputs.npm_version }}"
+            else .
+            end
+          )' package-lock.json > package-lock.json.tmp
+          mv package-lock.json.tmp package-lock.json
+          echo "Updated package-lock.json engines"
 
       - name: 📝 Update check-node.yml matrix
         if: steps.check-update.outputs.update_needed == 'true' && steps.current-versions.outputs.has_node_yml == 'true'
