@@ -12,6 +12,7 @@
 # Files updated by this workflow:
 # - .nvmrc
 # - package.json (engines.node and engines.npm)
+# - packages/*/package.json (engines.node and engines.npm)
 # - .github/workflows/check-node.yml (matrix node-version)
 # - .github/workflows/deploy.yml (node-version)
 
@@ -230,6 +231,16 @@ jobs:
 
           echo "Updated package.json engines"
           cat package.json | jq '.engines'
+
+      - name: 📝 Update workspaces package.json engines
+        if: steps.check-update.outputs.update_needed == 'true'
+        run: |
+          shopt -s nullglob
+          for ws_pkg in packages/*/package.json; do
+            jq --tab '.engines.node = "${{ steps.node-versions.outputs.latest_version }}" | .engines.npm = "${{ steps.node-versions.outputs.npm_version }}"' "$ws_pkg" > "$ws_pkg.tmp"
+            mv "$ws_pkg.tmp" "$ws_pkg"
+            echo "Updated $ws_pkg"
+          done
 
       - name: 📝 Update check-node.yml matrix
         if: steps.check-update.outputs.update_needed == 'true' && steps.current-versions.outputs.has_node_yml == 'true'
