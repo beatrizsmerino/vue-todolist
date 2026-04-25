@@ -12,6 +12,8 @@
 # Files updated by this workflow:
 # - .nvmrc
 # - package.json (engines.node and engines.npm)
+# - packages/*/package.json (engines.node and engines.npm)
+# - package-lock.json (engines for root and workspace entries)
 # - .github/workflows/check-node.yml (matrix node-version)
 # - .github/workflows/deploy.yml (node-version)
 
@@ -231,6 +233,28 @@ jobs:
           echo "Updated package.json engines"
           cat package.json | jq '.engines'
 
+      - name: 📝 Update workspaces package.json engines
+        if: steps.check-update.outputs.update_needed == 'true'
+        run: |
+          shopt -s nullglob
+          for ws_pkg in packages/*/package.json; do
+            jq --tab '.engines.node = "${{ steps.node-versions.outputs.latest_version }}" | .engines.npm = "${{ steps.node-versions.outputs.npm_version }}"' "$ws_pkg" > "$ws_pkg.tmp"
+            mv "$ws_pkg.tmp" "$ws_pkg"
+            echo "Updated $ws_pkg"
+          done
+
+      - name: 📝 Update package-lock.json engines
+        if: steps.check-update.outputs.update_needed == 'true' && hashFiles('package-lock.json') != ''
+        run: |
+          jq --tab '.packages |= with_entries(
+            if (.key == "" or (.key | startswith("packages/")))
+            then .value.engines.node = "${{ steps.node-versions.outputs.latest_version }}" | .value.engines.npm = "${{ steps.node-versions.outputs.npm_version }}"
+            else .
+            end
+          )' package-lock.json > package-lock.json.tmp
+          mv package-lock.json.tmp package-lock.json
+          echo "Updated package-lock.json engines"
+
       - name: 📝 Update check-node.yml matrix
         if: steps.check-update.outputs.update_needed == 'true' && steps.current-versions.outputs.has_node_yml == 'true'
         run: |
@@ -265,6 +289,10 @@ jobs:
             - Update `.nvmrc` file: v${{ steps.current-versions.outputs.current_node }} → v${{ steps.node-versions.outputs.latest_version }}
             - Update `package.json` file in `engines.node`: ${{ steps.current-versions.outputs.current_node }} → ${{ steps.node-versions.outputs.latest_version }}
             - Update `package.json` file in `engines.npm`: ${{ steps.current-versions.outputs.current_npm }} → ${{ steps.node-versions.outputs.npm_version }}
+            - Update `packages/*/package.json` files in `engines.node`: ${{ steps.current-versions.outputs.current_node }} → ${{ steps.node-versions.outputs.latest_version }}
+            - Update `packages/*/package.json` files in `engines.npm`: ${{ steps.current-versions.outputs.current_npm }} → ${{ steps.node-versions.outputs.npm_version }}
+            - Update `package-lock.json` in `engines.node`: ${{ steps.current-versions.outputs.current_node }} → ${{ steps.node-versions.outputs.latest_version }}
+            - Update `package-lock.json` in `engines.npm`: ${{ steps.current-versions.outputs.current_npm }} → ${{ steps.node-versions.outputs.npm_version }}
             - Update `check-node.yml` file in matrix: ${{ steps.current-versions.outputs.current_matrix }} → ${{ steps.node-versions.outputs.matrix }}
             - Update `deploy.yml` file in node-version: ${{ steps.node-versions.outputs.latest_version }}
           title: "build(deps): update `node@${{ steps.node-versions.outputs.latest_version }}` and `npm@${{ steps.node-versions.outputs.npm_version }}` versions"
@@ -294,6 +322,10 @@ jobs:
             - Update `.nvmrc` file: `v${{ steps.current-versions.outputs.current_node }}` → `v${{ steps.node-versions.outputs.latest_version }}`
             - Update `package.json` file in `engines.node`: `${{ steps.current-versions.outputs.current_node }}` → `${{ steps.node-versions.outputs.latest_version }}`
             - Update `package.json` file in `engines.npm`: `${{ steps.current-versions.outputs.current_npm }}` → `${{ steps.node-versions.outputs.npm_version }}`
+            - Update `packages/*/package.json` files in `engines.node`: `${{ steps.current-versions.outputs.current_node }}` → `${{ steps.node-versions.outputs.latest_version }}`
+            - Update `packages/*/package.json` files in `engines.npm`: `${{ steps.current-versions.outputs.current_npm }}` → `${{ steps.node-versions.outputs.npm_version }}`
+            - Update `package-lock.json` in `engines.node`: `${{ steps.current-versions.outputs.current_node }}` → `${{ steps.node-versions.outputs.latest_version }}`
+            - Update `package-lock.json` in `engines.npm`: `${{ steps.current-versions.outputs.current_npm }}` → `${{ steps.node-versions.outputs.npm_version }}`
             - Update `check-node.yml` file in matrix: `${{ steps.current-versions.outputs.current_matrix }}` → `${{ steps.node-versions.outputs.matrix }}`
             - Update `deploy.yml` file in node-version: `${{ steps.node-versions.outputs.latest_version }}`
 
@@ -350,6 +382,20 @@ jobs:
             NODE_YML_ICON="❌ Not found"
           fi
 
+          shopt -s nullglob
+          WS_PKGS=(packages/*/package.json)
+          if [ ${#WS_PKGS[@]} -gt 0 ]; then
+            WS_PKG_ICON="✅ Found (${#WS_PKGS[@]})"
+          else
+            WS_PKG_ICON="❌ Not found"
+          fi
+
+          if [ -f package-lock.json ]; then
+            LOCKFILE_ICON="✅ Found"
+          else
+            LOCKFILE_ICON="❌ Not found"
+          fi
+
           if [ -f .github/workflows/deploy.yml ]; then
             DEPLOY_YML_ICON="✅ Found"
           else
@@ -378,6 +424,8 @@ jobs:
           | \`.noderc.json\` | ${CONFIG_ICON} | Version limit configuration |
           | \`.nvmrc\` | ${NVMRC_ICON} | Node version for nvm |
           | \`package.json\` | ${ENGINES_ICON} | Engines of node and npm |
+          | \`packages/*/package.json\` | ${WS_PKG_ICON} | Engines of node and npm in workspaces |
+          | \`package-lock.json\` | ${LOCKFILE_ICON} | Engines for root and workspace entries |
           | \`check-node.yml\` | ${NODE_YML_ICON} | CI workflow matrix |
           | \`deploy.yml\` | ${DEPLOY_YML_ICON} | Deploy workflow node-version |
 
