@@ -1,5 +1,4 @@
 module.exports = {
-	"customSyntax": "postcss-html",
 	"extends": [
 		"stylelint-config-standard",
 		"stylelint-config-recommended-vue",
@@ -196,6 +195,12 @@ module.exports = {
 		"value-keyword-case": "lower",
 	},
 	"overrides": [
+		{
+			"customSyntax": "postcss-html",
+			"files": [
+				"**/*.vue",
+			],
+		},
 		{
 			"files": [
 				"src/assets/scss/abstracts/mixins/_abstracts-mixins-media.scss",
