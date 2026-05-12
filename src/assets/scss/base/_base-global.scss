@@ -8,14 +8,14 @@
 *,
 *::before,
 *::after {
+	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
 }
 
 *::selection {
-	color: $color-white;
 	background-color: $color-brand-1;
+	color: $color-white;
 }
 
 html,
@@ -33,11 +33,10 @@ html {
 	height: 100%;
 	overflow-x: hidden;
 	font-size: 10px;
-	font-weight: 400;
-	-ms-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
+	font-weight: 400;
+	text-size-adjust: 100%;
 
 	@include media("sm", "max", "height") {
 		height: inherit;
@@ -45,51 +44,51 @@ html {
 }
 
 body {
-	padding: 5rem 3rem;
-	height: 100%;
-	min-height: 100vh;
-	position: relative;
 	display: flex;
+	position: relative;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	flex-direction: column;
-	font-size: 1rem;
+	height: 100%;
+	min-height: 100vh;
+	padding: 5rem 3rem;
 	overflow-x: hidden;
 	transition: all 0.5s ease-in-out 0s;
+	font-size: 1rem;
 
 	@include media("sm") {
-		padding: 4rem 2.5rem;
-		height: inherit;
 		justify-content: flex-start;
+		height: inherit;
+		padding: 4rem 2.5rem;
 	}
 
 	@include media("md", "max", "height") {
-		padding: 4rem 2.5rem;
-		height: inherit;
 		justify-content: flex-start;
+		height: inherit;
+		padding: 4rem 2.5rem;
 	}
 
 	@include media("md", "min", "height") {
 		padding: 6rem 3rem;
 	}
 
-	&:after {
+	&::after {
 		content: "";
-		width: 100%;
-		height: 100%;
 		display: inline-block;
 		position: absolute;
+		z-index: -1;
 		top: 0;
 		left: 0;
-		z-index: -1;
+		width: 100%;
+		height: 100%;
 		background: linear-gradient(to bottom, $color-brand-1 0%, $color-brand-2 100%);
 	}
 }
 
 a {
 	display: inline-block;
-	text-decoration: none;
 	color: inherit;
+	text-decoration: none;
 
 	&:hover {
 		color: inherit;
