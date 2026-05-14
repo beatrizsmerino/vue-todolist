@@ -129,10 +129,78 @@ module.exports = {
 				],
 			},
 		],
+		"scss/at-else-closing-brace-newline-after": "always-last-in-chain",
+		"scss/at-else-closing-brace-space-after": "always-intermediate",
+		"scss/at-else-empty-line-before": "never",
+		"scss/at-function-pattern": [
+			"^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+			{
+				"message": "Expected function name to be kebab-case",
+			},
+		],
+		"scss/at-if-closing-brace-newline-after": "always-last-in-chain",
+		"scss/at-if-closing-brace-space-after": "always-intermediate",
+		"scss/at-mixin-pattern": [
+			"^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+			{
+				"message": "Expected mixin name to be kebab-case",
+			},
+		],
 		"scss/at-rule-no-unknown": true,
+		"scss/comment-no-empty": true,
+		"scss/declaration-nested-properties-no-divided-groups": true,
 		"scss/declaration-property-value-no-unknown": true,
+		"scss/dimension-no-non-numeric-values": true,
+		"scss/dollar-variable-colon-space-after": "always-single-line",
+		"scss/dollar-variable-colon-space-before": "never",
+		"scss/dollar-variable-empty-line-before": [
+			"always",
+			{
+				"except": [
+					"after-dollar-variable",
+					"first-nested",
+				],
+				"ignore": [
+					"after-comment",
+					"inside-single-line-block",
+				],
+			},
+		],
+		"scss/dollar-variable-no-missing-interpolation": true,
+		"scss/dollar-variable-pattern": [
+			"^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+			{
+				"message": "Expected variable to be kebab-case",
+			},
+		],
+		"scss/double-slash-comment-empty-line-before": [
+			"always",
+			{
+				"except": [
+					"first-nested",
+				],
+				"ignore": [
+					"between-comments",
+					"stylelint-commands",
+				],
+			},
+		],
+		"scss/double-slash-comment-whitespace-inside": "always",
 		"scss/function-no-unknown": true,
+		"scss/no-duplicate-dollar-variables": [
+			true,
+			{
+				"ignoreInsideAtRules": [
+					"if",
+					"mixin",
+				],
+			},
+		],
+		"scss/no-duplicate-mixins": true,
 		"scss/no-global-function-names": null,
+		"scss/operator-no-newline-after": true,
+		"scss/operator-no-newline-before": true,
+		"scss/operator-no-unspaced": true,
 
 		// Allows: BEM pattern (block__element--modifier)
 		// Examples (BEM): card, card-product, card--primary, card-product--primary, card-product__title, card-product__title-text, card-product__title--primary, card-product__title--primary-dark, card-product__title--primary-2, card-product__title--2, is-active
