@@ -106,6 +106,12 @@ module.exports = {
 		"function-no-unknown": null,
 		"import-notation": null,
 		"keyframe-declaration-no-important": true,
+		"keyframes-name-pattern": [
+			"^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+			{
+				"message": "Expected keyframe name to be kebab-case",
+			},
+		],
 		"length-zero-no-unit": true,
 		"max-nesting-depth": null,
 		"media-feature-name-no-unknown": true,
