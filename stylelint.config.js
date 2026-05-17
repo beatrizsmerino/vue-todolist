@@ -116,7 +116,20 @@ module.exports = {
 			},
 		],
 		"length-zero-no-unit": true,
-		"max-nesting-depth": null,
+		"max-nesting-depth": [
+			5,
+			{
+				"ignore": [
+					"pseudo-classes",
+				],
+				"ignoreAtRules": [
+					"each",
+					"media",
+					"supports",
+					"include",
+				],
+			},
+		],
 		"media-feature-name-no-unknown": true,
 		"named-grid-areas-no-invalid": true,
 		"no-descending-specificity": null,
