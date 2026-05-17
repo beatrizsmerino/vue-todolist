@@ -39,6 +39,7 @@ module.exports = {
 		"at-rule-no-unknown": null,
 		"block-no-empty": true,
 		"color-hex-length": "long",
+		"color-named": "never",
 		"color-no-invalid-hex": true,
 		"comment-empty-line-before": [
 			"always",
