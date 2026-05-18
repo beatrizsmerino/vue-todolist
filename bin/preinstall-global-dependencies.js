@@ -143,7 +143,7 @@ const installGlobalDeps = () => {
 		depVersion,
 	]) => {
 		if (depName && depVersion) {
-			execSync(`${getCommandInstallDeps()} ${depName}@${getCleanVersion(depVersion)}`);
+			execSync(`${getCommandInstallDeps()} ${depName}@${getCleanVersion(depVersion).slice(1)}`);
 			logDeps.push({
 				"Status": `➕`,
 				"Name": depName,
