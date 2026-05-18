@@ -7,6 +7,7 @@ module.exports = {
 	],
 	"plugins": [
 		"stylelint-declaration-block-no-ignored-properties",
+		"stylelint-declaration-strict-value",
 		"stylelint-scss",
 	],
 	"rules": {
@@ -149,6 +150,27 @@ module.exports = {
 				],
 				"ignore": [
 					"after-comment",
+				],
+			},
+		],
+		"scale-unlimited/declaration-strict-value": [
+			[
+				"/color$/",
+				"background-color",
+				"fill",
+				"stroke",
+			],
+			{
+				"disableFix": true,
+				"ignoreFunctions": true,
+				"ignoreValues": [
+					"0",
+					"currentColor",
+					"inherit",
+					"initial",
+					"none",
+					"transparent",
+					"unset",
 				],
 			},
 		],
